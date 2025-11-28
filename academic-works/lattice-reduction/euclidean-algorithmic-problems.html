@@ -1,0 +1,329 @@
+<!-- En LaTeX, il y a \cite, je pourrais créer un div cite, ce serait intéréssant, on pourrait cliquer dessus?-->
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+            Réseaux euclidiens
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="author" content="Lucas Petit">
+        <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
+        <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
+
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/inter.css">
+        <link rel="stylesheet" href="/css/toc.css"> <!-- CSS for Table of content -->
+        <link rel="stylesheet" href="/css/figure.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/article.css">
+        <link rel="stylesheet" href="/css/icon.css"> 
+        <link rel="stylesheet" href="/css/references.css">
+        <link rel="icon" href="/img/logo/favicon.ico">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+        <script src="/js/script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display:true},
+                {left: "\\(", right: "\\)", display:false}
+                ]
+            });
+            });
+        </script>
+    </head>
+    <body>
+
+        <header>
+            <div class="main-header">        
+                <nav class="header-nav">
+
+                    <a class="header-a" href="index.html"><img src="/img/logo/favicon.ico" alt=""></a>
+                    <a class="header-a" href="">Lucas Petit</a>
+                    <a class="header-a" href="">CV</a> <!-- Mettre des sous sections au CV ? par exemple projet, portfolio-->
+                    <a class="header-a" href="">Travaux académiques</a>
+                    <a class="header-a" href="">Blog</a>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <!-- La table de contenu, le sommaire -->
+            <!-- On va essayer de rajouter la barre de scroll aujourd'hui -->
+             <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10vyf6v" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg><span class="MuiTouchRipple-root css-w0pj6f"></span>-->
+            <!-- 7451eb -->
+              <div class="huhu hidden">
+                <div>
+                    <button id="eee">
+                        <svg class="" viewBox="0 0 24 24" fill="black">
+                            <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+             <div class="toc">
+                <div class="toc-head">
+                    <h5>Table des matières</h5>
+                    <button id="toto"><svg class="CloseIcon" viewBox="0 0 24 24" ><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                </div>
+                <ul>
+                    <li>
+                        <div class="chapter"> <h3>Réseaux euclidiens</h3> </div>
+                        <div class="chapter-content">
+                            <ul>
+                                <li> <h4><a href="">Définitions et exemples</a></h4> </li>
+                                <li> <h4><a href="">Réseaux définis par des relations plutôt que par des générateurs</a></h4> </li>
+                                <li style="background: #f9f8f9;"> <h4><a href="">Quelques problèmes algorithmiques liés aux réseaux euclidiens</a></h4> </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="chapter">  <h3>Réduction de réseaux euclidiens</h3> </div>
+                        <div class="chapter-content">
+                            <ul>
+                                <li><h4><a href="">La base réduite</a></h4> </li>
+                                <li><h4><a href="">Fonctionnement et exemple</a></h4> </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="chapter">  <h3>Correction, terminaison et complexité de LLL</h3> </div>
+                        <div class="chapter-content">
+                            <ul>
+                                <li> <h4><a href="">Terminaison</a></h4> </li>
+                                <li> <h4><a href="">Correction et complexité</a></h4> </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="chapter"> <h3>État de l'art sur la réduction de réseaux euclidiens</h3> </div>
+                    </li>
+
+                    <li>
+                        <div class="chapter"> <h3>Réseaux polynomiaux</h3> </div>
+                        <div class="chapter-content">
+                            <ul>
+                                <li>  <h4><a href="">Définitions et exemples</a></h4> </li>
+                                <li>  <h4><a href="">Notion de degré en ligne</a></h4> </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- On commence ici la partie de l'article -->
+            <div class="article">
+                <h2>Quelques problèmes algorithmiques liés aux réseaux euclidiens</h2>
+
+                    <div class="paragraph">
+                        Cette section s’inspire largement des travaux de 
+                        <a href="#ref-boudgoust-2023" class="cite boudgoust-2023"></a>    
+                        , auxquels le lecteur intéressé pourra se référer pour un traitement plus approfondi. On définira deux problèmes algorithmiques important sur les réseaux euclidiens. Il y en a beaucoup plus, 
+                        <a href="#ref-stephens-davidowitz-2015" class="cite stephens-davidowitz-2015"></a>   
+                        donne un aperçu des réductions entre ces problèmes.
+                    </div>
+
+                    <h3>Des problèmes faciles</h3>
+                    
+                    <div class="paragraph"> <!-- OK -->
+                        Certains problèmes liés aux réseaux euclidiens sont relativement simples à résoudre, notamment la vérification de l’appartenance d’un vecteur à un réseau donné, ou encore la décision de l’égalité de deux bases de réseaux. Le lecteur intéressé pourra s’exercer en tentant de résoudre ces problèmes.
+                    </div>
+
+                    <div class="problem"> <!-- OK -->
+                        <span class="title">Adhésion</span>
+                        <p>
+                            Étant donné une base $B$ d’un réseau $\mathscr{L}$, et $v \in \R^n$, décider si $v \in \mathscr{L}$.
+                        </p>
+                    </div>
+
+
+                    <div class="problem"> <!-- OK -->
+                        <span class="title">Équivalence</span>
+                        <p>
+                            Étant donné deux bases $B$ et $B'$, décider si $\mathscr{L}(B) = \mathscr{L}(B')$,
+                        </p>
+                    </div>
+
+                    <h3>Le problème du vecteur le plus court</h3>
+
+                    <div class="paragraph"> <!-- OK -->
+                        Considérons le problème suivant, paramétré par la dimension $n$ du réseau :
+                    </div>
+
+                    <div class="problem">
+                        <span class="title">Shortest Vector Problem (SVP), NP-complet, 
+                            <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a>  
+                        </span>
+                        <p>
+                            Étant donné une base $B$ d’un réseau $\mathscr{L}$, trouver un vecteur $v \neq \mathbf{0}$ tel que $\|v\|_2 = \lambda_1(\mathscr{L})$.
+                        </p>
+                    </div>
+
+                    <div class="paragraph">
+                        On ne connaît que des algorithmes demandant au moins un nombre exponentiel d'opérations pour résoudre ce problème, même en utilisant des algorithmes quantiques. 
+                        Les algorithmes de type <strong>énumération</strong> et les algorithmes de type <strong>crible</strong> se démarquent pour ce problème. 
+                        Le calcul d'un plus court vecteur dans un réseau euclidien de $\R^n$ est en général un problème difficile qui sert de fondation à de nombreuses primitives cryptographiques. On s’intéresse souvent à la version approximative :
+                    </div>
+
+                <div class="paragraph"> <!-- OK -->
+                    Ils énumèrent tous les vecteurs du réseau qui sont dans une certaine boule bien choisie, en pratique ils sont utilisés jusqu'aux dimensions $n \approx 80$. On peut leur ajouter des optimisations et des heuristiques.
+                </div>
+                    
+                <div class="paragraph"> <!-- OK -->
+                    On génère deux listes d'éléments du réseau, puis on construit la liste de toutes les différences entre les éléments des deux listes. On espère obtenir des vecteurs plus court. On recommence le procédé. Le temps d'exécution est en $2^{\mathcal{O}(n)}$.  
+                </div>
+  
+                <div class="problem"> <!-- OK -->
+                    <span class="title">SIVP$_\gamma$, où $\gamma > 0$</span>
+                    <p>
+                        Étant donné une base $B$ du réseau $\mathscr{L}$, trouver des vecteur $v_1, \ldots v_n \neq \mathbf{0}$ linéairement indépendants tel que $\|v_i\|_2  \leq \gamma \cdot \lambda_i(\mathscr{L})$ pour tout \( i \).
+                    </p>
+                </div>
+
+                <figure class="figure"> <!-- OK -->
+                    <div class="fig-container"><img src="/img/articles/lattice_0_8.png" alt=""></div>
+                    <figcaption> <span class="label"></span>Une instance de SIVP.</figcaption>
+                </figure>
+
+                <div class="paragraph"> <!-- OK -->
+                    L’état des connaissances actuelles est le suivant :
+                    <ul>
+                        <li>
+                            Pour $\gamma = \mathcal{O}(1)$, le problème est prouvé <strong>NP-complet</strong>,
+                            <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a> 
+                        </li>
+                        <!-- Pas d'algo exp-->
+                        <li>Pour $\gamma = \text{poly}(n)$, il existe des algorithmes en <strong>temps exponentiel</strong>.</li>
+                        <li class="nowrap">
+                            Pour $\gamma = 2^{\mathcal{O}(n)}$, l’algorithme <strong>LLL</strong>
+                            <a href="#ref-lenstra-1982" class="cite lenstra-1982"></a>
+                            permet de le résoudre en <strong>temps polynomial</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="problem"> <!-- OK -->
+                    <span class="title">GapSVP$_\gamma$, où $\gamma > 0$</span>
+                    <p>           
+                        Étant donné une base $B$ du réseau $\mathscr{L}$, et $r \in \R_+^*$. Décider si \( \lambda_1(\mathscr{L}) \leq r \) (instance positive) ou \( \lambda_1(\mathscr{L}) > \gamma \cdot r \) (instance négative).
+                    </p>
+                </div>
+
+                <div class="theorem"> <!-- OK -->
+                    <span class="title">
+
+                        <a href="#ref-banaszczyk-1993" class="cite banaszczyk-1993"></a>
+                        
+                        <a href="#ref-stephens-davidowitz-2015" class="cite stephens-davidowitz-2015"></a>
+                    </span>
+                    <p>
+                        $\mathrm{SVP}_\gamma$ n'est pas plus simple que $\mathrm{GapSVP}_\gamma$.
+                    </p>
+                </div>
+
+                <div class="conjecture"> <!-- OK -->
+                    <p>
+                        Il n'existe aucun algorithme classique ou quantique en temps polynomial qui approxime les problèmes de réseaux $\mathrm{SVP}_\gamma$, $\mathrm{GapSVP}_\gamma$ ou à un facteur polynomial près $\gamma$ (pour tous les réseaux d'entrée possibles).
+                    </p>
+                </div>
+
+
+                <h3>Le problème du vecteur le plus proche</h3> <!-- OK -->
+                
+                <div class="paragraph"> <!-- OK -->
+                    Un autre problème important concerne la recherche de vecteurs proches d'une cible dans un réseau.
+                </div>
+
+                <div class="problem"> <!-- OK -->
+                    <span class="title">Closest Vector Problem (CVP), NP-complet, 
+                        <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a> 
+                    </span>
+                    <p>
+                        Étant donnés $t \in \R^n$, un réseau $\mathscr{L}(B)$, trouver $v \in \mathscr{L}$ tel que $$\displaystyle \|t - v\|_2  = d(t, \mathscr{L}) := \min_{ v \in \mathscr{L}} \{ \|t - v\|_2  \}.$$
+                    </p>
+                </div>
+
+                <div class="paragraph"> <!-- OK -->
+                    Le problème $\mathrm{CVP}$ est en général difficile pour un réseau arbitraire. Cependant, pour certaines familles spécifiques de réseaux, comme $\Z^n$, des algorithmes en temps polynomial sont connus. La qualité de la base choisie joue un rôle crucial dans la résolution du problème. De même, on peut considérer une version approximative :
+                </div>
+
+                <div class="problem"> <!-- OK -->
+                    <span class="title">CVP$_\gamma$, $\gamma > 0$</span>
+                    <p>
+                        Étant donnés $t \in \R^n$, un réseau $\mathscr{L}(B)$, trouver $v \in \mathscr{L}$ tel que \(\|t - v\|_2  \leq \gamma \cdot d(t, \mathscr{L}).\)
+                    </p>
+                </div>
+
+                <div class="problem"> <!-- OK -->
+                    <span class="title">GapCVP$_\gamma$, $\gamma > 0$</span>
+                    <p>
+                        Étant donné \( r \in \R_+^* \), $t \in \R^n$, un réseau $\mathscr{L}(B)$. Décider si il existe \( v \in \mathscr{L}\) tel que \( \|t - v\|_2  \leq r \) (instance positive) ou \( \|t - v\|_2  > \gamma \cdot r \) (instance négative)
+                    </p>
+                </div>
+
+                
+
+                <div class="theorem"> <!-- OK -->
+                    <span class="label"></span> 
+                    <span class="title">
+                        <a href="#ref-goldreich-1999" class="cite goldreich-1999"></a>
+                    </span>
+                    <p>
+                        $\mathrm{GapSVP}_\gamma$ se réduit à $\mathrm{GapCVP}_\gamma$ en temps polynomial.
+                    </p>
+                </div>
+
+                <div class="theorem"> <!-- OK -->
+                    <p>
+                        Il existe un algorithme qui résout <strong>CVP$_{\exp(n)}$</strong> en temps polynomial via l'algorithme <strong>LLL</strong>.
+                    </p>
+                </div>
+
+                <div class="paragraph"> <!-- OK -->
+                    L'efficacité des algorithmes dépend grandement de la qualité de la base du réseau euclidien choisie. Le chapitre sur la réduction abordera des techniques pour améliorer la base, via l'algorithme <strong>LLL</strong>. En dimension fixée, résoudre <strong>exactement</strong> le problème <strong>SVP</strong> pour la norme $\|\cdot\|_\infty$ fournit en fait une $\gamma$-approximation (avec $\gamma$ dépendant de la dimension) pour le problème <strong>SVP</strong> dans la norme $\|\cdot\|_2$. Il existe notamment une constante $C$ telle que $\|v\|_2 \leq C \|v\|_\infty$ pour tout $v \in \R^n$. Ainsi, un vecteur minimisant $\|v\|_\infty$ donne un vecteur $\sqrt{n}$-proche du vecteur réellement le plus court en norme euclidienne.
+                </div>
+
+
+                <hr>
+
+                <h1>Références</h1>
+                <ol class="references">
+                    <li id="ref-ajtai-1996"></li>
+                    <li id="ref-banaszczyk-1993"></li>
+                    <li id="ref-boudgoust-2023"></li>
+                    <li id="ref-goldreich-1999"></li>
+                    <li id="ref-lenstra-1982"></li>
+                    <li id="ref-stephens-davidowitz-2015"></li>
+                </ol>
+            </div>
+        </main>
+        
+        <footer>
+            <nav style="justify-content: flex-start;">
+                <div class="previous">
+                    <a href="euclidean_lattice_2.html" title="Réseaux définis par des relations plutôt que par des générateurs">
+                        <svg class="ArrowBackwardIcon" viewBox="0 0 24 24" transform="matrix(-1,0,0,1,0,0)">
+                            <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+                        </svg>
+                        Chapitre précédent
+                    </a>
+                    <p>Réseaux définis par des relations plutôt que par des générateurs</p>
+                </div>
+            </nav>
+        </footer>
+
+                <script src="/js/references.js"></script>
+        <script src="/js/toc.js"></script>
+        <script src="/js/article.js"></script>
+    </body>
+</html>

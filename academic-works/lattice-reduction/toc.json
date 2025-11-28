@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Réseaux euclidiens",
+        "filename": "euclidean-lattice.html",
+        "children": [
+            {
+                "title": "Définitions et exemples",
+                "filename": ""
+            },
+            {
+                "title": "Réseaux définis par des relations plutôt que par des générateurs",
+                "filename": ""
+            },
+            {
+                "title": "Quelques problèmes algorithmiques liés aux réseaux euclidiens",
+                "filename": ""
+            }
+        ]
+    },
+    {
+        "title": "Réduction de réseaux euclidiens",
+        "filename": "",
+        "children": [
+            {
+                "title": "La base réduite",
+                "filename": ""
+            },
+            {
+                "title": "Fonctionnement et exemple",
+                "filename": ""
+            }
+        ]
+    },
+    {
+        "title": "Correction, terminaison et complexité de LLL",
+        "filename": "",
+        "children": [
+            {
+                "title": "Terminaison",
+                "filename": ""
+            },
+            {
+                "title": "Correction et complexité",
+                "filename": ""
+            }
+        ]
+    },
+    {
+        "title": "État de l'art sur la réduction de réseaux euclidiens",
+        "filename": "",
+        "children": []
+    },
+    {
+        "title": "Réseaux polynomiaux",
+        "filename": "",
+        "children": [
+            {
+                "title": "Définitions et exemples",
+                "filename": ""
+            },
+            {
+                "title": "Notion de degré en ligne",
+                "filename": ""
+            }
+            
+        ]
+    }
+]

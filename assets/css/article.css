@@ -1,0 +1,136 @@
+.remark,
+.example,
+.counterexample,
+.proposition,
+.theorem,
+.problem,
+.conjecture,
+.definition,
+.lemma{
+  margin: 1.5rem 0rem;
+}
+
+.paragraph{
+  margin: 0.75rem 0rem;
+}
+
+.remark ul, 
+.example ul, 
+.counterexample ul, 
+.proposition ul, 
+.theorem ul,
+.problem ul,
+.conjecture ul,
+.paragraph ul,
+.definition ul,
+.lemma ul{
+  padding: 0rem 40px;
+}
+
+.remark ul li,
+.example ul li,
+.counterexample ul li,
+.proposition ul li,
+.theorem ul li,
+.problem ul li,
+.conjecture ul li,
+.paragraph ul li,
+.definition ul li,
+.lemma ul li{
+  padding: 2px 0px;
+}
+
+.paragraph a{
+  display: inline;
+  text-decoration: underline;
+}
+
+.paragraph a:hover{
+  text-decoration: none;
+}
+
+.counterexample > .label::before{
+  content: "Contre-exemple.";
+}
+
+.example > .label::before{
+  content: "Exemple.";
+}
+
+.remark > .label::before{
+  content: "Remarque.";
+}
+
+.theorem > .label::before{
+  content: "Théorème.";
+}
+
+
+
+.proposition > .label::before{
+  content: "Proposition.";
+}
+
+.problem > .label::before{
+  content: "Problème.";
+}
+
+.conjecture > .label:before{
+  content: "Conjecture.";
+}
+
+.definition > .label::before{
+  content: "Définition.";
+}
+
+.lemma > .label::before{
+  content: "Lemme.";
+}
+
+
+.example, 
+.counterexample{
+  color: #271a38;
+  font-weight: 200;
+  font-style: italic;
+  line-height: 26px;
+  letter-spacing: 0px;
+}
+
+.definition, 
+.remark, 
+.theorem, 
+.proposition, 
+.problem, 
+.lemma{
+  color: #271a38;
+  font-weight: 200;
+  font-style: normal;
+  line-height: 26px;
+  letter-spacing: 0px;
+}
+
+.problem{
+  border-left: rgba(171, 71, 188, 0.74) 2px solid;
+  padding-left: 12px;
+}
+
+.label{
+  color: #271a38;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 26px;
+  letter-spacing: 0px;
+  padding-right: 3px;
+}
+
+.article h1, .article h2, .article h3, .article h4, .article h5, .article h6{
+  margin: 1.5rem 0rem;
+  white-space: nowrap;
+}
+
+.article{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
