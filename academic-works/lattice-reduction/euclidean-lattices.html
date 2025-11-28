@@ -12,15 +12,26 @@
         <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
         <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
 
-        <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/inter.css">
-        <link rel="stylesheet" href="/css/toc.css"> <!-- CSS for Table of content -->
-        <link rel="stylesheet" href="/css/figure.css">
-        <link rel="stylesheet" href="/css/footer.css">
-        <link rel="stylesheet" href="/css/article.css">
-        <link rel="stylesheet" href="/css/icon.css"> 
-        <link rel="stylesheet" href="/css/references.css">
-        <link rel="icon" href="/img/logo/favicon.ico">
+            <link rel="stylesheet" href="/assets/css/base/base.css">
+        <link rel="stylesheet" href="/assets/css/base/inter.css">
+        <link rel="stylesheet" href="/assets/css/base/reset.css">
+        <link rel="stylesheet" href="/assets/css/base/utils.css">
+
+        <link rel="stylesheet" href="/assets/css/layout/header.css">
+        <link rel="stylesheet" href="/assets/css/layout/toc.css">
+
+        <link rel="stylesheet" href="/assets/css/academic-works.css">
+        <link rel="stylesheet" href="/assets/css/article.css">
+        <link rel="stylesheet" href="/assets/css/homepage.css">
+        <link rel="stylesheet" href="/assets/css/project.css">
+        
+        <link rel="stylesheet" href="/assets/css/figure.css">
+        <link rel="stylesheet" href="/assets/css/footer.css">
+        <link rel="stylesheet" href="/assets/css/icon.css">
+        <link rel="stylesheet" href="/assets/css/references.css">
+        <link rel="stylesheet" href="/assets/css/footnotes.css">
+
+        <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -42,24 +53,7 @@
     </head>
     <body>
 
-        <header>
-            <div class="main-header">        
-                <nav class="header-nav">
-
-                    <a class="header-a" href="index.html"><img src="/img/logo/favicon.ico" alt=""></a>
-
-                    <a class="header-a" href="">Lucas Petit</a>
-               
-                    <a class="header-a" href="">CV</a> <!-- Mettre des sous sections au CV ? par exemple projet, portfolio-->
-
-                    <a class="header-a" href="">Travaux académiques</a>
-
-                    <a class="header-a" href="">Blog</a>
-                </nav>
-
-            </div>
-            
-        </header>
+        <header id="main-header"></header>
         
         <main>
             <!-- La table de contenu, le sommaire -->
@@ -167,8 +161,9 @@
             </nav>
         </footer>
 
-                <script src="/js/references.js"></script>
-        <script src="/js/toc.js"></script>
-        <script src="/js/article.js"></script>
+        <script src="/assets/js/components/header.js"></script>
+        <script src="/assets/js/components/article.js"></script>
+        <script src="/assets/js/components/toc.js"></script>
+        <script src="/assets/js/components/references.js"></script>
     </body>
 </html>

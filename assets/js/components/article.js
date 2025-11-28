@@ -1,0 +1,10 @@
+// faire en sorte d'avoir un truc qui ajoute tous seul les span label partout
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hoho = document.querySelectorAll('.example, .counterexample, .conjecture, .definition, .remark, .theorem, .proposition, .lemma, .problem');
+    hoho.forEach( example => {
+        example.insertAdjacentHTML("afterbegin", `
+            <span class="label"></span>
+        `);
+    });   
+});

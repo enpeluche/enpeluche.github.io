@@ -1,0 +1,16 @@
+.ArrowForwardIcon{
+  width: 18px;
+  padding-left: 8px;
+  fill: rgb(255, 250, 238);
+}
+
+.ArrowBackwardIcon{
+    width: 18px;
+    padding-left: 8px;
+    fill: rgb(255, 250, 238);
+}
+
+.CloseIcon{
+  width: 24px;
+  padding: 12px;
+}

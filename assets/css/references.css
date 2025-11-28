@@ -1,0 +1,341 @@
+.references {
+
+  /* typography */
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* box model */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.2rem;
+  
+  /* other */
+  list-style-type: none;
+}
+
+.references li {
+
+  /* box model */
+  margin-bottom: 1rem;
+
+  /* layout */
+  position: relative;
+}
+
+.author::after{
+
+  /* generated content */
+  content: ", ";
+}
+
+.cite{
+
+  /* typography */
+  font-size: 16px;
+  font-weight: 300;
+  
+  /* box model */
+  padding: 0px 24px;
+
+  /* layout */
+  display:inline;
+  position: relative;
+
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+.cite:hover{
+
+  /* background */
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+.cite::before{
+
+  /* box model */
+  width: 20px;
+  height: 20px;
+
+  /* background */
+  background-image: url("/img/paper.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* layout */
+  position: absolute;
+  top: 0em;
+  left: 0em;
+
+  /* generated content */
+  content: "";
+}
+
+.cite::after {
+
+  /* layout */
+  position: absolute;
+  top: -0.2em;
+  right: 0.6em;
+  
+  /* generated content */
+  content: "↗";
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cite:hover::after {
+
+  opacity: 1;
+}
+
+.references li a{
+
+  /* typography */
+  font-weight: 700;
+  color: #7451eb;
+  text-decoration: underline;
+  white-space: nowrap;
+
+  /* layout */
+  display: inline;
+}
+
+.references li a:hover{
+
+  /* typography */
+  text-decoration: none;
+}
+
+
+#ref-goldreich-1999::before,
+#ref-boudgoust-2023::before,
+#ref-stephens-davidowitz-2015::before,
+#ref-ajtai-1996::before,
+#ref-lenstra-1982::before,
+#ref-banaszczyk-1993::before,
+#ref-hales-2015::before,
+#ref-viazovska-2016::before,
+#ref-cohn-henry-2016::before{
+  
+  /* box model */
+  width: 20px;
+  height: 20px;
+
+  /* background */
+  background-image: url("/img/paper.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* layout */
+  position: absolute;
+  top: 0em;
+  left: -2em;
+  
+  /* generated content */
+  content: "";
+}
+
+#ref-goldreich-1999 a::before{
+
+  /* generated content */  
+  content:"Approximating Shortest Lattice Vectors is not Harder than Approximating Closest Lattice Vectors.";
+}
+
+.goldreich-1999 .author::before,
+#ref-goldreich-1999 .author::before{
+
+  /* generated content */  
+  content: "Goldreich, Oded et al.";
+}
+
+.goldreich-1999 strong::before,
+#ref-goldreich-1999 strong::before{
+
+  /* generated content */  
+  content: "1999";
+}
+
+#ref-boudgoust-2023 a::before{
+
+  /* generated content */
+  content:"Hardness Assumptions in Lattice-Based Cryptography.";
+}
+
+.boudgoust-2023 .author::before,
+#ref-boudgoust-2023 .author::before{
+
+  /* generated content */
+  content: "K. Boudgoust";
+}
+
+.boudgoust-2023 strong::before,
+#ref-boudgoust-2023 strong::before{
+
+  /* generated content */
+  content: "2023";
+}
+
+#ref-stephens-davidowitz-2015 a::before{
+
+  /* generated content */  
+  content:"Dimension-Preserving Reductions Between Lattice Problems.";
+ }
+
+.stephens-davidowitz-2015 .author::before,
+#ref-stephens-davidowitz-2015 .author::before{
+  /* generated content */  
+  content: "Stephens Davidowitz";
+}
+
+.stephens-davidowitz-2015 strong::before,
+#ref-stephens-davidowitz-2015 strong::before{
+
+  /* generated content */  
+  content: "2015";
+}
+
+#ref-ajtai-1996 a::before{
+
+  /* generated content */  
+  content:"Generating hard instances of lattice problems.";
+}
+
+.ajtai-1996 .author::before,
+#ref-ajtai-1996 .author::before{
+
+  /* generated content */  
+  content: "M. Ajtai";
+}
+
+.ajtai-1996 strong::before,
+#ref-ajtai-1996 strong::before{
+
+  /* generated content */  
+  content: "1996";
+}
+
+
+#ref-lenstra-1982 a::before{
+
+  /* generated content */  
+  content: "Factoring polynomials with rational coefficients.";
+}
+
+.lenstra-1982 .author::before,
+#ref-lenstra-1982 .author::before{
+
+  /* generated content */
+  content: "Lenstra, Lenstra, Lovász";
+}
+
+.lenstra-1982 strong::before, 
+#ref-lenstra-1982 strong::before{
+
+  /* generated content */
+  content: "1982";
+}
+
+#ref-banaszczyk-1993 a::before{
+
+  /* generated content */
+  content:"New bounds in some transference theorems in the geometry of numbers.";
+}
+
+.banaszczyk-1993 .author::before,
+#ref-banaszczyk-1993 .author::before{
+
+  /* generated content */
+  content: "W. Banaszczyk";
+}
+
+.banaszczyk-1993 strong::before,
+#ref-banaszczyk-1993 strong::before{
+
+  /* generated content */
+  content: "1993";
+}
+
+
+
+/*
+<a href="#ref-hales-2015" class="cite hales-2015">
+                                    <span class="author"></span><strong></strong>
+                                </a>
+*/
+/* la dimension 3 */
+
+#ref-hales-2015 a::before{
+
+  /* generated content */
+  content:"A formal proof of the Kepler conjecture.";
+}
+
+.hales-2015 .author::before,
+#ref-hales-2015 .author::before{
+
+  /* generated content */
+  content: "T. Hales";
+}
+
+.hales-2015 strong::before,
+#ref-hales-2015 strong::before{
+
+  /* generated content */
+  content: "2015";
+}
+
+
+
+
+
+
+/*la dimension 8*/
+
+#ref-viazovska-2016 a::before{
+
+  /* generated content */
+  content:"The sphere packing problem in dimension 8.";
+}
+
+.viazovska-2016 .author::before,
+#ref-viazovska-2016 .author::before{
+
+  /* generated content */
+  content: "M. Viazovska";
+}
+
+.viazovska-2016 strong::before,
+#ref-viazovska-2016 strong::before{
+
+  /* generated content */
+  content: "2016";
+}
+
+
+
+
+
+/* la dimension 24 */
+
+
+#ref-cohn-henry-2016 a::before{
+
+  /* generated content */
+  content:"The sphere packing problem in dimension 24.";
+}
+
+.cohn-henry-2016 .author::before,
+#ref-cohn-henry-2016 .author::before{
+
+  /* generated content */
+  content: "Cohn, Henry et al.";
+}
+
+.cohn-henry-2016 strong::before,
+#ref-cohn-henry-2016 strong::before{
+
+  /* generated content */
+  content: "2016";
+}
+

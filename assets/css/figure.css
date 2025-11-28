@@ -1,0 +1,62 @@
+/*
+Dans ce fichier css, on structure graphiquement tous ce qui est en rapport avec les figures, les sous-figures.
+
+
+Structure du code
+
+<figure>
+  <div class=".fig-container">
+
+    <table class="fig-table">
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<figure>
+  <div class=".subfig-container">
+    <figure>
+      <img class=">
+      <figcaption></figcaption>
+    </figure>
+
+
+  </div>
+  <figcaption></figcaption>
+</figure>
+*/
+
+figure{
+  margin: 1.5rem 0rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+figcaption{
+  padding-top: 20px;
+}
+
+/*Pourquoi en faire deux différents déjà ?*/
+.subfig-container, .fig-container{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.subfigure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+figure table,img{
+  transition: transform 0.3s ease;
+}
+figure img:hover,table:hover{
+  transform: scale(1.1);
+}
+
+figcaption .label:before{
+  content: "Fig. ";
+}

@@ -5,15 +5,15 @@
         "children": [
             {
                 "title": "Définitions et exemples",
-                "filename": ""
+                "filename": "euclidean-lattices-definitions.html"
             },
             {
                 "title": "Réseaux définis par des relations plutôt que par des générateurs",
-                "filename": ""
+                "filename": "lattices-relations-vs-generators.html"
             },
             {
                 "title": "Quelques problèmes algorithmiques liés aux réseaux euclidiens",
-                "filename": ""
+                "filename": "euclidean-algorithmic-problems.html"
             }
         ]
     },
