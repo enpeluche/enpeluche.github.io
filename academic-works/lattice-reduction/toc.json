@@ -1,10 +1,10 @@
 [
     {
         "title": "Réseaux euclidiens",
-        "filename": "euclidean-lattice.html",
+        "filename": "euclidean-lattices.html",
         "children": [
             {
-                "title": "Définitions et exemples",
+                "title": "Réseaux euclidiens : Définitions et exemples",
                 "filename": "euclidean-lattices-definitions.html"
             },
             {

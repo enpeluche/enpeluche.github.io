@@ -1,7 +1,9 @@
 async function loadTableOfContents() {
     try {
-        const response = await fetch('/academic-works/lattice-reduction/toc.json');
+        // loading of toc
+        const response = await fetch('toc.json');
         const toc = await response.json();
+
 
         const container = document.getElementById('toc');
 
@@ -23,7 +25,7 @@ async function loadTableOfContents() {
         tocHeadDiv.appendChild(button);
         
 
-        toc.forEach(toc => {
+        toc.forEach(chapter => {
             const numDiv = document.createElement('div');
             numDiv.className = 'num';
             
@@ -35,7 +37,7 @@ async function loadTableOfContents() {
             chapterDiv.appendChild(numDiv);
 
             const h3 = document.createElement('h3');
-            h3.textContent = toc.title;
+            h3.textContent = chapter.title;
 
             chapterDiv.appendChild(h3);
 
@@ -46,7 +48,7 @@ async function loadTableOfContents() {
             const chapterContentDiv = document.createElement('div');
             chapterContentDiv.className = 'chapter-content';
 
-            toc.children.forEach(children => {
+            chapter.children.forEach(subchapter => {
                 const snumDiv = document.createElement('div');
                 snumDiv.className = 'num';
                 
@@ -56,9 +58,9 @@ async function loadTableOfContents() {
                 const h4 = document.createElement('h4');
 
                 const a = document.createElement('a');
-                a.href = children.filename;
-                a.title = children.title;
-                a.textContent = children.title;
+                a.href = subchapter.filename;
+                a.title = subchapter.title;
+                a.textContent = subchapter.title;
 
                 h4.appendChild(a);
 
@@ -75,6 +77,7 @@ async function loadTableOfContents() {
 
         container.appendChild(tocHeadDiv);
         container.appendChild(ul);
+
     } catch (error) {
         console.error("Erreur lors de la génération de la TOC :", error);
     }
@@ -92,18 +95,5 @@ async function loadTableOfContents() {
   document.getElementById("toto").addEventListener("click", toggle);
   document.getElementById("eee").addEventListener("click", toggle);
 
-
-
-    const pageTitle = document.title;
-
-    console.log(pageTitle);
-
 }
-
-async function loadFooter() {
-    const pageTitle = document.title;
-
-    console.log(pageTitle);
-}
-
 document.addEventListener("DOMContentLoaded", loadTableOfContents);
