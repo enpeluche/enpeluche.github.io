@@ -221,7 +221,16 @@ hr{
   list-style-type: square;
 }
 
-.article li{
+.remark li,
+.example li,
+.counterexample li,
+.proposition li,
+.theorem li,
+.problem li,
+.conjecture li,
+.definition li,
+.lemma li,
+.paragraph li{
   list-style-type:disc;
 }
 

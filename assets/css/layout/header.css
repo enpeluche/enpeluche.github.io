@@ -43,3 +43,7 @@ header nav ul li a{
 #main-header nav ul li:hover{
   transform: scale(1.1);
 }
+
+header nav ul li a:hover{
+  color: var(--secondary-text-color);
+}

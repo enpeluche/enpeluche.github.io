@@ -18,6 +18,10 @@ main > #toc{
   /* faire une var border color */
 }
 
+article #toto{
+  display: none;
+}
+
 .huhu{
   /* box model */
   width: 32px;
@@ -71,6 +75,12 @@ article > #toc h3{
 article > #toc h4{
   margin-top:10px;
   margin-bottom: 10px;
+}
+
+article > #toc h5{
+  margin-top:10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 
