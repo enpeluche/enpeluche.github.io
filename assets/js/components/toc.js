@@ -36,13 +36,17 @@ async function loadTableOfContents() {
 
             chapterDiv.appendChild(numDiv);
 
+            if(document.title===chapter.title) {
+                chapterDiv.style = "border:1px solid var(--primary-border-color);";
+            }
+
             const h3 = document.createElement('h3');
             h3a = document.createElement('a');
             h3a.href = chapter.filename;
             h3a.textContent = chapter.title;
             h3a.title = chapter.title;
             h3.appendChild(h3a);
-            
+
             chapterDiv.appendChild(h3);
 
             li.appendChild(chapterDiv);
@@ -69,6 +73,9 @@ async function loadTableOfContents() {
                 h4.appendChild(a);
 
                 subLi.appendChild(h4);
+                if(document.title===subchapter.title) {
+                subLi.style = "background-color: #f9f8f9;";
+                }
                 subList.appendChild(subLi);       
             });
 
