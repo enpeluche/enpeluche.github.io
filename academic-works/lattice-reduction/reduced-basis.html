@@ -167,31 +167,30 @@
                 <div class="counterexample">
                     Bien que la proprification impose une certaine contrainte sur les coefficients de projection, elle ne garantit pas à elle seule que les vecteurs de la base soient presque orthogonaux.
     
-    <figure>
-        <img width="600" src="/assets/img/academic-projects/lattice-reduction/lattice_0_10.png" alt="">
+                    <figure>
+                        <img width="600" src="/assets/img/academic-projects/lattice-reduction/lattice_0_10.png" alt="">
 
-        <figcaption><span class="label"></span>Base propre mais peu orthogonale</figcaption>
-    </figure>
-</div>
+                        <figcaption><span class="label"></span>Base propre mais peu orthogonale</figcaption>
+                    </figure>
+                </div>
 
-<div class="paragraph">
-Idéalement, nous souhaiterions trouver une base \( (b_i)_{1 \leq i \leq n} \) du réseau \( \mathscr{L} \) telle que :
+                <div class="paragraph">
+                    Idéalement, nous souhaiterions trouver une base \( (b_i)_{1 \leq i \leq n} \) du réseau \( \mathscr{L} \) telle que :
 
-\[
-\| b_1 \| = \lambda_1(\mathscr{L}), \quad
-\| b_2 \| = \lambda_2(\mathscr{L}), \quad \ldots, \quad
-\| b_n \| = \lambda_n(\mathscr{L})
-\]
-Ceci implique \( \| b_1 \| \leq \cdots \leq \| b_n \|\), mais cela est trop difficile de trouver une telle base car cela reviendrait à résoudre SIVP.
+                    \[
+                    \| b_1 \| = \lambda_1(\mathscr{L}), \quad
+                    \| b_2 \| = \lambda_2(\mathscr{L}), \quad \ldots, \quad
+                    \| b_n \| = \lambda_n(\mathscr{L})
+                    \]
+                    Ceci implique \( \| b_1 \| \leq \cdots \leq \| b_n \|\), mais cela est trop difficile de trouver une telle base car cela reviendrait à résoudre SIVP.
+                </div>
 
-</div>
-
-<div class="definition">
-    Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la \textbf{condition de Lovász} \footnote{Une condition plus générale : \( ( \delta - \mu_{i+1,i}^2 ) \, \|b_i^*\|^2 \leq \|b_{i+1}^*\|^2 \text{ pour } 1 \leq i \leq n, \text{ où } \delta \in \left] \frac{1}{4}, 1 \right]  \) } si:
-    \[
-    \|b_i^*\|^2 \leq 2\|b_{i+1}^*\|^2 \quad \text{ pour tout } 1 \leq i < n
-    \]
-</div>
+                <div class="definition">
+                    Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la \textbf{condition de Lovász} \footnote{Une condition plus générale : \( ( \delta - \mu_{i+1,i}^2 ) \, \|b_i^*\|^2 \leq \|b_{i+1}^*\|^2 \text{ pour } 1 \leq i \leq n, \text{ où } \delta \in \left] \frac{1}{4}, 1 \right]  \) } si:
+                    \[
+                    \|b_i^*\|^2 \leq 2\|b_{i+1}^*\|^2 \quad \text{ pour tout } 1 \leq i < n
+                    \]
+                </div>
 
 <div class="remark">
     On peut interpréter cette condition comme une forme de quasi-croissance des normes \( \|b_i^*\| \) : elle n'exige pas que celles-ci soient strictement croissantes, mais impose que toute éventuelle décroissance soit contrôlée, autrement dit, qu'elles ne décroissent pas trop rapidement.

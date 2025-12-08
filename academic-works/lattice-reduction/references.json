@@ -136,10 +136,6 @@
             {
                 "given":"M.",
                 "family":"Euchner"
-            },
-            {
-                "given":"",
-                "family":""
             }
         ]
     },
@@ -232,14 +228,6 @@
         "authors":[
             {
                 "given":"Johan S. R. Nielsen",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
                 "family":""
             }
         ]
@@ -389,14 +377,6 @@
             {
                 "given":"W.",
                 "family":"Banaszczyk"
-            },
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
             }
         ]
     },
@@ -409,14 +389,6 @@
         "authors":[
             {
                 "given":"Noah Stephens-Davidowitz",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
                 "family":""
             }
         ]
@@ -482,20 +454,7 @@
         "url": "",
         "title":"Réseau (géométrie)",
         "year":"",
-        "authors":[
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
-            }
-        ]
+        "authors":[]
     },
     {
         "id": "harari_modules",
@@ -541,14 +500,6 @@
             {
                 "given":"Alexandre",
                 "family":"Wallet"
-            },
-            {
-                "given":"",
-                "family":""
-            },
-            {
-                "given":"",
-                "family":""
             }
         ]
     }
