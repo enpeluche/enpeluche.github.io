@@ -4,15 +4,17 @@
 <html lang="fr">
     <head>
         <title>
-            Réduction de réseaux euclidiens
+            Terminaison
         </title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <meta name="author" content="Lucas Petit">
         <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
         <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
-<link rel="stylesheet" href="/assets/css/base/root.css">
-            <link rel="stylesheet" href="/assets/css/base/base.css">
+
+        <link rel="stylesheet" href="/assets/css/base/root.css">
+        <link rel="stylesheet" href="/assets/css/base/base.css">
         <link rel="stylesheet" href="/assets/css/base/inter.css">
         <link rel="stylesheet" href="/assets/css/base/reset.css">
         <link rel="stylesheet" href="/assets/css/base/utils.css">
@@ -30,13 +32,13 @@
         <link rel="stylesheet" href="/assets/css/icon.css">
         <link rel="stylesheet" href="/assets/css/references.css">
         <link rel="stylesheet" href="/assets/css/footnotes.css">
+        <link rel="stylesheet" href="/assets/css/algorithm.css">
 
         <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {
@@ -51,7 +53,6 @@
         </script>
     </head>
     <body>
-
         <header>
             <nav>
                 <ul>
@@ -66,35 +67,93 @@
         </header>
         
         <main>
-               <div class="huhu hidden">
-
+            <div class="huhu hidden">
                 <div>
                     <button id="eee">
-                    <svg class="" viewBox="0 0 24 24" fill="black">
-                        <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
-                    </svg>
-                </button>
-                
+                        <svg class="" viewBox="0 0 24 24" fill="black">
+                            <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+                        </svg>
+                    </button>
                 </div>
-                
             </div>
             <div id="toc"></div>
 
-            <!-- On commence ici la partie de l'article -->
             <div class="article">
-                <div class="paragraph">
-                    Dans ce chapitre, nous nous concentrerons sur un algorithme de réduction de réseaux euclidiens s’exécutant en temps polynomial : l’algorithme $\mathrm{LLL}$, du nom de ses auteurs A. Lenstra, H. Lenstra et L. Lovász. L'algorithme $\mathrm{LLL}$ possède de nombreuses applications, notamment en cryptanalyse de schémas basés sur le problème du sac à dos, en factorisation efficace de polynômes, ou encore dans le calcul rapide de décompositions en forme normale d'Hermite (HNF). Le lecteur pourra consulter 
-                    <a class="ref-havas-1998"></a>
-                    pour un aperçu plus complet de ses usages.
+
+                <div class="theorem">
+                    <span class="title">Correction</span>
+                    L'algorithme LLL calcule une base réduite de \( \mathscr{L} \).
+                </div>
+                
+                <div class="algorithm-container">
+                    <h2>Proprification de \( g_{i} \)</h2>
+    \For{$j = i{-}1, i{-}2, \dots, 1$}{
+        \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}}\;
+    }
+                </div>
+
+                <div class="lemma">
+                    Proprification de $g_i$ ne change pas $G^*$ et à la fin on a 
+                    \[
+                    |\mu_{i,l}| \leq \frac{1}{2} \text{ pour } 1 \leq l < i. 
+                    \]
                 </div>
 
                 <div class="paragraph">
-                    Nous ne traiterons pas d’autres algorithmes de réductions de réseaux euclidiens comme $\mathrm{BKZ}$, afin de rester dans un cadre plus élémentaire. L’algorithme $\mathrm{LLL}$ repose sur une idée simple mais puissante : il produit une approximation entière de la décomposition de Gram-Schmidt et réorganise les vecteurs de la base pour en améliorer la structure. Un rappel sur le procédé d’orthogonalisation de Gram-Schmidt est dans l’annexe dédiée. Celle-ci ne sera pas rappelée ici afin de préserver la concision du texte. Au cours de mon stage j'ai réalisé une présentation de l'algorithme LLL, ainsi qu'une idée rapide de sa preuve, que vous pourrez trouver ici.
+                    On étudie maintenant l'étape de réduction, l'idée consiste à réorganiser les vecteurs afin de garantir une progression quantifiable, qui assurera la terminaison de LLL.
                 </div>
-                 <div id="main-references"></div>
+
+
+                <div class="algorithm-container">
+                    <h2>Réduction de \( g_{i-1}, g_i \)</h2>
+    \If{\( i > 1 \) \textbf{et} \( \norm{\bg_{i-1}^*}^2 > 2 \norm{\bg_{i}^*}^2 \)}
+    {
+        Échanger \( \bg_{i-1} \) et \( \bg_i \)\;
+        
+        Mettre à jour \( (B^*, U)  \)\;
+        
+        \( i \leftarrow i - 1 \)\;
+    }
+    \Else
+    {
+        \( i \leftarrow i + 1 \)\;
+    }
+                </div>
+
+                <div class="lemma">
+                    Supposons que \( g_{i-1} \) et \( g_i \) sont échangés à l'étape Réduction de $g_{i-1}, g_{i}$. 
+                    On note \( h_k \) les vecteurs après échange et \( h_k^* \) leur base orthogonale de Gram-Schmidt.
+                    Alors
+
+                    <ul>
+                        <li>
+                            \( \mathbf{h}_k^* = g_k^* \quad \text{pour tout } k \in \{1, \dots, n\} \setminus \{i-1, i\} \),
+                        </li>
+                        <li>
+                            \( \| \mathbf{h}_{i-1}^* \|^2 < \dfrac{3}{4} \| g_{i-1}^* \|^2 \),
+                        </li>
+                        <li>
+                            \( \| \mathbf{h}_i^* \| \leq \| g_{i-1}^* \| \).
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="algorithm-container">
+                    <h2>LLL</h2>
+    \While{\( i \leq n \)}
+    {
+        \textit{Proprification de \( \bg_i \)}\;
+        \textit{Réduction de \( \bg_{i-1}, \bg_i \)}\;
+    }
+                </div>
+
+                <div class="lemma">
+                    Au début de chaque itération de la boucle à l'étape LLL, les invariants suivants sont vérifiés :
+                    \[
+                    |\mu_{k,l}| \leq \frac{1}{2} \quad \text{pour } 1 \leq l < k < i, \qquad \|g_{k-1}^*\|^2 \leq 2 \|g_k^*\|^2 \quad \text{pour } 1 < k < i.
+                    \]
+                </div>
             </div>
-
-           
 
         </main>
 

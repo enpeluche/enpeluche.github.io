@@ -4,15 +4,17 @@
 <html lang="fr">
     <head>
         <title>
-            Réduction de réseaux euclidiens
+            Réseaux polynomiaux
         </title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <meta name="author" content="Lucas Petit">
         <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
         <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
-<link rel="stylesheet" href="/assets/css/base/root.css">
-            <link rel="stylesheet" href="/assets/css/base/base.css">
+
+        <link rel="stylesheet" href="/assets/css/base/root.css">
+        <link rel="stylesheet" href="/assets/css/base/base.css">
         <link rel="stylesheet" href="/assets/css/base/inter.css">
         <link rel="stylesheet" href="/assets/css/base/reset.css">
         <link rel="stylesheet" href="/assets/css/base/utils.css">
@@ -30,13 +32,13 @@
         <link rel="stylesheet" href="/assets/css/icon.css">
         <link rel="stylesheet" href="/assets/css/references.css">
         <link rel="stylesheet" href="/assets/css/footnotes.css">
+        <link rel="stylesheet" href="/assets/css/algorithm.css">
 
         <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {
@@ -51,7 +53,6 @@
         </script>
     </head>
     <body>
-
         <header>
             <nav>
                 <ul>
@@ -66,35 +67,39 @@
         </header>
         
         <main>
-               <div class="huhu hidden">
-
+            <div class="huhu hidden">
                 <div>
                     <button id="eee">
-                    <svg class="" viewBox="0 0 24 24" fill="black">
-                        <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
-                    </svg>
-                </button>
-                
+                        <svg class="" viewBox="0 0 24 24" fill="black">
+                            <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+                        </svg>
+                    </button>
                 </div>
-                
             </div>
             <div id="toc"></div>
 
-            <!-- On commence ici la partie de l'article -->
             <div class="article">
                 <div class="paragraph">
-                    Dans ce chapitre, nous nous concentrerons sur un algorithme de réduction de réseaux euclidiens s’exécutant en temps polynomial : l’algorithme $\mathrm{LLL}$, du nom de ses auteurs A. Lenstra, H. Lenstra et L. Lovász. L'algorithme $\mathrm{LLL}$ possède de nombreuses applications, notamment en cryptanalyse de schémas basés sur le problème du sac à dos, en factorisation efficace de polynômes, ou encore dans le calcul rapide de décompositions en forme normale d'Hermite (HNF). Le lecteur pourra consulter 
-                    <a class="ref-havas-1998"></a>
-                    pour un aperçu plus complet de ses usages.
+                    Lorsque les coefficients des matrices appartiennent à un corps \( \mathbb{K} \), les opérations classiques telles que la multiplication, l'inversion, le calcul du déterminant ou la résolution de systèmes linéaires possèdent des complexités comparables.
+                    En revanche, lorsqu'on considère des matrices à coefficients dans l'anneau \( \mathbb{K}[x] \), des différences apparaissent : si le calcul du déterminant conserve la même complexité que celle du produit matriciel, l'inversion est plus coûteuse.
+                    Cette complexité découle de la structure de l'anneau \( \mathbb{K}[x] \) : bien qu'il s'agisse d'un anneau principal (à la différence de \( \mathbb{K}[x,y] \)), il ne s'agit pas d'un corps. 
+                    Ainsi, certaines opérations, comme l’inversion, ne sont plus systématiquement réalisables. Notamment, dans \( \mathbb{K}[x] \), seuls les polynômes constants non nuls sont inversibles. 
+                    Cette restriction impose de repenser et redéfinir rigoureusement plusieurs notions de l'algèbre linéaire. Les matrices à coefficients dans \( \mathbb{K}[x] \) sont essentielles dans de nombreuses applications. 
+                    
                 </div>
 
                 <div class="paragraph">
-                    Nous ne traiterons pas d’autres algorithmes de réductions de réseaux euclidiens comme $\mathrm{BKZ}$, afin de rester dans un cadre plus élémentaire. L’algorithme $\mathrm{LLL}$ repose sur une idée simple mais puissante : il produit une approximation entière de la décomposition de Gram-Schmidt et réorganise les vecteurs de la base pour en améliorer la structure. Un rappel sur le procédé d’orthogonalisation de Gram-Schmidt est dans l’annexe dédiée. Celle-ci ne sera pas rappelée ici afin de préserver la concision du texte. Au cours de mon stage j'ai réalisé une présentation de l'algorithme LLL, ainsi qu'une idée rapide de sa preuve, que vous pourrez trouver ici.
+                    \footnote{Par exemple dans l’interpolation bivariée, une étape centrale du décodage des codes de Reed-Solomon}.
                 </div>
-                 <div id="main-references"></div>
-            </div>
 
-           
+                <div class="paragraph">
+                     Ce chapitre vise à explorer les réseaux polynomiaux  et leurs propriétés spécifiques.
+                    Ce mémoire avait pour ambition initiale de motiver rigoureusement l’introduction des bases réduites dans le cadre des matrices polynomiales.
+                    Toutefois, afin de ne pas aborder un sujet trop éloigné des objectifs du stage, et par souci de concision, nous ne détaillerons pas ici les aspects liés aux mesures de complexité. Ce que j'avais rédigé initialement se retrouve en annexe.
+                    Notons simplement qu’il est essentiel d’analyser finement le comportement des matrices polynomiales vis-à-vis des opérations algébriques usuelles, en particulier la multiplication.
+                    Cela justifie l’introduction de la notion de degré de ligne, qui jouera un rôle central dans le chapitre suivant.
+                </div>
+            </div>
 
         </main>
 

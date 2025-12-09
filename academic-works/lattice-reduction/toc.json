@@ -32,34 +32,34 @@
         ]
     },
     {
-        "title": "Correction, terminaison et complexité de LLL (pas fait)",
+        "title": "Correction, terminaison et complexité de LLL",
         "filename": "lll-correction-termination-complexity.html",
         "children": [
             {
-                "title": "Terminaison (pas fait)",
+                "title": "Terminaison",
                 "filename": "lll-termination.html"
             },
             {
-                "title": "Correction et complexité (pas fait)",
+                "title": "Correction et complexité",
                 "filename": "lll-correction-complexity.html"
             }
         ]
     },
     {
-        "title": "État de l'art sur la réduction de réseaux euclidiens (pas fait)",
+        "title": "État de l'art sur la réduction de réseaux euclidiens",
         "filename": "state-of-the-art-lattice-reduction.html",
         "children": []
     },
     {
-        "title": "Réseaux polynomiaux (pas fait)",
+        "title": "Réseaux polynomiaux",
         "filename": "polynomial-lattices.html",
         "children": [
             {
-                "title": "Définitions et exemples (pas fait)",
+                "title": "Définitions et exemples",
                 "filename": "polynomial-lattices-definitions-examples.html"
             },
             {
-                "title": "Notion de degré en ligne (pas fait)",
+                "title": "Notion de degré en ligne",
                 "filename": "notion-row-degree.html"
             }
             

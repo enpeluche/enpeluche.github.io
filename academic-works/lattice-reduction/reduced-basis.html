@@ -124,7 +124,7 @@
                     \[
                     \mathbf{b}_2 \coloneqq \mathbf{b}_2 - k \mathbf{b}_1 \in \mathscr{L}
                     \]
-                    On peut donc choisir \( k \in \Z \) qui minimise \( \left \langle b_2, b_1 \right \rangle \), ce qui est réalisé par \( k \coloneqq \nint{\mu_{i,j}}\). On en déduit donc l'opération 
+                    On peut donc choisir \( k \in \Z \) qui minimise \( \left \langle b_2, b_1 \right \rangle \), ce qui est réalisé par \( k \coloneqq \lceil \mu_{i,j} \rfloor \). On en déduit donc l'opération 
 
                     $$
                     \begin{equation}
@@ -186,57 +186,65 @@
                 </div>
 
                 <div class="definition">
-                    Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la \textbf{condition de Lovász} \footnote{Une condition plus générale : \( ( \delta - \mu_{i+1,i}^2 ) \, \|b_i^*\|^2 \leq \|b_{i+1}^*\|^2 \text{ pour } 1 \leq i \leq n, \text{ où } \delta \in \left] \frac{1}{4}, 1 \right]  \) } si:
+                    Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la <strong>condition de Lovász</strong> si:
                     \[
                     \|b_i^*\|^2 \leq 2\|b_{i+1}^*\|^2 \quad \text{ pour tout } 1 \leq i < n
                     \]
                 </div>
 
-<div class="remark">
-    On peut interpréter cette condition comme une forme de quasi-croissance des normes \( \|b_i^*\| \) : elle n'exige pas que celles-ci soient strictement croissantes, mais impose que toute éventuelle décroissance soit contrôlée, autrement dit, qu'elles ne décroissent pas trop rapidement.
-</div>
+                <details>
+                    <summary>
+                        <span>
+                            <span class="label"></span>
+                            <span class="title">Condition plus générale</span>
+                        </span>
+                    </summary>
+                    <p>
+                        Une condition plus générale : \( ( \delta - \mu_{i+1,i}^2 ) \, \|b_i^*\|^2 \leq \|b_{i+1}^*\|^2 \text{ pour } 1 \leq i \leq n, \text{ où } \delta \in \left] \frac{1}{4}, 1 \right]  \)
+                    </p>
+                </details>
 
-<div class="paragraph">
-    Dès lors, il est naturel de se demander pourquoi ne pas échanger les vecteurs lorsque cette condition de Lovász n’est pas satisfaite.
-</div>
+                <div class="remark">
+                    On peut interpréter cette condition comme une forme de quasi-croissance des normes \( \|b_i^*\| \) : elle n'exige pas que celles-ci soient strictement croissantes, mais impose que toute éventuelle décroissance soit contrôlée, autrement dit, qu'elles ne décroissent pas trop rapidement.
+                </div>
 
-<div class="example">
-    Si l’on applique cette idée à l’exemple précédent, alors après permutation des vecteurs concernés et une nouvelle phase de réduction, on obtient à nouveau une base améliorée :
+                <div class="paragraph">
+                    Dès lors, il est naturel de se demander pourquoi ne pas échanger les vecteurs lorsque cette condition de Lovász n’est pas satisfaite.
+                </div>
+
+                <div class="example">
+                    Si l’on applique cette idée à l’exemple précédent, alors après permutation des vecteurs concernés et une nouvelle phase de réduction, on obtient à nouveau une base améliorée :
     
-    <figure>
-        <img width="600" src="/assets/img/academic-projects/lattice-reduction/lattice_1_10.png" alt="">
-        <figcaption><span class="label"></span> Nouvelle base size-réduite</figcaption>
-    </figure>
-</div>
+                    <figure>
+                        <img width="600" src="/assets/img/academic-projects/lattice-reduction/lattice_1_10.png" alt="">
+                        <figcaption><span class="label"></span> Nouvelle base size-réduite</figcaption>
+                    </figure>
+                </div>
 
-<div class="definition">
-	Une base \( \mathcal{B} \) d'un réseau \( \mathscr{L} (\mathcal{B}) \)  est dite <strong>LLL-réduite</strong> si
-    <ul>
-        <li>$\mathcal{B}$ est propre.</li>
-        <li>$\mathcal{B}$ satisfait la condition de Lovàsz.</li>
-    </ul>
-</div>
+                <div class="definition">
+	                Une base \( \mathcal{B} \) d'un réseau \( \mathscr{L} (\mathcal{B}) \)  est dite <strong>LLL-réduite</strong> si
+                    
+                    <ul>
+                        <li>$\mathcal{B}$ est propre.</li>
+                        <li>$\mathcal{B}$ satisfait la condition de Lovàsz.</li>
+                    </ul>
+                </div>
 
-<div class="remark">
-	Chaque vecteur de la base réduite a une norme au moins égale à la moitié de celle du précédent, garantissant ainsi une décroissance modérée.
-</div>
+                <div class="remark">
+	                Chaque vecteur de la base réduite a une norme au moins égale à la moitié de celle du précédent, garantissant ainsi une décroissance modérée.
+                </div>
 
-<div class="theorem">
-	Soit \( \mathcal{B} \) une base réduite du réseau \( \mathscr{L} \subseteq \R^n \) et soit \( v \in \mathscr{L} \setminus \{0\} \). Alors
-     \[ \|b_1\| \leq 2^{(n-1)/2} \cdot \|v\| \]
-</div>
+                <div class="theorem">
+	                Soit \( \mathcal{B} \) une base réduite du réseau \( \mathscr{L} \subseteq \R^n \) et soit \( v \in \mathscr{L} \setminus \{0\} \). Alors
+                    \[ \|b_1\| \leq 2^{(n-1)/2} \cdot \|v\| \]
+                </div>
 
-<div class="paragraph">
-En particulier, ce résultat s’applique à un vecteur \( v \in \mathscr{L} \) de plus petite norme non nulle, c’est-à-dire un vecteur atteignant \( \lambda_1(\mathscr{L}) \). On en déduit donc :
-\[
-\|b_1\| \leq 2^{(n-1)/2} \cdot \lambda_1(\mathscr{L}),
-\]
-ce qui montre que \( \mathrm{LLL} \) fournit en temps polynomial un vecteur de norme à un facteur \( 2^{(n-1)/2} \) près du plus court vecteur du réseau.
-Autrement dit, l’algorithme \( \mathrm{LLL} \) résout approximativement le problème du plus court vecteur (\( \mathrm{SVP} \)) avec un facteur d’approximation \( \gamma = 2^{(n-1)/2} \).
-Par extension, en renvoyant les vecteurs de la base réduite, \( \mathrm{LLL} \) permet également de résoudre le problème \( \mathrm{SIVP} \) (\textit{Shortest Independent Vectors Problem}) avec le même facteur d’approximation.
-
-
-            </div>
+                <div class="paragraph">
+                    En particulier, ce résultat s’applique à un vecteur \( v \in \mathscr{L} \) de plus petite norme non nulle, c’est-à-dire un vecteur atteignant \( \lambda_1(\mathscr{L}) \). On en déduit donc :
+                    \[ \|b_1\| \leq 2^{(n-1)/2} \cdot \lambda_1(\mathscr{L}), \] ce qui montre que \( \mathrm{LLL} \) fournit en temps polynomial un vecteur de norme à un facteur \( 2^{(n-1)/2} \) près du plus court vecteur du réseau.
+                    Autrement dit, l’algorithme \( \mathrm{LLL} \) résout approximativement le problème du plus court vecteur (\( \mathrm{SVP} \)) avec un facteur d’approximation \( \gamma = 2^{(n-1)/2} \). Par extension, en renvoyant les vecteurs de la base réduite, \( \mathrm{LLL} \) permet également de résoudre le problème \( \mathrm{SIVP} \) ( <strong> Shortest Independent Vectors Problem </strong>) avec le même facteur d’approximation.
+                </div>
+               
             </div>
         </main>
 

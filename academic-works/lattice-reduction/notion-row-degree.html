@@ -1,0 +1,299 @@
+<!-- En LaTeX, il y a \cite, je pourrais créer un div cite, ce serait intéréssant, on pourrait cliquer dessus?-->
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+            Notion de degré en ligne
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="author" content="Lucas Petit">
+        <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
+        <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
+
+        <link rel="stylesheet" href="/assets/css/base/root.css">
+        <link rel="stylesheet" href="/assets/css/base/base.css">
+        <link rel="stylesheet" href="/assets/css/base/inter.css">
+        <link rel="stylesheet" href="/assets/css/base/reset.css">
+        <link rel="stylesheet" href="/assets/css/base/utils.css">
+
+        <link rel="stylesheet" href="/assets/css/layout/header.css">
+        <link rel="stylesheet" href="/assets/css/layout/toc.css">
+
+        <link rel="stylesheet" href="/assets/css/academic-works.css">
+        <link rel="stylesheet" href="/assets/css/article.css">
+        <link rel="stylesheet" href="/assets/css/homepage.css">
+        <link rel="stylesheet" href="/assets/css/project.css">
+        
+        <link rel="stylesheet" href="/assets/css/figure.css">
+        <link rel="stylesheet" href="/assets/css/footer.css">
+        <link rel="stylesheet" href="/assets/css/icon.css">
+        <link rel="stylesheet" href="/assets/css/references.css">
+        <link rel="stylesheet" href="/assets/css/footnotes.css">
+        <link rel="stylesheet" href="/assets/css/algorithm.css">
+
+        <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display:true},
+                {left: "\\(", right: "\\)", display:false}
+                ]
+            });
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/academic-works/lattice-reduction/">
+                            <svg class="ArrowBackwardIcon" style="fill:black;display: inline;" width="24" viewBox="0 0 24 24" transform="matrix(-1,0,0,1,0,0)"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                            Réduction de réseaux
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="huhu hidden">
+                <div>
+                    <button id="eee">
+                        <svg class="" viewBox="0 0 24 24" fill="black">
+                            <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="toc"></div>
+
+            <div class="article">
+                <div class="notation">
+                    On note \( [d] \) un polynôme de degré \( d \). Par exemple \( x^2 + 1 \) sera noté \( [2] \), \(  x^9 \) sera noté \( [9] \).
+                </div>
+               
+
+                <div class="example">
+	                La multiplication ne se passe pas forcément bien. On voit que cela donne des bornes non pertinentes et il serait utile de rajoute des critères de mesure du degré. Considérons les matrices de degrés :
+	                \[
+	                \begin{pmatrix} 
+		                [100] & [1]  \\ 
+		                [100] & [1]  
+	                    \end{pmatrix}
+	                    \begin{pmatrix}
+		                [1] & [1]  \\ 
+		                [1] & [1] 
+	                    \end{pmatrix}
+	                    =
+	                    \begin{pmatrix} 
+		                [101] & [101] \\ 
+		                [101] & [101] 
+	                    \end{pmatrix}
+	                    \]
+                </div>
+
+                <div class="definition">
+                    <ul>
+                        <li>
+                            Pour \( \mathbf{m} = (m_1, \cdots ,m_n) \in \mathbb{K}[x]^{1 \times n} \), on définit son <strong>degré en ligne</strong> par :
+                            \[
+                            rdeg(\mathbf{m}) = \max_{1 \leq i \leq n} \deg(m_i)\in \Z
+                            \]
+                        </li>
+                        <li>
+                            Pour \( M = 
+                            \begin{pmatrix}
+                                \cdots \mathbf{M_1} \cdots \\
+                                \vdots \\
+                                \cdots \mathbf{M_n} \cdots
+                            \end{pmatrix}, 
+                            \mathbf{M_i} \in \mathbb{K}[x]^{1 \times n}  ~~ \forall 1 \leq i \leq n \), on définit son <strong>degré en ligne</strong> par :
+                            \[
+                            rdeg(M) = (rdeg(\mathbf{M_i}))_{1 \leq i \leq n} \in \Z^n
+                            \]
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="example nowrap">
+                    Soit
+                    \(
+                    M = 
+                    \begin{pmatrix}
+                        3x + 4  & x^9 \\
+                        5 & x^2 + 1
+                        \end{pmatrix}
+                        \in \mathbb{F}_2[x].
+                    \) 
+                    Alors
+                    \(
+                    rdeg(M)=
+                    \begin{pmatrix}
+                        rdeg(~3x+4~,~x^9~) \\
+                        rdeg(~5~,~x^2+1~)
+                    \end{pmatrix}
+                    = 
+                    \begin{pmatrix}
+                        9 \\
+                        2
+                    \end{pmatrix}
+                    \)
+                </div>
+
+                <div class="paragraph">
+                    Cette définition du degré de ligne présente une limite : si \( c=bA \), on a bien en général \( rdeg(c)\leq rdeg(b)+rdeg(A) \), mais cette majoration est souvent trop lâche pour nos besoins. Ce qui nous intéresse est de pouvoir caractériser plus finement le degré de \( c \), voire d’obtenir une égalité. Cela motive l’introduction de la définition de degré décalé.
+                </div>
+
+
+                <div class="definition">
+                    Soit \( \vec{\mathbf{s}} =(s_1, \cdots, s_n)\in \Z^n \). On appelle \( \vec{\mathbf{s}} \) le <strong>vecteur de décalage</strong>.
+    
+                    <ul>
+                        <li>
+                            Pour \( \mathbf{m} = (m_1, \cdots ,m_n) \in \mathbb{K}[x]^{1 \times n} \), on définit son <strong>degré en ligne \( \vec{\mathbf{s}} \)-décalé</strong> par :
+                            \[
+                            rdeg_{\vec{\mathbf{s}}}(\mathbf{m}) = \max_{1 \leq i \leq n} (deg(m_i) + s_i)
+                            \]
+                        </li>
+                        <li>
+                            Pour \( M = 
+                            \begin{pmatrix}
+                                \cdots \mathbf{M_1} \cdots \\
+                                \vdots \\
+                                \cdots \mathbf{M_n} \cdots
+                            \end{pmatrix}, 
+                            \mathbf{M_i} \in \mathbb{K}[x]^{1 \times n}  ~~ \forall 1 \leq i \leq n \), on définit son <strong>degré en ligne décalé</strong> par :
+                            \[
+                            rdeg_{\vec{\mathbf{s}}}(M) = \big( rdeg_{\vec{\mathbf{s}}}(\mathbf{M_i}) \big)_{1 \leq i \leq m} \in \Z^m
+                            \]
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="notation nowrap">
+                    Soit $\vec{\mathbf{s}}=(s_1, \cdots, s_n) \in \Z^n$. On note $x^{\vec{\mathbf{s}}}$ la matrice diagonale 
+                    \(
+                    \begin{pmatrix}	
+                        x^{s_1} & & \\
+                        & \ddots & \\
+                        &  & x^{s_n}
+                    \end{pmatrix} \in M_n(\mathbb{K} [x])
+                    \).
+                </div>
+
+
+                <div class="proposition">
+                    Soit \( A \in \mathbb{K}[x]^{m \times n} \), et \( \vec{\mathbf{s}} \in \Z^n \). Alors \( rdeg_{\vec{\mathbf{s}}}(A) = rdeg (A x^{\vec{\mathbf{s}}}) \).
+                </div>
+
+                <div class="example">
+                    Soit
+                    \(
+                    M =
+                    \begin{pmatrix}
+                        3x + 4  & x^9 \\
+                        5 & x^2 + 1
+                    \end{pmatrix}
+                    \in \R_2[x]
+                    \quad \text{et} \quad \vec{\mathbf{s}} =(8, 0)
+                    \)
+    
+                    Alors
+                    \[
+                    rdeg_{\vec{\mathbf{s}}} (M) = rdeg (M\cdot x^{\vec{\mathbf{s}}}) =
+                    rdeg
+                    \begin{pmatrix}
+                        3x^9 + 4 x^8 & x^9\\
+                        5x^8 & x^2+1 
+                    \end{pmatrix} 
+                    =(9, 8)
+                    \]
+                </div>
+
+                <div class="proposition">
+                    Soit \( A \in \mathbb{K}[x]^{m \times n} \) et \( \vec{\mathbf{s}} \in \Z^n \). Alors, on a les propriétés suivantes :
+    
+                    <ul>
+                        <li>
+                            \( rdeg_{\vec{\mathbf{s}}}(A) = \vec{\mathbf{v}} \) si et seulement si \( rdeg(x^{-\vec{\mathbf{v}}} A x^{\vec{\mathbf{s}}}) = 0 \).
+                        </li>
+                        <li>
+                            \( rdeg_{\vec{\mathbf{s}}}(A) \leq \vec{\mathbf{v}} \) si et seulement si \( rdeg(x^{-\vec{\mathbf{v}}} A x^{\vec{\mathbf{s}}}) \leq 0 \). 
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="example">
+                    Soit 
+                    \[
+                    F = 
+                    \begin{pmatrix}
+                        1 & 0         & 1 \\
+                        x & 1         & x + 1 \\
+                        1 & x^3 + x^2 & x
+                    \end{pmatrix},
+                    \quad \vec{\mathbf{u}} = (1, 0, 0, 1).
+                    \]
+    
+                    Alors 
+                    \[
+                    \vec{\mathbf{v}} = rdeg_{\vec{\mathbf{u}}}(F) = (1,2,3,4)
+                    \quad \text{et} \quad
+                    x^{-\vec{\mathbf{v}}} A x^{\vec{\mathbf{s}}} =
+                    \begin{pmatrix}
+                        1 & 0 & x^{-1} \\
+                        1 & x^{-2} & x^{-2} + x^{-1} \\
+                        x^{-2} & x^{-1} + 1 & x^{-2}
+                    \end{pmatrix}.
+                    \]
+                </div>
+
+                <div class="paragraph">
+                    On va définir un ordre sur les degrés de ligne, bien que non total.
+                </div>
+
+                <div class="definition">
+                    Soit \( m \in \N^* \) et soient \( \mathbf{u} = (u_1, \dots, u_m) \), \( \mathbf{v} = (v_1, \dots, v_m) \in \Z^m \) deux vecteurs de degrés de ligne, triés par valeur croissante.
+                    On définit une relation d'ordre partiel, notée \( \leq_{ob} \) (ordre obtenu par composantes), par :
+                    \[
+                    \mathbf{u} \leq_{ob} \mathbf{v} \quad \text{si et seulement si} \quad u_i \leq v_i \quad \text{pour tout } i \in \{1, \dots, m\}.
+                    \]
+                </div>
+
+                <div class="proposition">
+                    Soit \( A \in \mathbb{K}[x]^{m \times n} \), \( \vec{\mathbf{b}} \in \mathbb{K}[x]^{1 \times m} \) et \( \vec{\mathbf{c}}=\vec{\mathbf{b}}A \). Soit \( \vec{\mathbf{v}} = rdeg_{\vec{\mathbf{u}}}(A) \) et \( w = rdeg_{\vec{\mathbf{v}}}(b) \). 
+                    Alors
+                    \[
+                    rdeg_{\vec{\mathbf{u}}}(c) \leq_{ob} w.
+                    \]
+                </div>
+
+                <div class="paragraph">
+                    Les notions de degrés introduites précédemment, ainsi que les techniques qui en découlent, permettent d'accélérer certains algorithmes dans des situations spécifiques. Cependant, elles présentent des limites structurelles importantes : notamment, les degrés de lignes et de colonnes ne possèdent pas de bonnes propriétés vis-à-vis de la multiplication matricielle. De plus, plusieurs problèmes restent ouverts quant à la possibilité d'obtenir des algorithmes plus efficaces pour le calcul du déterminant ou de l'inverse de matrices polynomiales. Ces obstacles mettent en évidence l'intérêt crucial de la réduction des matrices polynomiales, outil indispensable pour contrôler la croissance des degrés et améliorer ainsi les performances des algorithmes associés.
+                </div>
+            </div>
+
+        </main>
+
+        <footer id="main-footer"></footer>
+        
+        <script src="/assets/js/components/footer.js"></script>
+        <script src="/assets/js/components/header.js"></script>
+        <script src="/assets/js/components/article.js"></script>
+        <script src="/assets/js/components/toc.js"></script>
+        <script src="/assets/js/components/references.js"></script>
+    </body>
+</html>

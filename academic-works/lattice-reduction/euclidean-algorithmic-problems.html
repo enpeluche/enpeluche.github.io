@@ -83,11 +83,9 @@
                 <h2>Quelques problèmes algorithmiques liés aux réseaux euclidiens</h2>
 
                     <div class="paragraph">
-                        Cette section s’inspire largement des travaux de 
-                        <a href="#ref-boudgoust-2023" class="cite boudgoust-2023"></a>    
-                        , auxquels le lecteur intéressé pourra se référer pour un traitement plus approfondi. On définira deux problèmes algorithmiques important sur les réseaux euclidiens. Il y en a beaucoup plus, 
-                        <a href="#ref-stephens-davidowitz-2015" class="cite stephens-davidowitz-2015"></a>   
-                        donne un aperçu des réductions entre ces problèmes.
+                        Cette section s’inspire largement des travaux de <a class="ref-boudgoust-2023"></a>, auxquels le lecteur intéressé pourra se référer pour un traitement plus approfondi.
+                        On définira deux problèmes algorithmiques important sur les réseaux euclidiens. 
+                        Il y en a beaucoup plus, <a class="ref-stephens-davidowitz-2015"></a> donne un aperçu des réductions entre ces problèmes.
                     </div>
 
                     <h3>Des problèmes faciles</h3>
@@ -119,7 +117,7 @@
 
                     <div class="problem">
                         <span class="title">Shortest Vector Problem (SVP), NP-complet, 
-                            <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a>  
+                            <a class="ref-ajtai-1996"></a>  
                         </span>
                         <p>
                             Étant donné une base $B$ d’un réseau $\mathscr{L}$, trouver un vecteur $v \neq \mathbf{0}$ tel que $\|v\|_2 = \lambda_1(\mathscr{L})$.
@@ -157,13 +155,13 @@
                     <ul>
                         <li>
                             Pour $\gamma = \mathcal{O}(1)$, le problème est prouvé <strong>NP-complet</strong>,
-                            <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a> 
+                            <a class="ref-ajtai-1996"></a> 
                         </li>
                         <!-- Pas d'algo exp-->
                         <li>Pour $\gamma = \text{poly}(n)$, il existe des algorithmes en <strong>temps exponentiel</strong>.</li>
                         <li class="nowrap">
                             Pour $\gamma = 2^{\mathcal{O}(n)}$, l’algorithme <strong>LLL</strong>
-                            <a href="#ref-lenstra-1982" class="cite lenstra-1982"></a>
+                            <a class="ref-lenstra-1982"></a>
                             permet de le résoudre en <strong>temps polynomial</strong>.</li>
                     </ul>
                 </div>
@@ -178,9 +176,9 @@
                 <div class="theorem"> <!-- OK -->
                     <span class="title">
 
-                        <a href="#ref-banaszczyk-1993" class="cite banaszczyk-1993"></a>
+                        <a class="ref-banaszczyk-1993"></a>
                         
-                        <a href="#ref-stephens-davidowitz-2015" class="cite stephens-davidowitz-2015"></a>
+                        <a class="ref-stephens-davidowitz-2015"></a>
                     </span>
                     <p>
                         $\mathrm{SVP}_\gamma$ n'est pas plus simple que $\mathrm{GapSVP}_\gamma$.
@@ -202,7 +200,7 @@
 
                 <div class="problem"> <!-- OK -->
                     <span class="title">Closest Vector Problem (CVP), NP-complet, 
-                        <a href="#ref-ajtai-1996" class="cite ajtai-1996"></a> 
+                        <a class="ref-ajtai-1996"></a> 
                     </span>
                     <p>
                         Étant donnés $t \in \R^n$, un réseau $\mathscr{L}(B)$, trouver $v \in \mathscr{L}$ tel que $$\displaystyle \|t - v\|_2  = d(t, \mathscr{L}) := \min_{ v \in \mathscr{L}} \{ \|t - v\|_2  \}.$$
@@ -230,9 +228,8 @@
                 
 
                 <div class="theorem"> <!-- OK -->
-                    <span class="label"></span> 
                     <span class="title">
-                        <a href="#ref-goldreich-1999" class="cite goldreich-1999"></a>
+                        <a class="ref-goldreich-1999"></a>
                     </span>
                     <p>
                         $\mathrm{GapSVP}_\gamma$ se réduit à $\mathrm{GapCVP}_\gamma$ en temps polynomial.
@@ -251,16 +248,7 @@
 
 
                 <hr>
-
-                <h1>Références</h1>
-                <ol class="references">
-                    <li id="ref-ajtai-1996"></li>
-                    <li id="ref-banaszczyk-1993"></li>
-                    <li id="ref-boudgoust-2023"></li>
-                    <li id="ref-goldreich-1999"></li>
-                    <li id="ref-lenstra-1982"></li>
-                    <li id="ref-stephens-davidowitz-2015"></li>
-                </ol>
+                <div id="main-references"></div>
             </div>
         </main>
         

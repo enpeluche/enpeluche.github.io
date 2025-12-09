@@ -1,18 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Sélectionne tous les <li> dont l'id commence par "ref-"
- const refs = document.querySelectorAll('li[id^="ref-"]');
-
-  refs.forEach(li => {
-    li.innerHTML = `
-      <div>
-        <span class="author"></span>
-        <strong></strong>
-      </div>
-      <a title="Accéder à l'article" href=""></a>
-    `;
-  });
-});
-
 async function loadReferences() {
   try {
     const response = await fetch('references.json');
@@ -30,7 +15,11 @@ async function loadReferences() {
       const elt = references.find(REF => REF.id === ref.className);
       
       console.log(elt.title); //on pourrait' aussi ajout'er cet' elt' dans la list'e des references a la fin
-      refList.push(elt);
+
+
+      if (!refList.includes(elt)) {
+    refList.push(elt);
+}
 
       ref.title=elt.title;
       ref.href="#"+ref.className;
@@ -56,8 +45,13 @@ async function loadReferences() {
 
       const container = document.getElementById('main-references');
 
-const ol = document.createElement('ol');
-ol.className = "references";
+      const h1 = document.createElement('h1');
+      h1.textContent = "Références";
+      
+      container.appendChild(h1);
+
+      const ol = document.createElement('ol');
+      ol.className = "references";
 
       refList.forEach(rr => {
 
@@ -91,13 +85,12 @@ ol.className = "references";
       ol.appendChild(li);
 
 
-      const h1 = document.createElement('h1');
-      h1.textContent = "Références";
       
-      container.appendChild(h1);
 
       container.appendChild(ol);
       });
+
+
   } catch (error) {
     console.log(error);
   }
@@ -105,9 +98,3 @@ ol.className = "references";
 
 
 document.addEventListener("DOMContentLoaded", loadReferences);
-
-//<a href="#ref-hales-2015" class="cite hales-2015">
-//  <span class="author"></span><strong></strong>
-//</a>
-// rajjouter aussi les a href aussi je rajoute la classe comme ca c'est interssant
-// et voir si je peux pas faire un json des sources

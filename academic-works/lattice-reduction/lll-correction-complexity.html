@@ -1,0 +1,260 @@
+<!-- En LaTeX, il y a \cite, je pourrais créer un div cite, ce serait intéréssant, on pourrait cliquer dessus?-->
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+            Correction et complexité
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="author" content="Lucas Petit">
+        <meta name="description" content="Dans ce cours, vous apprendrez les bases de la théorie des réseaux euclidiens utilisés en cryptographie. Prêt pour l'aventure ?">
+        <meta name="keywords" content="Réseaux Euclidiens, Cryptographie">
+
+        <link rel="stylesheet" href="/assets/css/base/root.css">
+        <link rel="stylesheet" href="/assets/css/base/base.css">
+        <link rel="stylesheet" href="/assets/css/base/inter.css">
+        <link rel="stylesheet" href="/assets/css/base/reset.css">
+        <link rel="stylesheet" href="/assets/css/base/utils.css">
+
+        <link rel="stylesheet" href="/assets/css/layout/header.css">
+        <link rel="stylesheet" href="/assets/css/layout/toc.css">
+
+        <link rel="stylesheet" href="/assets/css/academic-works.css">
+        <link rel="stylesheet" href="/assets/css/article.css">
+        <link rel="stylesheet" href="/assets/css/homepage.css">
+        <link rel="stylesheet" href="/assets/css/project.css">
+        
+        <link rel="stylesheet" href="/assets/css/figure.css">
+        <link rel="stylesheet" href="/assets/css/footer.css">
+        <link rel="stylesheet" href="/assets/css/icon.css">
+        <link rel="stylesheet" href="/assets/css/references.css">
+        <link rel="stylesheet" href="/assets/css/footnotes.css">
+        <link rel="stylesheet" href="/assets/css/algorithm.css">
+
+        <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display:true},
+                {left: "\\(", right: "\\)", display:false}
+                ]
+            });
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/academic-works/lattice-reduction/">
+                            <svg class="ArrowBackwardIcon" style="fill:black;display: inline;" width="24" viewBox="0 0 24 24" transform="matrix(-1,0,0,1,0,0)"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                            Réduction de réseaux
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="huhu hidden">
+                <div>
+                    <button id="eee">
+                        <svg class="" viewBox="0 0 24 24" fill="black">
+                            <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="toc"></div>
+
+            <div class="article">
+                <div class="theorem">
+                    <span class="title">Terminaison et complexité</span>
+                
+                    On pose \( \displaystyle A = \max_{1 \leq i \leq n} \| \bg_i \| \). L'algorithme \hyperref[algo:LLL_MCA]{\emph{LLL}} termine et utilise \( \OO(n^4 \log A) \) opérations arithmétiques sur des entiers.
+                </div>
+
+                <div class="paragraph">
+                    La difficulté est de montrer que la boucle Tant que ne va pas s'exécuter indéfiniment.
+                </div>
+
+                <div class="lemma">
+                    <ul>
+                        <li>Orthogonalisation de Gram-Schmidt nécessite \( \OO(n^3) \) opérations dans \( \Z \).</li>
+                        <li>\hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} nécessite \( \OO(n^2) \) opérations dans \( \Z \).</li>
+                        <li>\hyperref[step:R]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}} nécessite \( \OO(n) \) opérations dans \( \Z \).</li>
+                    </ul>
+
+                </div>
+
+                <div class="paragraph">
+                    Il reste à borner le nombre d'itérations de la boucle Tant que à l'étape \hyperref[step:LLL]{\emph{LLL}}. 
+
+Pour tout \( 1 \leq k \leq n \), on pose
+\[
+\bg_k = 
+\begin{pmatrix}
+    \bg_1 \\
+    \vdots \\
+    \bg_k
+\end{pmatrix}
+\in \Z^{k \x n}
+, \quad d_0=1, \quad d_k = \det(\bg_k \cdot \bg_k^T) \in \Z.
+\]
+                </div>
+
+                <div class="lemma">
+                    Pour tout \( 1 \leq k \leq n \), on a :
+    \[
+    d_k = \prod_{1 \leq l \leq k} \| \bg_l^* \|^2 > 0.
+    \]
+                </div>
+
+                <div class="lemma">
+                    <ul>
+                        <li>
+                            \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} ne change pas \( d_k \)  pour tout \( 1 \leq k \leq n \).
+                        </li>
+                        <li>
+                            Si \( \bg_{i-1} \) et \( \bg_i \) sont échangés à l’étape \hyperref[step:P]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}}, et si \( d_k^* \) désigne la nouvelle valeur de \( d_k \), alors :
+        \[
+        d_k^* = d_k \quad \text{pour tout } k \neq i - 1, \quad \text{et} \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1}.
+        \]
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="proof">
+\begin{proof}
+    \begin{enumerate}
+        \item D'après le lemme 2.2 \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} ne modifie pas \( \bg_k^* \) et donc ne modifie pas \( d_k \).
+        
+        \item Pour \( k \neq i-1\), une exécution de \hyperref[step:P]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}} multiplie \( \bg_k \) par une matrice de permutation, donc \( d_k^* = d_k \)
+        
+        De plus, on a
+        \[
+        d_{i-1} \eqjust{2.6} \prod_{1 \leq l \leq i-1} \| \bg_l^* \|^2 \leqjust{2.3} \frac{3}{4} \prod_{1 \leq l \leq i-1} \| \mathbf{h}_l^* \|^2 \eqjust{2.6} \frac{3}{4} d_{i-1}^* 
+        \] 
+    \end{enumerate}
+\end{proof}
+                </div>
+
+                <div class="paragraph">
+On pose
+\[
+D = \prod_{1 \leq k < n} d_k, \quad \displaystyle A = \max_{1 \leq i \leq n} \| \bg_i \|
+\]
+
+On désigne \( D_0 \) désigne la valeur de \( D \) au début de l'algorithme, on a \( 1 \leq D \in \Z \) et 
+
+\[
+\begin{aligned}
+    D_0 &= \|\bg^*_1\|^{2(n-1)} \|\bg^*_2\|^{2(n-2)} \cdots \|\bg^*_{n-1}\|^2 \\
+    &\leq \|\bg_1\|^{2(n-1)} \|\bg_2\|^{2(n-2)} \cdots \|\bg_{n-1}\|^2\\
+    &\leq A^{n(n-1)}
+\end{aligned} 
+\] 
+
+
+Puisque \( g^*_i \) est une projection de \( g_i \) pour tout \( i \). 
+                </div>
+
+                <div class="lemma">
+\begin{lemma}
+    \leavevmode\vspace{0.5\baselineskip}
+    \begin{enumerate}
+        \item \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} ne modifie pas \( D \).
+        \item \( D \) diminue d’au moins un facteur \( 3/4 \) si un échange a lieu dans \hyperref[step:R]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}}
+    \end{enumerate}
+\end{lemma}
+
+                </div>
+
+                <div class="proof">
+\begin{proof}
+    \begin{enumerate}
+        \item D'après le lemme 2.7 \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} ne modifie pas \( d_k \) et donc ne modifie pas \( D \).
+        
+        \item Si \( \bg_{i-1} \) et \( \bg_i \) sont échangés lors de l'exécution de \hyperref[step:R]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}}, en notant \( D^* \) la nouvelle valeur de \( D \), alors d'après le lemme 2.7
+        
+        \[
+        d_k^* = d_k, \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1} \text{ donc } D^* \leq \frac{3}{4} D.
+        \]
+    \end{enumerate}
+\end{proof}
+                </div>
+
+                <div class="paragraph">
+À tout moment de l’algorithme, soit \( e \in \N \) le nombre d’échanges effectués jusqu’à présent, et \( e^* \) le nombre de fois où la branche alternative (le \textit{else}) dans \hyperref[step:R]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}} a été prise.
+                </div>
+
+                <div class="lemma">
+                    
+\begin{lemma}
+    On a
+    \[
+    e \leq \log_{4/3} D_0 \in \OO(n^2 \log A)
+    \]
+\end{lemma}
+
+                </div>
+
+                <div class="proof">
+\begin{proof}
+    Soit \( D_e \) la valeur de \( D \) après \( e \) échanges.
+    
+    On doit avoir
+    \[
+    1 \;\le\; D_e \; \le\;\left(\frac34\right)^{e} D_0 \le\; \left(\frac34\right)^{e}A^{\,n(n-1)}.
+    \]
+    
+    En appliquant \( lo\bg_{3/4} \), aux extrémités de l'inégalité.
+    
+    \[
+    0=\log_{3/4}(1) \;\ge\; e + \log_{3/4}(A^{\,n(n-1)})=e + n(n-1)\frac{\log A}{\log(3/4)}.
+    \]
+    
+    On en déduit que \( e \; \leq n(n-1)\frac{\log A}{-\log(3/4)}\) et donc \( e \in \OO(n^2 \log A)\)
+    
+\end{proof}
+                </div>
+
+                <div class="proof">
+\begin{proof}[Preuve de la terminaison et la complexité]
+    
+    Comme \( i \) est décrémenté de \( 1 \) lors d’un échange et incrémenté de \( 1 \) sinon l'entier \( i + e - e^* \) est constant tout au long de \hyperref[step:LLL]{\emph{LLL}}.
+    
+    Initialement \( i + e - e^* = 2 \) et à la fin de \hyperref[step:LLL]{\emph{LLL}} on a \( n + 1 + e - e^* = 2 \).
+    On en déduit donc que \( e + e^* = 2e + n - 1 \in \OO(n^2 \log A) \).
+    et donc d'après le lemme 2.5 le coût total de \hyperref[step:LLL]{\emph{LLL}} est \( \OO(n^2 \x n^2 \log A) \) opérations dans \( \Z \). Ce qui acheve la preuve.
+\end{proof}
+                </div>
+
+
+
+
+                <div id="main-references"></div>
+            </div>
+
+        </main>
+
+        <footer id="main-footer"></footer>
+        
+        <script src="/assets/js/components/footer.js"></script>
+        <script src="/assets/js/components/header.js"></script>
+        <script src="/assets/js/components/article.js"></script>
+        <script src="/assets/js/components/toc.js"></script>
+        <script src="/assets/js/components/references.js"></script>
+    </body>
+</html>

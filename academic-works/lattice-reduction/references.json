@@ -381,7 +381,7 @@
         ]
     },
     {
-        "id": "stephens-davidowitz_latticeproblems",
+        "id": "ref-stephens-davidowitz-2015",
         "type":"",
         "url": "http://noahsd.com/latticeproblems.pdf",
         "title":"Dimension-Preserving Reductions Between Lattice Problems",
@@ -394,7 +394,7 @@
         ]
     },
     {
-        "id": "",
+        "id": "ref-henry-2016",
         "type":"article",
         "url": "https://arxiv.org/abs/1603.06518",
         "title":"The sphere packing problem in dimension 24",
@@ -424,7 +424,7 @@
     },
     {
         "id": "ref-viazovska-2016",
-        "type":"",
+        "type":"article",
         "url": "https://arxiv.org/abs/1603.04246",
         "title":"The sphere packing problem in dimension 8",
         "year":"2016",

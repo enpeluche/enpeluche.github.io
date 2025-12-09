@@ -37,7 +37,7 @@
 /* Style des mots-clés */
 .keyword {
     font-weight: bold;
-    color: #007bff; /* Couleur distinctive pour les mots-clés (Pour, Si, etc.) */
+    color: var(--secondary-text-color); /* Couleur distinctive pour les mots-clés (Pour, Si, etc.) */
 }
 
 /* Style des noms de fonctions */
