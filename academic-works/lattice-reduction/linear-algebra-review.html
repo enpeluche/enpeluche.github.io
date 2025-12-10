@@ -4,7 +4,7 @@
 <html lang="fr">
     <head>
         <title>
-            Correction, terminaison et complexité de LLL
+            Rappels d’algèbre linéaire
         </title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,12 +79,55 @@
             <div id="toc"></div>
 
             <div id="article">
-                <div class="paragraph">
-                    Le lecteur pourra choisir de passer ce chapitre en première lecture. 
-                    Les preuves et les résultats secondaires (lemmes et démonstrations annexes) sont regroupés en annexe afin d'alléger la lecture. 
-                    Dans tous les cas, il suffira de garder à l'esprit que la terminaison de l'algorithme LLL repose sur la décroissance d'une quantité notée $D$, dont l'étude sera essentielle dans la suite. Le lecteur pourra également, s'il le souhaite, consulter directement les résultats relatifs à la complexité algorithmique de LLL.
-                </div>
+
+                <h1>Rappels d'algèbre linéaire</h1>
+
+\begin{center}
+    \begin{minipage}{0.75\textwidth}
+        \lettrine{J}{ørgen} Pedersen Gram (1850–1916) était un mathématicien et ingénieur danois. Il est principalement connu pour ses contributions en analyse et en algèbre linéaire, notamment la \emph{matrice de Gram} et le procédé d’orthogonalisation de \emph{Gram-Schmidt} \footnotemark, utilisés dans l’étude des produits scalaires, des projections orthogonales et des bases orthonormées. Ses travaux ont également influencé les méthodes numériques et la statistique. Il est mort en 1916, renversé par un cycliste, une fin inattendue.
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.22\textwidth}
+        \includegraphics[width=\linewidth]{images/Gram.jpg}
+        \centering
+        \small\textit{Jørgen Pedersen Gram}
+    \end{minipage}
+\end{center}
+\vspace{0.5cm}
+\footnotetext{Le procédé d’orthogonalisation porte aussi le nom d’Erhard Schmidt (13 janvier 1876 – 6 décembre 1959), mathématicien allemand né à Dorpat, dans l’ancien Empire russe. Schmidt est reconnu comme l’un des pionniers de l’analyse fonctionnelle abstraite moderne, particulièrement par ses travaux sur la généralisation du procédé d’orthogonalisation aux espaces vectoriels de dimension infinie, aujourd’hui appelés espaces de Hilbert.}
+
+Dans ce mémoire, on se place dans l’espace euclidien \( (\R^n, \langle \cdot, \cdot \rangle) \) muni du produit scalaire canonique usuel qui induit la norme euclidienne \( \|\cdot\|_2 \). On rappelle que, dans un espace vectoriel, toute application linéaire est représentée, relativement à une base donnée, par une matrice, et que réciproquement, toute matrice définit une application linéaire. Ainsi, dans ce cadre, il est naturel d’identifier une matrice à l'application linéaire qu'elle représente.
+
+
+\begin{definition}
+    Soient \( n, p \in \N^* \), \( 1 \leq i \leq n \) et \( 1 \leq j \leq p \). On définit la \textbf{matrice élémentaire} \( E_{i,j} \in M^{n \x p}(\K) \) par :
+    \[
+    E_{i,j} = (\delta_{k,i} \delta_{l,j})_{1 \leq k \leq n,\ 1 \leq l \leq p},
+    \]
+    où \( \delta \) désigne le symbole de Kronecker. \footnote{On appelle \textbf{symbole de Kronecker} le nombre noté \( \delta _{i,j} \) qui vaut \( 1 \) si \( i=j \) , et \( 0 \) sinon.}
+\end{definition}
+
+\begin{example}
+    Prenons \( n = p = 3 \), et considérons \( i = 2 \), \( j = 3 \). Alors la matrice élémentaire \( E_{2,3} \in M_{3}(\K) \) est donnée par :
+    \[
+    E_{2,3} = 
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0
+    \end{pmatrix}.
+    \]
+\end{example}
+
+\begin{theoreme}[Règle de Cramer]
+    Soient \( A \in \K^{n \x n} \) une matrice inversible et \( b \in \K^n \). Alors les coefficients de l’unique solution \( y = (y_1, \ldots, y_n)^t \in \K^n \) du système linéaire \( A y = b \) sont donnés par
+    \[
+    y_i = \frac{\det (A_i)}{\det (A)},
+    \]
+    où \( A_i \in \K^{n \x n} \) désigne la matrice obtenue à partir de \( A \) en remplaçant sa \( i \)-ième colonne par le vecteur \( b \).
+\end{theoreme}
             </div>
+
         </main>
 
         <footer id="main-footer"></footer>

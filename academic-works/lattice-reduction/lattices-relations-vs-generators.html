@@ -83,7 +83,7 @@
             <div id="toc"></div>
 
             <!-- On commence ici la partie de l'article -->
-            <div class="article">
+            <div id="article">
                 <h2>Réseaux définis par relations plutôt que par générateurs</h2> <!-- OK -->
 
                     <div class="definition"> <!-- OK -->
@@ -224,12 +224,6 @@
                     <div class="paragraph">
                         Étant donnée une matrice $\mathbf{A} \in \Z_q^{m \times n}$ pour certains entiers $n, m, q \in \N$, on peut définir deux réseaux : \[\mathscr{L}_q(\mathbf{A}) = \left\{ y \in \Z^m : y = \mathbf{A}\mathbf{s} \bmod q \text{ pour un certain } \mathbf{s} \in \Z^n \right\}\] \[\mathscr{L}_q^\perp(\mathbf{A}^T) = \left\{ y \in \Z^m : \mathbf{A}^T y = 0 \bmod q \right\}\]. Les deux réseaux sont de dimension $m$. Le premier est engendré par les lignes de $\mathbf{A}$ et a pour déterminant $q^{m-n}$, tandis que le second contient tous les vecteurs orthogonaux aux lignes de $\mathbf{A}$ et a pour déterminant $q^n$. De plus, ils sont liés par la dualité des réseaux, c’est-à-dire :\[ \mathscr{L}_q^\perp(\mathbf{A}^T) = q \cdot \mathscr{L}_q(\mathbf{A})^\vee \quad \text{et} \quad \mathscr{L}_q(\mathbf{A}) = q \cdot \mathscr{L}_q^\perp(\mathbf{A}^T)^\vee. \]
                     </div>
-
-
-                     <hr>
-
-                <div id="main-references"></div>
-                
             </div>
 
         </main>

@@ -1,0 +1,42 @@
+a la fin de proof, mettre un petit carre qed, je pensais met't're un span.qed et ca met' soit' un carre js svg je pense que c est' bien, ou un svg deja en format' image, un pet'it' carre quoi qut'on charge
+
+
+
+
+faire une balise for en gros
+
+div class for
+ span st'art'
+ span end
+
+
+/div
+
+et' ca fait' un margin left' avec unr border left', et' au debut' ca met' un for et' a la fin fin Pour
+
+faire pareil avec t'ant' que
+
+
+
+
+
+corriger la pet'it'e ombre du t'oc
+
+
+
+met't're au debut' de algorit'hme : algorit'hme (dans un label)
+
+
+
+faire ce \shortstack{1,21,2 \\ 22} 	(1292)
+
+
+
+pour les references, ne creer ref que si yèen a , de maniere auto
+
+
+affichage nom preno des refs ca va pas
+
+
+voir syèst'eme de cookie pour cocher si j ai suivi le cours, comme ca ca fait' un rond vert' ?
+"""
