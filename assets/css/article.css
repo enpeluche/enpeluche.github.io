@@ -1,3 +1,31 @@
+#article{
+    width: 900px;
+    margin: 0 auto;
+}
+
+#article ol, 
+#article ul{
+  padding: 0px 40px;
+}
+
+
+#article li{
+  padding: 2px 0px;
+}
+
+#article ul > li{
+  list-style-type:disc;
+}
+
+#article ol > li{
+  list-style-type:upper-roman;
+}
+
+.article li ul > li{
+  list-style-type: square;
+}
+
+
 .remark,
 .example,
 .counterexample,
@@ -17,66 +45,6 @@ table{
   margin: 0.75rem 0rem;
 }
 
-.remark ul, 
-.example ul, 
-.counterexample ul, 
-.proposition ul, 
-.theorem ul,
-.problem ul,
-.conjecture ul,
-.paragraph ul,
-.definition ul,
-.lemma ul,
-.notation ul,
-.proof ul{
-  padding: 0rem 40px;
-}
-
-.remark ol, 
-.example ol, 
-.counterexample ol, 
-.proposition ol, 
-.theorem ol,
-.problem ol,
-.conjecture ol,
-.paragraph ol,
-.definition ol,
-.lemma ol,
-.notation ol,
-.proof ol{
-  padding: 0rem 40px;
-}
-
-.remark ul li,
-.example ul li,
-.counterexample ul li,
-.proposition ul li,
-.theorem ul li,
-.problem ul li,
-.conjecture ul li,
-.paragraph ul li,
-.definition ul li,
-.lemma ul li,
-.notation ul li,
-.proof ul li{
-  padding: 2px 0px;
-}
-
-
-.remark ol li,
-.example ol li,
-.counterexample ol li,
-.proposition ol li,
-.theorem ol li,
-.problem ol li,
-.conjecture ol li,
-.paragraph ol li,
-.definition ol li,
-.lemma ol li,
-.notation ol li,
-.proof o&l li{
-  padding: 2px 0px;
-}
 
 .paragraph a{
   display: inline;
@@ -175,16 +143,22 @@ table{
   padding-right: 3px;
 }
 
-.article h1, .article h2, .article h3, .article h4, .article h5, .article h6{
+.article h1, 
+.article h2, 
+.article h3, 
+.article h4, 
+.article h5, 
+.article h6,
+#article h1, 
+#article h2, 
+#article h3, 
+#article h4, 
+#article h5, 
+#article h6{
   margin: 1.5rem 0rem;
   white-space: nowrap;
 }
 
-.article{
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 
@@ -257,49 +231,9 @@ h4{
   letter-spacing: 0px;
 }
 
-
-
-
-
-/* Je suis un commentaire */
-
 hr{
   margin: 2rem 0rem;
 }
-
-
-.article li ul li{
-  list-style-type: square;
-}
-
-.remark ul li,
-.example ul li,
-.counterexample ul li,
-.proposition ul li,
-.theorem ul li,
-.problem ul li,
-.conjecture ul li,
-.definition ul li,
-.lemma ul li,
-.paragraph ul li,
-.proof ul li{
-  list-style-type:disc;
-}
-
-.remark ol li,
-.example ol li,
-.counterexample ol li,
-.proposition ol li,
-.theorem ol li,
-.problem ol li,
-.conjecture ol li,
-.definition ol li,
-.lemma ol li,
-.paragraph ol li,
-.proof ol li{
-  list-style-type:upper-roman;
-}
-
 
 a:hover{
   text-decoration: none;

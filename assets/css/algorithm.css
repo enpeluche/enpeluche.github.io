@@ -1,65 +1,53 @@
-/* Conteneur principal */
-.algorithm-container {
-    border: 1px solid #ddd; /* Bordure fine et discrète */
+.algorithm {
+    border: 1px solid var(--primary-border-color);
+    border-radius: 2px;
     padding: 15px;
     margin: 20px 0;
-    background-color: #f9f9f9; /* Arrière-plan légèrement grisé */
-    font-family: monospace, Courier, 'Consolas', sans-serif; /* Police technique */
+    background-color: #f9f9f9;
+    font-family: monospace, Courier, 'Consolas', sans-serif;
     line-height: 1.4;
     font-size: 0.95em;
 }
 
-.algorithm-container h2 {
+.algorithm h2{
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.2em;
-    color: #333;
+    color: var(--primary-text-color);
 }
 
-/* Metadata (Entrée/Sortie) */
-.algo-meta {
+.meta {
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed var(--primary-border-color);
 }
 
-.algo-meta p {
-    margin: 0;
-    padding-left: 20px; /* Aligner avec le contenu de l'algo */
-}
-
-/* Corps de l'Algorithme (Numérotation) */
-.algo-body {
-    list-style-type: decimal; /* Assure la numérotation par défaut */
-    padding-left: 30px; /* Espace pour les numéros de ligne */
-}
-
-/* Style des mots-clés */
 .keyword {
     font-weight: bold;
-    color: var(--secondary-text-color); /* Couleur distinctive pour les mots-clés (Pour, Si, etc.) */
+    color: var(--secondary-text-color);
 }
 
-/* Style des noms de fonctions */
 .function {
     font-style: italic;
     font-weight: bold;
 }
 
-/* Gestion de l'indentation pour les sous-listes (boucles et conditions) */
-.algo-body ol {
-    /* Remplace la numérotation par défaut pour l'indentation */
-    list-style: none; 
-    padding-left: 25px; 
-    margin: 0;
+.for{
+    position: relative;
 }
 
-.algo-body li {
-    padding-left: 0;
-    /* Assure que le contenu est bien aligné */
+.for .c{
+    padding-left: 40px;
 }
 
-/* Gérer l'indentation des instructions directes si pas dans une sous-liste */
-.indented {
-    margin-left: 15px;
+.for::before{
+    content: '';
+    position: absolute;
+
+    left: 1em;
+    top: 1.5em; /* Commence après la ligne */
+    bottom: 1.5em; /* Se termine juste avant le dernier élément de la boucle */
+
+    width: 1px; /* Ligne d'épaisseur zéro */
+    border-left: 2px solid var(--primary-border-color); /* La ligne verticale */
 }

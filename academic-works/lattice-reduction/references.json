@@ -124,7 +124,7 @@
     },
     {
         "id": "ref-schnorr-1994",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1007/BF01581144",
         "title":"Lattice basis reduction: Improved practical algorithms and solving subset sum problems",
         "year":"1994",
@@ -141,7 +141,7 @@
     },
     {
         "id": "ref-mulders-2003",
-        "type":"",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1016/S0747-7171(02)00139-6",
         "title":"On lattice reduction for polynomial matrices",
         "year":"2003",
@@ -158,7 +158,7 @@
     },
     {
         "id": "ref-lenstra-1982",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1007/BF01457454",
         "title":"Factoring polynomials with rational coefficients",
         "year":"1982",
@@ -179,7 +179,7 @@
     },
     {
         "id": "ref-goldreich-1999",
-        "type":"article",
+        "type":"paper",
         "url": "https://doi.org/10.1016/S0020-0190(99)00083-6",
         "title":"Approximating Shortest Lattice Vectors is not Harder than Approximating Closest Lattice Vectors",
         "year":"1999",
@@ -204,7 +204,7 @@
     },
     {
         "id": "ref-nguyen-2009",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1137/070705702",
         "title":"An LLL Algorithm with Quadratic Complexity",
         "year":"2009",
@@ -221,7 +221,7 @@
     },
     {
         "id": "ref-nielsen-2013",
-        "type":"",
+        "type":"paper",
         "url": "",
         "title":"Generalised Multi-sequence Shift-Register Synthesis using Module Minimisation",
         "year":"2013",
@@ -289,7 +289,7 @@
     },
     {
         "id": "ref-kirchner-2021",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1007/978-3-030-84245-1_26",
         "title":"Towards Faster Polynomial-Time Lattice Reduction",
         "year":"2021",
@@ -310,7 +310,7 @@
     },
     {
         "id": "ref-havas-1998",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1080/10586458.1998.10504362",
         "title":"Extended GCD and Hermite Normal Form Algorithms via Lattice Basis Reduction",
         "year":"1998",
@@ -331,7 +331,7 @@
     },
     {
         "id": "ref-bkz-2011",
-        "type":"",
+        "type":"paper",
         "url": "https://eprint.iacr.org/2011/198",
         "title":"Terminating BKZ",
         "year":"2011",
@@ -369,7 +369,7 @@
     },
     {
         "id": "ref-banaszczyk-1993",
-        "type":"article",
+        "type":"paper",
         "url": "http://dx.doi.org/10.1007/BF01445125",
         "title":"New bounds in some transference theorems in the geometry of numbers",
         "year":"1993",
@@ -395,7 +395,7 @@
     },
     {
         "id": "ref-henry-2016",
-        "type":"article",
+        "type":"paper",
         "url": "https://arxiv.org/abs/1603.06518",
         "title":"The sphere packing problem in dimension 24",
         "year":"2016",
@@ -424,7 +424,7 @@
     },
     {
         "id": "ref-viazovska-2016",
-        "type":"article",
+        "type":"paper",
         "url": "https://arxiv.org/abs/1603.04246",
         "title":"The sphere packing problem in dimension 8",
         "year":"2016",

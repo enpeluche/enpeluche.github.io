@@ -13,6 +13,9 @@
   list-style-type: none;
 }
 
+.references ol{
+  list-style-type: none;
+}
 .references li {
 
   /* box model */
@@ -34,7 +37,7 @@
   les font size en px a changer en rem ?
   16px = 1rem
   typography */
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 300;
   
   /* box model */
@@ -110,16 +113,7 @@
   text-decoration: none;
 }
 
-
-#ref-goldreich-1999::before,
-#ref-boudgoust-2023::before,
-#ref-stephens-davidowitz-2015::before,
-#ref-ajtai-1996::before,
-#ref-lenstra-1982::before,
-#ref-banaszczyk-1993::before,
-#ref-hales-2015::before,
-#ref-viazovska-2016::before,
-#ref-cohn-henry-2016::before{
+.paper::before{
   
   /* box model */
   width: 20px;
@@ -132,7 +126,7 @@
 
   /* layout */
   position: absolute;
-  top: 0em;
+  top: 4px;
   left: -2em;
   
   /* generated content */
