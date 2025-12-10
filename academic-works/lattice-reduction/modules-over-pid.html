@@ -1,6 +1,5 @@
-<!-- En LaTeX, il y a \cite, je pourrais créer un div cite, ce serait intéréssant, on pourrait cliquer dessus?-->
-
 <!DOCTYPE html>
+
 <html lang="fr">
     <head>
         <title>
@@ -40,17 +39,21 @@
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
                 {left: "$$", right: "$$", display: true},
                 {left: "$", right: "$", display: false},
                 {left: "\\[", right: "\\]", display:true},
                 {left: "\\(", right: "\\)", display:false}
-                ]
-            });
-            });
-        </script>
+            ],
+            macros: {
+                // Définit que chaque \K doit être rendu comme \mathbb{K}
+                "\\K": "\\mathbb{K}" 
+            }
+        });
+    });
+</script>
     </head>
     <body>
         <header>
@@ -79,8 +82,81 @@
             <div id="toc"></div>
 
             <div id="article">
-            </div>
+                <h2>Modules sur un anneau principal</h2>
 
+                <div class="paragraph">
+                    Dans la suite, on considère un anneau principal $A$, c’est-à-dire un anneau (commutatif unitaire) dans lequel <strong>tout idéal</strong> est principal.
+                </div>
+
+                <div class="theorem">
+	                Soit $M$ un module <strong>libre</strong> sur un anneau principal $A$. Alors tout sous-module de $M$ est également libre et son rang est inférieur ou égal à celui de $M$.
+                </div>
+
+                <div class="example">
+	                Dans le $\Z$-module libre $\Z^2$, considérons le sous-ensemble
+	                \[
+	                N \;=\; \{(a,b)\in \Z^2 \mid a \equiv b \pmod{10}\}.
+	                \]
+	                On constate que $N$ est un <strong>sous-module</strong> de $\Z^2$, et qu’il est engendré par les vecteurs $(1,1)$ et $(0,10)$. Ceux-ci sont $A$-linéairement indépendants, donc $N$ est libre de rang $2$, tout comme $\Z^2$ lui-même.
+                </div>
+
+                <figure>
+                    <div class="fig-container">
+
+                    <table>
+
+                        <tr>
+                            <td> <strong>Module $M$</strong> </td>
+                            <td> <strong>Anneau $A$</strong> </td>
+                            <td> <strong>Libre</strong> </td>
+                            <td> <strong>Type fini</strong> </td>
+                            <td> <strong>Torsion</strong> </td>
+                            <td> <strong>Réf.</strong> </td>
+                        </tr>
+                        <tr>
+                            <td>$\K[x]^n$</td> <td>$\K[x]$</td> <td>Oui</td> <td>Oui</td> <td>Non</td> <td>(1)</td>
+                        </tr>
+                        <tr>
+                            <td>$\K[x]/(x^n)$</td> <td>$\K[x]$</td> <td>Non</td> <td>Oui</td> <td>Oui</td> <td>(2)</td>
+                        </tr>
+                        <tr>
+                            <td>$\K[x]^\infty$</td> <td>$\K[x]$</td> <td>Oui</td> <td>Non</td> <td>Non</td> <td>(3)</td>
+                        </tr>
+                        <tr>
+                            <td>$\K(x)$</td> <td>$\K[x]$</td> <td>Non</td> <td>Non</td> <td>Oui</td> <td>(4)</td>
+                        </tr>
+                        <tr>
+                            <td>$(\K[x])^n / (x \cdot \K[x])^n$</td> <td>$\K[x]$</td> <td>Non</td> <td>Oui</td> <td>Oui</td><td>(5)</td>
+                        </tr>
+                    </table>
+                    </div>
+
+                    <figcaption>
+                        <span class="label"></span>Exemples de modules sur l’anneau $\K[x]$</figcaption>
+                </figure>
+
+                <div class="paragraph">
+                    <strong>Commentaires sur les exemples :</strong>
+
+                    <ol>
+                        <li>
+                            \(\K[x]^n\) est le module libre canonique : c’est un \(\K[x]\)-module libre de rang \(n\). Il sert de modèle aux réseaux polynomiaux.
+                        </li>
+                        <li>
+                            \(\K[x]/(x^n)\) est un module de torsion : tout élément est annulé par une puissance de \(x\). Il n’admet pas de base libre.
+                        </li>
+                        <li>
+                            \(\K[x]^\infty\) (somme directe infinie) est un module libre, mais non de type fini. Il possède une base infinie indexée par \(\N\).
+                        </li>
+                        <li>
+                            \(\K(x)\), le corps des fractions rationnelles, est un module divisible mais non libre. Il contient des éléments sans expression unique comme combinaison de base.
+                        </li>
+                        <li>
+                            $(\K[x])^n / (x \cdot \K[x])^n$ est un module quotient, utilisé dans les algorithmes de bases d’ordre modulo $x^\sigma$. C’est un module de torsion.
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </main>
 
         <footer id="main-footer"></footer>
