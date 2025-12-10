@@ -14,8 +14,7 @@ async function loadReferences() {
 
       const elt = references.find(REF => REF.id === ref.className);
       
-      console.log(elt.title); //on pourrait' aussi ajout'er cet' elt' dans la list'e des references a la fin
-
+      console.log(elt.title); 
 
       if (!refList.includes(elt)) {
     refList.push(elt);
