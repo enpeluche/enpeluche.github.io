@@ -1,4 +1,4 @@
-import { createLink } from '/assets/js/components/utils.js';
+import { createLink } from '../utils/utils.js';
 
 function toggleVisibility() {
     const fullTOC = document.getElementById('full-toc');
@@ -8,7 +8,7 @@ function toggleVisibility() {
     minTOC?.classList.toggle('hidden');
 }
 
-async function loadTableOfContents() {
+export async function loadTableOfContents() {
     try {
         // --- 1. INITIALISATION & CHARGEMENT DES DONNÉES ---
         const response = await fetch('toc.json');
@@ -145,6 +145,3 @@ async function loadTableOfContents() {
         console.error("Erreur lors de la génération de la TOC :", error);
     } 
 } 
-
-// Déclenchement de la fonction lorsque le DOM est prêt
-document.addEventListener("DOMContentLoaded", loadTableOfContents);

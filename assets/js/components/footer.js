@@ -1,55 +1,35 @@
-async function loadFooter() {
+export async function loadFooter() {
     try {
         const response = await fetch('toc.json');
-        const toc = await response.json(); // Simplicité : assume que le JSON est déjà la liste plate
+        const toc = await response.json();
 
-         const list = [];
+        const list = [];
 
+        toc.forEach(chapter => {
 
-toc.forEach(chapter => {
+            list.push({
+                title: chapter.title,
+                filename: chapter.filename
+            });
 
-list.push({
-
-title: chapter.title,
-
-filename: chapter.filename
-
-});
-
-
-if(chapter.children) {
-
-chapter.children.forEach(subchapter => {
-
-list.push({
-
-title: subchapter.title,
-
-filename: subchapter.filename
-
-});
-
-});
-
-}
-
-}); 
-        // Note: Vous devez appeler getFlatNavigationList() si votre JSON n'est pas plat.
-        // Pour l'exemple, nous allons simuler 'list' comme étant le tableau plat complet.
+            if(chapter.children) {
+                chapter.children.forEach(subchapter => {
+                    list.push({
+                        title: subchapter.title,
+                        filename: subchapter.filename
+                    });
+                });
+            }
+        }); 
         
-        // ... Logique de création de la liste 'list' ...
-        
-        const pageTitleClean = document.title.toLowerCase().trim();
-        const currentIndex = list.findIndex(item => item.title.toLowerCase().trim() === pageTitleClean);
+    const pageTitleClean = document.title.toLowerCase().trim();
+    const currentIndex = list.findIndex(item => item.title.toLowerCase().trim() === pageTitleClean);
 
-        console.log(currentIndex)
-
-
-        // Sortir si la page actuelle n'est pas trouvée
-        if (currentIndex === -1) {
-            console.warn("Titre de page non trouvé dans la liste de navigation.");
-            return; 
-        }
+    // Sortir si la page actuelle n'est pas trouvée
+    if (currentIndex === -1) {
+        console.warn("Titre de page non trouvé dans la liste de navigation.");
+        return; 
+    }
 
         const footerContainer = document.getElementById('main-footer');
         const nav = document.createElement('nav');
@@ -123,4 +103,3 @@ filename: subchapter.filename
         console.error("Erreur critique dans loadFooter :", error); 
     }
 }
-document.addEventListener("DOMContentLoaded", loadFooter);

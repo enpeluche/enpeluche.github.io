@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+export function setupKatex() {
     renderMathInElement(document.body, {
         delimiters: [
         {left: "\\begin{equation}", right: "\\end{equation}", display: true},
@@ -19,4 +19,4 @@ document.addEventListener("DOMContentLoaded", function() {
             "\\gscoeff": "\\frac{\\ps{#1}{#2}}{\\norm{#2}^2} #2"
         }
     });
-});
+}    

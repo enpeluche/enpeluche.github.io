@@ -21,7 +21,6 @@ export function createLink({
     a.hreflang = hreflang;
     a.target = target;
     a.rel = rel;
-    // La propriété est seulement assignée si la variable 'title' a une valeur dans l'objet de configuration
     a.title = title;
     a.textContent = textContent;
 
