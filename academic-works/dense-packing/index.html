@@ -54,301 +54,10 @@
             </nav>
         </header>
         <article id="article">
+
+            <!--<div id="toc-container" style="height: 100vh;"></div>-->
+
             <h1>Empilement compact</h1>
-
-            <h2>Introduction</h2>
-            
-            <div class="paragraph">
-                <strong>L'empilement compact, qu'est ce que c'est ?</strong> 
- 
-                L'empilement compact est la manière d'agencer des sphères dans l'espace afin d'avoir la plus grande densité de sphères, sans que celles-ci ne se recouvrent.
-                On peut par exemple parler d'empilement d'orange, de ballons $\cdots$
-                L'empilement compact fascine depuis longtemps les mathématiciens. En 1606, l'assistant de Walter Raleigh se pose le problème de l'empilement des boulets de canons. Ils vont alors correspondre avec Johannes Kepler.Il va alors se demander si il existe un empilement d'orange plus compact, plus dense ? En 1611, il fini par émettre une conjecture, c'est bien cet empilement qui est le plus dense/compact possible. \cite{empil4}
-                Deux siècles plus tard, en 1831, Gauss démontra que l'empilement de l'épicier était le plus dense des empilements réguliers. Une question se pose alors, et s'il existait un empilement irrégulier d'oranges plus dense que l'empilement régulier de l'épicier ?
-                C'est à la fin du $XX^{ième}$ siècle que le mathématicien Thomas Callister hales va démontrer que non, il n'existe pas d'empilement irrégulier plus dense que celui de l'empilement de l'épicier. 
-                En 2016, Maryna Viasovska, une mathématicienne ukrainienne, va résoudre le problème des empilements compacts en dimension 8 et 24.
-                
-            </div>
-
-<div class="paragraph"></div>
-L'isopérimétrie, qu'est ce que c'est ?
-En géométrie euclidienne, l'isopérimétrie est initialement l'étude des propriétés des formes géométriques du plan qui partagent le même périmètre, ce qui se généralise ensuite dans les autres espaces euclidiens. En physique et dans la nature, l'isopérimétrie se manifeste par un problème simple : pour un même volume, peut on chercher à minimiser la surface ? On comprends bien l'idée, avoir moins de surface, c'est avoir moins d'énergie à dépenser.
-Qu'est ce que l'inégalité isopérimétrique ? En dimension deux, elle relie l'aire avec le périmètre, en dimension trois, elle relie le volume avec la surface..
-Que va-t-il se passer si on essaye de mélanger les deux idées de l'empilement compact et de l'isopérimétrie ?
-Nous allons nous intéresser de plus près à ces deux questions pour voir comment elles sont liées.
-\cite{empil3}
-
-
-            <h2>Empilements compacts</h2>
-
-            <div class="paragraph"></div>
-Voyons dans un premier temps, l'empilement régulier de sphères égales en différentes dimensions.
-Nous allons introduire les notions d'empilement, d'empilement régulier et irrégulier ainsi que de la densité, permettant d'aborder le reste de notre mémoire.
-\cite{empil1}
-
-On se place dans le cadre des espaces euclidiens de dimension finie.
-
-            <h3>Découverte</h3>
-<div class="definition">[Empilement]
-Un empilement est une manière de placer des objets dans l'espace sans que celles-ci ne se recouvrent, autrement dis, elles ne s'intersectent pas. 
-
-On peut empiler différents objets, des disque, des ellipses par exemple.
-</div>
-
-<div class="definition">[Empilement régulier]
-Un empilement régulier est un empilement où le centre de chaque objet est placé sur un réseau $\Lamda = \sum_i \mathbb{Z} v_i$ avec $v_i$ un vecteur de cet espace euclidien.
-</div>
-
-<div class="definition">[Empilement irrégulier]
-Un empilement irrégulier est un empilement où les centres des objets ne sont pas placés sur un réseau.
-
-On peut par exemple voir l'empilement d'Apollonius, qui est un empilement fractal, n'est pas régulier.
-</div>
-
-<div class="definition">[Densité]
-La densité d'un empilement est le rapport de l'espace occupé par cet empilement avec le volume de l'espace considéré.
-
-Cela peut être par exemple un ensemble infini, en considérant une densité dans une sphère finie et en faisant tendre le rayon de cette sphère vers l'infinie, on aura alors une valeur finie comme densité.
-</div>
-
-Dans toutes la suite on choisir d'empiler des objets égaux.
-
-            <h3>Empilements de disques égaux en dimension 2</h3>
-
-
-En 1 dimension, une boule est un segment, on cherche donc à empilement des segments de même longueur sur un axe.
-On voit par un dessin que la densité est de 1, en effet les segments recouvrent complètement l'axe.
-En 2 dimensions, la boule est le disque que l'on connaît. Nous travaillerons donc maintenant avec des disques de rayons r.
-Nous voulons donc placer des disques dans le plan de la manière la plus dense possible.
-Il y a deux arrangements qui se présentent à nous :
-<ul>
-    <li></li> - l'arrangement rectangulaire
-    <li></li> - l'arrangement hexagonal
-</ul>
-
-<figure>
-~~~~~~~~~~~~~~~~~~~~
-    \includegraphics[width = 4cm]{arrangement_rectangulaire.jpg}
-    \hspace{2cm}
-    \includegraphics[width = 4cm]{arrangement hexagonal.jpg}
-    <figcaption>Arrangement rectangulaire et hexagonal}
-    
-</figure>
-
-
-{ Quelle est la densité de ces deux empilements ?
-Pour calculer la densité de ces deux empilements, nous allons devoir calculer la proportion d'aire des disques par rapport à l'aire du plan.
-Pour cela, on va placer un point sur chaque centre de disque, et relier ces points par un segment si deux disques sont adjacents, on obtient alors les graphes suivants superposés aux empilements rectangulaire et hexagonal }
-
-<figure>
-~~~~~~~~~~~~~~~~~~~~
-    \includegraphics[width = 4cm]{orange-1.png}
-    \hspace{2cm}
-    \includegraphics[width = 4cm]{orange-2.png}
-    <figcaption>Arrangement rectangulaire et hexagonal}
-    
-</figure>
-
-{ Dans le cas de l'arrangement rectangulaire, on a pavé le plan par des carrés de côtés 2r, dont les sommets sont au centre des disques. Ainsi, chaque carré a pour aire $4r^2$. De cette aire, il y a une aire de $\pi r^2$ recouverte par des disques, en effet, on a quatre quart de disque de rayon r. Donc la densité de l'empilement est la densité de quatre quarts de disques de rayon r dans un carré de côté 2r qui est $\frac{\pi r^2}{4r^2} = \frac{\pi}{4}$.
-Donc la densité de l'empilement rectangulaire est de $\frac{\pi}{4} \approx 0.785$.} 
-Dans le cas de l'arrangement hexagonal, on a pavé le plan par des triangles équilatéraux de côtés $2r$, dont les sommets sont aux centre des disques. Ainsi, chaque triangle a pour aire $\sqrt{3}r^2$. De cette aire, il y a une aire de $\frac{\pi r^2}{2}$ recouverte par des disques, en effet, on a 3 sixième de disque de rayon r. Donc la densité de l'empilement hexagonal est la densité de 3 sixième de cercle de rayon r dans un carré de côté 2r qui est $\frac{\pi r^2}{2 \sqrt(3) r^2} = \frac{\pi}{2 \sqrt(3)}$.
-Donc la densité de l'empilement hexagonal est de $\frac{\pi}{2 \sqrt(3)} \approx 0.907.$
-
-            <h4></h4>
-\subsection{Preuve de l'empilement le plus dense}
-{ On a vu que de vu que l'empilement le plus compact semblait être l'empilement hexagonal, il nous reste à le montrer.}
-Si l'on compare des empilements réguliers, on verra que l'empilement hexagonal est bien le plus compact, qu'en est il des empilements irréguliers ?
-Le mathématicien Alex Thue a eut l'idée de partionner l'espace en région astucieusement choisie  et de montrer que la densité est bien inférieure à la densité de l'empilement hexagonal dans chaque région.
-Prenons des disques et agrandissons les tel qu'il remplissent l'espace du triangle.
-
-<figure>
-    \centering
-    \includegraphics[width = 4cm]{orange-3.png}
-    
-</figure>
-
-Le rayon des grands cercles nouvellement obtenu est égal au $\frac{2}{3}$ de la hauteur du triangle équilatéral, on trouve avec un petit calcul que ce rayon est $\frac{2 \sqrt{3}}{3}$.
-Définissons maintenant les régions qui partionneront l'espace.
-
-La première est la portion du plan qui n'est pas recouverte par des grands disques.
-
-Pour les deux dernières régions, à chaque fois que des disques ont une intersection non vide, on les divises en secteur délimité par des rayons des cercles qui rejoignent les points d'intersection de leur frontière.
-<figure>
-    
-    \includegraphics[width = 5cm]{orange-4.png}
-    
-    \includegraphics[width = 5cm]{orange-5.png}
-    
-    
-    
-</figure>
-Le plan peut ainsi être partitionné avec ces 3 types de régions.
-
-On voit une partition du plan avec cette image.
-(image)
-La \textbf{densité dans le premier type} est bien sûr nulle.
-
-\textbf{Calcul de densité dans les régions de deuxième type.}
-L'aire d'un secteur de disque de rayon r et d'ouverture $\theta$ est $\frac{\theta}{2} r^2$.
-Donc la densité est $\frac{\frac{\theta}{2}}{r^2 \frac{theta}{2}} = \frac{1}{r^2} = \frac{3}{4} = 0.75$
-Cette densité est bien inférieure à la densité de l'empilement hexagonal.
-
-\textbf{Calcul de densité dans les régions de troisième type.}
-Intéressons nous à la densité dans la troisième type de régions.
-La région couverte par les petits disques est la réunion de deux secteurs de rayon 1 et d'ouverture $\theta$, qui a donc pour aire $\theta$.
-L'aire de la région est la somme des aires des deux triangles isocèles ayant chacun les 2 côtés de longueur $r = \frac{2 \frac{\sqrt{3}}}{3}$ séparés par un angle $\theta$.
-Par le théorème d'Al-KAshi, on a $c = \sqrt{2 r^2 (1-cos(\theta)}$. On cherche maintenant du côté manquant du double isocèle pour calculer son aire et on trouve $\sqrt{\frac{r^2(1+cos(\theta)}{2}}$. 
-Son aire est donc le produit de ces deux longueurs qui donne $\frac{4}{3} sin(\theta)$.La densité des deux secteurs de disque dans ce double triangles isocèle est donc $\frac{3\theta}{4 sin(\theta)}$. On va étudier cette densité en fonction de $\theta$, déjà, $\theta \in [0, \frac{\pi}{3}]$.On va essayer de montrer que cette densité est bien inférieure à la densité de l'empilement hexagonal. En montrant que cette densité est croissante et que sa borne supérieure est bien inférieure à la densité de l'empilement hexagonal.
-
-{ Soit f : $\mathbb{R}\backslash \left\{  k\pi, k \in \mathbb{Z} \right\} \rightarrow \mathbb{R}$}
-
-Pour trouver
-\tabto{3cm} x $\longrightarrow$ $\frac{3x}{4sin(x)}$
-f est prolongeable par continuité en 0, on a $\lim\limits_{\substack{x \rightarrow 0^+  x \rightarrow 0^-}} f(x)$ f(x) = $\frac{3}{4}$, on pose donc f(0)=$\frac{3}{4}$
-Montrons que f est croissante sur [0,$\frac{\pi}{3}$]. 
-
-<div class="proof">
-Pour cela, on va montrer que f'(x) est positive sur [0,$\frac{\pi}{3}$].
-On a f'(x)=$\frac{3sin(x)}{4sin^2(x)}-\frac{3xcos(x)}{4sin^2(x)}$
-On va étudier le signe de sin(x) - xcos(x) sur [0,$\frac{\pi}{3}$], elle vaut 0 en 0.
-On dérive cette expression, on a cos(x) + xsin(x) - cos(x) = x sin(x). Et pour tout x $\in$ [0,$\frac{\pi}{3}$], on a x sin(x) $>$ 0, donc x $\rightarrow$ sin(x) -x cos(x) est croissante sur [0,$\frac{\pi}{3}$] donc elle est positive car elle vaut 0 en 0. Donc f'(x) $>$ 0 pour tout x $\in$ [0,$\frac{\pi}{3}$] et ainsi, f est croissante sur [0,$\frac{\pi}{3}$].
-</div>
-{ De plus}, on a $f(\frac{\pi}{3}) = \frac{\pi}{2 \sqrt{3}}$
-{ En dimension 3,} c'est le même type de raisonnement qu'a utilisé Thomas C. Halles pour démontrer la densité maximale, il a partitionné l'espace en régions, et a montré que, dans chaque type de régions, la densité est inférieure ou égale à la densité de l'empilement de l'épicier. Mais, car il y a un mais, le nombre de région à considérer est énorme, c'est pourquoi il a utilisé l'ordinateur pour calculer la densité dans tous les types de régions.
-
-            <h3>Empilements de boules égales en dimension 3</h3>
-
-En 3 dimensions, les choses se compliquent, nous allons expliquer et donner des résultats sans énoncer de preuves.
-On va s'intéresser à trois types d'empilement en 3 dimensions :
-<ul>
-    <li></li> cubique
-    <li></li> triangulaire
-    <li></li> hexagonal
-</ul>
-
-<figure>
-    \includegraphics[width = 4cm]{arrangement_cubique.png}
-    
-    \includegraphics[width = 4cm]{arrangement_cubique_a_face_centree.png}
-    
-    \includegraphics[width = 4cm]{arrangemet_hexagonal.png}
-    <figcaption>Arrangement cubique, triangulaire et hexagonal}
-    
-</figure>
-
-On peut remarquer que l'empilement hexagonal peut se décliner sous plusieurs formes en donnant la même densité. Il n'y a donc pas d'unicité quant à la densité d'un empilement.
-
-{ Quelle est la densité de ces 3 empilements ?}
-Pour calculer la densité de ces trois empilements, nous allons devoir calculer la proportion d'aire des boules par rapport au volume de l'espace.
-Pour cela, on va de utiliser la même méthode que celle utilisée pour les disques : on va placer un point au centre de chaque boules, et relier ces points par un segment si deux boules sont adjacentes, on obtient alors les graphes suivants superposés aux empilements cubique, triangulaire et hexagonal : 
-\cite{empil2}
-Dans le cas de l'empilement cubique, on a pavé l'espace par des cubes de côtés $2r$, dont les sommets sont aux centre des boules. Ainsi, chaque cube a pour volume $(2r)^3 = 8r^3$. De ce volume, il y a un volume de $\frac{4}{3} \pi r^3$ occupé par des boules, en effet, on a 8 huitième de boule de rayon r. Donc la densité de l'empilement cubique est la densité d'une boule de rayon r dans un cube de côté 2r qui est \centerline{$\frac{\frac{4}{3} \pi r^3}{8r^3} = \frac{4}{24} \pi = \frac{\pi}{6}$}.
-Donc la densité de l'empilement cubique est $\frac{\pi}{6} \approx 0.523$.
-La densité de l'empilement hexagonal est $\frac{\pi}{\sqrt(18)} \approx 0.740$.
-La densité de l'empilement triangulaire est $\frac{\pi}{\sqrt{27}} \approx 0.604$.
-
-            <h3>Un mot sur les dimensions supérieures</h3>
-
-            On remarque en augmentant de dimensions, que la densité globale a l'air de décroître.
-Dorénavant, parlons des dimensions 8 et 24. Pourquoi passe-t-on de 3 dimensions à 8 et 24 dimensions ? 
-Car ces dimensions sont particulières, nous allons le voir plus en détail. Dans des articles publiés en 2016, la mathématicienne Ukrainienne Maryna Viazovska a résolu la question des empilements de sphères en 8 et 24 dimensions. Elle a démontrée que deux arrangements particuliers en dimension 8 et 24 permettent de placer les sphères de la façon la plus dense possible. Mais pourquoi ces dimensions particulières ? Quant on augmente en dimension, on augmente le nombre de cas à considérer, tout devient bien plus compliqué à étudier, pourtant il existe deux dimensions particulières dans lesquels les choses s'arrangent parfaitement : la dimension 8 et 24. Les réseaux des empilements sont respectivement nommé réseau E8 et réseau de Leech, chaque point du réseau représentant le centre d'une sphère. Plus l'on augmente en dimension, plus l'espace entre les oranges dans un empilement augmente, mais en dimension 8 et 24 il augmente suffisamment pour laisser la place à une nouvelle orange. Ce qui simplifie considérablement les objets à étudier.
-L'empilement compact a amené à un autre problème, le "Kissing Number". On veut savoir combien de sphères identiques au maximum peuvent se ranger autour d'une sphère de même type. Le problème se pose dans toutes les dimensions, allant de la première à la 24ième.
-<figure>
-    \hspace{2cm}
-    \includegraphics[width = 3.5cm]{Kissing-2d.png}
-    \hspace{4cm}
-    \includegraphics[width = 3.5cm]{Kissing-3d.png}
-    <figcaption>Kissing Number en dimension 2 et 3}
-    
-</figure>
-
-Combien de sphères identiques au maximum peuvent se ranger autour d'une sphère de même type ? Autrement dit combien peut on placer de sphères tangentes ne se coupant pas à une même sphère ?
-Voici un tableau regroupant les valeurs connus ou estimées des valeurs possibles en chaque dimension.
-On remarque pour les dimensions 2, 8 et 24 qu'il n'y a pas d'espaces entre les sphères tangentes, elles sont toutes tangentes avec les sphères voisines.
-On a donc l'absence d'espace entre les boules qui permet l'unicité de l'arrangement le plus dense.
-
-            <figure>
-                <div class="fig-container">
-                    <table>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </figure>
-\begin{tabular}{|c|c|}
-\rowcolor{orange!50}
-\hline Dimension & Kissing Number
-\hline 1 & 2 
-\hline 2 & 6 
-\hline 3 & 12 
-\hline 4 & 24 
-\hline 5 & 40 à 44 
-\hline 6 & 72 à 78 
-\hline 7 & 126 à 134 
-\hline 8 & 240 
-\hline 9 & 306 à 364 
-\hline 10 & 500 à 554 
-\hline 11 & 582 à 870 
-\hline 24 & 196 560 
-\hline
-\end{tabular}
-
-{ Pour les autres dimensions, on peut se demander ce qu'il se passera pour la densité et,à en croire les différents résultats publiés, il semblerait que la densité décroît.}
-%parler des codes d'erreurs 
-Cependant il n'y a pas seulement l'empilement de cercles qui fascinent les scientifiques, mais aussi les empilements d'autres polygones réguliers comme le carré, le triangle,les hexagones  ou même les ellipses .
-%automatiquement moins dense : moins bon rapport entre surface et volume ?
-%conjecture kelvin,
 
             <h2>Les empilements compacts et l'inégalité isopérimétrique</h2>
 
@@ -518,6 +227,7 @@ On a $\lambda (\partial A)^n \geq n^n \mu (A)^{n-1} \mu (B)$ avec égalité si e
 \end{theorem}
 \end{tcolorbox}
 
+            <hr>
 
             <h3>Conclusion : Du nid d'abeille aux bulles de savons</h3>
 
@@ -532,8 +242,15 @@ Le diagramme de Voronoï d'un ensemble de points est constitué d'une cellule de
 </div>
 
 En dimension 3, l'empilement le plus dense n'est pas unique, on peut s'intéresser aux diagrammes de Voronoï liés à ces empilements et constater que tous n'ont pas la même constante isopérimétrique ! Cette remarque est le coeur du problème de la conjecture de Kelvin, qui s'intéressa au nid d'abeille en 3 dimensions. Différentes structures sont trouvées avec des approches nouvelles, le lecteur est renvoyé aux travaux de Weaire-Phelan, qui ont trouvés un contre exemple à la conjecture de Kelvin. LE lecteur est aussi renvoyé à la mousse de bière, en effet, la mousse de bière forme un lien assez intéressants entre les empilements compacts et le problème isopérimétrique, c'est d'ailleurs de là que vient la structure de Weaire-Phelan. 
+            
+            <hr>
 
             <h2>La conjecture du nid d'abeille</h2>
+            <!--#################################################################################################################
+            #####################################################################################################################
+            ###################################################################################################################-->
+
+            <hr>
 
             <h3>Introduction : les nids d'abeilles</h3>
 
@@ -541,6 +258,7 @@ La conjecture du nid d'abeille énonce que le pavage hexagonal régulier est la 
 Les premières traces de cette conjecture remontent au $IV^{\grave{e}me}$ siècle après J-C dans le livre V de Pappus. On savait déjà à cette époque que seuls trois polygones réguliers pouvaient paver le plan : le triangle, le carré et l'hexagone. Pappus, observant les nids d'abeille, déclara qu'elles utilisaient le pavage hexagonal, car, pour une quantité de matériaux donnés, la forme hexagonal est celle des trois polygones régulier qui permet de renfermer la plus grande quantité de miel. Il faisait, implicitement, la comparaison entre les 3 pavages réguliers montrant que le pavage hexagonal est celui le plus économique. Darwin partageait cette opinion également. Il pensait que la pavage hexagonal utilisé par les abeilles, était le résultat d'une sélection naturelle, où les nids les plus économes en cire était les plus viables.
 Cette conjecture ne devint un théorème qu'en 1999, la preuve étant apportée par Thomas Callister Hales, en seulement 22 pages. 
 \cite{thomas1}
+            <hr>
 
             <h3>Preuve de la conjecture</h3>
 Nous allons essayer d'expliquer sa démarche, et de démontrer, avec nos propres mots et nos formulations, la conjecture du nid d'abeille, nous essayerons d'illustrer les concepts.
@@ -636,8 +354,9 @@ Donc $limsup \rho _n \geq \rho \infty = \sqrt[4]{12}$. Ce qui achève la démons
 
 
 </div>
-<h4></h4>
-\subsection{La conjecture du nid d'abeille sur un tore}
+            <hr>
+
+            <h4>La conjecture du nid d'abeille sur un tore</h4>
 { Ce théorème va nous permettre de passer de l'infini au fini.}
 
 \begin{tcolorbox}[colback=green!6]
@@ -733,7 +452,7 @@ Dans son papier de recherche, Thomas C. Halles explique que l'on peut modifier l
 
 Pour la suite et la fin de cette partie sur la démonstration de la conjecture du nid d'abeille, nous allons introduire différents concepts et faire la mise en contexte de la pour l'introduction du dernier théorème.
 
-\subsection{L'inégalité isopérimétrique hexagonale pour les courbes planes fermées.}
+            <h4>L'inégalité isopérimétrique hexagonale pour les courbes planes fermées.</h4>
 
 { Maintenant, tout se passera sur un compact, plus précisément un tore.}
 Il y a une remarque importante pour les graphes à formuler.
@@ -787,12 +506,11 @@ On définit finalement une fonction de troncation $T : \mathbb{R} \rightarrow \m
 \centerline{$T(x) = \frac{1}{2}, x \geq \frac{1}{2}, \frac{-1}{2}, x \leq \frac{-1}{2}, x, x \in [\frac{-1}{2}, \frac{1}{2}]$}
 Cette fonction est équivalente à tronquer un ensemble par un compact. Elle est indispensable à la validité du théorème.
 
-\begin{tcolorbox}[colback=green!6]
+
 \begin{theorem}[Théorème isopérimétrique hexagonal pour les courbes planes fermées]
 Soit $\Gamma$ une courbe plane fermée. Soit $L(P)$ la longueur de $\Gamma$. Soit  N(P) le nombre de points $v_i$ sur $\Gamma$ comptés avec leur multiplicités.
 Alors $L(P) \geq - T(P) \sqrt[4]{12} - (N(P)-6)0.0505+2 \alpha(P) \sqrt[4]{12}$
 \end{theorem}
-\end{tcolorbox}
 
 \begin{lemma}
 Ce théorème implique le théorème du nid d'abeille sur un tore. On considère un tore découpé en régions (ensembles ouverts). On va appliquer cette inégalité aux n différentes régions $R_1, \cdots, R_n$ formant la partition du tore, (Grâce à la compacité du tore, on peut y appliquer des choses globalement.)
@@ -805,13 +523,25 @@ D'après ce dernier théorème, on a donc :
 \centerline{$ 2 \text{perim} (\Gamma) = \underset{P}{\sum} L(P) \geq - \sqrt[4]{12} \underset{P}{\sum} T(P) +6(0.0505) \underset{P}{\sum} (1- \frac{N(P)}{6} + 2 \underset{P}{\sum} \alpha (P) \sqrt[4]{12}$}
 La démonstration s'achève en remarquant que deux des trois termes s'annulent suite à une proposition précédemment énoncée et une remarque faite dans la preuve, ce qui achève la preuve.
 \end{lemma}
-            
+<!--#################################################################################################################
+#####################################################################################################################
+###################################################################################################################-->
+            <hr>
+
             <h2>Simulations</h2>
 
-Dans cette partie, nous allons illustrer par des simulations les concepts précédemment vus d'empilements compacts et d'isopérimétrie.
-Dans une première partie, nous allons, calculer la constante isopérimétrique de graphes donnés, illustrant ainsi les théorèmes énoncés dans le chapitre sur la conjecture du nid d'abeille. 
-Dans une dernière partie, nous allons, estimer la densité de certains empilements, illustrant ainsi les résultats obtenus dans le chapitre sur l'empilement compact.
-Tous les algorithmes importants qui ont été utilisés pour faire ces simulations seront expliqués en détails, par des schémas et des explications. Le reste sera laissé en annexe.
+            <div class="paragraph">
+                Dans cette partie, nous allons illustrer par des simulations les concepts précédemment vus
+                d'empilements compacts et d'isopérimétrie.
+                Dans une première partie, nous allons, calculer la constante isopérimétrique de graphes donnés,
+                illustrant ainsi les théorèmes énoncés dans le chapitre sur la conjecture du nid d'abeille. 
+                Dans une dernière partie, nous allons, estimer la densité de certains empilements, illustrant
+                ainsi les résultats obtenus dans le chapitre sur l'empilement compact.
+                Tous les algorithmes importants qui ont été utilisés pour faire ces simulations seront expliqués
+                en détails, par des schémas et des explications. Le reste sera laissé en annexe.
+            </div>
+
+            <hr>
 
             <h3>Première partie : Isopérimétrie</h3>
 
@@ -819,7 +549,8 @@ Le but de cette première partie est d'estimer la constante isopérimétrique de
 Pour cela, nous devons implémenter un algorithme qui, pour un graphe donné, estimera sa constante isopérimétrique.
 Le lecteur est invité à lire l'annexe sur l'aspect informatique pour plus de détails sur les graphes.
 
-\subsection{Algorithme de calcul de la constante isopérimétrique}
+            <h4>Algorithme de calcul de la constante isopérimétrique</h4>
+
 
 Nous avons besoin d'élaborer un algorithme pour estimer l'inégalité isopérimétrique de n'importe quel graphe, avec la formule du théorème du nid d'abeille version naïve. 
 On a donc besoin de mettre en place la notion d'intersection entre un graphe et une boule centrée en l'origine de rayon r.
@@ -834,7 +565,7 @@ Voici les grandes étapes visuellement de l'algorithme.
     
     \centering \includegraphics[width=5cm]{pic3.png}
     
-    <figcaption>Déroulement de l'algorithme}
+    <figcaption>Déroulement de l'algorithme}</figcaption>
     
 </figure>
 
@@ -850,7 +581,7 @@ Voici les grandes étapes visuellement de l'algorithme.
     \includegraphics[width = 3.5cm]{qqq3.png}
     
     
-    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 2.27}
+    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 2.27}</figcaption>
     
 </figure>
 
@@ -859,7 +590,7 @@ Voici les grandes étapes visuellement de l'algorithme.
     \includegraphics[width = 3.5cm]{eee3.png}
     
     
-    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 2.00}
+    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 2.00}</figcaption>
     
 </figure>
 
@@ -868,13 +599,15 @@ Voici les grandes étapes visuellement de l'algorithme.
     \includegraphics[width = 3.5cm]{ss1.png}
     
     
-    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 1.87}
+    <figcaption>Constante isopérimétrique de l'empilement triangulaire = 1.87}</figcaption>
     
 </figure>
+            <div class="paragraph">
+                Ces résultats correspondent bien aux valeurs trouvées théoriquement dans l'annexe.
+            </div>
 
-Ces résultats correspondent bien aux valeurs trouvées théoriquement dans l'annexe.
+            <h4>Remarque sur les altérations aléatoires compactes du graphe</h4>
 
-\subsection{Remarque sur les altérations aléatoires compactes du graphe}
 { Une altération aléatoire compacte d'un graphe consiste à déplacer chaque point du graphe dans une direction aléatoire et une distance aléatoire bornée par un réel fixé.}
 Par exemple, une altérations aléatoire compacte de ce graphe à une distance de 0.5 est :
 (image)
@@ -939,7 +672,9 @@ Nous avons pour chaque simulation répété ceci un grand nombre de fois et calc
 
 
 { On voit donc que la constante isopérimétrique augmente. Ainsi la constante isopérimétrique est sensibles aux altérations aléatoires compactes.}
-
+<!--#################################################################################################################
+#####################################################################################################################
+###################################################################################################################-->
             <h3>Deuxième partie : Densité</h3>
 
 { Dans cette deuxième partie sur la densité, nous allons essayer de créer différentes situations, et estimer la densité moyenne dans chacune de ces situations.}
@@ -963,6 +698,7 @@ Voici un tableau récapitulant les valeurs de densité après un grand nombre d'
     
     <figcaption>Empilement compact aléatoire}
 </figure>
+
 
 
 \begin{table}[Résultats]
@@ -1039,7 +775,7 @@ On voit cependant que certains agencements sont plus optimale pour certaines for
     <figcaption>Empilement non adapté et adapté}
 </figure>
 
-
+            <hr>
 
             <h3>Troisième partie : Diagramme de Voronoï</h3>
 
@@ -1099,131 +835,7 @@ On comprend bien que chaque zone colorée contient désormais l'ensemble des poi
 
 \begin{appendices}
 
-            <h2>Rappels sur les polygones</h2>
-
-{ Cette annexe a pour but de fournir un rapide rappel sur les polygones de manière générale.}
-
-<div class="definition">[Polygone]
-Un polygone est une figure géométrique plane formée d'une ligne brisée fermée, c'est-à-dire d'une suite cyclique de segments consécutifs.
-</div>
-
-<div class="definition">[Sommets d'un polygone]
-Les extrémités des segments sont appelés les sommets du polygone.
-</div>
-
-<div class="definition">[Côtés d'un polygone]
-Les segments du polygone sont appelés les côtés d'un polygone.
-</div>
-
-<div class="definition">[Polygone équilatéral]
-Un polygone équilatéral est un polygone qui a tous ses côtés de même longueur.
-</div>
-
-<div class="definition">[Polygone équiangle]
-Un polygone équiangle est un polygone dont les angles internes sont égaux.
-</div>
-
-<div class="definition">[Polygone régulier]
-Un polygone régulier est un polygone à la fois équilatéral et équiangle.
-</div>
-
-<div class="definition">[Polygone simple]
-Un polygone est dit simple si deux côtés non consécutifs ne se rencontrent pas et deux côtés consécutifs n'ont en commun que l'un de leur sommets.
-</div>
-
-<div class="definition">[Polygone convexe]
-Un polygone convexe est un polygone simple dont l'intérieur est un ensemble convexe. 
-</div>
-
-<div class="definition">[Polygone concave]
-Un polygone simple qui n'est pas convexe est dit concave.
-</div>
-
-Il est utile de faire la nuance quand on parle de polygone régulier, ce qui mtoive l'introduction de ces deux définitions.
-
-<div class="definition">[Polygone régulier étoilé]
-Un polygone régulier étoilé est un polygone régulier non convexe.
-</div>
-
-<div class="definition">[Polygone régulier convexe]
-Un polygone régulier convexe est un polygone régulier convexe.
-</div>
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}[Angle interne d'un polygone régulier convexe]
-Soit P un polygone régulier convexe à n côtés, A et B deux sommets consécutifs, alors AOB = $\frac{2 \pi}{n}$.
-\end{proposition}
-\end{tcolorbox}
-
-<div class="definition">[Apothème]
-L'apothème d'un polygone régulier convexe est le rayon du cercle inscrit dans ce polygone. C'est donc la longueur du segment joignant le centre du polygone au milieu d'un côté.
-</div>
-
-<div class="definition">[Rayon d'un polygone régulier convexe]
-Le rayon d'un polygone régulier convexe P est le rayon du cercle circonscrit à P et est noté $\rho$.
-</div>
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}[Périmètre d'un polygone régulier convexe]
-Soit P un polygone régulier convexe à n côtés, $n \geq 3$, et soit a la longueur d'un côté, alors son périmètre est donné par $P = na$.
-\end{proposition}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}[Périmètre d'un polygone régulier convexe]
-Soit P un polygone régulier convexe à n côtés, et soit a la longueur d'un côté, alors son périmètre est donné par $P = 2n\sin(\frac{pi}{n}) \rho$.
-\end{proposition}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}[Aire d'un polygone régulier convexe]
-Soit P un polygone régulier convexe à n côtés, alors son aire est la somme des aires des n triangles isocèle de hauteur h (l(apothème) et de côtés a, on a donc : $S = n \times \frac{ah}{2} = \frac{Ph}{2}$.
-\end{proposition}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}[Aire d'un polygone régulier convexe]
-Soit P un polygone régulier convexe à n côtés et soit a la longueur d'un côté. Alors son aire est donnée par $S = \frac{na^2}{4 \tan(\frac{\pi}{n})} = \frac{n}{2} \sin(\frac{2 \pi}{n}) \rho ^2$
-\end{proposition}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=red!6]
-\begin{proposition}
-Si on suppose l'aire de ce polygone régulier convexe à n côtés égal à 1, on aura $L^2 = 4n tan(\frac{pi}{n}$, et on aura aussi $L = 2 \sqrt{n tan(\frac{\pi}{n})}$
-\end{proposition}
-\end{tcolorbox}
-
-\textbf{Remarque :} 
-Pour l'hexagone, on aura $L = 2 \sqrt[4]{12}$, qu'on notera $\pi _6$, d'une manière générale, on notera le périmètre d'un polygone régulier convexe à n côtés $\pi _n$.
-
-
-
-{ Nous allons donner des informations générales sur l'aire, la taille d'un côté d'aire 1 et si il pave le plan, pour plusieurs figures géométriques.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{tabular}{|c|c|c|c|}
-\rowcolor{orange!50}
-\hline Figure   & Aire  & Côté pour une aire de 1 & Pave le plan ? 
-\hline Hexagone régulier   & $\frac{3\sqrt{3}}{2} * c^2$ & $\sqrt{\frac{2}{3\sqrt{3}}}$ & oui
-\hline Triangle équilatéral   &$\frac{\sqrt{3}}{4} * c^2$  & $\frac{2}{\sqrt[4]{3}}$ $\approx 1.5197$  & oui
-\hline Carré  & $c^2$ & 4*c & oui 
-\hline
-\end{tabular}
-
-<figure>
-    
-    \includegraphics[width = 5cm]{hexagone_regulier.png}
-    
-    \includegraphics[width = 5cm]{triangle equilateral.png}
-    
-    \includegraphics[width = 5cm]{c1.png}
-    <figcaption>Hexagone régulier ~~~~~~~~~~~~~~~~~~ Triangle équilatéral ~~~~~~~~~~~~~~~~ Carré}
-    
-    
-</figure>
-
-\end{appendices}
+            <hr>
 
 
             <h2>Code et aspect mathématique des simulations informatiques</h2>
@@ -1247,11 +859,26 @@ Ainsi, pour générer les sommets d'un polygone à n côtés, on peut utiliser l
 On pose $p1$ dans le plan le point de base, puis on pose $p2 = R( \frac{2 \pi}{n})p1$, puis $\cdots$, puis $p_n = R( \frac{2 \pi}{n}) p_n_-_1$. 
 On remarque que $p_n_+_1 = p1$, en effet, l'ensemble $\{ p_1, \cdots, p_n\}$ est fini, car $(R(\frac{2 \pi}{n}), \times)$ est isomorphe à $\mathbb{Z}/n\mathbb{Z}$ qui est cyclique. 
 
+
+
+
+            <!-- les subsection deviennent des h4-->
+
+
+
+
+
+            <hr>
+
             <h3>Théorie de la simulation de l'inégalité isopérimétrique</h3>
 
-\subsection{Simulation 1 : Pavage hexagonale }
+            <h4>Simulation 1 : Pavage hexagonale</h4>
 
-{ Le but de cette simulation sera d'estimer l'inégalité isopérimétrique pour le pavage hexagonale. Nous verrons que le théorème est bien vérifié : l'inégalité est bien atteinte !} 
+            <div class="paragraph">
+                Le but de cette simulation sera d'estimer l'inégalité isopérimétrique pour le pavage hexagonale.
+                Nous verrons que le théorème est bien vérifié : l'inégalité est bien atteinte !
+            </div>
+
 
 { \textbf{\Large Génération d'un hexagone régulier d'aire 1}}
 { Le côté d'un hexagone d'aire 1 vaut $\sqrt{\frac{2}{3\sqrt{3}}}$ 
@@ -1307,22 +934,31 @@ Donc $P_n_+_1$ est vraie donc $P_n$ est vraie $\forall n  \in \mathbb{N}$.
 $$NT_n_+_1=NT_n + 6 \times (3n + 1)$$
 avec $NT_1 = 6$ 
 
-{ \textbf{Proposition }}
-Cette suite est définie par $NT_n = 9n^2-3n$ 
+            <div class="proposition">
+                Cette suite est définie par $NT_n = 9n^2-3n$                 
+            </div>
 
-{ \textbf{Preuve }}
-Soit $P_n : "NT_n = 9n^2-3n" \forall n \in \mathbb{N}$ \
-
-{ \underline{Initialisation}} : Pour $n=1$:
-On a $NT_1 = 6$ selon la conjecture de base, et selon la formule on a aussi $NT_1 = 6$
-Donc $P_1$ est vraie. 
-
-{ \underline{Hérédité}} : On suppose que $P_n$ est vraie pour un certain $n \in \mathbb{N}^*$.
-On a $NT_n = 9n^2-3n$
-Puis d'après la conjecture on a $NT_n + 6 \times (3n + 1) = 9n^2-3n + 6 \times (3n + 1)$
-Et donc $NT_n_+_1 =  9n^2+15n+6=9(n+1)^2-3(n+1)$
-Donc $P_n_+_1$ est vraie et $P_n$ est vraie $\forall n \in \mathbb{N}$
-
+            <div class="proof">
+                <div class="paragraph">
+                    Soit $P_n : "NT_n = 9n^2-3n" \forall n \in \mathbb{N}$
+                </div>
+                
+                <div class="paragraph">
+                    <strong>Initialisation</strong> <br>
+                    Pour $n=1$:
+                    On a $NT_1 = 6$ selon la conjecture de base, et selon la formule on a aussi $NT_1 = 6$
+                    Donc $P_1$ est vraie.     
+                </div>
+                
+                <div class="paragraph">
+                    <strong>Hérédité</strong> <br>
+                    On suppose que $P_n$ est vraie pour un certain $n \in \mathbb{N}^*$.
+                    On a $NT_n = 9n^2-3n$
+                    Puis d'après la conjecture on a $NT_n + 6 \times (3n + 1) = 9n^2-3n + 6 \times (3n + 1)$
+                    Et donc $NT_n_+_1 =  9n^2+15n+6=9(n+1)^2-3(n+1)$
+                    Donc $P_n_+_1$ est vraie et $P_n$ est vraie $\forall n \in \mathbb{N}$
+                </div>
+            </div>
 
 { \textbf{Proposition }}
 $\overset{n}{\underset{k=0}{\sum}}1+3k = n + 1 + 3 \times \frac{n(n+1)}{2}$ 
@@ -1339,9 +975,12 @@ On aura alors
 $lim \frac{c_h__1\times(9n^2-3n}{n(n-1)\times3+1} \rightarrow \sqrt[4]{12}$
 On constate que l'inégalité est bien atteinte.
 
-\subsection{Simulation 2 : Pavage triangulaire }
-
-{ Le but de cette deuxième simulation sera d'estimer l'inégalité isopérimétrique pour le triangle. On constatera qu'elle vérifie bien l'inégalité !}
+            <h4>Simulation 2 : Pavage triangulaire</h4>
+            
+            <div class="paragraph">
+                Le but de cette deuxième simulation sera d'estimer l'inégalité isopérimétrique pour le triangle.
+                On constatera qu'elle vérifie bien l'inégalité !
+            </div>
 
 
 { \textbf{\Large Génération d'un triangle équilatéral d'aire 1}}
@@ -1417,6 +1056,10 @@ $$NT_n = 8n^2-4n$$
 $\underset{n \rightarrow \infty}{\lim} \frac{NT_n}{NC_n} = \underset{n \rightarrow \infty}{\lim} \frac{8n^2-4n}{4n^2-4n+1} \approx 2$ 
 On remarque que le théorème est vérifié.
 La deuxième partie de cette appendice est consacrée au code source de nos programmes informatiques. Les codes seront commentés in vitro mais non commentés ex vivo, les algorithmes principaux étant bien sûr présentés en détails dans le chapitre sur les simulations.
+
+
+
+            <hr>
 
             <h3>Les diagrammes de Voronoï</h3>
 Nous mettons dans cette appendice tous les résultats non présentés de nos simulations, ceci n'étant pas fondamentalement différents des résultats déjà présentés ici.

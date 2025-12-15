@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title></title>
+        <title>Découverte</title>
 
         <meta
             name="description"
@@ -47,7 +47,7 @@
                     <li>
                         <a href="../">
                             <svg class="ArrowBackwardIcon" style="fill:black;display: inline;" width="24" viewBox="0 0 24 24" transform="matrix(-1,0,0,1,0,0)"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
-                            Travaux academiques
+                            Empilements compacts
                         </a>
                     </li>
                 </ul>
@@ -55,9 +55,35 @@
         </header>
         
         <main>
+            <div id="toc-container" style="height: 100vh;"></div>
+
             <div id="article">
-                <div id="toc-container"></div>
+                <h3>Découverte</h3>
+                <div class="definition">[Empilement]
+                Un empilement est une manière de placer des objets dans l'espace sans que celles-ci ne se recouvrent, autrement dis, elles ne s'intersectent pas. 
+                
+                On peut empiler différents objets, des disque, des ellipses par exemple.
+                </div>
+                
+                <div class="definition">[Empilement régulier]
+                Un empilement régulier est un empilement où le centre de chaque objet est placé sur un réseau $\Lamda = \sum_i \mathbb{Z} v_i$ avec $v_i$ un vecteur de cet espace euclidien.
+                </div>
+                
+                <div class="definition">[Empilement irrégulier]
+                Un empilement irrégulier est un empilement où les centres des objets ne sont pas placés sur un réseau.
+                
+                On peut par exemple voir l'empilement d'Apollonius, qui est un empilement fractal, n'est pas régulier.
+                </div>
+                
+                <div class="definition">[Densité]
+                La densité d'un empilement est le rapport de l'espace occupé par cet empilement avec le volume de l'espace considéré.
+                
+                Cela peut être par exemple un ensemble infini, en considérant une densité dans une sphère finie et en faisant tendre le rayon de cette sphère vers l'infinie, on aura alors une valeur finie comme densité.
+                </div>
+                
+                Dans toutes la suite on choisir d'empiler des objets égaux.
             </div>
+
         </main>
 
         <footer id="main-footer"></footer>

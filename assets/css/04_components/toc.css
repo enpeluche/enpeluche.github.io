@@ -1,4 +1,4 @@
-#toc-container{
+main > #toc-container{
     position: sticky;
     align-self: flex-start;
     top: 0px;
@@ -6,7 +6,11 @@
     height: 100vh;
 }
 
-#full-toc{
+#article > #toc-container{
+    width: 80%;
+}
+
+main > #toc-container > #full-toc{
     width: 400px;
     height: 100%;
 
@@ -16,7 +20,12 @@
     border-right: 1px solid var(--primary-border-color);
 }
 
-.toc-head{
+main > #article > #toc-container > #full-toc{
+    border: 1px solid var(--primary-border-color);
+    border-radius: 4px;
+}
+
+ .toc-head{
     padding: 1rem;
     border-bottom: 1px solid var(--primary-border-color);
 
@@ -33,7 +42,12 @@
     font-size: 1rem;
 }
 
-#toc-close-button{
+
+
+
+
+
+main #toc-close-button{
     border-radius: 50%;
     background-color: white; 
     border: 0;
@@ -46,8 +60,12 @@
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-#toc-close-button:hover{
+main #toc-close-button:hover{
     background-color: rgba(218, 217, 220, 0.34);
+}
+
+#article #toc-close-button{
+    display: none;
 }
 
 .chapter{
@@ -84,7 +102,7 @@
     margin: 0rem 0.5rem;
     padding: 0rem 1rem;
 }
-  
+
 .chapter-content ul{
     list-style: none;
     margin: 0;
@@ -162,7 +180,7 @@
     text-decoration: none;
     color: inherit;
 }
-  
+ 
 .chapter-content a:hover{
     color: #7451eb;
 }
@@ -196,7 +214,6 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
     align-items: center;
     justify-content: center;
 }
-
 
 #toc-open-button:hover{
     background-color: rgba(171, 71, 188, 0.18);

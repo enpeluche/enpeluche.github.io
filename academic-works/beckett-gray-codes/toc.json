@@ -2,47 +2,47 @@
     {
         "title": "Introduction",
         "type": "chapter",
-        "isNumbered": true,
-        "filename": "/academic-works/beckett-gray-codes/introduction/",
+        "isNumbered": false,
+        "filename": "/academic-works/beckett-gray-codes/0-introduction/",
         "children": []
     },
     {
         "title": "Organisation du travail",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/beckett-gray-codes/work-organization/",
+        "filename": "/academic-works/beckett-gray-codes/1-work-organization/",
         "children": []
     },
     {
         "title": "Les codes de Gray",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/beckett-gray-codes/gray-codes/",
+        "filename": "/academic-works/beckett-gray-codes/2-gray-codes/",
         "children": [
             {
                 "title": "Construction",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/gray-construction.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/gray-construction.html"
             },
             {
                 "title": "Implementation",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/gray-implementation.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/gray-implementation.html"
             },
             {
                 "title": "Graphe de retournement",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/gray-reversal-graph.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/gray-reversal-graph.html"
             },
             {
                 "title": "Etude de l’hypercube",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/hypercube-study.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/hypercube-study.html"
             },
             {   
                 "title": "Cycles isomorphes dans l’hypercube vu comme un graphe de retournement",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/isomorphic-cycles-reversal.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/isomorphic-cycles-reversal.html"
             },
             {
         
                 "title": "Equivalence sous reversion",
-                "filename": "/academic-works/beckett-gray-codes/gray-codes/reversion-equivalence.html"
+                "filename": "/academic-works/beckett-gray-codes/2-gray-codes/reversion-equivalence.html"
             }
         ]
     },
@@ -50,35 +50,35 @@
         "title": "Les codes de Beckett-Gray",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/",
+        "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/",
         "children": [
             {
                 "title": "Les codes de Beckett-Gray : Introduction",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/beckett-introduction.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/beckett-introduction.html"
             },
             {
                 "title": "Problematique",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/beckett-problematic.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/beckett-problematic.html"
             },
             {
                 "title": "Algorithme",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/beckett-algorithm.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/beckett-algorithm.html"
             },
             {   
                 "title": "Heuristiques",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/beckett-heuristics.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/beckett-heuristics.html"
             },
             {
                 "title": "Modification de l’algorithme",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/algorithm-modification.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/algorithm-modification.html"
             },
             { 
                 "title": "Implementation des heuristiques et du code pour changer un 1 en 0",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/heuristics-and-flip-implementation.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/heuristics-and-flip-implementation.html"
             },
             {      
                 "title": "Resultats sur la generation de codes de Beckett-Gray",
-                "filename": "/academic-works/beckett-gray-codes/beckett-gray-codes/beckett-generation-results.html"
+                "filename": "/academic-works/beckett-gray-codes/3-beckett-gray-codes/beckett-generation-results.html"
             }
         ]
     },
@@ -86,43 +86,43 @@
         "title": "Etudes statistiques sur les codes de Beckett-Gray",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/",
+        "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/",
         "children": [
             {
                 "title": "Nombre de bit a 1 dans la representation binaire des codes de Beckett-Gray",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/binary-one-count.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/binary-one-count.html"
             },
             {
                 "title": "Somme des colonnes de la representation decimale des codes de Beckett-Gray",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/decimal-column-sum.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/decimal-column-sum.html"
             },
             {
                 "title": "Taille des intervalles de longueur maximale de bit a 1",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/maximal-one-interval-size.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/maximal-one-interval-size.html"
             },
             {
                 "title": "Frequence des nombres par colonne",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/column-number-frequency.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/column-number-frequency.html"
             },
             {
                 "title":  "Tables de transitions",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/transition-tables.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/transition-tables.html"
             },
             {
                 "title": "Codes de Beckett-Gray non-isomorphes",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/non-isomorphic-beckett-codes.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/non-isomorphic-beckett-codes.html"
             },
             {
                 "title": "Etude de l’equivalence sous reversion",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/reversion-equivalence-study.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/reversion-equivalence-study.html"
             },
             {
                 "title": "Etudes des isomorphismes",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/isomorphism-studies.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/isomorphism-studies.html"
             },
             {      
                 "title": "Conclusion",
-                "filename": "/academic-works/beckett-gray-codes/beckett-statistical-studies/beckett-statistical-studiesconclusion.html"
+                "filename": "/academic-works/beckett-gray-codes/4-beckett-statistical-studies/conclusion.html"
             }
         ]  
     }

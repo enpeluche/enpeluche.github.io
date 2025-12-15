@@ -1,0 +1,53 @@
+@article{thomas1,
+    author = "Thomas Callister Hales",
+    title = "The Honeycomb Conjecture",
+    journal = "Discrete & Computational Geometry",
+    volume = "25",
+    number = "1",
+    pages = "1--22",
+    year = "2001",
+    DOI = "https://doi.org/10.1007/s004540010071",
+    keywords = "thomas1"
+}
+
+@online{micmath1,
+    author = "Mickaël Launay",
+    title = "Didon et le problème isopérimétrique - Micmaths",
+    url  = "https://www.youtube.com/watch?v=onRwvJfatcs",
+    keywords = "micmath1"
+}
+
+@online{empil1,
+    author = "Wikipedia",
+    title = "Empilement compact",
+    url = "https://fr.wikipedia.org/wiki/Empilement_compact",
+    keywords = "empil1"
+}
+
+@online{empil2,
+    author = "Christiane Rousseau",
+    title = "Quel est l'empilement le plus dense ?",
+    url = "https://accromath.uqam.ca/2018/02/quel-est-lempilement-le-plus-dense/",
+    keywords = "empil2"
+}
+
+@online{empil3,
+    author = "Wikipedia",
+    title = "Isopérimétrie",
+    url = "https://fr.wikipedia.org/wiki/Isop\%C3\%A9rim\%C3\%A9trie",
+    keywords = "empil3"
+}
+
+@online{empil4,
+    author = "Gerard Villemin",
+    title = "Empilement des shpères - Conjecture de Kepler",
+    url = "http://villemin.gerard.free.fr/Wwwgvmm/Geometri/SpheEmpi.htm",
+    keywords = "empil4"
+}
+
+@online{voronoi1,
+    author = "Wikipedia",
+    title = "Diagramme de Voronoï",
+    url = "https://fr.wikipedia.org/wiki/Diagramme_de_Vorono%C3%AF",
+    keywords = "voronoi1"
+}

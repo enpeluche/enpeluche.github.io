@@ -5,6 +5,7 @@
     padding-bottom: 50px;
 }
 
+/*
 #article ol, 
 #article ul{
   padding: 0px 40px;
@@ -13,8 +14,8 @@
 
 #article li{
   padding: 2px 0px;
-}
-
+}*/
+/*
 #article ul > li{
   list-style-type:disc;
 }
@@ -25,7 +26,7 @@
 
 .article li ul > li{
   list-style-type: square;
-}
+}*/
 
 
 .remark,
@@ -54,9 +55,9 @@ table{
   text-decoration: underline;
 }
 
-#article a {
+/*#article a {
   color: var(--secondary-text-color);
-}
+}*/
 
 .paragraph a:hover{
   text-decoration: none;
@@ -160,6 +161,8 @@ table{
   padding-right: 3px;
 }
 
+
+/*
 .article h1, 
 .article h2, 
 .article h3, 
@@ -175,18 +178,7 @@ table{
   margin: 1.5rem 0rem;
   white-space: nowrap;
 }
-
-
-
-
-
-.paragraph, p, li, figcaption{
-
-  font-weight: 200;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: 0px;
-}
+*/
 
 
 
@@ -212,6 +204,17 @@ td, th{
   height:50px;
   text-align: center;
 }
+/*
+.paragraph, p, li, figcaption{
+
+  font-weight: 200;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0px;
+}
+
+
+
 
 
 h1{
@@ -248,7 +251,7 @@ h4{
   line-height: 26px;
   letter-spacing: 0px;
 }
-
+*/
 hr{
   margin: 2rem 0rem;
 }

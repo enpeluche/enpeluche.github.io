@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <!-- metadata -->
+
+        <meta charset="UTF-8">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Empilements de disques égaux en dimension 2</title>
+
+        <meta
+            name="description"
+            content=""
+        >
+
+        <meta
+            name="keywords"
+            content=""
+        >
+        
+        <meta
+            name="author"
+            content="Lucas Petit"
+        >
+
+        <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+        
+        <!-- for rendering latex -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+        <!-- JS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+        <!-- ALL STYLESHEET -->
+ 
+        <link rel="stylesheet" href="/assets/css/main.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../">
+                            <svg class="ArrowBackwardIcon" style="fill:black;display: inline;" width="24" viewBox="0 0 24 24" transform="matrix(-1,0,0,1,0,0)"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                            Empilements compacts
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div id="toc-container" style="height: 100vh;"></div>
+
+            <div id="article">
+                <h3>Empilements de disques égaux en dimension 2</h3>
+
+
+                En 1 dimension, une boule est un segment, on cherche donc à empilement des segments de même longueur sur un axe.
+                On voit par un dessin que la densité est de 1, en effet les segments recouvrent complètement l'axe.
+                En 2 dimensions, la boule est le disque que l'on connaît. Nous travaillerons donc maintenant avec des disques de rayons r.
+                Nous voulons donc placer des disques dans le plan de la manière la plus dense possible.
+                Il y a deux arrangements qui se présentent à nous :
+                <ul>
+                    <li></li> - l'arrangement rectangulaire
+                    <li></li> - l'arrangement hexagonal
+                </ul>
+                
+                <figure>
+                    \includegraphics[width = 4cm]{arrangement_rectangulaire.jpg}
+                    \hspace{2cm}
+                    \includegraphics[width = 4cm]{arrangement hexagonal.jpg}
+                    <figcaption>Arrangement rectangulaire et hexagonal}
+                    
+                </figure>
+                
+                
+                { Quelle est la densité de ces deux empilements ?
+                Pour calculer la densité de ces deux empilements, nous allons devoir calculer la proportion d'aire des disques par rapport à l'aire du plan.
+                Pour cela, on va placer un point sur chaque centre de disque, et relier ces points par un segment si deux disques sont adjacents, on obtient alors les graphes suivants superposés aux empilements rectangulaire et hexagonal }
+                
+                <figure>
+                    \includegraphics[width = 4cm]{orange-1.png}
+                    \hspace{2cm}
+                    \includegraphics[width = 4cm]{orange-2.png}
+                    <figcaption>Arrangement rectangulaire et hexagonal}
+                    
+                </figure>
+                
+                { Dans le cas de l'arrangement rectangulaire, on a pavé le plan par des carrés de côtés 2r, dont les sommets sont au centre des disques. Ainsi, chaque carré a pour aire $4r^2$. De cette aire, il y a une aire de $\pi r^2$ recouverte par des disques, en effet, on a quatre quart de disque de rayon r. Donc la densité de l'empilement est la densité de quatre quarts de disques de rayon r dans un carré de côté 2r qui est $\frac{\pi r^2}{4r^2} = \frac{\pi}{4}$.
+                Donc la densité de l'empilement rectangulaire est de $\frac{\pi}{4} \approx 0.785$.} 
+                Dans le cas de l'arrangement hexagonal, on a pavé le plan par des triangles équilatéraux de côtés $2r$, dont les sommets sont aux centre des disques. Ainsi, chaque triangle a pour aire $\sqrt{3}r^2$. De cette aire, il y a une aire de $\frac{\pi r^2}{2}$ recouverte par des disques, en effet, on a 3 sixième de disque de rayon r. Donc la densité de l'empilement hexagonal est la densité de 3 sixième de cercle de rayon r dans un carré de côté 2r qui est $\frac{\pi r^2}{2 \sqrt(3) r^2} = \frac{\pi}{2 \sqrt(3)}$.
+                Donc la densité de l'empilement hexagonal est de $\frac{\pi}{2 \sqrt(3)} \approx 0.907.$
+                
+                            <h4>Preuve de l'empilement le plus dense</h4>
+                
+                { On a vu que de vu que l'empilement le plus compact semblait être l'empilement hexagonal, il nous reste à le montrer.}
+                Si l'on compare des empilements réguliers, on verra que l'empilement hexagonal est bien le plus compact, qu'en est il des empilements irréguliers ?
+                Le mathématicien Alex Thue a eut l'idée de partionner l'espace en région astucieusement choisie  et de montrer que la densité est bien inférieure à la densité de l'empilement hexagonal dans chaque région.
+                Prenons des disques et agrandissons les tel qu'il remplissent l'espace du triangle.
+                
+                <figure>
+                    \centering
+                    \includegraphics[width = 4cm]{orange-3.png}
+                    
+                </figure>
+                
+                Le rayon des grands cercles nouvellement obtenu est égal au $\frac{2}{3}$ de la hauteur du triangle équilatéral, on trouve avec un petit calcul que ce rayon est $\frac{2 \sqrt{3}}{3}$.
+                Définissons maintenant les régions qui partionneront l'espace.
+                
+                La première est la portion du plan qui n'est pas recouverte par des grands disques.
+                
+                Pour les deux dernières régions, à chaque fois que des disques ont une intersection non vide, on les divises en secteur délimité par des rayons des cercles qui rejoignent les points d'intersection de leur frontière.
+                <figure>
+                    
+                    \includegraphics[width = 5cm]{orange-4.png}
+                    
+                    \includegraphics[width = 5cm]{orange-5.png}
+                    
+                    
+                    
+                </figure>
+                Le plan peut ainsi être partitionné avec ces 3 types de régions.
+                
+                On voit une partition du plan avec cette image.
+                (image)
+                La \textbf{densité dans le premier type} est bien sûr nulle.
+                
+                \textbf{Calcul de densité dans les régions de deuxième type.}
+                L'aire d'un secteur de disque de rayon r et d'ouverture $\theta$ est $\frac{\theta}{2} r^2$.
+                Donc la densité est $\frac{\frac{\theta}{2}}{r^2 \frac{theta}{2}} = \frac{1}{r^2} = \frac{3}{4} = 0.75$
+                Cette densité est bien inférieure à la densité de l'empilement hexagonal.
+                
+                \textbf{Calcul de densité dans les régions de troisième type.}
+                Intéressons nous à la densité dans la troisième type de régions.
+                La région couverte par les petits disques est la réunion de deux secteurs de rayon 1 et d'ouverture $\theta$, qui a donc pour aire $\theta$.
+                L'aire de la région est la somme des aires des deux triangles isocèles ayant chacun les 2 côtés de longueur $r = \frac{2 \frac{\sqrt{3}}}{3}$ séparés par un angle $\theta$.
+                Par le théorème d'Al-KAshi, on a $c = \sqrt{2 r^2 (1-cos(\theta)}$. On cherche maintenant du côté manquant du double isocèle pour calculer son aire et on trouve $\sqrt{\frac{r^2(1+cos(\theta)}{2}}$. 
+                Son aire est donc le produit de ces deux longueurs qui donne $\frac{4}{3} sin(\theta)$.La densité des deux secteurs de disque dans ce double triangles isocèle est donc $\frac{3\theta}{4 sin(\theta)}$. On va étudier cette densité en fonction de $\theta$, déjà, $\theta \in [0, \frac{\pi}{3}]$.On va essayer de montrer que cette densité est bien inférieure à la densité de l'empilement hexagonal. En montrant que cette densité est croissante et que sa borne supérieure est bien inférieure à la densité de l'empilement hexagonal.
+                
+                { Soit f : $\mathbb{R}\backslash \left\{  k\pi, k \in \mathbb{Z} \right\} \rightarrow \mathbb{R}$}
+                
+                Pour trouver
+                \tabto{3cm} x $\longrightarrow$ $\frac{3x}{4sin(x)}$
+                f est prolongeable par continuité en 0, on a $\lim\limits_{\substack{x \rightarrow 0^+  x \rightarrow 0^-}} f(x)$ f(x) = $\frac{3}{4}$, on pose donc f(0)=$\frac{3}{4}$
+                Montrons que f est croissante sur [0,$\frac{\pi}{3}$]. 
+                
+                <div class="proof">
+                Pour cela, on va montrer que f'(x) est positive sur [0,$\frac{\pi}{3}$].
+                On a f'(x)=$\frac{3sin(x)}{4sin^2(x)}-\frac{3xcos(x)}{4sin^2(x)}$
+                On va étudier le signe de sin(x) - xcos(x) sur [0,$\frac{\pi}{3}$], elle vaut 0 en 0.
+                On dérive cette expression, on a cos(x) + xsin(x) - cos(x) = x sin(x). Et pour tout x $\in$ [0,$\frac{\pi}{3}$], on a x sin(x) $>$ 0, donc x $\rightarrow$ sin(x) -x cos(x) est croissante sur [0,$\frac{\pi}{3}$] donc elle est positive car elle vaut 0 en 0. Donc f'(x) $>$ 0 pour tout x $\in$ [0,$\frac{\pi}{3}$] et ainsi, f est croissante sur [0,$\frac{\pi}{3}$].
+                </div>
+                { De plus}, on a $f(\frac{\pi}{3}) = \frac{\pi}{2 \sqrt{3}}$
+                { En dimension 3,} c'est le même type de raisonnement qu'a utilisé Thomas C. Halles pour démontrer la densité maximale, il a partitionné l'espace en régions, et a montré que, dans chaque type de régions, la densité est inférieure ou égale à la densité de l'empilement de l'épicier. Mais, car il y a un mais, le nombre de région à considérer est énorme, c'est pourquoi il a utilisé l'ordinateur pour calculer la densité dans tous les types de régions.
+                
+                
+            </div>
+
+        </main>
+
+        <footer id="main-footer"></footer>
+        
+        <script type="module" src="/assets/js/main.js"></script>
+    </body>
+</html>
