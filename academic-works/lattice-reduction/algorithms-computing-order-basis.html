@@ -219,7 +219,7 @@
                     <div class="for">
                         \( k \) de \( 1 \) à \( \sigma - 1 \)
                         <div class="c">
-                            \( F' \gets x^{-k} P_{k-1} F \) // Décalage du problème <br>
+                            \( F' \gets x^{-k} P_{k-1} F \) <span class="comment">Décalage du problème</span> <br>
                             \( M_k \gets Basis(F' \bmod x) \) <br>
                             \( P_k \gets M_k P_{k-1} \) <br>
                         </div>
@@ -274,9 +274,9 @@
 
                         <div class="else">
                             <div class="c">
-                                \( P_{\text{low}} \gets PM-Basis(F, \lfloor \sigma/2 \rfloor) \) // Premier sous-problème <br>
-                                Soit \( F' \) tel que \( P_{\text{low}} F = x^{k} F' \) // Décalage du problème <br>
-                                \( P_{\text{high}} \gets PM-Basis(F', \lfloor \sigma/2 \rfloor) \) // Deuxième sous-problème <br>
+                                \( P_{\text{low}} \gets PM-Basis(F, \lfloor \sigma/2 \rfloor) \) <span class="comment">Premier sous-problème</span> <br>
+                                Soit \( F' \) tel que \( P_{\text{low}} F = x^{k} F' \) <span class="comment">Décalage du problème </span> <br>
+                                \( P_{\text{high}} \gets PM-Basis(F', \lfloor \sigma/2 \rfloor) \) <span class="comment">Deuxième sous-problème</span> <br>
 
                             </div>
 

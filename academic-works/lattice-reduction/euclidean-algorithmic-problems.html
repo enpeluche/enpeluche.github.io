@@ -35,8 +35,7 @@
         <!-- JS -->
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-        <script defer src="/assets/js/katex-config.js"></script>
-        
+
         <!-- ALL STYLESHEET -->
  
         <link rel="stylesheet" href="/assets/css/main.css">
@@ -143,94 +142,12 @@
                     <figcaption>Une instance de SIVP.</figcaption>
                 </figure>
 
-                <div class="paragraph"> <!-- OK -->
-                    L’état des connaissances actuelles est le suivant :
-                    <ul>
-                        <li>
-                            Pour $\gamma = \mathcal{O}(1)$, le problème est prouvé <strong>NP-complet</strong>,
-                            <a class="ref-ajtai-1996"></a> 
-                        </li>
-                        <li>
-                            Pour $\gamma = \text{poly}(n)$, il existe des algorithmes en <strong>temps exponentiel</strong>.
-                        </li>
-                        <li class="nowrap">
-                            Pour $\gamma = 2^{\mathcal{O}(n)}$, l’algorithme <strong>LLL</strong>
-                            <a class="ref-lenstra-1982"></a>
-                            permet de le résoudre en <strong>temps polynomial</strong>.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="problem"> <!-- OK -->
-                    <span class="title">GapSVP$_\gamma$, où $\gamma > 0$</span>
-                    <p>           
-                        Étant donné une base $B$ du réseau $\mathscr{L}$, et $r \in \R_+^*$. 
-                        Décider si \( \lambda_1(\mathscr{L}) \leq r \) (instance positive)
-                        ou \( \lambda_1(\mathscr{L}) > \gamma \cdot r \) (instance négative).
-                    </p>
-                </div>
-
-                <div class="theorem"> <!-- OK -->
-                    <span class="title">
-
-                        <a class="ref-banaszczyk-1993"></a>
-                        
-                        <a class="ref-stephens-davidowitz-2015"></a>
-                    </span>
-                    <p>
-                        $\mathrm{SVP}_\gamma$ n'est pas plus simple que $\mathrm{GapSVP}_\gamma$.
-                    </p>
-                </div>
-
-                <div class="conjecture"> <!-- OK -->
-                    <p>
-                        Il n'existe aucun algorithme classique ou quantique en temps polynomial qui approxime
-                        les problèmes de réseaux $\mathrm{SVP}_\gamma$, $\mathrm{GapSVP}_\gamma$ ou à un facteur polynomial près $\gamma$
-                        (pour tous les réseaux d'entrée possibles).
-                    </p>
-                </div>
-
-                <h3>Le problème du vecteur le plus proche</h3> <!-- OK -->
+                <div class="problem">
                 
-                <div class="paragraph"> <!-- OK -->
-                    Un autre problème important concerne la recherche de vecteurs proches d'une cible dans un réseau.
-                </div>
-
-                <div class="problem"> <!-- OK -->
-                    <span class="title">Closest Vector Problem (CVP), NP-complet, 
-                        <a class="ref-ajtai-1996"></a> 
-                    </span>
-                    <p>
-                        Étant donnés $t \in \R^n$, un réseau $\mathscr{L}(B)$, trouver $v \in \mathscr{L}$ tel que
-                        $$
-                        \displaystyle \|t - v\|_2  = d(t, \mathscr{L}) := \min_{ v \in \mathscr{L}} \{ \|t - v\|_2  \}.
-                        $$
-                    </p>
-                </div>
-
-                <div class="paragraph"> <!-- OK -->
-                    Le problème $\mathrm{CVP}$ est en général difficile pour un réseau arbitraire. 
-                    Cependant, pour certaines familles spécifiques de réseaux,
-                    comme $\Z^n$, des algorithmes en temps polynomial sont connus. 
-                    La qualité de la base choisie joue un rôle crucial dans la résolution du problème. 
-                    De même, on peut considérer une version approximative :
-                </div>
-
-                <div class="problem"> <!-- OK -->
-                    <span class="title">CVP$_\gamma$, $\gamma > 0$</span>
-                    <p>
-                        Étant donnés $t \in \R^n$, un réseau $\mathscr{L}(B)$, trouver $v \in \mathscr{L}$ tel que
-                        \(\|t - v\|_2  \leq \gamma \cdot d(t, \mathscr{L}).\)
-                    </p>
-                </div>
-
-                <div class="problem"> <!-- OK -->
-                    <span class="title">GapCVP$_\gamma$, $\gamma > 0$</span>
-                    <p>
                         Étant donné \( r \in \R_+^* \), $t \in \R^n$, un réseau $\mathscr{L}(B)$. 
                         Décider si il existe \( v \in \mathscr{L}\) tel que \( \|t - v\|_2  \leq r \) (instance positive) ou 
                         \( \|t - v\|_2  > \gamma \cdot r \) (instance négative)
-                    </p>
+                
                 </div>
 
                 <div class="theorem"> <!-- OK -->

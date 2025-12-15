@@ -8,37 +8,37 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Travaux académiques</title>
+        <title>Trravaux academiques</title>
 
-        <meta charset="UTF-8">
-        <meta name="author" content="Lucas Petit">
-<link rel="stylesheet" href="/assets/css/base/root.css">
-        <link rel="stylesheet" href="/assets/css/base/inter.css">
-        <link rel="stylesheet" href="/assets/css/base/reset.css">
-        <link rel="stylesheet" href="/assets/css/base/base.css">
-        <link rel="stylesheet" href="/assets/css/layout/header.css">
-        <link rel="stylesheet" href="/assets/css/homepage.css">
-        <link rel="stylesheet" href="/assets/css/academic-works.css">
-        <link rel="stylesheet" href="/assets/css/project.css">
+        <meta
+            name="description"
+            content=""
+        >
+
+        <meta
+            name="keywords"
+            content=""
+        >
+        
+        <meta
+            name="author"
+            content="Lucas Petit"
+        >
 
         <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+        
+        <!-- for rendering latex -->
 
+        <!-- CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\[", right: "\\]", display:true},
-                {left: "\\(", right: "\\)", display:false}
-                ]
-            });
-            });
-        </script>
+        <!-- JS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+        <!-- ALL STYLESHEET -->
+ 
+        <link rel="stylesheet" href="/assets/css/main.css">
     </head>
 
     <body>
@@ -97,9 +97,9 @@
                             <li>C++</li>
                         </ul>
 
-                        <div  style="display: none;" class="links">
+                        <div  class="links">
                             <div>
-                                <a title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
+                                <a  style="display: none;" title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
                                 <span class="arrowForwardIcon"></span>
                             </div>
                     
@@ -126,9 +126,9 @@
                             <li>$\LaTeX$</li>
                         </ul>
                                  
-                        <div  style="display: none;" class="links">
+                        <div   class="links">
                             <div>
-                                <a title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
+                                <a style="display: none;" title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
                                 <span class="arrowForwardIcon"></span>
                             </div>
                     
@@ -155,9 +155,9 @@
                             <li>$\LaTeX$</li>
                         </ul>
                                     
-                       <div  style="display: none;" class="links">
+                       <div   class="links">
                             <div>
-                                <a title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
+                                <a style="display: none;" title="Voir le code sur GitHub" href=""> Voir le code sur GitHub </a>
                                 <span class="arrowForwardIcon"></span>
                             </div>
                     
@@ -172,10 +172,6 @@
             </section>
         </main>
     
-        <script src="/assets/js/components/article.js"></script>
-        <script src="/assets/js/components/header.js"></script>
-        <script src="/assets/js/components/references.js"></script>
-        <script src="/assets/js/components/svg.js"></script>
-        <script src="/assets/js/components/toc.js"></script>
+        <script type="module" src="/assets/js/main.js"></script>
     </body>
 </html>

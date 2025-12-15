@@ -93,26 +93,34 @@
                 </div>
 
                 <div class="proof">
-                    Pour \( n = 1 \), la famille est clairement orthogonale.
+                    <div class="paragraph">
+                        Pour \( n = 1 \), la famille est clairement orthogonale.
+                    </div>
+
+                    <div class="paragraph">
+                        Supposons que \( (b_i^*)_{1 \leq i \leq k} \) est orthogonale pour un certain \( k < n \).
     
-                    Supposons que \( (b_i^*)_{1 \leq i \leq k} \) est orthogonale pour un certain \( k < n \).
+                        Alors
+                        \[
+                        \langle b_{k+1}^*, b_i^*\rangle = \left\langle b_{k+1}- \sum_{j=1}^{k} \frac{ \langle b_{k+1}, b_j^* \rangle }{\|b_j^*\|^2}, b_i^* \right\rangle 
+                        \]
     
-                    Alors
-                    \[
-                    \langle b_{k+1}^*, b_i^*\rangle = \left\langle b_{k+1}- \sum_{j=1}^{k} \frac{ \langle b_{k+1}, b_j^* \rangle }{\|b_j^*\|^2}, b_i^* \right\rangle 
-                    \]
+                        \[
+                        = \langle b_{k+1}, b_i^* \rangle - \left\langle \sum_{j=1}^{k} \frac{ \langle b_{k+1}, b_j^* \rangle }{\|b_j^*\|^2}, b_i^* \right\rangle
+                        \]
     
-                    \[
-                    = \langle b_{k+1}, b_i^* \rangle - \left\langle \sum_{j=1}^{k} \frac{ \langle b_{k+1}, b_j^* \rangle }{\|b_j^*\|^2}, b_i^* \right\rangle
-                    \]
+                        \[
+                        = \langle b_{k+1}, b_i^*\rangle - \left\langle  \frac{ \langle b_{k+1}, b_i^* \rangle }{\|b_i^*\|^2} , b_i^* \right\rangle = 0
+                        \]
     
-                    \[
-                    = \langle b_{k+1}, b_i^*\rangle - \left\langle  \frac{ \langle b_{k+1}, b_i^* \rangle }{\|b_i^*\|^2} , b_i^* \right\rangle = 0
-                    \]
-    
-                    <span class="nowrap">
-                        donc la famille \( (b_i^*)_{1 \leq i \leq k+1} \) est orthogonale et par le procédé de récurrence la famille \( (b_i^*)_{1 \leq i \leq n} \) est orthogonale.
-                    </span>
+                        <span class="nowrap">
+                            donc la famille \( (b_i^*)_{1 \leq i \leq k+1} \) est orthogonale et par le procédé de récurrence la famille \( (b_i^*)_{1 \leq i \leq n} \) est orthogonale.
+                        </span>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
     
                 <div class="definition">
@@ -129,7 +137,6 @@
                  <details>
                     <summary>
                         <span>
-                            <span class="label"></span>
                             <span class="title">$\R g_i$</span>
                         </span>
                     </summary>
@@ -235,7 +242,13 @@
                 </div>
                 
                 <div class="proof">
-                    \( \displaystyle \det(B) = \det(UB^*) = \det(U) \det(B^*) = \det(B^*) = \prod_{i=1}^n \| b_i^*\|\)
+                    <div class="paragraph">
+                        \( \displaystyle \det(B) = \det(UB^*) = \det(U) \det(B^*) = \det(B^*) = \prod_{i=1}^n \| b_i^*\|\)
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
                 
                 <div class="paragraph">
@@ -244,53 +257,27 @@
 
                 <!-- transformer \LinesNumbered en prop CSS ?-->
                 <div class="algorithm">
-                    <h2>Algorithme: Orthogonalisation de Gram–Schmidt</h2>
+                    <h2>Orthogonalisation de Gram–Schmidt</h2>
 
                     <div class="meta">
-                        <div class="in">
-                            <strong>Entrée :</strong>
-                            Une famille libre \( B = (b_1, \ldots, b_n) \in M_n(\mathbb{Q})\).
-                        </div>
-                        <div class="out">
-                            <strong>Sortie :</strong>
-                            La famille libre orthogonale \( B^* = (b_1^*, \ldots, b_n^*) \) et la matrice \( U \) des coefficients de Gram–Schmidt.
-                        </div>
+                        <div class="in"> Une famille libre \( B = (b_1, \ldots, b_n) \in M_n(\mathbb{Q})\).</div>
+                        <div class="out"> La famille libre orthogonale \( B^* = (b_1^*, \ldots, b_n^*) \) et la matrice \( U \) des coefficients de Gram–Schmidt.</div>
                     </div>
     
                     <div class="for">
-                        <div>
-                            <span class="keyword">Pour</span>
-                            \( k = 1 \)
-                            <strong>to</strong>
-                            \( n \) 
-                            <span class="keyword">faire</span>
-                        </div>
+                        \( k = 1 \) <strong>to</strong> \( n \) <span class="keyword">faire</span>
                         
                         <div class="c">
                             \( b_k^* \gets b_k \)
 
                             <div class="for">
-                                <div>
-                                    <span class="keyword">Pour</span>
-                                    \( j = 1 \) 
-                                    <strong>to</strong>
-                                    \( k-1 \) 
-                                    <span class="keyword">faire</span>
-                                </div>
+                                    \( j = 1 \) <strong>to</strong> \( k-1 \) 
 
                                 <div class="c">
                                     \( U_{k,j} \gets \dfrac{\langle b_k^*, b_j^* \rangle}{\|b_j^*\|^2} \) <br>
                                     \( b_k^* \gets b_k^* - U_{k,j}\,b_j^* \)
                                 </div>
-
-                                <div>
-                                    <span class="keyword">Fin pour</span>
-                                </div>
                             </div>
-                        </div>
-
-                        <div>
-                            <span class="keyword">Fin pour</span>
                         </div>
                     </div>
                 </div>

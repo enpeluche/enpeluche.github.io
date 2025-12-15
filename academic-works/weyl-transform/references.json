@@ -1,0 +1,28 @@
+[
+    {
+        "id": "ref-wong-1998",
+        "type": "book",
+        "url": "",
+        "title": "Weyl transforms",
+        "year": "1998",
+        "authors":[
+            {
+                "given":"M. W.",
+                "family":"Wong"
+            }
+        ]
+    },
+    {
+        "id": "ref-folland-1989",
+        "type": "book",
+        "url": "",
+        "title": "Harmonic analysis in phase space",
+        "year": "1989",
+        "authors":[
+            {
+                "given":"Gerald B",
+                "family":"Folland"
+            }
+        ]
+    }
+]

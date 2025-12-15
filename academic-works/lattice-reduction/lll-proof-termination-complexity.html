@@ -63,12 +63,16 @@
 
             <div id="article">
                 <h2>Terminaison et complexité</h2>
+
+                <div class="paragraph">
+                    On pose \( \displaystyle A = \max_{1 \leq i \leq n} \| g_i \| \).
+                </div>
                 
                 <div class="theorem">
-                    <span class="title">Terminaison et complexité</span> <br>
-
-                    On pose \( \displaystyle A = \max_{1 \leq i \leq n} \| g_i \| \). <br>
-                    L'algorithme LLL termine et utilise \( \mathcal{O}(n^4 \log A) \) opérations arithmétiques sur des entiers.
+                    <span class="title">Terminaison et complexité</span>
+                    <div class="paragraph">
+                        L'algorithme LLL termine et utilise \( \mathcal{O}(n^4 \log A) \) opérations arithmétiques sur des entiers.
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -105,6 +109,9 @@
                             et ces éléments peuvent être mis à jour en \( \mathcal{O}(n) \) opérations.
                         </li>
                     </ol>
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -133,16 +140,21 @@
                 </div>
 
                 <div class="proof">
-                    <span class="nowrap">
-                        Soit \( 1 \leq k \leq n \), on définit \( g_k =  U_k g_k^* \) la décomposition de Gram-Schmidt
-                        de la famille \( (g_i) _{1 \leq i \leq k} \).
-                    </span>
-                    <br>
-
-                    Alors 
-                    \[
-                    d_k = \det(g_k g_k^t)=\det(U_k g_k^* (g_k^*)^t U_k^t) = \det(g_k^* (g_k^*)^t) = \prod_{1 \leq l \leq k} \| g_l^* \|^2 > 0
-                    \]
+                    <div class="paragraph">
+                        <span class="nowrap">
+                            Soit \( 1 \leq k \leq n \), on définit \( g_k =  U_k g_k^* \) la décomposition de Gram-Schmidt
+                            de la famille \( (g_i) _{1 \leq i \leq k} \).
+                        </span>
+                    </div>
+                    <div class="paragraph">
+                        Alors 
+                        \[
+                        d_k = \det(g_k g_k^t)=\det(U_k g_k^* (g_k^*)^t U_k^t) = \det(g_k^* (g_k^*)^t) = \prod_{1 \leq l \leq k} \| g_l^* \|^2 > 0
+                        \]
+                    </div>
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="lemma">
@@ -161,20 +173,26 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            D'après le lemme 2.2 Proprification de \( g_i \) ne modifie pas \( g_k^* \) et donc ne modifie pas \( d_k \).
-                        </li>
-                        <li>
-                            Pour \( k \neq i-1\), une exécution de Réduction de \( g_{i-1}, g_{i} \) multiplie \( g_k \) par une matrice de permutation,
-                            donc \( d_k^* = d_k \)
-                        
-                            De plus, on a
-                            \[
-                            d_{i-1} = \prod_{1 \leq l \leq i-1} \| g_l^* \|^2 = \frac{3}{4} \prod_{1 \leq l \leq i-1} \| h_l^* \|^2 = \frac{3}{4} d_{i-1}^* 
-                            \] 
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                D'après le lemme 2.2 Proprification de \( g_i \) ne modifie pas \( g_k^* \) et donc ne modifie pas \( d_k \).
+                            </li>
+                            <li>
+                                Pour \( k \neq i-1\), une exécution de Réduction de \( g_{i-1}, g_{i} \) multiplie \( g_k \) par une matrice de permutation,
+                                donc \( d_k^* = d_k \)
+                            
+                                De plus, on a
+                                \[
+                                d_{i-1} = \prod_{1 \leq l \leq i-1} \| g_l^* \|^2 = \frac{3}{4} \prod_{1 \leq l \leq i-1} \| h_l^* \|^2 = \frac{3}{4} d_{i-1}^* 
+                                \] 
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -211,19 +229,25 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            D'après le lemme 2.7 Proprification de \( g_i \) ne modifie pas \( d_k \) et donc ne modifie pas \( D \).
-                        </li>
-                        <li>
-                            Si \( g_{i-1} \) et \( g_i \) sont échangés lors de l'exécution de Réduction de \( g_{i-1}, g_{i} \),
-                            en notant \( D^* \) la nouvelle valeur de \( D \), alors d'après le lemme 2.7
-                            
-                            \[
-                            d_k^* = d_k, \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1} \text{ donc } D^* \leq \frac{3}{4} D.
-                            \]
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                D'après le lemme 2.7 Proprification de \( g_i \) ne modifie pas \( d_k \) et donc ne modifie pas \( D \).
+                            </li>
+                            <li>
+                                Si \( g_{i-1} \) et \( g_i \) sont échangés lors de l'exécution de Réduction de \( g_{i-1}, g_{i} \),
+                                en notant \( D^* \) la nouvelle valeur de \( D \), alors d'après le lemme 2.7
+                                
+                                \[
+                                d_k^* = d_k, \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1} \text{ donc } D^* \leq \frac{3}{4} D.
+                                \]
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
 
@@ -254,17 +278,29 @@
                     \]
                     
                     On en déduit que \( e \; \leq n(n-1)\frac{\log A}{-\log(3/4)}\) et donc \( e \in \OO(n^2 \log A)\)
+
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="proof">
+                    <span class="title">Preuve de la terminaison et la complexité</span>
                     
-                    Preuve de la terminaison et la complexité]
-                        
-                        Comme \( i \) est décrémenté de \( 1 \) lors d’un échange et incrémenté de \( 1 \) sinon l'entier \( i + e - e^* \) est constant tout au long de \hyperref[step:LLL]{\emph{LLL}}.
-                        
-                        Initialement \( i + e - e^* = 2 \) et à la fin de \hyperref[step:LLL]{\emph{LLL}} on a \( n + 1 + e - e^* = 2 \).
+                    <div class="paragraph">
+                        Comme \( i \) est décrémenté de \( 1 \) lors d’un échange et incrémenté de \( 1 \) sinon
+                        l'entier \( i + e - e^* \) est constant tout au long de LLL.    
+                    </div>
+
+                    <div class="paragraph">
+                        Initialement \( i + e - e^* = 2 \) et à la fin de LLL on a \( n + 1 + e - e^* = 2 \).
                         On en déduit donc que \( e + e^* = 2e + n - 1 \in \OO(n^2 \log A) \).
-                        et donc d'après le lemme 2.5 le coût total de \hyperref[step:LLL]{\emph{LLL}} est \( \OO(n^2 \x n^2 \log A) \) opérations dans \( \Z \). Ce qui acheve la preuve.
+                        et donc d'après le lemme 2.5 le coût total de \hyperref[step:LLL]{\emph{LLL}} est \( \OO(n^2 \times n^2 \log A) \) opérations dans \( \Z \). Ce qui acheve la preuve.
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
                 
                 <div class="theorem">
@@ -276,14 +312,20 @@
                 </div>
 
                 <div class="lemma">
-                    \begin{lemma}
-                    Soit \( g_1, \dots, g_n \in \Z^n \), et soit \( G^* \) et \( M \) respectivement la base de Gram-Schmidt et la matrice des coefficients associés. Pour tout \( 1 \leq l < k \leq n \), on a :
-                    \begin{enumerate}[label=(\roman*)]
-                        \item \( d_{k-1} g_k^* \in \Z^n \)
-                        \item \( d_l \mu_{k,l} \in \Z \)
-                        \item \( |\mu_{k,l}| \leq \sqrt{d_{l-1}} \| g_k \| \)
-                    \end{enumerate}
-                \end{lemma}
+                    Soit \( g_1, \dots, g_n \in \Z^n \),
+                    et soit \( G^* \) et \( M \) respectivement la base de Gram-Schmidt et la matrice des coefficients associés.
+                    Pour tout \( 1 \leq l < k \leq n \), on a :
+                    <ol>
+                        <li>
+                            \( d_{k-1} g_k^* \in \Z^n \)
+                        </li>
+                        <li>
+                            \( d_l \mu_{k,l} \in \Z \)
+                        </li>
+                        <li>
+                            \( |\mu_{k,l}| \leq \sqrt{d_{l-1}} \| g_k \| \)
+                        </li>
+                    </ol>
                 </div>
 
 
@@ -360,6 +402,10 @@
                             \]
                         </li>
                     </ol>
+
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -398,75 +444,85 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            Initialement \( \|g_k\| \leq A \) pour tout \( k \).
-                            L'étape Réduction de \( g_{i-1}, g_{i} \) ne modifie pas \( \|g_k\| \), il suffit donc d'examiner
-                            l'étape Proprification de \( g_i \). On a que \( g_k \), pour \( k \neq i \), n'est pas affecté
-                            par l'étape Proprification partielle de \( g_i \). <br>
-                        
-                            Soit \( m_i = \max \{ |\mu_{i,l}| : 1 \leq l \leq i \} \). À partir de 
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                <div class="paragraph">
+                                    Initialement \( \|g_k\| \leq A \) pour tout \( k \).
+                                    L'étape Réduction de \( g_{i-1}, g_{i} \) ne modifie pas \( \|g_k\| \), il suffit donc d'examiner
+                                    l'étape Proprification de \( g_i \). On a que \( g_k \), pour \( k \neq i \), n'est pas affecté
+                                    par l'étape Proprification partielle de \( g_i \).
+                                </div>
+                                
                             
-                            \[
-                            g_i = \sum_{1 \leq l \leq i} \mu_{i,l} g^*_l
-                            \]
-                            
-                            et de l'orthogonalité des vecteurs \( g^*_l \), on obtient :
-                            
-                            \[
-                            \|g_i\|^2 = \sum_{1 \leq l \leq i} \mu_{i,l}^2 \|g^*_l\|^2 \leq n m_i^2 A^2,
-                            \quad \text{donc} \quad
-                            \|g_i\| \leq \sqrt{n}\, m_i A. \tag{4}
-                            \]
-                            
-                            À la fin de Proprification de \( g_i \), on a \( m_i = 1 \) par le lemme 2.1.
-                        </li>
 
-                        <li>
-                                Le lemme 2.10 et le point 1 impliquent qu'au début de Proprification de \( g_i \), on a
+                                Soit \( m_i = \max \{ |\mu_{i,l}| : 1 \leq l \leq i \} \). À partir de 
                                 
                                 \[
-                                \begin{aligned}
-                                    m_i &\leq \max \left\{ d_l^{1/2} : 1 \leq l \leq i \right\} \cdot \|g_i\| \\ 
-                                    &\leq A^{n-2} \cdot n^{1/2} A \\ 
-                                    &= n^{1/2} A^{n-1}.
-                                \end{aligned}
+                                g_i = \sum_{1 \leq l \leq i} \mu_{i,l} g^*_l
                                 \]
                                 
-                                Considérons maintenant le remplacement effectué à l'étape Proprification partielle de \( g_i \).
-                                Comme \( m_i \geq 1 \) et que \( |\mu_{j,l}| \leq \tfrac{1}{2} \) pour \( 1 \leq l < j \), le
-                                lemme 2.8 donne :
+                                et de l'orthogonalité des vecteurs \( g^*_l \), on obtient :
                                 
                                 \[
-                                \begin{aligned}
-                                    |\mu_{i,l} - \lfloor \mu_{i,j} \rceil \mu_{j,l}| 
-                                    &\leq |\mu_{i,l}| + |\lfloor \mu_{i,j} \rceil| \cdot |\mu_{j,l}| \\
-                                    &\leq m_i + \left(m_i + \tfrac{1}{2} \right) \cdot \tfrac{1}{2} \\
-                                    &= \tfrac{3}{2} m_i + \tfrac{1}{4} \\
-                                    &\leq 2m_i
-                                \end{aligned}
-                                \]
-
-                                pour \( 1 \leq l < j \). 
-                                
-                                Pour \( l = j \), la nouvelle valeur de \( \mu_{i,j} \) est par construction au plus \( \tfrac{1}{2} \)
-                                 en valeur absolue, tout comme les valeurs de \( \mu_{i,l} \) pour \( l > j \), d'après le lemme 2.1.
-                                
-                                On en déduit que pour chaque valeur de \( j \), la valeur de \( m_i \) est au plus doublée.
-                                Ainsi, pendant Proprification de \( g_i \), la valeur de \( m_i \) est
-                                multipliée au plus par un facteur \( 2^{i-1} \leq 2^{n-1} \). 
-                                
-                                On a donc
-                                \[
-                                m_i \leq n^{1/2}(2A)^{n-1}
+                                \|g_i\|^2 = \sum_{1 \leq l \leq i} \mu_{i,l}^2 \|g^*_l\|^2 \leq n m_i^2 A^2,
+                                \quad \text{donc} \quad
+                                \|g_i\| \leq \sqrt{n}\, m_i A. \tag{4}
                                 \]
                                 
-                                Puis
-                                \[
-                                \|g_i\| \leq n^{1/2} m_i A \leq n (2A)^n.
-                                \]
+                                À la fin de Proprification de \( g_i \), on a \( m_i = 1 \) par le lemme 2.1.
                             </li>
-                    </ol>
+    
+                            <li>
+                                    Le lemme 2.10 et le point 1 impliquent qu'au début de Proprification de \( g_i \), on a
+                                    
+                                    \[
+                                    \begin{aligned}
+                                        m_i &\leq \max \left\{ d_l^{1/2} : 1 \leq l \leq i \right\} \cdot \|g_i\| \\ 
+                                        &\leq A^{n-2} \cdot n^{1/2} A \\ 
+                                        &= n^{1/2} A^{n-1}.
+                                    \end{aligned}
+                                    \]
+                                    
+                                    Considérons maintenant le remplacement effectué à l'étape Proprification partielle de \( g_i \).
+                                    Comme \( m_i \geq 1 \) et que \( |\mu_{j,l}| \leq \tfrac{1}{2} \) pour \( 1 \leq l < j \), le
+                                    lemme 2.8 donne :
+                                    
+                                    \[
+                                    \begin{aligned}
+                                        |\mu_{i,l} - \lfloor \mu_{i,j} \rceil \mu_{j,l}| 
+                                        &\leq |\mu_{i,l}| + |\lfloor \mu_{i,j} \rceil| \cdot |\mu_{j,l}| \\
+                                        &\leq m_i + \left(m_i + \tfrac{1}{2} \right) \cdot \tfrac{1}{2} \\
+                                        &= \tfrac{3}{2} m_i + \tfrac{1}{4} \\
+                                        &\leq 2m_i
+                                    \end{aligned}
+                                    \]
+    
+                                    pour \( 1 \leq l < j \). 
+                                    
+                                    Pour \( l = j \), la nouvelle valeur de \( \mu_{i,j} \) est par construction au plus \( \tfrac{1}{2} \)
+                                     en valeur absolue, tout comme les valeurs de \( \mu_{i,l} \) pour \( l > j \), d'après le lemme 2.1.
+                                    
+                                    On en déduit que pour chaque valeur de \( j \), la valeur de \( m_i \) est au plus doublée.
+                                    Ainsi, pendant Proprification de \( g_i \), la valeur de \( m_i \) est
+                                    multipliée au plus par un facteur \( 2^{i-1} \leq 2^{n-1} \). 
+                                    
+                                    On a donc
+                                    \[
+                                    m_i \leq n^{1/2}(2A)^{n-1}
+                                    \]
+                                    
+                                    Puis
+                                    \[
+                                    \|g_i\| \leq n^{1/2} m_i A \leq n (2A)^n.
+                                    \]
+                                </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="proof">
@@ -499,7 +555,11 @@
                             et par conséquent, leur taille est aussi en \( \mathcal{O}(n \log A) \). 
                         </li>
                     </ul>
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
+
             </div>
         </main>
 

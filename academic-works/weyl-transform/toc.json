@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Mathematiques de la mecanique quantique",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "quantum-mechanics-math.html",
+        "children": [
+            {
+                "title": "Rappels sur les espaces de Hilbert et les operateurs",
+                "filename": "hilbert-spaces-operators.html"
+            },
+            {
+                "title":"Introduction et postulats",
+                "filename": "qm-introduction-postulates.html"
+            },
+            {
+                "title":"Transformee de Fourier",
+                "filename": "fourier-transform.html"
+            },
+            {
+                "title":"Operateurs pseudo-differentiels",
+                "filename":"pseudo-differential-operators.html"
+            }
+        ]
+    },
+
+    {
+        "title": "La transformee de Weyl",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "weyl-transform.html",
+        "children": [
+            {
+                "title": "La transformee de Fourier-Wigner",
+                "filename": "fourier-wigner-transform.html"}
+                ,
+            {
+                "title": "La transformee de Wigner",
+                "filename":"wigner-transform.html"
+            },
+            {
+                "title": "La transformee de Weyl",
+                "filename": "weyl-transform-details.html"
+            }
+        ]
+    }
+]

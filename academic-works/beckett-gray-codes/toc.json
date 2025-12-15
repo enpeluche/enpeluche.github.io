@@ -1,0 +1,130 @@
+[
+    {
+        "title": "Codes de Beckett-Gray",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "index.html",
+        "children": []
+    },
+    {
+        "title": "Organisation du travail",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "work-organization.html",
+        "children": []
+    },
+    {
+        "title": "Les codes de Gray",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "gray-codes.html",
+        "children": [
+            {
+                "title": "Construction",
+                "filename": "gray-construction.html"
+            },
+            {
+                "title": "Implementation",
+                "filename": "gray-implementation.html"
+            },
+            {
+                "title": "Graphe de retournement",
+                "filename": "gray-reversal-graph.html"
+            },
+            {
+                "title": "Etude de l’hypercube",
+                "filename": "hypercube-study.html"
+            },
+            {   
+                "title": "Cycles isomorphes dans l’hypercube vu comme un graphe de retournement",
+                "filename": "isomorphic-cycles-reversal.html"
+            },
+            {
+        
+                "title": "Equivalence sous reversion",
+                "filename": "reversion-equivalence.html"
+            }
+        ]
+    },
+    {
+        "title": "Les codes de Beckett-Gray",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "beckett-gray-codes.html",
+        "children": [
+            {
+                "title": "Introduction",
+                "filename": "beckett-introduction.html"
+            },
+            {
+                "title": "Problematique",
+                "filename": "beckett-problematic.html"
+            },
+            {
+                "title": "Algorithme",
+                "filename": "beckett-algorithm.html"
+            },
+            {   
+                "title": "Heuristiques",
+                "filename": "beckett-heuristics.html"
+            },
+            {
+                "title": "Modification de l’algorithme",
+                "filename": "algorithm-modification.html"
+            },
+            { 
+                "title": "Implementation des heuristiques et du code pour changer un 1 en 0",
+                "filename": "heuristics-and-flip-implementation.html"
+            },
+            {      
+                "title": "Resultats sur la generation de codes de Beckett-Gray",
+                "filename": "beckett-generation-results.html"
+            }
+        ]
+    },
+    {
+        
+        "title": "Etudes statistiques sur les codes de Beckett-Gray",
+        "type": "chapter",
+        "isNumbered": true,
+        "filename": "beckett-statistical-studies.html",
+        "children": [
+            {
+                "title": "Nombre de bit a 1 dans la representation binaire des codes de Beckett-Gray",
+                "filename": "binary-one-count.html"
+            },
+            {
+                "title": "Somme des colonnes de la representation decimale des codes de Beckett-Gray",
+                "filename": "decimal-column-sum.html"
+            },
+            {
+                "title": "Taille des intervalles de longueur maximale de bit a 1",
+                "filename": "maximal-one-interval-size.html"
+            },
+            {
+                "title": "Frequence des nombres par colonne",
+                "filename": "column-number-frequency.html"
+            },
+            {
+                "title":  "Tables de transitions",
+                "filename": "transition-tables.html"
+            },
+            {
+                "title": "Codes de Beckett-Gray non-isomorphes",
+                "filename": "non-isomorphic-beckett-codes.html"
+            },
+            {
+                "title": "Etude de l’equivalence sous reversion",
+                "filename": "reversion-equivalence-study.html"
+            },
+            {
+                "title": "Etudes des isomorphismes",
+                "filename": "isomorphism-studies.html"
+            },
+            {      
+                "title": "Conclusion",
+                "filename": "conclusion.html"
+            }
+        ]  
+    }
+]

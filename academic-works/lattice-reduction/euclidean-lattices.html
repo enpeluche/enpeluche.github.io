@@ -101,6 +101,28 @@
 
         <footer id="main-footer"></footer>
         
+        <script>
+            function calculer80vh() {
+    // 1. Récupère la hauteur actuelle de la fenêtre d'affichage (viewport) en pixels.
+    const hauteurViewport = window.innerHeight; 
+
+    // 2. Calcule 80% de cette hauteur.
+    const valeur80vh = (hauteurViewport * 80) / 100;
+
+    return valeur80vh;
+}
+
+const hauteurPixels = calculer80vh();
+
+console.log(`La hauteur actuelle de 80vh est de ${hauteurPixels}px`);
+
+            const monElement = document.getElementById('article');
+
+            // Récupère la hauteur totale de l'élément en pixels (avec padding et bordures)
+            const hauteurTotale = monElement.offsetHeight; 
+
+            console.log(`La hauteur totale (offsetHeight) est : ${hauteurTotale}px`);
+        </script>
         <script type="module" src="/assets/js/main.js"></script>
     </body>
 </html>

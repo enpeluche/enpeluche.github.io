@@ -121,19 +121,25 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            D'après le lemme 2.2 Proprification de \( g_i \) ne modifie pas \( g_k^* \) et donc ne modifie pas \( d_k \).
-                        </li>
-                        <li>
-                            Pour \( k \neq i-1\), une exécution de Réduction de \( g_{i-1}, g_{i} \) multiplie \( g_k \) par une matrice de permutation, donc \( d_k^* = d_k \)
-        
-                            De plus, on a
-                            \[
-                            d_{i-1} = \prod_{1 \leq l \leq i-1} \| g_l^* \|^2 \leq \frac{3}{4} \prod_{1 \leq l \leq i-1} \| \mathbf{h}_l^* \|^2 = \frac{3}{4} d_{i-1}^* 
-                            \] 
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                D'après le lemme 2.2 Proprification de \( g_i \) ne modifie pas \( g_k^* \) et donc ne modifie pas \( d_k \).
+                            </li>
+                            <li>
+                                Pour \( k \neq i-1\), une exécution de Réduction de \( g_{i-1}, g_{i} \) multiplie \( g_k \) par une matrice de permutation, donc \( d_k^* = d_k \)
+            
+                                De plus, on a
+                                \[
+                                d_{i-1} = \prod_{1 \leq l \leq i-1} \| g_l^* \|^2 \leq \frac{3}{4} \prod_{1 \leq l \leq i-1} \| \mathbf{h}_l^* \|^2 = \frac{3}{4} d_{i-1}^* 
+                                \] 
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -167,18 +173,24 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            D'après le lemme 2.7 Proprification de \( g_i \) ne modifie pas \( d_k \) et donc ne modifie pas \( D \).
-                        </li>
-                        <li>
-                            Si \( g_{i-1} \) et \( g_i \) sont échangés lors de l'exécution de Réduction de \( g_{i-1}, g_{i} \), en notant \( D^* \) la nouvelle valeur de \( D \), alors d'après le lemme 2.7
-        
-                            \[
-                            d_k^* = d_k, \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1} \text{ donc } D^* \leq \frac{3}{4} D.
-                            \]
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                D'après le lemme 2.7 Proprification de \( g_i \) ne modifie pas \( d_k \) et donc ne modifie pas \( D \).
+                            </li>
+                            <li>
+                                Si \( g_{i-1} \) et \( g_i \) sont échangés lors de l'exécution de Réduction de \( g_{i-1}, g_{i} \), en notant \( D^* \) la nouvelle valeur de \( D \), alors d'après le lemme 2.7
+            
+                                \[
+                                d_k^* = d_k, \quad d_{i-1}^* \leq \frac{3}{4} d_{i-1} \text{ donc } D^* \leq \frac{3}{4} D.
+                                \]
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -193,30 +205,43 @@
                 </div>
 
                 <div class="proof">
-                    Soit \( D_e \) la valeur de \( D \) après \( e \) échanges.
+                    <div class="paragraph">
+                        Soit \( D_e \) la valeur de \( D \) après \( e \) échanges.
     
-                    On doit avoir
-                    \[
-                    1 \;\le\; D_e \; \le\;\left(\frac34\right)^{e} D_0 \le\; \left(\frac34\right)^{e}A^{\,n(n-1)}.
-                    \]
+                        On doit avoir
+                        \[
+                        1 \;\le\; D_e \; \le\;\left(\frac34\right)^{e} D_0 \le\; \left(\frac34\right)^{e}A^{\,n(n-1)}.
+                        \]
     
-                    En appliquant \( log_{3/4} \), aux extrémités de l'inégalité.
+                        En appliquant \( log_{3/4} \), aux extrémités de l'inégalité.
     
-                    \[
-                    0=\log_{3/4}(1) \;\ge\; e + \log_{3/4}(A^{\,n(n-1)})=e + n(n-1)\frac{\log A}{\log(3/4)}.
-                    \]
+                        \[
+                        0=\log_{3/4}(1) \;\ge\; e + \log_{3/4}(A^{\,n(n-1)})=e + n(n-1)\frac{\log A}{\log(3/4)}.
+                        \]
     
-                    On en déduit que \( e \; \leq n(n-1)\frac{\log A}{-\log(3/4)}\) et donc \( e \in \mathcal{O}(n^2 \log A)\)
+                        On en déduit que \( e \; \leq n(n-1)\frac{\log A}{-\log(3/4)}\) et donc \( e \in \mathcal{O}(n^2 \log A)\)
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="proof">
                     <span class="title"> Preuve de la terminaison et la complexité </span>
 
-                    Comme \( i \) est décrémenté de \( 1 \) lors d’un échange et incrémenté de \( 1 \) sinon l'entier \( i + e - e^* \) est constant tout au long de LLL.
+                    <div class="paragraph">
+                        Comme \( i \) est décrémenté de \( 1 \) lors d’un échange et incrémenté de \( 1 \) sinon l'entier \( i + e - e^* \) est constant tout au long de LLL.
     
-                    Initialement \( i + e - e^* = 2 \) et à la fin de LLL on a \( n + 1 + e - e^* = 2 \).
-                    On en déduit donc que \( e + e^* = 2e + n - 1 \in \mathcal{O}(n^2 \log A) \).
-                    et donc d'après le lemme 2.5 le coût total de LLL est \( \mathcal{O}(n^2 \times n^2 \log A) \) opérations dans \( \Z \). Ce qui acheve la preuve.
+                        Initialement \( i + e - e^* = 2 \) et à la fin de LLL on a \( n + 1 + e - e^* = 2 \).
+                        On en déduit donc que \( e + e^* = 2e + n - 1 \in \mathcal{O}(n^2 \log A) \).
+                        et donc d'après le lemme 2.5 le coût total de LLL est \( \mathcal{O}(n^2 \times n^2 \log A) \) opérations dans \( \Z \).
+                        Ce qui acheve la preuve.
+                    </div>
+
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
             </div>
 

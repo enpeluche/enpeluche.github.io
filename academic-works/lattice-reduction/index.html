@@ -35,15 +35,13 @@
         <!-- JS -->
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-        <script defer src="/assets/js/katex-config.js"></script>
-        
+
         <!-- ALL STYLESHEET -->
  
         <link rel="stylesheet" href="/assets/css/main.css">
     </head>
 
     <body>
-
         <header>
             <nav>
                 <ul>
@@ -63,51 +61,45 @@
                 <div id="full-toc" class="hidden"></div>
             </div>
         
-        <article id="article">
-            <h1>Réduction de réseaux</h1>
+            <article id="article">
+                <h1>Réduction de réseaux</h1>
 
-            <div class="paragraph">
-	            Un <strong>réseau euclidien</strong> peut être intuitivement vu comme un ensemble discret et régulier de points dans l'espace $\R^n$, formant un sous-groupe discret additif. À titre d'exemple, dans le plan $\R^2$, un réseau correspond aux intersections d'un quadrillage régulier. Malgré leur ressemblance avec les espaces vectoriels classiques, les réseaux euclidiens possèdent des propriétés spécifiques et complexes, rendant invalides de nombreux résultats habituellement vérifiés dans les $\mathbb{K}$-espaces vectoriels. Cette complexité fait des réseaux euclidiens un objet d'étude particulièrement riche à la frontière de plusieurs domaines de mathématiques et d'informatiques, en particulier le domaine de la <strong>cryptographie</strong>.
-            </div>
+                <div class="paragraph">
+	                Un <strong>réseau euclidien</strong> peut être intuitivement vu comme un ensemble discret et régulier de points dans l'espace $\R^n$, formant un sous-groupe discret additif. À titre d'exemple, dans le plan $\R^2$, un réseau correspond aux intersections d'un quadrillage régulier. Malgré leur ressemblance avec les espaces vectoriels classiques, les réseaux euclidiens possèdent des propriétés spécifiques et complexes, rendant invalides de nombreux résultats habituellement vérifiés dans les $\mathbb{K}$-espaces vectoriels. Cette complexité fait des réseaux euclidiens un objet d'étude particulièrement riche à la frontière de plusieurs domaines de mathématiques et d'informatiques, en particulier le domaine de la <strong>cryptographie</strong>.
+                </div>
             
-            <div class="paragraph">
-                Un des problèmes fondamentaux liés aux réseaux euclidiens est la <strong>réduction de réseaux</strong>, qui consiste à déterminer une bonne base de ce dernier, c'est-à-dire une base qui facilite la résolution efficace de divers problèmes algorithmiques liés aux réseaux euclidiens, comme celui de trouver le vecteur le plus court d'un réseau, ou trouver le vecteur le plus proche d'une cible donnée. Ces deux problèmes sont connus pour être <strong>NP-complets</strong>  et constituent précisément la difficulté à la base des cryptosystèmes reposant sur les réseaux euclidiens. Tandis que ces questions apparaissent simples et intuitives en basse dimension, elles deviennent rapidement très complexes et coûteuses à résoudre en grande dimension. Un exemple emblématique de l'ambivalence algorithmique des réseaux euclidiens est l’algorithme LLL (Lenstra-Lenstra-Lovász), que nous étudierons, initialement célèbre pour avoir permis la cryptanalyse de systèmes basés sur le problème du sac à dos, mais qui joue aujourd’hui paradoxalement un rôle clé dans la conception de nouveaux schémas cryptographiques robustes.
-            </div>
+                <div class="paragraph">
+                    Un des problèmes fondamentaux liés aux réseaux euclidiens est la <strong>réduction de réseaux</strong>, qui consiste à déterminer une bonne base de ce dernier, c'est-à-dire une base qui facilite la résolution efficace de divers problèmes algorithmiques liés aux réseaux euclidiens, comme celui de trouver le vecteur le plus court d'un réseau, ou trouver le vecteur le plus proche d'une cible donnée. Ces deux problèmes sont connus pour être <strong>NP-complets</strong>  et constituent précisément la difficulté à la base des cryptosystèmes reposant sur les réseaux euclidiens. Tandis que ces questions apparaissent simples et intuitives en basse dimension, elles deviennent rapidement très complexes et coûteuses à résoudre en grande dimension. Un exemple emblématique de l'ambivalence algorithmique des réseaux euclidiens est l’algorithme LLL (Lenstra-Lenstra-Lovász), que nous étudierons, initialement célèbre pour avoir permis la cryptanalyse de systèmes basés sur le problème du sac à dos, mais qui joue aujourd’hui paradoxalement un rôle clé dans la conception de nouveaux schémas cryptographiques robustes.
+                </div>
 
+                <div class="paragraph">
+            	    Pour mieux comprendre les difficultés intrinsèques de la réduction de réseaux euclidiens, il est pertinent d'étudier les <strong>réseaux polynomiaux</strong>, une classe analogue aux réseaux euclidiens. Alors que les réseaux euclidiens posent des problèmes <strong>NP-difficiles</strong>, les réseaux polynomiaux peuvent être réduits exactement et efficacement en temps polynomial. Cette différence fondamentale ouvre une piste prometteuse qui définit le thème de ce stage:             
+                </div>
 
-            <div class="paragraph">
-            	Pour mieux comprendre les difficultés intrinsèques de la réduction de réseaux euclidiens, il est pertinent d'étudier les <strong>réseaux polynomiaux</strong>, une classe analogue aux réseaux euclidiens. Alors que les réseaux euclidiens posent des problèmes <strong>NP-difficiles</strong>, les réseaux polynomiaux peuvent être réduits exactement et efficacement en temps polynomial. Cette différence fondamentale ouvre une piste prometteuse qui définit le thème de ce stage:             
-            </div>
+                <div class="paragraph">
+                    <strong>Problématique du stage</strong>
+                    <p>
+                        Serait-il possible d'adapter certaines méthodes exactes de réduction, initialement développées pour les réseaux polynomiaux, au cas des réseaux euclidiens ?
+                    </p>
+                </div>
 
-            <div class="paragraph">
-                <strong>Problématique du stage</strong>
-                <p>
-                    Serait-il possible d'adapter certaines méthodes exactes de réduction, initialement développées pour les réseaux polynomiaux, au cas des réseaux euclidiens ?
-                </p>
-            </div>
+                <div class="paragraph">
+                    L'objectif de ce stage est d' <strong>explorer</strong>, d'<strong>analyser</strong> et de <strong>comparer</strong> les deux approches distinctes mais étroitement reliées en s'appuyant notamment sur l'algorithme LLL dans le cas euclidien, tout en cherchant à le réinterpréter à travers des idées issues du contexte polynomial. Nous tenterons en particulier d'identifier clairement les similarités fondamentales ainsi que les différences essentielles qui se dégagent de cette comparaison. À partir de ces observations, une partie centrale du travail consistera à évaluer précisément l'efficacité potentielle de ces adaptations méthodologiques, à identifier les obstacles théoriques ou pratiques susceptibles de freiner leur transposition, et à proposer des pistes d'améliorations et d'explorations futures.
+                </div>
 
-            <div class="paragraph">
-                L'objectif de ce stage est d' <strong>explorer</strong>, d'<strong>analyser</strong> et de <strong>comparer</strong> les deux approches distinctes mais étroitement reliées en s'appuyant notamment sur l'algorithme LLL dans le cas euclidien, tout en cherchant à le réinterpréter à travers des idées issues du contexte polynomial. Nous tenterons en particulier d'identifier clairement les similarités fondamentales ainsi que les différences essentielles qui se dégagent de cette comparaison. À partir de ces observations, une partie centrale du travail consistera à évaluer précisément l'efficacité potentielle de ces adaptations méthodologiques, à identifier les obstacles théoriques ou pratiques susceptibles de freiner leur transposition, et à proposer des pistes d'améliorations et d'explorations futures.
-            </div>
-
-
-            <div class="paragraph">
-                La pertinence de cette démarche s'inscrit dans un contexte où les systèmes de sécurité actuels, reposant sur la difficulté de la factorisation des grands nombres premiers et du calcul de logarithmes discrets, risquent d'être mis à mal par les progrès en <strong>informatique quantique</strong>. À l'opposé, les réseaux euclidiens apparaissent comme une alternative prometteuse en cryptographie post-quantique, plusieurs de leurs problèmes fondamentaux semblant résister efficacement aux attaques quantiques.  Ainsi, approfondir la compréhension et améliorer les techniques de réduction de réseaux euclidiens représente un enjeu crucial pour le développement futur de la cryptographie face aux défis quantiques.
-            </div>
-    
-            
-
-
-        </article>
-    </main>
+                <div class="paragraph">
+                    La pertinence de cette démarche s'inscrit dans un contexte où les systèmes de sécurité actuels, reposant sur la difficulté de la factorisation des grands nombres premiers et du calcul de logarithmes discrets, risquent d'être mis à mal par les progrès en <strong>informatique quantique</strong>. À l'opposé, les réseaux euclidiens apparaissent comme une alternative prometteuse en cryptographie post-quantique, plusieurs de leurs problèmes fondamentaux semblant résister efficacement aux attaques quantiques.  Ainsi, approfondir la compréhension et améliorer les techniques de réduction de réseaux euclidiens représente un enjeu crucial pour le développement futur de la cryptographie face aux défis quantiques.
+                </div>
+            </article>
+        </main>
         
-
         <footer>
             <nav>
                 <div style="display:flex; flex-direction: row;">
                     <p>
                         Licence
                     </p>
+                    
                     <ul style="display:flex; flex-direction: row; align-items: center;">
                         <li>
                             <svg style="width:20px; margin-left:5px;" focusable="false" aria-hidden="false" viewBox="0 0 16 16" aria-label="CC"><path d="M8 0.146c-0.068 0-0.132-0.002-0.199 0-4.242 0.108-7.655 3.586-7.655 7.854 0 4.336 3.519 7.854 7.854 7.854s7.854-3.519 7.854-7.854-3.519-7.854-7.854-7.854zM8 14.505c-3.59 0-6.504-2.914-6.504-6.504 0-3.52 2.804-6.394 6.297-6.504 0.070-0.002 0.137 0 0.207 0 3.59 0 6.504 2.914 6.504 6.504s-2.914 6.504-6.504 6.504zM5.331 6.248c0.675 0.015 0.929 0.339 1.026 0.829l1.205 0.004c-0.195-1.128-1.023-1.792-2.201-1.798-1.333-0.006-2.3 1.106-2.304 2.479-0.005 1.466 0.955 2.489 2.289 2.493 0.040 0 0.078 0.002 0.117 0 0.009-0 0.018 0 0.027 0 0.833-0.011 1.966-0.592 1.97-1.727l-1.076-0.003c-0.072 0.491-0.504 0.805-1.003 0.764-0.020-0.001-0.039-0-0.059-0-0.812-0.002-1.131-0.618-1.155-1.524-0.025-0.946 0.525-1.532 1.164-1.517zM10.903 9.289c-0.020-0.001-0.039-0-0.059-0-0.812-0.002-1.131-0.618-1.155-1.524-0.025-0.946 0.525-1.532 1.164-1.517 0.675 0.015 0.929 0.339 1.026 0.829l1.205 0.004c-0.195-1.128-1.023-1.792-2.201-1.798-1.333-0.006-2.3 1.106-2.304 2.479-0.005 1.466 0.955 2.489 2.289 2.493 0.040 0 0.078 0.002 0.117 0 0.009-0 0.018 0 0.027 0 0.833-0.011 1.966-0.592 1.97-1.727l-1.076-0.003c-0.072 0.491-0.505 0.805-1.003 0.764z"></path></svg>

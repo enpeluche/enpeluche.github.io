@@ -87,35 +87,33 @@
                 </div>
 
                 <div class="proof">
-                    On a le diagramme commutatif suivant en voyant \( S^* \) comme la matrice de passage de la base canonique
-                    \( \mathcal{C} \) à la base \( \mathcal{C'} \coloneqq S^* \). L'écriture \( \mathscr{L}_{\mathcal{C}} \) où
-                    \( \mathcal{C} \) est une base représente \( \mathscr{L} \) exprimée dans la base \( \mathcal{C} \).
+                    <div class="paragraph">
+                        On a le diagramme commutatif suivant en voyant \( S^* \) comme la matrice de passage de la base canonique
+                        \( \mathcal{C} \) à la base \( \mathcal{C'} \coloneqq S^* \). L'écriture \( \mathscr{L}_{\mathcal{C}} \) où
+                        \( \mathcal{C} \) est une base représente \( \mathscr{L} \) exprimée dans la base \( \mathcal{C} \).
      
-                    \[
-                    \begin{tikzcd}
-                        {\mathscr{L}_{\mathcal{C}}} && {\mathscr{L}_{\mathcal{C}}} \\
-                        \\
-                        && {\mathscr{L}_{\mathcal{C}'}} 
-                        \arrow["G", from=1-1, to=1-3]
-                        \arrow["{GS^*}"', from=1-1, to=3-3]
-                        \arrow["{S^*}", from=1-3, to=3-3]
-                    \end{tikzcd}
-                    \]
-
-                    Comme \( LLL(GS^*) \) est une base de \( \LL_{\mathcal{C}'}\), on en déduit le diagramme commutatif suivant et donc que \( LLL(GS^*) (S^*)^{-1} \) est une base de \( \LL_{\mathcal{C}} \).
+                        <!-- https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwyLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfSd9Il0sWzAsMSwiRyJdLFswLDIsIntHU14qfSIsMl0sWzEsMiwie1NeKn0iXV0= -->
+                        <figure>
+                            <div class="fig-container">
+                                <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwyLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfSd9Il0sWzAsMSwiRyJdLFswLDIsIntHU14qfSIsMl0sWzEsMiwie1NeKn0iXV0=&embed" width="432" height="432" style="border-radius: 8px; border: none;"></iframe>
+                            </div>
+                        </figure>
+                        
+                        Comme \( LLL(GS^*) \) est une base de \( \LL_{\mathcal{C}'}\), on en déduit le diagramme commutatif suivant et donc que \( LLL(GS^*) (S^*)^{-1} \) est une base de \( \LL_{\mathcal{C}} \).
      
-                    \[
-                    \begin{tikzcd}
-                        {\LL_{\mathcal{C}}} && {\LL_{\mathcal{C}}} \\
-                        \\
-                        && {\LL_{\mathcal{C}'}}
-                        \arrow["{\mathrm{LLL}(GS^*)(S^*)^{-1}}", from=1-1, to=1-3]
-                        \arrow["{\mathrm{LLL}(GS^*)}"', from=1-1, to=3-3]
-                        \arrow["{S^*}", from=1-3, to=3-3]
-                    \end{tikzcd}
-                    \]
-
-                    On a par construction de \( \mathrm{LLL} \) que \( LLL(GS^*) (S^*)^{-1} S^*\) est \( \mathrm{LLL}\)-réduite.
+                        <figure>
+                            <div class="fig-container">
+                                <!-- https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwyLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfSd9Il0sWzAsMSwie1xcbWF0aHJte0xMTH0oR1NeKikoU14qKV57LTF9fSJdLFswLDIsIntcXG1hdGhybXtMTEx9KEdTXiopfSIsMl0sWzEsMiwie1NeKn0iXV0= -->
+                                <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwyLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfSd9Il0sWzAsMSwie1xcbWF0aHJte0xMTH0oR1NeKikoU14qKV57LTF9fSJdLFswLDIsIntcXG1hdGhybXtMTEx9KEdTXiopfSIsMl0sWzEsMiwie1NeKn0iXV0=&embed" width="432" height="432" style="border-radius: 8px; border: none;"></iframe>
+                            </div>
+                        </figure>
+                       
+                        On a par construction de \( \mathrm{LLL} \) que \( LLL(GS^*) (S^*)^{-1} S^*\) est \( \mathrm{LLL}\)-réduite.
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">

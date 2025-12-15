@@ -89,33 +89,39 @@
                 </div>
                 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            a completer
-                        </li>
-                        <li>
-                            a completer
-                        </li>
-                        <li>
-                            Au début de la boucle lorsque \( j=i-1 \) on a trivialement l'inégalité.
-        
-                            La \( i \)-ème ligne de \( M \)
-                            
-                            \[
-                            (\mu_{i,1},\; \cdots,\; \mu_{i,j},\; \cdots,\; \mu_{i,i-1})
-                            \]
-                            
-                            Devient
-                            
-                            \[
-                            (\mu_{i,1}-\nint{\mu_{i,j}} \mu_{j,1},\; \cdots,\; \mu_{i,j}-\nint{\mu_{i,j}} \mu_{j,j},\; \cdots,\; \mu_{i,i-1}-\nint{\mu_{i,j}} \mu_{j,i-1})
-                            \]
-        
-                            \[
-                            (\mu_{i,1}-\nint{\mu_{i,j}} \mu_{j,1},\cdots,\; \mu_{i,j}-\nint{\mu_{i,j}},\; \cdots,\; \mu_{i,i-1})
-                            \] 
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                a completer
+                            </li>
+                            <li>
+                                a completer
+                            </li>
+                            <li>
+                                Au début de la boucle lorsque \( j=i-1 \) on a trivialement l'inégalité.
+            
+                                La \( i \)-ème ligne de \( M \)
+                                
+                                \[
+                                (\mu_{i,1},\; \cdots,\; \mu_{i,j},\; \cdots,\; \mu_{i,i-1})
+                                \]
+                                
+                                Devient
+                                
+                                \[
+                                (\mu_{i,1}-\nint{\mu_{i,j}} \mu_{j,1},\; \cdots,\; \mu_{i,j}-\nint{\mu_{i,j}} \mu_{j,j},\; \cdots,\; \mu_{i,i-1}-\nint{\mu_{i,j}} \mu_{j,i-1})
+                                \]
+            
+                                \[
+                                (\mu_{i,1}-\nint{\mu_{i,j}} \mu_{j,1},\cdots,\; \mu_{i,j}-\nint{\mu_{i,j}},\; \cdots,\; \mu_{i,i-1})
+                                \] 
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="algorithm">
@@ -139,11 +145,17 @@
                 </div>
 
                 <div class="proof">
-                    D'après le lemme 2.1, après l'exécution de Proprification de $g_i$, \( G^* \) n'a pas été modifié et en appliquant
-                    le lemme 2.1 pour \( j = 1 \) on a 
-                    \[
-                    |\mu_{i,l}| \leq \frac{1}{2} \text{ pour } 1 \leq l < i. 
-                    \]
+                    <div class="paragraph">
+                        D'après le lemme 2.1, après l'exécution de Proprification de $g_i$, \( G^* \) n'a pas été modifié et en appliquant
+                        le lemme 2.1 pour \( j = 1 \) on a 
+                        \[
+                        |\mu_{i,l}| \leq \frac{1}{2} \text{ pour } 1 \leq l < i. 
+                        \]
+                    </div>
+                    
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -199,84 +211,90 @@
                 </div>
 
                 <div class="proof">
-                    <ol>
-                        <li>
-                            La famille
-                            \[
-                            (g_1, \; \ldots,\; g_{i-2},\; g_{i-1},\; g_i,\; g_{i+1},\; \ldots,\; g_n)
-                            \]
-                            
-                            
-                            devient
-                            
-                            \[
-                            (h_1:=g_1,\; \ldots,\; h_{i-2}:=g_{i-2},\; h_{i}:=g_{i},\; h_{i-1}:=g_{i-1},\; h_{i+1}:=g_{i+1},\; \ldots,\; h_n:=g_n)
-                            \]
-                            
-                            Par construction de Gram-Schmidt on a \( h_k^* = g_k^* \) pour \( 1 \leq k \leq i-2\).
-                            
-                            On a 
-                            \[
-                            \begin{aligned}
-                                h_{i+1}^* &= h_{i+1}- \sum_{j=1}^{i} \gscoeff{h_{i+1}}{h_j^*} \\
-                                &= g_{i+1}- \sum_{j=1}^{i-2} \gscoeff{g_{i+1}}{g_j^*} + \gscoeff{g_{i+1}}{g_{i}^*} + \gscoeff{g_{i+1}}{g_{i-1}^*} \\
-                                &= g_{i+1}^*    
-                            \end{aligned}
-                            \] 
-                            
-                            On en déduit donc que \( h_k^* = g_k^* \) pour \( i+1 \leq k \leq n\).
-                        </li>
-                        <li>
-                            Le vecteur \( h_{i-1}^* \) est la composante de \( g_i \) orthogonale à
-                            \(
-                            \sum_{1 \leq l < i-1} \R g_l
-                            \)
-                            , or 
-                            \(
-                            g_i = g_i^* + \sum_{1 \leq l < i-1} \mu_{i,l} g_l^*
-                            \).
-                            
-                            Alors 
-                            \[
-                            \begin{aligned}
-                                h_{i-1}^* &= g_i^* + \mu_{i,i-1} g_{i-1}^*
-                            \end{aligned}
-                            \] 
-                            
-                            et donc 
-                            
-                            \[
-                            \begin{aligned}
-                                \norm{h_{i-1}^*}^2 &= \norm{g_i^*}^2 + \mu_{i,i-1}^2 \norm{g_{i-1}^*}^2 \\ 
-                                &\leq \frac{1}{2}\norm{g_{i-1}^*}^2 + \frac{1}{4} \norm{g_{i-1}^*}^2\\
-                                &=\frac{3}{4} \norm{g_{i-1}^*}^2
-                            \end{aligned}
-                            \]
-                            
-                        </li>
-                        <li>
-                            Soit
-                            \(
-                            \displaystyle u = \sum_{1 \leq l < i-1} \mu_{i-1,l} g_l^*
-                            \)
-                            et posons
-                            \(
-                            \displaystyle  U = \sum_{1 \leq l < i-1} \R g_l
-                            \)
-                            pour simplifier l’écriture.
-                            
-                            Alors, le vecteur \( h_i^* \) est la composante de \( g_{i-1} = g_{i-1}^* + u \) orthogonale à \( U + \R g_i \).
-                            
-                            Or \( u \in U \subseteq U + \R g_i \). 
-                            
-                            Alors, le vecteur \( h_i^* \) est la composante de \( g_{i-1}^* \) orthogonale à \( U + \R g_i \).
-                            
-                            Par conséquent,
-                            \[
-                            \|h_i^*\| \leq \|g_{i-1}^*\|.
-                            \]
-                        </li>
-                    </ol>
+                    <div class="paragraph">
+                        <ol>
+                            <li>
+                                La famille
+                                \[
+                                (g_1, \; \ldots,\; g_{i-2},\; g_{i-1},\; g_i,\; g_{i+1},\; \ldots,\; g_n)
+                                \]
+                                
+                                
+                                devient
+                                
+                                \[
+                                (h_1:=g_1,\; \ldots,\; h_{i-2}:=g_{i-2},\; h_{i}:=g_{i},\; h_{i-1}:=g_{i-1},\; h_{i+1}:=g_{i+1},\; \ldots,\; h_n:=g_n)
+                                \]
+                                
+                                Par construction de Gram-Schmidt on a \( h_k^* = g_k^* \) pour \( 1 \leq k \leq i-2\).
+                                
+                                On a 
+                                \[
+                                \begin{aligned}
+                                    h_{i+1}^* &= h_{i+1}- \sum_{j=1}^{i} \gscoeff{h_{i+1}}{h_j^*} \\
+                                    &= g_{i+1}- \sum_{j=1}^{i-2} \gscoeff{g_{i+1}}{g_j^*} + \gscoeff{g_{i+1}}{g_{i}^*} + \gscoeff{g_{i+1}}{g_{i-1}^*} \\
+                                    &= g_{i+1}^*    
+                                \end{aligned}
+                                \] 
+                                
+                                On en déduit donc que \( h_k^* = g_k^* \) pour \( i+1 \leq k \leq n\).
+                            </li>
+                            <li>
+                                Le vecteur \( h_{i-1}^* \) est la composante de \( g_i \) orthogonale à
+                                \(
+                                \sum_{1 \leq l < i-1} \R g_l
+                                \)
+                                , or 
+                                \(
+                                g_i = g_i^* + \sum_{1 \leq l < i-1} \mu_{i,l} g_l^*
+                                \).
+                                
+                                Alors 
+                                \[
+                                \begin{aligned}
+                                    h_{i-1}^* &= g_i^* + \mu_{i,i-1} g_{i-1}^*
+                                \end{aligned}
+                                \] 
+                                
+                                et donc 
+                                
+                                \[
+                                \begin{aligned}
+                                    \norm{h_{i-1}^*}^2 &= \norm{g_i^*}^2 + \mu_{i,i-1}^2 \norm{g_{i-1}^*}^2 \\ 
+                                    &\leq \frac{1}{2}\norm{g_{i-1}^*}^2 + \frac{1}{4} \norm{g_{i-1}^*}^2\\
+                                    &=\frac{3}{4} \norm{g_{i-1}^*}^2
+                                \end{aligned}
+                                \]
+                                
+                            </li>
+                            <li>
+                                Soit
+                                \(
+                                \displaystyle u = \sum_{1 \leq l < i-1} \mu_{i-1,l} g_l^*
+                                \)
+                                et posons
+                                \(
+                                \displaystyle  U = \sum_{1 \leq l < i-1} \R g_l
+                                \)
+                                pour simplifier l’écriture.
+                                
+                                Alors, le vecteur \( h_i^* \) est la composante de \( g_{i-1} = g_{i-1}^* + u \) orthogonale à \( U + \R g_i \).
+                                
+                                Or \( u \in U \subseteq U + \R g_i \). 
+                                
+                                Alors, le vecteur \( h_i^* \) est la composante de \( g_{i-1}^* \) orthogonale à \( U + \R g_i \).
+                                
+                                Par conséquent,
+                                \[
+                                \|h_i^*\| \leq \|g_{i-1}^*\|.
+                                \]
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="algorithm">
@@ -306,31 +324,44 @@
                     <div class="paragraph">
                         Supposons qu’elles restent vraies juste avant l’étape de Proprification de \( g_i \).
                     </div>
+
+                    <div class="paragraph">
+                        Le lemme 2.1 garantit que cette phase ne les altère pas : les inégalités demeurent donc valides après
+                        Proprification de $g_i$.        
+                    </div>
+
+                    <div class="paragraph">
+                        Passons à l’étape Réduction de $g_{i-1}, g_{i}$. Un échange effectué durant cette réduction ne modifie
+                        aucun coefficient $\mu_{k,l}$ avec k inf i-1
                         
-                    Le lemme 2.1 garantit que cette phase ne les altère pas : les inégalités demeurent donc valides après
-                    Proprification de $g_i$.
-                        
-                    Passons à l’étape Réduction de $g_{i-1}, g_{i}$. Un échange effectué durant cette réduction ne modifie
-                    aucun coefficient $\mu_{k,l}$ avec k inf i-1
-                    
-                    par conséquent, la première inégalité reste satisfaite. Par ailleurs, d’après le lemme 2.3, un échange ne modifie pas $g_k^{\ast}$ pour $k\notin\{i-1,i\}$, ce qui préserve la seconde inégalité.
-                        
+                        par conséquent, la première inégalité reste satisfaite. Par ailleurs, d’après le lemme 2.3, un échange ne modifie pas $g_k^{\ast}$ pour $k\notin\{i-1,i\}$, ce qui préserve la seconde inégalité.    
+                    </div>
+                       
                     <div class="paragraph">
                         Ainsi, à la fin de l’étape Réduction de $g_{i-1}, g_{i}$ et donc au début de l’itération de LLL suivante
                         les deux inégalités sont toujours vérifiées. Par récurrence sur les itérations, elles le sont à chaque
                         instant de l’algorithme, ce qui conclut la démonstration.
                     </div>
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
 
                 <div class="proof">
                     <span class="title">Preuve de la correction</span>
-                    Le lemme 2.4 implique qu'à la fin de LLL, comme \( i = n\), on a 
+                    <div class="paragraph">
+                        Le lemme 2.4 implique qu'à la fin de LLL, comme \( i = n\), on a 
                     
-                    \[
-                    |\mu_{k,l}| \leq \frac{1}{2} \quad \text{pour } 1 \leq l < k < n, \qquad \|g_{k-1}^*\|^2 \leq 2 \|g_k^*\|^2 \quad \text{pour } 1 < k < n.
-                    \]
+                        \[
+                        |\mu_{k,l}| \leq \frac{1}{2} \quad \text{pour } 1 \leq l < k < n, \qquad \|g_{k-1}^*\|^2 \leq 2 \|g_k^*\|^2 \quad \text{pour } 1 < k < n.
+                        \]
+                        
+                        ce qui prouve que la base est réduite.
+                    </div>
                     
-                    ce qui prouve que la base est réduite.
+                    <div class="end-proof">
+                        <img class="qed" src="/assets/icons/qed.svg" alt="">
+                    </div>
                 </div>
             </div> 
         </main>

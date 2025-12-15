@@ -47,6 +47,10 @@
     padding-left: 40px;
 }
 
+.for > .for{
+    padding-left: 40px;
+}
+
 .for::before,
 .while::before{
     content: '';
@@ -66,9 +70,29 @@
     position: absolute;
 
     left: 1em;
-    top: 1.5em; /* Commence après la ligne */
-    bottom: 0.5em; /* Se termine juste avant le dernier élément de la boucle */
+    top: 1.5em;
+    bottom: 0.5em;
 
-    width: 1px; /* Ligne d'épaisseur zéro */
-    border-left: 2px solid var(--primary-border-color); /* La ligne verticale */
+    width: 1px;
+    border-left: 2px solid var(--primary-border-color);
+}
+
+.comment {
+    /* TYPOGRAPHIE ET VISUEL */
+    color: #999; /* Couleur grise claire (très courante pour les commentaires) */
+    font-style: italic; /* Met le texte en italique */
+    opacity: 0.8; /* Légère transparence pour atténuer */
+    
+    /* BOX MODEL */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px; /* Ajoute un léger retrait pour les distinguer du code */
+}
+
+/* Optionnel : Si vous voulez que le signe de commentaire (// ou #) soit plus clair */
+.comment::before {
+    content: "// "; /* Simule un marqueur de commentaire */
+    color: #a0a0a0; /* Couleur légèrement différente */
+    font-weight: normal;
+    font-style: normal;
 }

@@ -377,7 +377,7 @@ où \(r \coloneqq \rang(F) \), \( P \) est une matrice de permutation, \( L \) e
                                 <div class="for">
                                     $i \gets 0$ \KwTo $r{-}1$
                                     <div class="c">
-                                        Remplacer la ligne $i$ de $L$ par $p \cdot e_i$ // $e_i$ : $i$-ème vecteur de la base canonique
+                                        Remplacer la ligne $i$ de $L$ par $p \cdot e_i$ <span class="comment">$e_i$ : $i$-ème vecteur de la base canonique</span>
                                     </div>
                                 </div>
                             </div>
@@ -436,11 +436,11 @@ où \(r \coloneqq \rang(F) \), \( P \) est une matrice de permutation, \( L \) e
     
                     $\tau \gets \left\lfloor \dfrac{\sigma + 1}{2} \right\rfloor$ <br>
     
-                    $V_1 \gets LLL-DAC-Padique(F, p, \tau)$ //Appel récursif sur demi-précision<br>
+                    $V_1 \gets LLL-DAC-Padique(F, p, \tau)$ <span class="comment">Appel récursif sur demi-précision</span><br>
     
-                    $F_{\text{low}} \gets \dfrac{V_1 \cdot F}{p^\tau}$ // Mise à jour du problème<br>
+                    $F_{\text{low}} \gets \dfrac{V_1 \cdot F}{p^\tau}$ <span class="comment">Mise à jour du problème</span><br>
     
-                    $V_2 \gets LLL-DAC-Padique(F_{\text{low}}, p, \sigma - \tau)$ //Appel récursif décalé
+                    $V_2 \gets LLL-DAC-Padique(F_{\text{low}}, p, \sigma - \tau)$ <span class="comment">Appel récursif décalé</span>
 
                     <div class="return">$V_2 \cdot V_1$</div>
                 </div>
