@@ -1,11 +1,11 @@
 
-.homepage{
-    width: 1200px;
-    height: 100%;
-
-    margin: auto auto;
-    padding: 20px;
-
+.homepage {
+  width: 100%;        /* Prend toute la largeur disponible */
+  max-width: 1200px;  /* Ne dépasse pas 1200px sur les grands écrans */
+  min-height: 100vh;  /* Permet de scroller si l'écran est petit */
+  box-sizing: border-box; /* Important pour que le padding ne s'ajoute pas à la largeur */
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .hero{
@@ -29,20 +29,22 @@
   text-align: justify;
 }
 
-.hero img{
-  margin: 25px;
-  padding: 0;
-  
-  width: 296px;
-  aspect-ratio: 296 / 296;
+.hero img {
+  width: 280px;      /* Taille de base */
+  max-width: 80vw;   /* Ne dépasse jamais 80% de l'écran mobile */
+  height: auto;      /* Garde le ratio */
+  aspect-ratio: 1 / 1; 
+  object-fit: cover; /* Coupe l'image si nécessaire au lieu de l'écraser */
   border-radius: 50%;
-  box-shadow: 0 0 0 2px #1f232826;
+  /* ... ton ombre ... */
 }
 
-.hero h1{
-  font-size: 6rem;
-  
-  margin: 0;
+.hero h1 {
+  /* Minimum 3rem, Idéal 10vw (10% de la largeur écran), Max 6rem */
+  font-size: clamp(3rem, 10vw, 6rem); 
+  line-height: 1.1; /* Resserrer un peu l'interlignage */
+  margin: 10px 0;
+  text-align: center;
 }
 
 .hero h2{

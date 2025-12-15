@@ -35,7 +35,6 @@
         <!-- JS -->
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-        <script defer src="/assets/js/katex-config.js"></script>
 
         <!-- ALL STYLESHEET -->
  
@@ -56,10 +55,7 @@
         </header>
         
         <main>
-            <div id="toc-container" style="height: 100vh;">
-                <div id="min-toc"></div>
-                <div id="full-toc" class="hidden"></div>
-            </div>
+            <div id="toc-container" style="height: 100vh;"></div>
 
             <div id="article">
                 <h2>Terminaison et complexité</h2>
@@ -109,9 +105,6 @@
                             et ces éléments peuvent être mis à jour en \( \mathcal{O}(n) \) opérations.
                         </li>
                     </ol>
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -152,9 +145,6 @@
                         d_k = \det(g_k g_k^t)=\det(U_k g_k^* (g_k^*)^t U_k^t) = \det(g_k^* (g_k^*)^t) = \prod_{1 \leq l \leq k} \| g_l^* \|^2 > 0
                         \]
                     </div>
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
                 <div class="lemma">
@@ -188,10 +178,6 @@
                                 \] 
                             </li>
                         </ol>
-                    </div>
-                    
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
                     </div>
                 </div>
 
@@ -244,10 +230,6 @@
                             </li>
                         </ol>
                     </div>
-                    
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
 
@@ -278,10 +260,6 @@
                     \]
                     
                     On en déduit que \( e \; \leq n(n-1)\frac{\log A}{-\log(3/4)}\) et donc \( e \in \OO(n^2 \log A)\)
-
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
                 <div class="proof">
@@ -296,10 +274,6 @@
                         Initialement \( i + e - e^* = 2 \) et à la fin de LLL on a \( n + 1 + e - e^* = 2 \).
                         On en déduit donc que \( e + e^* = 2e + n - 1 \in \OO(n^2 \log A) \).
                         et donc d'après le lemme 2.5 le coût total de \hyperref[step:LLL]{\emph{LLL}} est \( \OO(n^2 \times n^2 \log A) \) opérations dans \( \Z \). Ce qui acheve la preuve.
-                    </div>
-                    
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
                     </div>
                 </div>
                 
@@ -402,10 +376,6 @@
                             \]
                         </li>
                     </ol>
-
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
                 <div class="paragraph">
@@ -519,10 +489,6 @@
                                 </li>
                         </ol>
                     </div>
-                    
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
                 <div class="proof">
@@ -555,9 +521,6 @@
                             et par conséquent, leur taille est aussi en \( \mathcal{O}(n \log A) \). 
                         </li>
                     </ul>
-                    <div class="end-proof">
-                        <img class="qed" src="/assets/icons/qed.svg" alt="">
-                    </div>
                 </div>
 
             </div>
