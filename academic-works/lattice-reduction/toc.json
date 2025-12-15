@@ -1,21 +1,28 @@
 [
     {
+        "title": "Introduction",
+        "type": "chapter",
+        "isNumbered": false,
+        "path": "/academic-works/lattice-reduction/0-introduction/",
+        "children": []
+    },
+    {
         "title": "Réseaux euclidiens",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "euclidean-lattices.html",
+        "path": "/academic-works/lattice-reduction/1-euclidean-lattices/",
         "children": [
             {
                 "title": "Réseaux euclidiens : Définitions et exemples",
-                "filename": "euclidean-lattices-definitions.html"
+                "path": "/academic-works/lattice-reduction/1-euclidean-lattices/euclidean-lattices-definitions.html"
             },
             {
                 "title": "Réseaux définis par des relations plutôt que par des générateurs",
-                "filename": "lattices-relations-vs-generators.html"
+                "path": "/academic-works/lattice-reduction/1-euclidean-lattices/lattices-relations-vs-generators.html"
             },
             {
                 "title": "Quelques problèmes algorithmiques liés aux réseaux euclidiens",
-                "filename": "euclidean-algorithmic-problems.html"
+                "path": "/academic-works/lattice-reduction/1-euclidean-lattices/euclidean-algorithmic-problems.html"
             }
         ]
     },
@@ -23,15 +30,15 @@
         "title": "Réduction de réseaux euclidiens",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "euclidean-lattice-reduction.html",
+        "path": "/academic-works/lattice-reduction/2-euclidean-lattice-reduction/",
         "children": [
             {
                 "title": "La base réduite",
-                "filename": "reduced-basis.html"
+                "path": "/academic-works/lattice-reduction/2-euclidean-lattice-reduction/reduced-basis.html"
             },
             {
                 "title": "Fonctionnement et exemple",
-                "filename": "operation-and-example-reduced-basis.html"
+                "path": "/academic-works/lattice-reduction/2-euclidean-lattice-reduction/operation-and-example-reduced-basis.html"
             }
         ]
     },
@@ -39,15 +46,15 @@
         "title": "Correction, terminaison et complexité de LLL",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "lll-correction-termination-complexity.html",
+        "path": "/academic-works/lattice-reduction/3-lll-correction-termination-complexity/",
         "children": [
             {
                 "title": "Terminaison",
-                "filename": "lll-termination.html"
+                "path": "/academic-works/lattice-reduction/3-lll-correction-termination-complexity/lll-termination.html"
             },
             {
                 "title": "Correction et complexité",
-                "filename": "lll-correction-complexity.html"
+                "path": "/academic-works/lattice-reduction/3-lll-correction-termination-complexity/lll-correction-complexity.html"
             }
         ]
     },
@@ -55,22 +62,22 @@
         "title": "État de l'art sur la réduction de réseaux euclidiens",
         "type": "chapter",
         "isNumbered": false,
-        "filename": "state-of-the-art-lattice-reduction.html",
+        "path": "/academic-works/lattice-reduction/4-state-of-the-art-lattice-reduction/",
         "children": []
     },
     {
         "title": "Réseaux polynomiaux",
-        "type": "",
+        "type": "chapter",
         "isNumbered": true,
-        "filename": "polynomial-lattices.html",
+        "path": "/academic-works/lattice-reduction/5-polynomial-lattices/",
         "children": [
             {
                 "title": "Définitions et exemples",
-                "filename": "polynomial-lattices-definitions-examples.html"
+                "path": "/academic-works/lattice-reduction/5-polynomial-lattices/polynomial-lattices-definitions-examples.html"
             },
             {
                 "title": "Notion de degré en ligne",
-                "filename": "notion-row-degree.html"
+                "path": "/academic-works/lattice-reduction/5-polynomial-lattices/notion-row-degree.html"
             }
             
         ]
@@ -79,15 +86,15 @@
         "title": "Réduction de réseaux polynomiaux",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "polynomial-lattice-reduction.html",
+        "path": "/academic-works/lattice-reduction/6-polynomial-lattice-reduction/",
         "children": [
             {
                 "title": "Généralités et notion de base d’ordre",
-                "filename": "generalities-order-basis-notion.html"
+                "path": "/academic-works/lattice-reduction/6-polynomial-lattice-reduction/generalities-order-basis-notion.html"
             },
             {
                 "title": "Algorithmes de calculs de base d’ordre",
-                "filename": "algorithms-computing-order-basis.html"
+                "path": "/academic-works/lattice-reduction/6-polynomial-lattice-reduction/algorithms-computing-order-basis.html"
             }
         ]
     },
@@ -95,19 +102,19 @@
         "title": "Adaptation de la réduction de réseaux polynomiaux au cas des réseaux euclidiens",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "adapting-polynomial-reduction-to-euclidean.html",
+        "path": "/academic-works/lattice-reduction/7-adapting-polynomial-reduction-to-euclidean/",
         "children": [
             {
                 "title": "Fonction potentielle et bornes",
-                "filename": "potential-function-and-bounds.html"
+                "path": "/academic-works/lattice-reduction/7-adapting-polynomial-reduction-to-euclidean/potential-function-and-bounds.html"
             },
             {
                 "title": "Vers une réduction LLL adaptée aux réseaux d’approximation",
-                "filename": "lll-reduction-for-approximation-lattices.html"
+                "path": "/academic-works/lattice-reduction/7-adapting-polynomial-reduction-to-euclidean/lll-reduction-for-approximation-lattices.html"
             },
             {
                 "title": "Comprendre le rôle du shift dans le cas euclidien",
-                "filename": "role-of-shift-in-euclidean-case.html"
+                "path": "/academic-works/lattice-reduction/7-adapting-polynomial-reduction-to-euclidean/role-of-shift-in-euclidean-case.html"
             }
         ]
     },
@@ -115,18 +122,18 @@
         "title": "Conclusion",
         "type": "chapter",
         "isNumbered": false,
-        "filename": "conclusion.html",
+        "path": "/academic-works/lattice-reduction/8-conclusion/",
         "children": []
     },
     {
         "title": "Détails de preuves de LLL",
         "type": "appendix",
         "isNumbered": true,
-        "filename": "lll-proof-details.html",
+        "path": "/academic-works/lattice-reduction/9-lll-proof-details/",
         "children": [
             {
                 "title": "Terminaison et complexité",
-                "filename": "lll-proof-termination-complexity.html"
+                "path": "/academic-works/lattice-reduction/9-lll-proof-details/lll-proof-termination-complexity.html"
             }
         ]
     },
@@ -134,11 +141,11 @@
         "title": "Anneaux : Généralités",
         "type": "appendix",
         "isNumbered": true,
-        "filename": "rings-generalities.html",
+        "path": "/academic-works/lattice-reduction/10-rings-generalities/",
         "children": [
             {
                 "title": "Anneaux de polynômes",
-                "filename": "polynomial-rings.html"
+                "path": "/academic-works/lattice-reduction/10-rings-generalities/polynomial-rings.html"
             }
         ]
     },
@@ -146,11 +153,11 @@
         "title": "Modules : Généralités",
         "type": "appendix",
         "isNumbered": true,
-        "filename": "modules-generalities.html",
+        "path": "/academic-works/lattice-reduction/11-modules-generalities/",
         "children": [
             {
                 "title": "Modules sur un anneau principal",
-                "filename": "modules-over-pid.html"
+                "path": "/academic-works/lattice-reduction/11-modules-generalities/modules-over-pid.html"
             }
         ]
     },
@@ -158,15 +165,15 @@
         "title": "Rappels d’algèbre linéaire",
         "type": "appendix",
         "isNumbered": true,
-        "filename": "linear-algebra-review.html",
+        "path": "/academic-works/lattice-reduction/12-linear-algebra-review/",
         "children": [
             {
                 "title": "Orthogonalisation de Gram–Schmidt",
-                "filename": "gram-schmidt-orthogonalization.html"
+                "path": "/academic-works/lattice-reduction/12-linear-algebra-review/gram-schmidt-orthogonalization.html"
             },
             {
                 "title":  "Matrice de Gram",
-                "filename": "gram-matrix.html"
+                "path": "/academic-works/lattice-reduction/12-linear-algebra-review/gram-matrix.html"
             }
         ]
     }

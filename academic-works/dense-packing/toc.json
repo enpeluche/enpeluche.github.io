@@ -3,30 +3,30 @@
         "title": "Introduction",
         "type": "chapter",
         "isNumbered": false,
-        "filename": "/academic-works/dense-packing/0-introduction/",
+        "path": "/academic-works/dense-packing/0-introduction/",
         "children": []
     },
     {
         "title": "Empilements compacts",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/1-compact-packings/",
+        "path": "/academic-works/dense-packing/1-compact-packings/",
         "children": [
             {
                 "title": "Découverte",
-                "filename": "/academic-works/dense-packing/1-compact-packings/discovery.html"
+                "path": "/academic-works/dense-packing/1-compact-packings/discovery.html"
             },
             {
                 "title": "Empilements de disques égaux en dimension 2",
-                "filename": "/academic-works/dense-packing/1-compact-packings/disk-packing-2d.html"
+                "path": "/academic-works/dense-packing/1-compact-packings/disk-packing-2d.html"
             },
             {
                 "title": "Empilements de boules égales en dimension 3",
-                "filename": "/academic-works/dense-packing/1-compact-packings/sphere-packing-3d.html"
+                "path": "/academic-works/dense-packing/1-compact-packings/sphere-packing-3d.html"
             },
             {
                 "title": "Un mot sur les dimensions supérieures",
-                "filename": "/academic-works/dense-packing/1-compact-packings/higher-dimensions.html"
+                "path": "/academic-works/dense-packing/1-compact-packings/higher-dimensions.html"
             }
         ]
     },
@@ -34,23 +34,23 @@
         "title": "Les empilements compacts et l'inégalité isopérimétrique",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/2-packings-and-isoperimetric/",
+        "path": "/academic-works/dense-packing/2-packings-and-isoperimetric/",
         "children": [
             {
                 "title": "Introduction : Le problème de Didon",
-                "filename": "/academic-works/dense-packing/2-packings-and-isoperimetric/dido-problem.html"
+                "path": "/academic-works/dense-packing/2-packings-and-isoperimetric/dido-problem.html"
             },
             {
                 "title": "Un début de formalisme",
-                "filename": "/academic-works/dense-packing/2-packings-and-isoperimetric/formalism-intro.html"
+                "path": "/academic-works/dense-packing/2-packings-and-isoperimetric/formalism-intro.html"
             },
             {
                 "title": "Le formalisme mathématique",
-                "filename": "/academic-works/dense-packing/2-packings-and-isoperimetric/mathematical-formalism.html"
+                "path": "/academic-works/dense-packing/2-packings-and-isoperimetric/mathematical-formalism.html"
             },
             {
                 "title": "Conclusion : Du nid d’abeille aux bulles de savons",
-                "filename": "/academic-works/dense-packing/2-packings-and-isoperimetric/conclusion-honeycomb-soap-bubbles.html"
+                "path": "/academic-works/dense-packing/2-packings-and-isoperimetric/conclusion-honeycomb-soap-bubbles.html"
             }
         ]
     },
@@ -58,19 +58,19 @@
         "title": "La conjecture du nid d’abeille",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/3-honeycomb-conjecture/",
+        "path": "/academic-works/dense-packing/3-honeycomb-conjecture/",
         "children": [
             {
                 "title": "Introduction : les nids d’abeilles",
-                "filename": "/academic-works/dense-packing/3-honeycomb-conjecture/honeycomb-intro.html"
+                "path": "/academic-works/dense-packing/3-honeycomb-conjecture/honeycomb-intro.html"
             },
             {
                 "title": "Preuve de la conjecture",
-                "filename": "/academic-works/dense-packing/3-honeycomb-conjecture/conjecture-proof.html"
+                "path": "/academic-works/dense-packing/3-honeycomb-conjecture/conjecture-proof.html"
             },
             {
                 "title": "L'inégalité isopérimétrique hexagonale pour les courbes planes fermées",
-                "filename": "/academic-works/dense-packing/3-honeycomb-conjecture/hexagonal-isoperimetric-inequality.html"
+                "path": "/academic-works/dense-packing/3-honeycomb-conjecture/hexagonal-isoperimetric-inequality.html"
             }
         ]
     },
@@ -78,19 +78,19 @@
         "title": "Simulations",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/4-simulations/",
+        "path": "/academic-works/dense-packing/4-simulations/",
         "children": [
             {
                 "title": "Première partie : Isopérimétrie",
-                "filename": "/academic-works/dense-packing/4-simulations/isoperimetry.html"
+                "path": "/academic-works/dense-packing/4-simulations/isoperimetry.html"
             },
             {
                 "title": "Deuxième partie : Densité",
-                "filename": "/academic-works/dense-packing/4-simulations/density.html"
+                "path": "/academic-works/dense-packing/4-simulations/density.html"
             },
             {
                 "title": "Troisième partie : Diagramme de Voronoï",
-                "filename": "/academic-works/dense-packing/4-simulations/voronoi-diagram.html"
+                "path": "/academic-works/dense-packing/4-simulations/voronoi-diagram.html"
             }
         ]
     },
@@ -98,30 +98,30 @@
         "title": "Rappels sur les polygones",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/5-polygons/",
+        "path": "/academic-works/dense-packing/5-polygons/",
         "children": []
     },
     {
         "title": "Code et aspect mathématique des simulations informatiques",
         "type": "chapter",
         "isNumbered": true,
-        "filename": "/academic-works/dense-packing/6-code-and-math/",
+        "path": "/academic-works/dense-packing/6-code-and-math/",
         "children": [
             {
                 "title": "Aspects mathématiques",
-                "filename": "/academic-works/dense-packing/6-code-and-math/mathematical-aspects.html"
+                "path": "/academic-works/dense-packing/6-code-and-math/mathematical-aspects.html"
             },
             {
                 "title": "Théorie de la simulation de l'inégalité isopérimétrique",
-                "filename": "/academic-works/dense-packing/6-code-and-math/simulation-theory.html"
+                "path": "/academic-works/dense-packing/6-code-and-math/simulation-theory.html"
             },
             {
                 "title": "Les diagrammes de Voronoï",
-                "filename": "/academic-works/dense-packing/6-code-and-math/voronoi-diagrams.html"
+                "path": "/academic-works/dense-packing/6-code-and-math/voronoi-diagrams.html"
             },
             {
                 "title": "Le code",
-                "filename": "/academic-works/dense-packing/6-code-and-math/source-code.html"
+                "path": "/academic-works/dense-packing/6-code-and-math/source-code.html"
             }
         ]
     }

@@ -43,7 +43,7 @@ export async function loadTableOfContents() {
 
             return `
                 <li style="${subStyle}">
-                    <a href="${sub.filename}" target="_self" title="${sub.title}" hreflang="fr rel="noopener referrer">
+                    <a href="${sub.path}" target="_self" title="${sub.title}" hreflang="fr rel="noopener referrer">
                         <span class="num">${++i}</span>
                         <h4>${sub.title}</h4>
                     </a>
@@ -53,7 +53,7 @@ export async function loadTableOfContents() {
         return `
             <li>
                 <div class="chapter" style="${activeStyle}">
-                    <a href="${chap.filename}" title="${chap.title}" hreflang="fr rel="noopener referrer">
+                    <a href="${chap.path}" title="${chap.title}" hreflang="fr rel="noopener referrer">
                         <div class="num">${numLabel}</div>
                         <h3>${chap.title}</h3>
                     </a>
