@@ -1,154 +1,96 @@
 import { createLink } from '../utils/utils.js';
 
-function toggleVisibility() {
-    const fullTOC = document.getElementById('full-toc');
-    const minTOC = document.getElementById('min-toc');
-    
-    fullTOC?.classList.toggle('hidden');
-    minTOC?.classList.toggle('hidden');
-}
+const ICONS = {
+    OPEN: `<svg viewBox="0 0 24 24">
+                <path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path>
+           </svg>`,
+    CLOSE: `<svg class="CloseIcon" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>`
+};
 
-async function load_TOC_file() {
-    const cheminsPossibles = [
-        '../toc.json', 
-        'toc.json',    
-        '/toc.json'    
-    ];
-
-    for (const chemin of cheminsPossibles) {
+async function fetchTOC() {
+    const paths = ['../toc.json', 'toc.json', '/toc.json'];
+    for (const path of paths) {
         try {
-            const response = await fetch(chemin);
-            if (response.ok) {
-                console.log(`Fichier toc.json chargé via : ${chemin}`);
-                return await response.json(); 
-            }
-        } catch (error) {
-            console.warn(`Échec du chargement via ${chemin}. Raison: ${error.message}.`);
-        }
+            const res = await fetch(path);
+            if (res.ok) return await res.json();
+        } catch (e) {}
     }
-    throw new Error("Impossible de charger le fichier toc.json.");
+    return null;
 }
 
 export async function loadTableOfContents() {
-    try {
-        // --- 1. CHARGEMENT DES DONNÉES ---
-        // On appelle la fonction et on attend le résultat
-        const toc = await load_TOC_file();
 
-        // Sécurité : On vérifie que toc est bien un tableau
-        if (!Array.isArray(toc)) {
-            throw new Error("Le fichier toc.json a été chargé mais ce n'est pas un tableau (Array).");
-        }
+    const tocData = await fetchTOC();
+    if (!tocData) return console.error("Impossible de charger toc.json");
+    
+    const TOC = document.getElementById('toc-container');
 
-        // --- 2. PRÉPARATION DU DOM ---
-        const fullTOC = document.getElementById('full-toc');
-        const minTOC = document.getElementById('min-toc');
+    let chapNum = 0;
+    let appendixNum = 0;
 
-        if (!fullTOC || !minTOC) {
-            console.error("Conteneurs TOC non trouvés dans le DOM.");
-            return;
-        }
+    const listHTML = tocData.map(chap => {
+        const isActive = document.title === chap.title;
 
-        const fragment = document.createDocumentFragment();
-        let chapterCount = 0;
+        const isAppendix = chap.type==="appendix";
 
-        // --- 3. CONSTRUCTION DU MIN-TOC ---
-        const openButton = document.createElement('button');
-        openButton.id = 'toc-open-button';
-        openButton.innerHTML = '<svg class="" viewBox="0 0 24 24" fill="black"><path d="M19 5v14H5V5zm1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9M11 7h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"></path></svg>';
-        minTOC.appendChild(openButton);
+        const numLabel = isAppendix ? (chap.isNumbered ? `<div class="num">APPENDCICE ${++appendixNum}</div>` : ``) : (chap.isNumbered ? `<div class="num">CHAPITRE ${++chapNum}</div>` : ``);
+        const activeStyle = isActive ? 'border:2px solid var(--primary-border-color);' : '';
 
-        // --- 4. CONSTRUCTION DE L'ENTÊTE ---
-        const tocTitle = Object.assign(document.createElement('h5'), { textContent: "Table des matières" });
-        const closeButton = Object.assign(document.createElement('button'), { id: 'toc-close-button' });
-        closeButton.innerHTML = '<svg class="CloseIcon" viewBox="0 0 24 24" ><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>';
-   
-        const tocHead = Object.assign(document.createElement('div'), { className: 'toc-head' });
-        tocHead.appendChild(tocTitle);
-        tocHead.appendChild(closeButton);
-        fragment.appendChild(tocHead);
+        const subListHTML = (chap.children || []).map((sub, i) => {
 
-        // --- 5. BOUCLE PRINCIPALE (Construction des chapitres) ---
-        const ul = document.createElement('ul');
+            const isSubActive = document.title === sub.title;
+            const subStyle = isSubActive ? 'background-color: #f7f6f7;' : '';
 
-        // C'est ici que le vrai forEach commence
-        toc.forEach(chapter => {
-            let subchapterCount = 0;
+            return `
+                <li style="${subStyle}">
+                    <a href="${sub.filename}" target="_self" title="${sub.title}" hreflang="fr rel="noopener referrer">
+                        <span class="num">${++i}</span>
+                        <h4>${sub.title}</h4>
+                    </a>
+                </li>`;
+        }).join('');
 
-            // Numérotation
-            const numDiv = document.createElement('div');
-            numDiv.className = 'num';
-            if(chapter.isNumbered === true) {
-                chapterCount++;
-                numDiv.textContent = `CHAPITRE ${chapterCount}`;
-            }
+        return `
+            <li>
+                <div class="chapter" style="${activeStyle}">
+                    <a href="${chap.filename}" title="${chap.title}" hreflang="fr rel="noopener referrer">
+                        <div class="num">${numLabel}</div>
+                        <h3>${chap.title}</h3>
+                    </a>
+                </div>
 
-            // Conteneur Chapitre
-            const li = document.createElement('li');
-            const chapterDiv = Object.assign(document.createElement('div'), { className: 'chapter' });
+                <div class="chapter-content">
+                    <ul>
+                        ${subListHTML}
+                    </ul>
+                </div>
+            </li>`;
+    }).join('');
+    
+    TOC.innerHTML = `
+        <div id="min-toc" class="hidden">
+            <button id='toc-open-button' aria-label='Ouvrir le sommaire'>
+                ${ICONS.OPEN}
+            </button>
+        </div>
+        <div id="full-toc"> 
+            <div class="toc-head">
+                <h5>Table des matières</h5>
+                <button id="toc-close-button" aria-label="Fermer le sommaire"> 
+                    ${ICONS.CLOSE}
+                </button>
+            </div>
+            <ul>
+                ${listHTML}
+            </ul>
+        </div>
+    `;
 
-            // Lien Chapitre
-            // NOTE : Vérifiez bien que 'folder_name' existe dans votre JSON
-            const dd = createLink({href: chapter.filename, title: chapter.title});
-            dd.appendChild(numDiv);
+    const toggle = () => {
+        document.getElementById("full-toc").classList.toggle('hidden');
+        document.getElementById("min-toc").classList.toggle('hidden');
+    }
 
-            if(document.title === chapter.title) { 
-                chapterDiv.style = `border:1px solid var(--primary-border-color);`; 
-            }
-            
-            const h3 = Object.assign(document.createElement('h3'), { textContent: chapter.title });
-            dd.appendChild(h3);
-
-            chapterDiv.appendChild(dd);
-            li.appendChild(chapterDiv);
-
-            // Sous-chapitres
-            const subList = document.createElement('ul');
-            const chapterContentDiv = Object.assign(document.createElement('div'), { className: 'chapter-content' });
-
-            if (chapter.children && Array.isArray(chapter.children)) {
-                chapter.children.forEach(subchapter => {
-                    subchapterCount++;
-
-                    const subLi = document.createElement('li');
-                    
-                    const snumDiv = Object.assign(document.createElement('span'), { 
-                        className: 'num', 
-                        textContent: subchapterCount 
-                    });
-                    
-                    // Construction du chemin : Assurez-vous que la logique de concaténation est bonne ici
-                    const subHref = subchapter.filename;
-                    const hhh = createLink({href: subHref, title: subchapter.title});
-                    
-                    hhh.appendChild(snumDiv);
-
-                    const h4 = Object.assign(document.createElement('h4'), { textContent: subchapter.title });
-                    hhh.appendChild(h4);
-
-                    subLi.appendChild(hhh);
-                    
-                    if(document.title === subchapter.title) { 
-                        subLi.style = `background-color: #f7f6f7;`; 
-                    }
-
-                    subList.appendChild(subLi);       
-                });
-            }
-
-            chapterContentDiv.appendChild(subList);
-            li.appendChild(chapterContentDiv);
-            ul.appendChild(li);
-        });
-
-        fragment.appendChild(ul);
-        fullTOC.appendChild(fragment);
-
-        // Events
-        document.getElementById("toc-open-button").addEventListener("click", toggleVisibility);
-        document.getElementById("toc-close-button").addEventListener("click", toggleVisibility);
-
-    } catch (error) {
-        console.error("Erreur critique lors de la génération de la TOC :", error);
-    } 
+    document.getElementById('toc-open-button').onclick = toggle;
+    document.getElementById('toc-close-button').onclick = toggle;
 }
