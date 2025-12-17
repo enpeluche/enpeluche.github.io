@@ -5,6 +5,7 @@ import { loadReferences } from './pages/references.js';
 import { makeAlgorithm } from './pages/algorithm.js';
 import { makeArticle } from './pages/article.js';
 import { loadHeader } from './components/header.js';
+import { createNews } from './news.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     setupKatex();
@@ -14,4 +15,5 @@ document.addEventListener("DOMContentLoaded", () => {
     loadReferences();
     makeAlgorithm();    
     makeArticle();
+    createNews();
 });

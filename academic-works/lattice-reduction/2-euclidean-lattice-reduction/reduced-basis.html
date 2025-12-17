@@ -35,7 +35,6 @@
         <!-- JS -->
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-        <script defer src="/assets/js/katex-config.js"></script>
         
         <!-- ALL STYLESHEET -->
  
@@ -57,10 +56,7 @@
         </header>
         
         <main>
-            <div id="toc-container" style="height: 100vh;">
-                <div id="min-toc"></div>
-                <div id="full-toc" class="hidden"></div>
-            </div>
+            <div id="toc-container" style="height: 100vh;"></div>
 
             <div id="article">
                 <div class="paragraph">
@@ -133,13 +129,15 @@
                 </figure>
 
                 <div class="definition">
-	                Soit \( (b_i)_{1 \leq i \leq n} \) une base d'un réseau et \( U \) la matrice triangulaire supérieure telle que \( B = UB^* \) est dite <strong>propre</strong> si 
+                    <p>
+                        Soit \( (b_i)_{1 \leq i \leq n} \) une base d'un réseau et \( U \) la matrice triangulaire supérieure telle que \( B = UB^* \) est dite <strong>propre</strong> si 
 	
-                    $$
-	                \begin{equation}
-		            \displaystyle\max_{1 \leq i < j \leq n} |\mu_{i,j}| \leq \frac{1}{2}.
-	                \end{equation}
-                    $$
+                        $$
+                        \begin{equation}
+                        \displaystyle\max_{1 \leq i < j \leq n} |\mu_{i,j}| \leq \frac{1}{2}.
+                        \end{equation}
+                        $$
+                    </p>
                 </div>
 
                 <details>
@@ -177,10 +175,13 @@
                 </div>
 
                 <div class="definition">
-                    Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la <strong>condition de Lovász</strong> si:
-                    \[
-                    \|b_i^*\|^2 \leq 2\|b_{i+1}^*\|^2 \quad \text{ pour tout } 1 \leq i < n
-                    \]
+                    <p>
+                        Une base \( (b_i)_{1 \leq i \leq m} \) satisfait la <strong>condition de Lovász</strong> si:
+                        \[
+                        \|b_i^*\|^2 \leq 2\|b_{i+1}^*\|^2 \quad \text{ pour tout } 1 \leq i < n
+                        \]
+                    </p>
+
                 </div>
 
                 <details>
@@ -214,15 +215,13 @@
                 </div>
 
                 <div class="definition">
-	                Une base \( \mathcal{B} \) d'un réseau \( \mathscr{L} (\mathcal{B}) \)  est dite <strong>LLL-réduite</strong> si
+                    <p>
+                        Une base \( \mathcal{B} \) d'un réseau \( \mathscr{L} (\mathcal{B}) \)  est dite <strong>LLL-réduite</strong> si
+                    </p>
                     
                     <ul>
-                        <li>
-                            $\mathcal{B}$ est propre.
-                        </li>
-                        <li>
-                            $\mathcal{B}$ satisfait la condition de Lovàsz.
-                        </li>
+                        <li>$\mathcal{B}$ est propre.</li>
+                        <li>$\mathcal{B}$ satisfait la condition de Lovàsz.</li>
                     </ul>
                 </div>
 

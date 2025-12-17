@@ -1,0 +1,39 @@
+/*
+donc la si ca depasse de 400^px de haut' ca doit' faire un overflow hidden mais sans scroll,
+*/
+
+#news{
+    margin: 2rem auto;
+    max-width: 800px;
+    
+}
+
+#news-container{
+    
+}
+
+#news h2{}
+
+#news ul{
+    max-height: 75px;
+    overflow: hidden;
+}
+
+#news li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--primary-border-color);
+    padding-bottom: 2px;
+}
+
+#news time{
+}
+
+.news-desc{}
+
+.more{}
+
+.more button{
+
+}

@@ -113,13 +113,13 @@
                     multi-indice $\alpha$ et $\beta$.
                 </div>
     
-    <div class = "definition">[Espace de Schwartz (sur $\mathbb{R}^n$)]
-    L'espace de Schwartz $\mathcal{S}(\mathbb{R}^n)$ est l'ensemble des fonctions à décroissance rapide sur $\mathbb{R}^n$.
-    </div>
+                <div class = "definition">[Espace de Schwartz (sur $\mathbb{R}^n$)]
+                    L'espace de Schwartz $\mathcal{S}(\mathbb{R}^n)$ est l'ensemble des fonctions à décroissance rapide sur $\mathbb{R}^n$.
+                </div>
     
-    <div class = "definition">[Fonction $C_c^\infty(\R^n)$]
-        On dit qu'une fonction de $\R^n$ appartient à $C_c^\infty(\R^n)$ si elle est lisse à support compact dans $\R^n$.
-    </div>
+                <div class="definition">[Fonction $C_c^\infty(\R^n)$]
+                    On dit qu'une fonction de $\R^n$ appartient à $C_c^\infty(\R^n)$ si elle est lisse à support compact dans $\R^n$.
+                </div>
     
                 <div class="theorem">
                     <p>
@@ -127,34 +127,57 @@
                     </p>
                 </div>
     
-    <div class="remark">
-        Ce théorème ne sera pas démontré, on admet le résultat. Il existe une démonstration dans le cours d'analyse 2.
-    </div>
+                <div class="remark">
+                    Ce théorème ne sera pas démontré, on admet le résultat. Il existe une démonstration dans le cours d'analyse 2.
+                </div>
     
-    <div class = "definition">[Transformée de Fourier d'une fonction $L^1(\mathbb{R}^n)$]
-    On note la transformée de Fourier d'une telle fonction f par $\hat{f}$, et on a 
-    $$\hat{f}(\xi) := (2 \pi)^{-n/2} \int _{\mathbb{R}^n} e^{-ix \xi} f(x) dx ~~ \xi \in \mathbb{R}^n$$
-    </div>
+                <div class = "definition">[Transformée de Fourier d'une fonction $L^1(\mathbb{R}^n)$]
+                    On note la transformée de Fourier d'une telle fonction f par $\hat{f}$, et on a 
+                    
+                    $$
+                    \hat{f}(\xi) := (2 \pi)^{-n/2} \int _{\mathbb{R}^n} e^{-ix \xi} f(x) dx ~~ \xi \in \mathbb{R}^n
+                    $$
+                </div>
+                
+                <div class="paragraph">
+                    La transformée de Fourier fournit un lien profond entre l'étalement spatiale d'un objet,
+                    par exemple une onde, une particule, et son étalement en fréquence. Elle est ainsi très
+                    utilisée dans l'ingénierie du son, ou par exemple pour étudier la propagation de la chaleur.
+                    Ce lien est expliqué par le fait que l'on peut interpréter la transformée de Fourier en chaque
+                    point comme un produit scalaire d'une exponentielle oscillante d'une certaine fréquence et
+                    d'une fonction f, on obtient ainsi naturellement la décomposition de f en une somme infiniment
+                    continue de ses fréquences.
+                </div>
+
+                <div class="paragraph">
+                    Pour une fonction d'onde $\psi : x \mapsto \psi(x)$ sur l'espace position on notera sa
+                    $\varphi : p \mapsto \varphi(p)$ sa transformée de Fourier sur l'espace impulsion. Quand
+                    on voit les variables $x$ et $p$ dans un couple, $x$ fera souvent référence à la position
+                    et $p$ à l'impulsion. 
+                </div>
     
-    La transformée de Fourier fournit un lien profond entre l'étalement spatiale d'un objet, par exemple une onde, une particule, et son étalement en fréquence. Elle est ainsi très utilisée dans l'ingénierie du son, ou par exemple pour étudier la propagation de la chaleur. Ce lien est expliqué par le fait que l'on peut interpréter la transformée de Fourier en chaque point comme un produit scalaire d'une exponentielle oscillante d'une certaine fréquence et d'une fonction f, on obtient ainsi naturellement la décomposition de f en une somme infiniment continue de ses fréquences.
     
-    Pour une fonction d'onde $\psi : x \mapsto \psi(x)$ sur l'espace position on notera sa $\varphi : p \mapsto \varphi(p)$ sa transformée de Fourier sur l'espace impulsion. Quand on voit les variables $x$ et $p$ dans un couple, $x$ fera souvent référence à la position et $p$ à l'impulsion. 
+                <div class="remark">
+                    $\| \psi \| = 1$ si et seulement si $\| \varphi \| =1$
+                </div>
     
+                <div class="remark">
+                    On peut donner une autre écriture de la transformée de Fourier :
+                    
+                    $$
+                    \varphi(p) := \frac{1}{\sqrt{2 \pi \hbar}} \int_{\mathbb{R}^n} e^{-ix \frac{p}{\hbar}} \psi(x) dx
+                    $$
+                </div>
     
-    <div class="remark">
-    $\| \psi \| = 1$ si et seulement si $\| \varphi \| =1$
-    </div>
-    
-    <div class="remark">
-    On peut donner une autre écriture de la transformée de Fourier :
-    $$\varphi(p) := \frac{1}{\sqrt{2 \pi \hbar}} \int_{\mathbb{R}^n} e^{-ix \frac{p}{\hbar}} \psi(x) dx$$
-    </div>
-    
-    On aura besoin du résultat suivant dans le chapitre 2, il sera admis, la démonstration utilisant des résultats d'analyse complexe.
+                <div class="paragraph">
+                    On aura besoin du résultat suivant dans le chapitre 2, il sera admis, la démonstration utilisant
+                    des résultats d'analyse complexe.
+                </div>
     
                 <div class="theorem">
                     <p>
-                        Soit $a$ un réel strictement positif. Alors pour tout $\xi$ réel, la transformée de Fourier d'une gausienne $f$ définie par $f(x) = e^{-ax^2}$ est encore une gausienne définie par
+                        Soit $a$ un réel strictement positif. Alors pour tout $\xi$ réel, la transformée de Fourier
+                        d'une gausienne $f$ définie par $f(x) = e^{-ax^2}$ est encore une gausienne définie par
                         
                         $$
                         \hat{f}(\xi) = \sqrt{\frac{\pi}{a}}e^{\frac{- \xi ^2}{4a}}
@@ -164,8 +187,11 @@
     
                 <h4>Étude de la position et de l'impulsion et principe d'incertitude de Heisenberg</h4>
     
-    
-    On va maintenant étudier les propriétés générales de la transformée de Fourier, il est important de bien maîtriser la transformée de Fourier et ses propriétés car elles seront souvent implicitement utilisées dans les démonstrations futures.
+                <div class="paragraph">
+                    On va maintenant étudier les propriétés générales de la transformée de Fourier, il est
+                    important de bien maîtriser la transformée de Fourier et ses propriétés car elles seront
+                    souvent implicitement utilisées dans les démonstrations futures.
+                </div>
     
     <div class="proposition">[Le lemme de Riemann-Lebesgue]
         Soit $f \in L^1(\R^n)$, alors $\hat{f}$ est une fonction continue sur $\mathbb{R}^n$ telle que $\underset{|\xi| \ra \infty}{lim} \hat{f}(\xi) = 0$.
@@ -191,9 +217,9 @@
     <div class = "definition">[Opérateurs de translation, dilatation et modulation]
     On note les opérateurs suivants sur l'espace des fonctions : 
         <ul>
-        <li></li> L'opérateur de <strong></strong>translation} : $T_yf~(x) := f(x+y),~~~x \in \mathbb{R}^n$.
-        <li></li> L'opérateur de <strong></strong>modulation} : $M_yf~(x) := e^{ixy}f(x),~~~x \in \mathbb{R}^n$.
-        <li></li> L'opérateur de <strong></strong>dilatation} : $D_af~(x) := f(ax),~~~x \in \mathbb{R}^n$.
+            <li>L'opérateur de <strong>translation</strong> : $T_yf~(x) := f(x+y),~~~x \in \mathbb{R}^n$.</li> 
+            <li>L'opérateur de <strong>modulation</strong> : $M_yf~(x) := e^{ixy}f(x),~~~x \in \mathbb{R}^n$.</li> 
+            <li>L'opérateur de <strong>dilatation</strong> : $D_af~(x) := f(ax),~~~x \in \mathbb{R}^n$.</li>
         </ul>
     pour tout $y \in \mathbb{R}^n$ et $~a \in \mathbb{R}^*$.
     </div>
@@ -225,73 +251,133 @@
                     </p>
                 </div>
     
-    Il est bon d'étendre cet opérateur aux fonctions de carrés intégrables, justifié par le postulat de la mécanique quantique de l'interprétation probabiliste des fonctions d'ondes.
+                <div class="paragraph">
+                    Il est bon d'étendre cet opérateur aux fonctions de carrés intégrables, justifié par
+                    le postulat de la mécanique quantique de l'interprétation probabiliste des fonctions d'ondes.
+                </div>
     
-    <div class="theorem nowrap">
-        <span class="title">Le théorème de Plancherel</span>
-        <p>
-            L'application $\mathcal{F} : S(\mathbb{R}^n) \rightarrow S(\mathbb{R}^n)$ peut être étendue de
-            façon <strong>unique</strong> en un opérateur unitaire de $L^2(\mathbb{R}^n)$.
-        </p>
-    </div>
+                <div class="theorem nowrap">
+                    <span class="title">Le théorème de Plancherel</span>
+                    <p>
+                        L'application $\mathcal{F} : S(\mathbb{R}^n) \rightarrow S(\mathbb{R}^n)$ peut être étendue de
+                        façon <strong>unique</strong> en un opérateur unitaire de $L^2(\mathbb{R}^n)$.
+                    </p>
+                </div>
     
-    <div class="proposition">[$\mathcal{F}$ est un opérateur symétrique.]
-        Soit $f,~ g \in L^1(\R^n)$, alors
-        $$\int_{\R^n}  \hat{f} (x) g(x) dx = \int_{\R^n} f(x) \hat{g} (x) dx.$$
-    </div>
+                <div class="proposition">[$\mathcal{F}$ est un opérateur symétrique.]
+                    Soit $f,~ g \in L^1(\R^n)$, alors
+                    
+                    $$
+                    \int_{\R^n}  \hat{f} (x) g(x) dx = \int_{\R^n} f(x) \hat{g} (x) dx.
+                    $$
+                </div>
     
-    On comprend ainsi comment l'espace position et impulsion sont étroitement liés. On par peut choisir d'étudier une particule dans un état quantique sur l'espace position ou l'espace impulsion, qui vont chacun décrire respectivement la position ou l'impulsion de la particule. En étudiant par exemple un électron sur l'espace position, on peut utiliser la transformée de Fourier pour étudier cet électron sur son espace impulsion.
+                <div class="paragraph">
+                    On comprend ainsi comment l'espace position et impulsion sont étroitement liés. On par peut choisir
+                    d'étudier une particule dans un état quantique sur l'espace position ou l'espace impulsion, qui vont
+                    chacun décrire respectivement la position ou l'impulsion de la particule. En étudiant par exemple un
+                    électron sur l'espace position, on peut utiliser la transformée de Fourier pour étudier cet électron
+                    sur son espace impulsion.
+                </div>
     
                 <h4>Introduction des opérateurs position et impulsion</h4>
     
-    On peut maintenant introduire deux opérateurs très important en mécanique quantique, l'opérateur de position et l'opérateur d'impulsion, on aimerait représenter les coordonnées canoniques $(q,p)$ par des opérateurs auto-adjoints d'un espace de Hilbert $\mathcal{H}$, ils seront très importants pour la suite du mémoire. \vspace{10 pt}
+                <div class="paragraph">
+                    On peut maintenant introduire deux opérateurs très important en mécanique quantique, l'opérateur de
+                    position et l'opérateur d'impulsion, on aimerait représenter les coordonnées canoniques $(q,p)$ par
+                    des opérateurs auto-adjoints d'un espace de Hilbert $\mathcal{H}$, ils seront très importants pour la
+                    suite du mémoire.
+                </div>
     
-    On va les introduire par une manière naïve, celle de calculer la valeur moyenne de la position et de l'impulsion d'une particule quantique.\vspace{10 pt}
+                <div class="paragraph">
+                    On va les introduire par une manière naïve, celle de calculer la valeur moyenne de la position et de
+                    l'impulsion d'une particule quantique.
+                </div>
     
-    Soit une particule quantique dans l'état $\psi \in L^2(\mathbb{R}^n)$. \vspace{10 pt}
+                <div class="paragraph">
+                    Soit une particule quantique dans l'état $\psi \in L^2(\mathbb{R}^n)$.
+                </div>
     
-    Alors <strong></strong>la valeur moyenne de sa position} est, 
-    $$\langle \mathcal{Q} \rangle_\psi = \langle \psi, \mathcal{Q} \psi \rangle = \int \psi^*(x)(x\psi(x))dx$$
+                <div class="paragraph">
+                    Alors <strong>la valeur moyenne de sa position</strong> est,
+
+                    $$
+                    \langle \mathcal{Q} \rangle_\psi = \langle \psi, \mathcal{Q} \psi \rangle = \int \psi^*(x)(x\psi(x))dx
+                    $$                
+                </div>
     
-    On définit donc l'opérateur position par 
-    $$\mathcal{Q} : \psi(x) \mapsto x \psi(x)$$
+                <div class="paragraph">
+                    On définit donc l'opérateur position par 
+
+                    $$
+                    \mathcal{Q} : \psi(x) \mapsto x \psi(x)
+                    $$        
+                </div>
     
-    Normalement, on s'attend à ce que l'opérateur impulsion et position soient liés par la transformé de Fourier, en effet, la transformée de Fourier relie la position et la fréquence.
+                <div class="paragraph">
+                    Normalement, on s'attend à ce que l'opérateur impulsion et position soient liés par la transformé de Fourier,
+                    en effet, la transformée de Fourier relie la position et la fréquence.
+                </div>
     
-    La <strong></strong>valeur moyenne de l'impulsion} sur l'espace impulsion est donnée par 
-    $$ \langle \varphi, p \varphi \rangle = \int \varphi^* (p)(p \varphi(p)) dp$$
+                <div class="paragraph">
+                    La <strong>valeur moyenne de l'impulsion</strong> sur l'espace impulsion est donnée par 
+
+                    $$
+                    \langle \varphi, p \varphi \rangle = \int \varphi^* (p)(p \varphi(p)) dp
+                    $$             
+                </div>
     
-    Cependant on aimerait que ces opérateurs soient définis sur le même espace position, on cherche donc à ne plus avoir une intégrale en $p$ mais une intégrale en $x$. Comme la transformée de Fourier est un opérateur symétrique, on obtient :
-    $$\int \psi^* (x) \frac{\hbar}{i} \frac{d \psi(x)}{dx}$$
+                <div class="paragraph">
+                    Cependant on aimerait que ces opérateurs soient définis sur le même espace position, on cherche donc à ne plus avoir une intégrale en $p$ mais une intégrale en $x$. Comme la transformée de Fourier est un opérateur symétrique, on obtient :
+                    $$\int \psi^* (x) \frac{\hbar}{i} \frac{d \psi(x)}{dx}$$
+                    
+                </div>
     
-    On définit donc l'<strong></strong>opérateur impulsion} $\hat{p}$ par
-    $$\hat{P}: \psi(x) \mapsto \frac{\hbar}{i} \frac{d \psi(x)}{dx}$$
+                <div class="paragraph">
+                    On définit donc l'<strong></strong>opérateur impulsion} $\hat{p}$ par
+                    $$\hat{P}: \psi(x) \mapsto \frac{\hbar}{i} \frac{d \psi(x)}{dx}$$
+                    
+                </div>
     
-    On définit finalement l'<strong></strong>opérateur de position} (resp. <strong></strong>impulsion}) par rapport à la $i$-ème(resp. $j$-ème) variable par :
+                <div class="paragraph">
+                    On définit finalement l'<strong></strong>opérateur de position} (resp. <strong></strong>impulsion}) par rapport à la $i$-ème(resp. $j$-ème) variable par :
+                    $$(Q_i \psi)(x) = x_i \psi(x)$$
+                    $$(P_j \psi)(x) =-i \hbar \frac{\partial \psi}{ \partial x_j}(x)$$
+                    
+                    Pour tout $x \in \R^n$.
+                    
+                </div>
+
+                
+                <div class="remark">
+                    On remarque qu'elles sont transformées de Fourier l'une de l'autre.
+                </div>
+
+                <div class="paragraph">
+                    Est-ce que comme en mécanique classique, $\hat{P}$ et $\hat{Q}$ commutent ? La réponse est non.
+
+                </div>
     
-    $$(Q_i \psi)(x) = x_i \psi(x)$$
-    $$(P_j \psi)(x) =-i \hbar \frac{\partial \psi}{ \partial x_j}(x)$$
+                <div class="paragraph">
+                    En effet, calculons le commutateur de $P_j$ et $Q_k$: \vspace{10 pt}
     
-    Pour tout $x \in \R^n$.
-    <div class="remark">
-    On remarque qu'elles sont transformées de Fourier l'une de l'autre.
-    </div> \vspace{10 pt}
-    
-    Est-ce que comme en mécanique classique, $\hat{P}$ et $\hat{Q}$ commutent ? La réponse est non.
-    
-    En effet, calculons le commutateur de $P_j$ et $Q_k$: \vspace{10 pt}
-    
-    Soit $\psi \in L^2(\R^n)$ un état.
-    On a $$(Q_k \psi)(x) = x_k \psi(x) \text{ et } (P_j \psi)(x) = -i \hbar \frac{ \partial \psi}{\partial x_j}(x)$$
-    
-    Donc $$Q_k(P_j \psi)(x) = -i x_k \hbar \frac{\partial \psi}{\partial x_j}(x) \text{ et } P_j(Q_k \psi)(x) = -i \hbar \frac{\partial x_k \psi}{\partial x_j}(x) = -i \hbar \left( \delta_k^j\psi(x) + x_k \frac{\partial \psi}{ \partial x_j} (x)\right)$$
-    
-    Donc $$Q_k(P_j \psi)(x)- P_j(Q_k \psi)(x) = -i x_k \hbar \frac{\partial \psi}{\partial x_j}(x)-\left(-i \hbar \left( \delta_k^j \psi(x) + x_k \frac{\partial \psi}{\partial x_j}(x)\right)\right)=-i \hbar \delta_k^j \psi(x)$$
-    
-    Donc $[Q_k, P_j] = \delta _k^j i \hbar Id$
+                    Soit $\psi \in L^2(\R^n)$ un état.
+                    On a $$(Q_k \psi)(x) = x_k \psi(x) \text{ et } (P_j \psi)(x) = -i \hbar \frac{ \partial \psi}{\partial x_j}(x)$$
+                    
+                    Donc $$Q_k(P_j \psi)(x) = -i x_k \hbar \frac{\partial \psi}{\partial x_j}(x) \text{ et } P_j(Q_k \psi)(x) = -i \hbar \frac{\partial x_k \psi}{\partial x_j}(x) = -i \hbar \left( \delta_k^j\psi(x) + x_k \frac{\partial \psi}{ \partial x_j} (x)\right)$$
+                    
+                    Donc $$Q_k(P_j \psi)(x)- P_j(Q_k \psi)(x) = -i x_k \hbar \frac{\partial \psi}{\partial x_j}(x)-\left(-i \hbar \left( \delta_k^j \psi(x) + x_k \frac{\partial \psi}{\partial x_j}(x)\right)\right)=-i \hbar \delta_k^j \psi(x)$$
+                    
+                    Donc $[Q_k, P_j] = \delta _k^j i \hbar Id$
+                    
+                </div>
     
                 <h4>Relation de commutation canonique</h4>
-    En 1925, Max Born énonce une future définition de la mécanique quantique qui affirme que deux observables qui sont conjuguées par la transformée de Fourier ( c'est à dire que l'une est transformée de Fourier de l'autre) satisfont la <strong></strong>relation de commutation canonique}, c'est à dire qu'elles commutent à un facteur $ i \hbar$ près. C'est bien différent de la mécanique classique où toutes les valeurs physiques commutent pour le produit de fonctions.
+    
+                <div class="paragraph">
+                    En 1925, Max Born énonce une future définition de la mécanique quantique qui affirme que deux observables qui sont conjuguées par la transformée de Fourier ( c'est à dire que l'une est transformée de Fourier de l'autre) satisfont la <strong></strong>relation de commutation canonique}, c'est à dire qu'elles commutent à un facteur $ i \hbar$ près. C'est bien différent de la mécanique classique où toutes les valeurs physiques commutent pour le produit de fonctions.
+
+                </div>
     
     <div class="remark">
         On voit que le terme $i \hbar$ est vraiment très petit, ridiculement petit, et pourtant c'est ce minuscule terme qui empêche la mécanique quantique d'être égale à la mécanique classique, et qui a autant de répercussions sur cette théorie.

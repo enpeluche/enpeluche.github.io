@@ -158,3 +158,12 @@ svg{
   color:var(--secondary-text-color);
   text-decoration: none;
 }
+
+
+
+
+#project-title{
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--secondary-text-color);
+}

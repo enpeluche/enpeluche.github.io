@@ -18,7 +18,7 @@ Liste des selecteurs
 #article{
     max-width: 900px;
     width: 100%;
-    margin: 1rem auto;
+    margin: 0rem auto;
 }
 
 /*--------------------------------------*/
@@ -174,7 +174,7 @@ Liste des selecteurs
 }
 
 .proposition > .label::before{
-  content: "Proposition";
+  content: "Proposition.";
 }
 
 .remark > .label::before{
@@ -341,23 +341,37 @@ a:hover{
 }
 
 
+
+
+
 .theorem > .title{
     font-weight: 700;
     font-style: normal;
     color: var(--secondary-text-color)
 }
 
+.definition > .title{
+  font-weight: 500;
+  font-style: normal;
+  color: var(--secondary-text-color)
+}
+
 .theorem{
     padding: 0.5rem;    
 }
 
-.theorem > p{
+.theorem > p,
+.definition > p{
     padding-top: 0.5rem;
 }
 
-.theorem > ul{
+.theorem > ul,
+.definition > ul{
     padding-top: 0.5rem;
 }
+
+
+
 
 
 .example, 
