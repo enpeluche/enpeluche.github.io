@@ -204,11 +204,27 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
     
         border-right: 1px solid var(--primary-border-color);
     }    
+    #toc-open-button{
+        width: 57px;
+        height: 48px;
+    
+        position: absolute; 
+        top: 150px;
+        left: 33px;
+        
+        background-color: rgba(171, 71, 188, 0.08);
+        border-radius: 0px 32px 32px 0px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+    }
 }
 
 @media (max-width: 768px) {
     #min-toc{
-        width: 32px;
+        width: 0px; /* 0 ici*/
         height: 100%;
         background-color: red;
         position: sticky;
@@ -217,11 +233,27 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
     
         border-right: 1px solid var(--primary-border-color);
     }    
+    #toc-open-button{
+        width: 57px;
+        height: 48px;
+    
+        position: absolute; 
+        top: 150px;
+        left: 1px;
+        
+        background-color: rgba(171, 71, 188, 0.08);
+        border-radius: 0px 32px 32px 0px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+    }
 }
 
 @media (max-width: 480px) {
     #min-toc{
-        width: 32px;
+        width: 0px;
         background-color: blue;
         height: 100%;
         
@@ -231,27 +263,28 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
     
         border-right: 1px solid var(--primary-border-color);
     }    
-}
-
-
-
-
-#toc-open-button{
-    width: 57px;
-    height: 48px;
-
-    position: absolute; 
-    top: 150px;
-    left: 33px;
+    #toc-open-button{
+        width: 57px;
+        height: 48px;
     
-    background-color: rgba(171, 71, 188, 0.08);
-    border-radius: 0px 32px 32px 0px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+        position: absolute; 
+        top: 150px;
+        left: 1px;
+        
+        background-color: rgba(171, 71, 188, 0.08);
+        border-radius: 0px 32px 32px 0px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+    }
 }
+
+
+
+
+
 
 #toc-open-button:hover{
     background-color: rgba(171, 71, 188, 0.18);
