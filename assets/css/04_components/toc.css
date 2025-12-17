@@ -11,8 +11,8 @@ main > #toc-container{
     margin: auto;
 }
 
-main > #toc-container > #full-toc{
-    width: 400px;
+main > #toc-container > #full-toc{ /* quand il est sur le cote */
+    max-width: 400px;
     height: 100%;
 
     overflow: scroll;
@@ -38,7 +38,7 @@ main > #article > #toc-container > #full-toc{
 }
 
 .toc-head h5{
-    margin: 0.6rem 0px;
+    margin: 0.6rem 0;
     
     font-size: 1rem;
 }
@@ -87,10 +87,10 @@ main #toc-close-button:hover{
     padding: 16px 48px;
 }
 
-.chapter > a > .num{
+.chapter > a > .num{ /* chapitre 1, appendice 1*/
     font-weight: 500;
     line-height: 1;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     color: rgb(166, 66, 182);
 }
@@ -193,6 +193,36 @@ les coulerus en var global
 faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
 
 
+
+/* on essaye de gerer */
+
+#min-toc{
+    width: 32px;
+    height: 100%;
+    
+    position: sticky;
+    align-self: flex-start;
+    top: 0px;
+
+    border-right: 1px solid var(--primary-border-color);
+}    
+#toc-open-button{
+    width: 57px;
+    height: 48px;
+
+    position: absolute; 
+    top: 150px;
+    left: 33px;
+    
+    background-color: rgba(171, 71, 188, 0.08);
+    border-radius: 0px 32px 32px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
 @media (max-width: 1024px) {
     #min-toc{
         width: 32px;
@@ -280,6 +310,15 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
         transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); 
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

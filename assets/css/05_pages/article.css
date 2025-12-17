@@ -405,7 +405,7 @@ a:hover{
 
 .proof{
   border-left: 2px solid var(--primary-border-color);
-  padding-left: 12px;
+  padding-left: 11px;
 }
 
 .proof > .paragraph{

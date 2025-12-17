@@ -19,6 +19,14 @@ async function fetchTOC() {
 }
 
 export async function loadTableOfContents() {
+    const storedState = localStorage.getItem('is_TOC_open');
+    // on regarde si la t'able des mat'ieres est' ouvert'e ou ,non
+    let is_TOC_open = (storedState === null) ? true : (storedState === 'true');
+
+    if (is_TOC_open === null) {
+        alert(is_TOC_open);
+        is_TOC_open = true;
+    }
 
     const tocData = await fetchTOC();
     if (!tocData) return console.error("Impossible de charger toc.json");
@@ -67,13 +75,14 @@ export async function loadTableOfContents() {
             </li>`;
     }).join('');
     
+
     TOC.innerHTML = `
-        <div id="min-toc" class="hidden">
+        <div id="min-toc" class="${is_TOC_open ? 'hidden' : ''}">
             <button id='toc-open-button' aria-label='Ouvrir le sommaire'>
                 ${ICONS.OPEN}
             </button>
         </div>
-        <div id="full-toc"> 
+        <div id="full-toc" class="${is_TOC_open ? '' : 'hidden'}">
             <div class="toc-head">
                 <h5>Table des matières</h5>
                 <button id="toc-close-button" aria-label="Fermer le sommaire"> 
@@ -86,11 +95,47 @@ export async function loadTableOfContents() {
         </div>
     `;
 
+
     const toggle = () => {
+        
+
+        
         document.getElementById("full-toc").classList.toggle('hidden');
         document.getElementById("min-toc").classList.toggle('hidden');
+        is_TOC_open = document.getElementById("min-toc").className==='hidden';
+        
+        localStorage.setItem('is_TOC_open', is_TOC_open);        
     }
 
     document.getElementById('toc-open-button').onclick = toggle;
     document.getElementById('toc-close-button').onclick = toggle;
+
+
+
+
+
+    // --- C'EST ICI QUE CA CHANGE ---
+
+    // 1. On crée une clé UNIQUE basée sur l'ID du cours
+    // Ex: "scroll_pos_maths" ou "scroll_pos_intro_algo"
+    const uniqueKey = 'scroll_pos';
+
+    // 2. RESTAURATION : On cherche la clé spécifique à CE cours
+    const savedScroll = localStorage.getItem(uniqueKey);
+    
+    if (savedScroll) {
+        document.getElementById("full-toc").scrollTop = parseInt(savedScroll);
+    } else {
+        // Si aucune sauvegarde (jamais visité), on remet en haut
+        document.getElementById("full-toc").scrollTop = 0;
+    }
+
+    // 3. SAUVEGARDE : On enregistre dans la clé spécifique
+    document.getElementById("full-toc").addEventListener('scroll', () => {
+        
+        localStorage.setItem(uniqueKey, document.getElementById("full-toc").scrollTop);
+    });
+
+
+    
 }

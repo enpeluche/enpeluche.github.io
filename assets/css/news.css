@@ -5,6 +5,7 @@ donc la si ca depasse de 400^px de haut' ca doit' faire un overflow hidden mais 
 #news{
     margin: 2rem auto;
     max-width: 800px;
+    width: 100%;
     
 }
 
@@ -17,6 +18,7 @@ donc la si ca depasse de 400^px de haut' ca doit' faire un overflow hidden mais 
 #news ul{
     max-height: 75px;
     overflow: hidden;
+    overflow: scroll;
 }
 
 #news li{
@@ -31,9 +33,3 @@ donc la si ca depasse de 400^px de haut' ca doit' faire un overflow hidden mais 
 }
 
 .news-desc{}
-
-.more{}
-
-.more button{
-
-}

@@ -30,10 +30,5 @@ export async function createNews() {
     <h2 style="margin-bottom: 1rem;">Dernières actualités du projet</h2>
         <ul>
             ${newsList}
-        </ul>
-        <span class="more">
-            <button id="more-button">
-                Voir plus <!-- et' la quand je clique ca fait' un height' t'ot'al-->
-            </button>
-        </span>`;
+        </ul>`;
 }
