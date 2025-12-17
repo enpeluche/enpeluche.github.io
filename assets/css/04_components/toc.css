@@ -191,16 +191,50 @@ main #toc-close-button:hover{
 /* modifier tous les font size en rem
 les coulerus en var global
 faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
-#min-toc{
-    width: 32px;
-    height: 100%;
-    
-    position: sticky;
-    align-self: flex-start;
-    top: 0px;
 
-    border-right: 1px solid var(--primary-border-color);
+
+@media (max-width: 1024px) {
+    #min-toc{
+        width: 32px;
+        height: 100%;
+        
+        position: sticky;
+        align-self: flex-start;
+        top: 0px;
+    
+        border-right: 1px solid var(--primary-border-color);
+    }    
 }
+
+@media (max-width: 768px) {
+    #min-toc{
+        width: 32px;
+        height: 100%;
+        background-color: red;
+        position: sticky;
+        align-self: flex-start;
+        top: 0px;
+    
+        border-right: 1px solid var(--primary-border-color);
+    }    
+}
+
+@media (max-width: 480px) {
+    #min-toc{
+        width: 32px;
+        background-color: blue;
+        height: 100%;
+        
+        position: sticky;
+        align-self: flex-start;
+        top: 0px;
+    
+        border-right: 1px solid var(--primary-border-color);
+    }    
+}
+
+
+
 
 #toc-open-button{
     width: 57px;
