@@ -2,7 +2,7 @@ main > #toc-container{
     position: sticky;
     align-self: flex-start;
     top: 0px;
-    
+    background-color: white;
     height: 100vh;
 }
 
@@ -11,12 +11,21 @@ main > #toc-container{
     margin: auto;
 }
 
+
+
+
+#music{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100%;
+}
+
 main > #toc-container > #full-toc{ /* quand il est sur le cote */
     max-width: 400px;
     height: 100%;
+    background-color: white;
 
-    overflow: scroll;
-    overflow-x: hidden;
+    
 
     border-right: 1px solid var(--primary-border-color);
 }
@@ -199,7 +208,7 @@ faire t'ransit'ion pour t'ous les bout'ons et' t'ous les survopls*/
 #min-toc{
     width: 32px;
     height: 100%;
-    
+    background-color: white;
     position: sticky;
     align-self: flex-start;
     top: 0px;

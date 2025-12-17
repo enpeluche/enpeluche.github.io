@@ -89,7 +89,7 @@ export async function loadTableOfContents() {
                     ${ICONS.CLOSE}
                 </button>
             </div>
-            <ul>
+            <ul id="music">
                 ${listHTML}
             </ul>
         </div>

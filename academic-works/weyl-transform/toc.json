@@ -1,12 +1,12 @@
 [
     {
-        "title": "Mathematiques de la mecanique quantique",
+        "title": "Mathématiques de la mécanique quantique",
         "type": "chapter",
         "isNumbered": true,
         "path": "/academic-works/weyl-transform/1-quantum-mechanics-math/",
         "children": [
             {
-                "title": "Rappels sur les espaces de Hilbert et les operateurs",
+                "title": "Rappels sur les espaces de Hilbert et les opérateurs",
                 "path": "/academic-works/weyl-transform/1-quantum-mechanics-math/hilbert-spaces-operators.html"
             },
             {
@@ -14,32 +14,32 @@
                 "path": "/academic-works/weyl-transform/1-quantum-mechanics-math/qm-introduction-postulates.html"
             },
             {
-                "title":"Transformee de Fourier",
+                "title":"Transformée de Fourier",
                 "path": "/academic-works/weyl-transform/1-quantum-mechanics-math/fourier-transform.html"
             },
             {
-                "title":"Operateurs pseudo-differentiels",
+                "title":"Opérateurs pseudo-différentiels",
                 "path":"/academic-works/weyl-transform/1-quantum-mechanics-math/pseudo-differential-operators.html"
             }
         ]
     },
 
     {
-        "title": "La transformee de Weyl",
+        "title": "La transformée de Weyl",
         "type": "chapter",
         "isNumbered": true,
         "path": "/academic-works/weyl-transform/2-weyl-transform/",
         "children": [
             {
-                "title": "La transformee de Fourier-Wigner",
+                "title": "La transformée de Fourier-Wigner",
                 "path": "/academic-works/weyl-transform/2-weyl-transform/fourier-wigner-transform.html"}
                 ,
             {
-                "title": "La transformee de Wigner",
+                "title": "La transformée de Wigner",
                 "path":"/academic-works/weyl-transform/2-weyl-transform/wigner-transform.html"
             },
             {
-                "title": "La transformee de Weyl en details",
+                "title": "La transformée de Weyl en détails",
                 "path": "/academic-works/weyl-transform/2-weyl-transform/weyl-transform-details.html"
             }
         ]

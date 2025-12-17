@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>La transformee de Fourier-Wigner</title>
+        <title>La transformée de Fourier-Wigner</title>
 
         <meta
             name="description"
@@ -58,41 +58,57 @@
             <div id="toc-container" style="height: 100vh;"></div>
 
             <div id="article">
-                
+                <h3>La transformée de Fourier-Wigner</h3>
+    
+                <div class="paragraph">
+                    Cette partie aura pour but de présenter la transformée de Fourier-Wigner.
+                </div>
 
-           
+                <div class="paragraph">
+                    Soit $q$ et $p$ dans $\R^n$, et f une fonction mesurable sur $\R^n$.
+                    On définit la fonction $\rho (q,p) f$ sur $\R^n$ par
 
-                <h4>La transformée de Fourier-Wigner</h4>
+                    $$
+                    (\rho(q,p)f)(x) = e^{iqx + \frac{1}{2} iq p}f(x+p), ~~x\in\R^n.
+                    $$                
+                </div>
     
-    Cette partie aura pour but de présenter la transformée de Fourier-Wigner.
+                <div class="proposition">
+                    $\rho(q,p)f : L^2(\R^n) \ra L^2(\R^n)$ est un <strong>opérateur unitaire</strong> pour tout $q$ et $p$ dans $\R^n$.
+                </div>
     
-    Soit $q$ et $p$ dans $\R^n$, et f une fonction mesurable sur $\R^n$. On définit la fonction $\rho (q,p) f$ sur $\R^n$ par
-    $$(\rho(q,p)f)(x) = e^{iqx + \frac{1}{2} iq p}f(x+p), ~~x\in\R^n.$$
+                <div class = "definition">
+                    Soit $f$ et $g$ dans $\mathcal{S}(\R^n)$, on définit alors la fonction $V(f,g)$ sur $\R^{2n}$ par
+        
+                    $$
+                    V(f,g)(q,p) = (2 \pi)^{-n/2} \langle \rho (q,p)f,g \rangle, ~~q,p \in \R^n
+                    $$
+        
+                    où $\langle ,  \rangle$ est le produit scalaire de $L^2(\R^n)$.
+        
+                    On appelle alors $V(f,g)$ la transformée de Fourier-Wigner de $f$ et $g$.
+                </div>
     
-    <div class="proposition">
-        $\rho(q,p)f : L^2(\R^n) \ra L^2(\R^n)$ est un <strong></strong>opérateur unitaire} pour tout $q$ et $p$ dans $\R^n$.
-    </div>
+                <div class="remark">
+                    Pour $f, ~ g \in L^2(\R^n)$, $V(f,g)$ correspond au coefficient matriciel en $(f,g)$ de la représentation
+                    $\rho$. On obtient ainsi une meilleure intuition de ce qu'elle signifie.
+                </div>
     
+                <div class="remark">
     
-    <div class = "definition">
-        Soit $f$ et $g$ dans $\mathcal{S}(\R^n)$, on définit alors la fonction $V(f,g)$ sur $\R^{2n}$ par
-        $$V(f,g)(q,p) = (2 \pi)^{-n/2} \langle \rho (q,p)f,g \rangle, ~~q,p \in \R^n$$
-        où $\langle ,  \rangle$ est le produit scalaire de $L^2(\R^n)$.
-        On appelle alors $V(f,g)$ la transformée de Fourier-Wigner de $f$ et $g$.
-    </div>
+                    On peut mieux comprendre cette écriture en essayant d'écrire la transformée de Fourier sous la forme d'un
+                    produit scalaire !
     
-    <div class="remark">
-        Pour $f, ~ g \in L^2(\R^n)$, $V(f,g)$ correspond au coefficient matriciel en $(f,g)$ de la représentation $\rho$. On obtient ainsi une meilleure intuition de ce qu'elle signifie.
-    </div>
-    <div class="remark">
-        On peut mieux comprendre cette écriture en essayant d'écrire la transformée de Fourier sous la forme d'un produit scalaire !
-        On a alors $\hat{f} (\xi) = (2 \pi)^{-n/2} \langle \rho(-\xi,0)f, Id \rangle$
-    </div>
+                    On a alors $\hat{f} (\xi) = (2 \pi)^{-n/2} \langle \rho(-\xi,0)f, Id \rangle$
     
-    <div class="remark">
-        C'est une transformée de Fourier tordue.
-    </div>
+                </div>
     
+                <div class="remark">
+    
+                    C'est une transformée de Fourier tordue.
+    
+                </div>
+
     On peut alors donner une formule plus explicite de $V(f,g)$.
     
     <div class="proposition">
@@ -127,26 +143,31 @@
                     </div>
                 </div>
     
+                <div class="paragraph">
+                    Une propriété intéressante est la bilinéarité de la transformée de Fourier-Wigner.
+                </div>
+
+                <div class="proposition">
+                    $V : \mathcal{S} (\R^n) \times \mathcal{S} (\R^n) \ra \mathcal{S} (\R^{2n})$ est une <strong></strong>application bilinéaire}.
+                </div>
+
+                <h5>La théorie des radars</h5>
     
-    Une propriété intéressante est la bilinéarité de la transformée de Fourier-Wigner.
-    <div class="proposition">
-        $V : \mathcal{S} (\R^n) \times \mathcal{S} (\R^n) \ra \mathcal{S} (\R^{2n})$ est une <strong></strong>application bilinéaire}.
-    </div>
-    
-    \subsubsection{La théorie des radars}
-    Une application intéressante et concrète de la transformée de Fourier-Wigner est dans la théorie des radars, un bref aperçu sera donné, sans rentrer dans trop de détails techniques.
-    Plaçons nous dans le cas d'un appareil radar qui transmet un signal électromagnétique qui rebondi sur la cible et revient à l'appareil. On peut représenter le signal par une fonction à valeurs complexes $f(t) = f_0(t) e^{2 \pi i w t}$, où $w$ représente la fréquence et $t$ le temps. Le signal revenu n'est pas le même signal que celui émis, disons que, après quelques approximations, le signal reçu est $f_{\tau \phi}(t) = f(t - \tau) e^{2 \pi i \phi t}$, où $\tau$ représente le délai de retour du signal et $\phi$ la nouvelle fréquence.
-    On se place maintenant dans la situation de deux cibles qui produisent des signaux $f_{\tau_1 \phi_1}$ et $f_{\tau_2 \phi_2}$. Le problème est que si ces signaux se ressemblent, il sera difficile de distinguer les 2 cibles.
-    On peut alors s'intéresser à la moyenne quadratique de la différence.
-    $$\int |f_{\tau_1 \phi_1} - f_{\tau _2 \phi_2}|^2(t) ~dt$$
-    En développant la valeur absolue au carré, on obtient
-    $$2 \int |f|^2 dt -2 Re \langle f_{\tau_1 \phi_1} , f_{\tau _2 \phi_2} \rangle$$
-    On va alors étudier le second terme qui ne dépend que des variables. 
-    
-    On a $$\langle f_{\tau_1 \phi_1} , f_{\tau _2 \phi_2} \rangle = e^{2 \pi i w (\tau _1 - \tau _1)} \int f_0(t- \tau_1) \overline{f_0(t-\tau_2)}e^{2 \pi i(\phi_1 - \phi_2)t}dt$$
-    
-    On voit que ce terme ressemble à transformée de Fourier-Wigner, en faisant un changement de variable adapté on trouve que ce terme peut s'exprimer comme la transformée de Fourier-Wigner d'une certaine fonction appelée fonction d'ambiguïté qui est égale à $V(f,f)$.
-    
+                <div class="paragraph">
+                    Une application intéressante et concrète de la transformée de Fourier-Wigner est dans la théorie des radars, un bref aperçu sera donné, sans rentrer dans trop de détails techniques.
+                    Plaçons nous dans le cas d'un appareil radar qui transmet un signal électromagnétique qui rebondi sur la cible et revient à l'appareil. On peut représenter le signal par une fonction à valeurs complexes $f(t) = f_0(t) e^{2 \pi i w t}$, où $w$ représente la fréquence et $t$ le temps. Le signal revenu n'est pas le même signal que celui émis, disons que, après quelques approximations, le signal reçu est $f_{\tau \phi}(t) = f(t - \tau) e^{2 \pi i \phi t}$, où $\tau$ représente le délai de retour du signal et $\phi$ la nouvelle fréquence.
+                    On se place maintenant dans la situation de deux cibles qui produisent des signaux $f_{\tau_1 \phi_1}$ et $f_{\tau_2 \phi_2}$. Le problème est que si ces signaux se ressemblent, il sera difficile de distinguer les 2 cibles.
+                    On peut alors s'intéresser à la moyenne quadratique de la différence.
+                    $$\int |f_{\tau_1 \phi_1} - f_{\tau _2 \phi_2}|^2(t) ~dt$$
+                    En développant la valeur absolue au carré, on obtient
+                    $$2 \int |f|^2 dt -2 Re \langle f_{\tau_1 \phi_1} , f_{\tau _2 \phi_2} \rangle$$
+                    On va alors étudier le second terme qui ne dépend que des variables. 
+                    
+                    On a $$\langle f_{\tau_1 \phi_1} , f_{\tau _2 \phi_2} \rangle = e^{2 \pi i w (\tau _1 - \tau _1)} \int f_0(t- \tau_1) \overline{f_0(t-\tau_2)}e^{2 \pi i(\phi_1 - \phi_2)t}dt$$
+                    
+                    On voit que ce terme ressemble à transformée de Fourier-Wigner, en faisant un changement de variable adapté on trouve que ce terme peut s'exprimer comme la transformée de Fourier-Wigner d'une certaine fonction appelée fonction d'ambiguïté qui est égale à $V(f,f)$.
+                    
+                </div>
             </div>
         </main>
 

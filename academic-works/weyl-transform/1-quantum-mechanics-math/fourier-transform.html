@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Transformee de Fourier</title>
+        <title>Transformée de Fourier</title>
 
         <meta
             name="description"
@@ -193,55 +193,57 @@
                     souvent implicitement utilisées dans les démonstrations futures.
                 </div>
     
-    <div class="proposition">[Le lemme de Riemann-Lebesgue]
-        Soit $f \in L^1(\R^n)$, alors $\hat{f}$ est une fonction continue sur $\mathbb{R}^n$ telle que $\underset{|\xi| \ra \infty}{lim} \hat{f}(\xi) = 0$.
-    </div>
+                <div class="proposition">[Le lemme de Riemann-Lebesgue]
+                    Soit $f \in L^1(\R^n)$, alors $\hat{f}$ est une fonction continue sur $\mathbb{R}^n$ telle que $\underset{|\xi| \ra \infty}{lim} \hat{f}(\xi) = 0$.
+                </div>
     
-    <div class="proposition">
-        Soit $f$ et $g$ dans $L^1(\R^n)$, alors
-        $$(f*g) \hat{~} (\xi) = (2 \pi)^{n/2} \hat{f} (\xi) \hat{g} (\xi),~~ \xi \in \R^n.$$
-    </div>
+                <div class="proposition">
+                    Soit $f$ et $g$ dans $L^1(\R^n)$, alors
+                    $$(f*g) \hat{~} (\xi) = (2 \pi)^{n/2} \hat{f} (\xi) \hat{g} (\xi),~~ \xi \in \R^n.$$
+                </div>
     
-    <div class="proposition">
-        Soit $\varphi \in L^1(\R^n)$. Alors pour tout multi-indices $\alpha$, 
-    
+                <div class="proposition">
+                    Soit $\varphi \in L^1(\R^n)$. Alors pour tout multi-indices $\alpha$, 
         
-        <ul>
-            <li></li> $(D^\alpha \varphi) \hat{~} (\xi) = \xi ^\alpha \hat{\varphi} (\xi) ,~~ \xi \in \R^n$.
-            <li></li> $(D^\alpha \hat{\varphi}) (\xi) = ((-x)^\alpha \varphi) \hat{~} (\xi),~~ x \in \R^n,~ \xi \in \R^n$.
-        </ul>
-    </div>
+                    <ul>
+                        <li>$(D^\alpha \varphi) \hat{~} (\xi) = \xi ^\alpha \hat{\varphi} (\xi) ,~~ \xi \in \R^n$.</li> 
+                        <li>$(D^\alpha \hat{\varphi}) (\xi) = ((-x)^\alpha \varphi) \hat{~} (\xi),~~ x \in \R^n,~ \xi \in \R^n$.</li> 
+                    </ul>
+                </div>
     
-    Pour mieux comprendre comment la transformée de Fourier fonctionne et comment la position et l'impulsion d'une particule quantique sont reliés à travers elle, on peut introduire les opérateurs suivants et regarder comment elle agit sur eux.
+                <div class="paragraph">
+                    Pour mieux comprendre comment la transformée de Fourier fonctionne et comment la position et l'impulsion d'une particule quantique sont reliés à travers elle, on peut introduire les opérateurs suivants et regarder comment elle agit sur eux.
+                </div>
     
-    <div class = "definition">[Opérateurs de translation, dilatation et modulation]
-    On note les opérateurs suivants sur l'espace des fonctions : 
-        <ul>
-            <li>L'opérateur de <strong>translation</strong> : $T_yf~(x) := f(x+y),~~~x \in \mathbb{R}^n$.</li> 
-            <li>L'opérateur de <strong>modulation</strong> : $M_yf~(x) := e^{ixy}f(x),~~~x \in \mathbb{R}^n$.</li> 
-            <li>L'opérateur de <strong>dilatation</strong> : $D_af~(x) := f(ax),~~~x \in \mathbb{R}^n$.</li>
-        </ul>
-    pour tout $y \in \mathbb{R}^n$ et $~a \in \mathbb{R}^*$.
-    </div>
+                <div class = "definition">[Opérateurs de translation, dilatation et modulation]
+                    On note les opérateurs suivants sur l'espace des fonctions : 
+                    
+                    <ul>
+                        <li>L'opérateur de <strong>translation</strong> : $T_yf~(x) := f(x+y),~~~x \in \mathbb{R}^n$.</li> 
+                        <li>L'opérateur de <strong>modulation</strong> : $M_yf~(x) := e^{ixy}f(x),~~~x \in \mathbb{R}^n$.</li> 
+                        <li>L'opérateur de <strong>dilatation</strong> : $D_af~(x) := f(ax),~~~x \in \mathbb{R}^n$.</li>
+                    </ul>
+                    pour tout $y \in \mathbb{R}^n$ et $~a \in \mathbb{R}^*$.
+                </div>
     
-    <div class="proposition">[Comment agit la transformée de Fourier sur les opérateurs de translation, modulation et dilatation]
-     .
-     
-     
-    Soit $f \in L^1(\mathbb{R}^n)$, on a : %dans L2 ?
-    <ul>
-        <li></li> $\widehat{T_yf}(\xi) = M_y\hat{f}(\xi)$.
-        <li></li> $\widehat{M_yf}(\xi) = T_{-y}\hat{f}(\xi)$.
-        <li></li> $\widehat{D_af}(\xi) = |a|^{-n}(D_{\frac{1}{a}} \hat{f})(\xi)$.
-    </ul>
-    pour tout $\xi \in \mathbb{R}^n$.
-    </div>
+                <div class="proposition">[Comment agit la transformée de Fourier sur les opérateurs de translation, modulation et dilatation]
+                    Soit $f \in L^1(\mathbb{R}^n)$, on a : %dans L2 ?
+                    
+                    <ul>
+                        <li>$\widehat{T_yf}(\xi) = M_y\hat{f}(\xi)$.</li> 
+                        <li>$\widehat{M_yf}(\xi) = T_{-y}\hat{f}(\xi)$.</li> 
+                        <li>$\widehat{D_af}(\xi) = |a|^{-n}(D_{\frac{1}{a}} \hat{f})(\xi)$.</li> 
+                    </ul>
+                    pour tout $\xi \in \mathbb{R}^n$.
+                </div>
     
-    <div class="remark">
-    Le troisième point signifie que contracter une fonction dans la variable de Fourier revient à la dilater dans l'autre variable.
-    </div>
-    On comprend ainsi que plus une particule quantique sera localisée dans l'espace, plus son impulsion sera très étalée, inversement si une particule quantique à une impulsion très localisée, elle sera très étalée dans l'espace des positions.
-    
+                <div class="remark">
+                    Le troisième point signifie que contracter une fonction dans la variable de Fourier revient à la dilater dans l'autre variable.
+                </div>
+
+                <div class="paragraph">
+                    On comprend ainsi que plus une particule quantique sera localisée dans l'espace, plus son impulsion sera très étalée, inversement si une particule quantique à une impulsion très localisée, elle sera très étalée dans l'espace des positions.
+                </div>
     
                 <div class="theorem">
                     <span class="title">La formule d'inversion de Fourier</span>
@@ -379,9 +381,9 @@
 
                 </div>
     
-    <div class="remark">
-        On voit que le terme $i \hbar$ est vraiment très petit, ridiculement petit, et pourtant c'est ce minuscule terme qui empêche la mécanique quantique d'être égale à la mécanique classique, et qui a autant de répercussions sur cette théorie.
-    </div>
+                <div class="remark">
+                    On voit que le terme $i \hbar$ est vraiment très petit, ridiculement petit, et pourtant c'est ce minuscule terme qui empêche la mécanique quantique d'être égale à la mécanique classique, et qui a autant de répercussions sur cette théorie.
+                </div>
             </div>
         </main>
 

@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>La transformee de Weyl</title>
+        <title>La transformée de Weyl</title>
 
         <meta
             name="description"
@@ -65,14 +65,17 @@
     
                 <h4>Théorème de Stone et groupe à 1-paramètre</h4>
     
-    Le but de cette section est de justifier mathématiquement certains calculs proposés par la suite.
+                <div class="paragraph">
+                    Le but de cette section est de justifier mathématiquement certains calculs proposés par la suite.
+
+                </div>
     
     <div class = "definition">[Groupe unitaire à un paramètre fortement continue]
         Une famille d'opérateurs $\{U_t\}_{t\in\R}$ sur $\mathcal{H}$ est appelée <strong></strong>groupe unitaire à un paramètre fortement continue} si elle satisfait les conditions suivantes :
         <ul>
-            <li></li> Pour tout $t \in \R$, $U_t : \mathcal{H} \ra \mathcal{H}$ est un opérateur unitaire.
-            <li></li> Pour tout $t, s \in \R$, $U_{t+s}=U_tU_s$. En particulier, $U_0 = id_\mathcal{H}$ et $U_{-t} = U_t^{-1} = U_t^*$
-            <li></li> Pour tout $\psi \in \mathcal{H}$, l'application $t \mapsto U_t \psi$ est continue de $\R$ dans $\mathcal{H}$.
+            <li>Pour tout $t \in \R$, $U_t : \mathcal{H} \ra \mathcal{H}$ est un opérateur unitaire.</li> 
+            <li>Pour tout $t, s \in \R$, $U_{t+s}=U_tU_s$. En particulier, $U_0 = id_\mathcal{H}$ et $U_{-t} = U_t^{-1} = U_t^*$</li> 
+            <li>Pour tout $\psi \in \mathcal{H}$, l'application $t \mapsto U_t \psi$ est continue de $\R$ dans $\mathcal{H}$.</li> 
         </ul>
     </div>
     
@@ -93,72 +96,129 @@
     
                 <h4>Groupe de Heisenberg et représentation $\rho$</h4>
     
-    Dans cette partie sera abordée brièvement la notion du <strong></strong>groupe de Heisenberg et de ses représentations unitaires}.
-    
-    Dans toute la suite de cette partie, on identifie $(p, q) \in \R^{2n}$ à $q + ip \in \mathbb{C}^n$.
-    
-    Les formes symplectique n'étant pas enseignée en M1 PMG, une définition en saura donnée.
+                <div class="paragraph">
+                    Dans cette partie sera abordée brièvement la notion du <strong>groupe de Heisenberg et de ses représentations unitaires</strong>.
+
+                </div>
+
+                <div class="paragraph">
+                    Dans toute la suite de cette partie, on identifie $(p, q) \in \R^{2n}$ à $q + ip \in \mathbb{C}^n$.
+
+                </div>
+
+                <div class="paragraph">
+                    Les formes symplectique n'étant pas enseignée en M1 PMG, une définition en saura donnée.
+
+                </div>
     
     <div class = "definition">[Forme symplectique]
-        Une <strong></strong>forme symplectique} est une application $\omega : E^2 \ra \R$ sur un espace vectoriel réel $E$, qui est bilinéaire, anti-symétrique et non-dégénérée.
+        Une <strong>forme symplectique </strong>est une application $\omega : E^2 \ra \R$ sur un espace vectoriel réel $E$, qui est bilinéaire, anti-symétrique et non-dégénérée.
     </div>
     
-    On définit une <strong></strong>forme symplectique} sur $\mathbb{C}^n$ par $[z, w] = 2 Im(z  \bar{w}), z, w \in \mathbb{C}^n$, où $z = (z_1, \cdots, z_n)$, $w = (w_1, \cdots, w_n)$ et $z  \bar{w} = \underset{j=1}{\overset{n}{\sum}} z_j \bar{w}_j$.
-    
-    On définit une <strong></strong>multiplication} sur $\mathbb{C}^n \times \R$ par $(z,t)  (w, s) = (z+w, t+s + [z,w])$ pour tout $(z,t), (w,s) \in \mathbb{C}^n \times \R$.
+    <div class="paragraph">
+        On définit une <strong>forme symplectique</strong> sur $\mathbb{C}^n$ par $[z, w] = 2 Im(z  \bar{w}), z, w \in \mathbb{C}^n$, où $z = (z_1, \cdots, z_n)$, $w = (w_1, \cdots, w_n)$ et $z  \bar{w} = \underset{j=1}{\overset{n}{\sum}} z_j \bar{w}_j$.
+
+    </div>
+
+    <div class="paragraph">
+        On définit une <strong>multiplication</strong> sur $\mathbb{C}^n \times \R$ par $(z,t)  (w, s) = (z+w, t+s + [z,w])$ pour tout $(z,t), (w,s) \in \mathbb{C}^n \times \R$.
+
+    </div>
     
     <div class="proposition">
-        $\mathbb{C}^n \times \R$ est un <strong></strong>groupe} pour la multiplication définie précédemment.
+        $\mathbb{C}^n \times \R$ est un <strong>groupe</strong> pour la multiplication définie précédemment.
     </div>
     
-    Le groupe $\mathbb{C}^n \times \R$ est noté $H^n$ et est appelé <strong></strong>le groupe de Heisenberg}.
+    <div class="paragraph">
+        Le groupe $\mathbb{C}^n \times \R$ est noté $H^n$ et est appelé <strong>le groupe de Heisenberg</strong>.
+
+    </div>
     
     <div class="remark">
         La droite réelle $\R$ est vue comme l'espace temporelle dans lequel $t \in \R$ représente un instant $t$. Et un point de $\mathbb{C}^n$ est vu comme un point dans lequel sa partie réelle élément de $\R^n$ représente par exemple sa position et sa partie imaginaire son impulsion. Il s'agit avant tout de mon interprétation personnelle.
     </div>
+
+    <div class="paragraph">
+        
+        Pour tout $\lambda \in \R$, on définit $R^\lambda : H^n \ra G$, où $G$ est le groupe des opérateurs unitaires de $L^2(\R^n)$ par
+        $$(R^\lambda(z,t)f)(x) = e^{i \lambda (q x + \frac{1}{2} q  p+ \frac{1}{4}t)}f(x+p), x \in \mathbb{R}^n$$
+        
+    </div>
     
-    Pour tout $\lambda \in \R$, on définit $R^\lambda : H^n \ra G$, où $G$ est le groupe des opérateurs unitaires de $L^2(\R^n)$ par
-    $$(R^\lambda(z,t)f)(x) = e^{i \lambda (q x + \frac{1}{2} q  p+ \frac{1}{4}t)}f(x+p), x \in \mathbb{R}^n$$
+    <div class="paragraph">
+        Ce sont des représentations unitaires de $H^n$.
+
+    </div>
+
+    <div class="paragraph">
+        On va s'intéresser à l'opérateur unitaire $\rho(p,q) := R^1(z,0)$ où $z=q+ip$. \vspace{10pt}
+
+    </div>
+
+    <div class="paragraph">
+        On va maintenant motiver les objets précédents et justifier les futures calculs de la transformée de Weyl avec les résultats suivant. A partir de maintenant $\hat{X}$, $\hat{Y}$ et $\hat{Z}$ désignent des opérateurs. On utilise le commutateur usuel de deux opérateurs $\hat{X}$ et $\hat{Y}$ définis par $[\hat{X},\hat{Y}] = \hat{X}\hat{Y}-\hat{Y}\hat{X}$. On considère que c'est un crochet de Lie avec les propriétés qui en découlent.
+
+    </div>
+
+    <div class="paragraph">
+        
+        On introduit la formule de <strong>Baker-Campbell-Hausdorff </strong>qui donne la solution $\hat{Z}$ de l'équation $e^{\hat{Z}} = e^{\hat{X}} e^{\hat{Y}}$. On a alors l'élégante formule :
+        $$e^{\hat{A}} e^{\hat{B}} = e^{\hat{A}+\hat{B}+\frac{1}{2} [\hat{A},\hat{B}] + \frac{1}{12} ([\hat{A}, [\hat{A},\hat{B}]] + [\hat{B},[\hat{B},\hat{A}]])+\cdots}$$
+        
+    </div>
     
-    Ce sont des représentations unitaires de $H^n$.
+    <div class="paragraph">
+        Si $\hat{A}$ et $\hat{B}$ commutent avec leur commutateurs c'est-à-dire $[\hat{A},[\hat{A}, \hat{B}]] = 0$ et $[\hat{B}, [\hat{B}, \hat{A}]] = 0$.
+
+    </div>
+
+    <div class="paragraph">
+        
+        Cette formule devient la <strong>formule dite de Glauber</strong> :
+        $$e^{\hat{X}+\hat{Y}} = e^{\hat{X}} e^{\hat{Y}}e^{-\frac{1}{2}[\hat{X}, \hat{Y}]}$$
+        
+    </div>
     
-    On va s'intéresser à l'opérateur unitaire $\rho(p,q) := R^1(z,0)$ où $z=q+ip$. \vspace{10pt}
+    <div class="paragraph">
+        La formule de Baker-Campbell-Hausdorff et a été introduite dans ce mémoire pour avoir une compréhension plus fine sur les exponentielles d'opérateurs, c'est la formule de Glauber qui sera utilisée dans la suite.
+
+    </div>
+
     
-    On va maintenant motiver les objets précédents et justifier les futures calculs de la transformée de Weyl avec les résultats suivant. A partir de maintenant $\hat{X}$, $\hat{Y}$ et $\hat{Z}$ désignent des opérateurs. On utilise le commutateur usuel de deux opérateurs $\hat{X}$ et $\hat{Y}$ définis par $[\hat{X},\hat{Y}] = \hat{X}\hat{Y}-\hat{Y}\hat{X}$. On considère que c'est un crochet de Lie avec les propriétés qui en découlent.
+    <div class="paragraph">
+        On va calculer des résultats annexes utilisés dans le début de la partie sur la transformation de Weyl. Ils ne seront pas justifiés mais pourront fournir une motivation suffisante à la généralisation de la formule $(Weyl)$ en un opérateur pseudo-différentiel.
+
+    </div>
     
-    On introduit la formule de <strong></strong>Baker-Campbell-Hausdorff} qui donne la solution $\hat{Z}$ de l'équation $e^{\hat{Z}} = e^{\hat{X}} e^{\hat{Y}}$. On a alors l'élégante formule :
-    $$e^{\hat{A}} e^{\hat{B}} = e^{\hat{A}+\hat{B}+\frac{1}{2} [\hat{A},\hat{B}] + \frac{1}{12} ([\hat{A}, [\hat{A},\hat{B}]] + [\hat{B},[\hat{B},\hat{A}]])+\cdots}$$
-    
-    Si $\hat{A}$ et $\hat{B}$ commutent avec leur commutateurs c'est-à-dire $[\hat{A},[\hat{A}, \hat{B}]] = 0$ et $[\hat{B}, [\hat{B}, \hat{A}]] = 0$.
-    
-    Cette formule devient la <strong></strong>formule dite de Glauber} :
-    $$e^{\hat{X}+\hat{Y}} = e^{\hat{X}} e^{\hat{Y}}e^{-\frac{1}{2}[\hat{X}, \hat{Y}]}$$
-    
-    La formule de Baker-Campbell-Hausdorff et a été introduite dans ce mémoire pour avoir une compréhension plus fine sur les exponentielles d'opérateurs, c'est la formule de Glauber qui sera utilisée dans la suite.
-    
-    On va calculer des résultats annexes utilisés dans le début de la partie sur la transformation de Weyl. Ils ne seront pas justifiés mais pourront fournir une motivation suffisante à la généralisation de la formule $(Weyl)$ en un opérateur pseudo-différentiel.
-    
-    
+<div class="paragraph">
     On va calculer l'exponentielle de l'opérateur de position et d'impulsion respectivement, on peut en donner une brève justification avec le théorème de Stone et les groupes à 1-paramètres fortement continus.
+
+</div>    
     
-    <strong></strong>Calcul de $e^{\xi \mathcal{\hat{Q}}}$}
+    <strong>Calcul de $e^{\xi \mathcal{\hat{Q}}}$</strong>
+
+    <div class="paragraph">
+        Soit $f \in \mathcal{S}(\R^n),~ \xi \in \R^n$. Alors,
     
-    Soit $f \in \mathcal{S}(\R^n),~ \xi \in \R^n$. Alors,
-    
-    $$(e^{\xi \mathcal{\hat{Q}}}f)(x) = \left(\underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi \mathcal{\hat{Q}})^k}{k!}f\right)(x) = \underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi x)^k f(x)}{k!} = f(x) \underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi x)^k}{k!} = f(x) e^{\xi x} = Id ~e^{\xi x}$$
-    
-    Avec $Id$ qui représente l'opérateur identité et $x$ l'opérateur multiplication par $x$.\vspace{10pt}
-    
-    <strong></strong>Calcul de $e^{p \mathcal{\hat{P}}}$}
-    Soit $f \in \mathcal{S}(\R^n),~ p \in \R^n$. Alors,
-    
-    $$(e^{p \mathcal{\hat{P}}}f)(x) = \left(\underset{k=0}{\overset{+ \infty}{\sum}} \frac{(p \mathcal{\hat{P}})^k}{k!}f\right)(x) = \underset{k=0}{\overset{+ \infty}{\sum}} \frac{p^k f^{(k)}(x)}{k!} = f(p+x) = T_p(x)$$
-    
-    On reconnaît la série entière de $f$,
-    
-    $$= \underset{k=0}{\overset{+ \infty}{\sum}} \frac{f^{(k)}(x)}{k!}((p+x)-x)^k = (T_pf)(x)$$
-    
-    où $T_p$ est l'opérateur de translation par $p$ qui translate $f$ par $p$.
+        $$(e^{\xi \mathcal{\hat{Q}}}f)(x) = \left(\underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi \mathcal{\hat{Q}})^k}{k!}f\right)(x) = \underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi x)^k f(x)}{k!} = f(x) \underset{k=0}{\overset{+ \infty}{\sum}} \frac{(\xi x)^k}{k!} = f(x) e^{\xi x} = Id ~e^{\xi x}$$
+        
+        Avec $Id$ qui représente l'opérateur identité et $x$ l'opérateur multiplication par $x$.\vspace{10pt}
+       
+    </div>
+   
+    <div class="paragraph">
+        <strong>Calcul de $e^{p \mathcal{\hat{P}}}$</strong>
+        Soit $f \in \mathcal{S}(\R^n),~ p \in \R^n$. Alors,
+        
+        $$(e^{p \mathcal{\hat{P}}}f)(x) = \left(\underset{k=0}{\overset{+ \infty}{\sum}} \frac{(p \mathcal{\hat{P}})^k}{k!}f\right)(x) = \underset{k=0}{\overset{+ \infty}{\sum}} \frac{p^k f^{(k)}(x)}{k!} = f(p+x) = T_p(x)$$
+        
+        On reconnaît la série entière de $f$,
+        
+        $$= \underset{k=0}{\overset{+ \infty}{\sum}} \frac{f^{(k)}(x)}{k!}((p+x)-x)^k = (T_pf)(x)$$
+        
+        où $T_p$ est l'opérateur de translation par $p$ qui translate $f$ par $p$.
+        &    
+    </div>
     
                 <div class="remark">
                     On peut voir l'ensemble des opérateurs de translation comme un groupe à 1-paramètre fortement continue.

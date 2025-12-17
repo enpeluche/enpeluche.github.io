@@ -41,7 +41,7 @@
   font-weight: 300;
   
   /* box model */
-  padding: 0px 24px;
+  padding: 0 1.5rem;
 
   /* layout */
   display:inline;
@@ -98,7 +98,6 @@
   color: var(--secondary-text-color);
   font-weight: 700;
   text-decoration: underline;
-  white-space: nowrap;
 
   /* layout */
   display: inline;
