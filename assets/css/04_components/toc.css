@@ -97,7 +97,7 @@ main #toc-close-button:hover{
 
 .chapter h3{
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .chapter-content{
@@ -142,7 +142,7 @@ main #toc-close-button:hover{
 }
 
 .chapter-content h4{
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 26px;
     
@@ -168,7 +168,7 @@ main #toc-close-button:hover{
     justify-content: center;
     align-items: center;
     
-    font-size: 12px;
+    font-size: 0.7rem;
     font-weight: 400;
     color: rgb(96, 91, 104);
 }

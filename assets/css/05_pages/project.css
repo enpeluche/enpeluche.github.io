@@ -57,7 +57,7 @@
 
 
 .description h3{
-  font-size: 35px;
+  font-size: 3rem;
   font-weight: 700;
   font-style: normal;
   text-align: center;
@@ -70,7 +70,7 @@
 }
 
 .description h4{
-  font-size:22px;
+  font-size:1.2rem;
   text-align: center;
 
   padding-left: 3px;
@@ -83,7 +83,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   padding: 15px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1.2rem;
   text-align: justify;
   font-weight: 500;
   font-style: normal;
