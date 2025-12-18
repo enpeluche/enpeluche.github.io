@@ -29,12 +29,19 @@ figure{
   margin: 1.5rem 0rem;
   text-align: center;
   width: 100%;
-  margin-top: 1.2rem;
+}
+
+figure img{
+  padding: 0.5rem;
+  border: 1px solid var(--primary-border-color);
 }
 
 figcaption{
-  padding-top: 1.5rem;
+  color: var(--secondary-text-color);
+  font-weight: 400;
+  padding-top: 1rem;
 }
+
 
 /*Pourquoi en faire deux différents déjà ?*/
 .subfig-container, .fig-container{
@@ -54,9 +61,6 @@ img{
   transition: transform 0.3s ease;
 }
 figure img:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-figcaption .label:before{
-  content: "Fig. ";
-}

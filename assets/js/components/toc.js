@@ -124,16 +124,16 @@ export async function loadTableOfContents() {
     const savedScroll = localStorage.getItem(uniqueKey);
     
     if (savedScroll) {
-        document.getElementById("full-toc").scrollTop = parseInt(savedScroll);
+        document.getElementById("music").scrollTop = parseInt(savedScroll);
     } else {
         // Si aucune sauvegarde (jamais visité), on remet en haut
-        document.getElementById("full-toc").scrollTop = 0;
+        document.getElementById("music").scrollTop = 0;
     }
 
     // 3. SAUVEGARDE : On enregistre dans la clé spécifique
-    document.getElementById("full-toc").addEventListener('scroll', () => {
+    document.getElementById("music").addEventListener('scroll', () => {
         
-        localStorage.setItem(uniqueKey, document.getElementById("full-toc").scrollTop);
+        localStorage.setItem(uniqueKey, document.getElementById("music").scrollTop);
     });
 
 

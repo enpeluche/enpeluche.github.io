@@ -1,12 +1,16 @@
-.references {
+#main-references{
+  background-color: white;
 
+}
+
+.references {
   /* typography */
   font-size: 1rem;
   line-height: 1.5;
 
   /* box model */
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
+
   padding-left: 1.2rem;
   
   /* other */
@@ -32,11 +36,7 @@
 }
 
 .cite{
-
-  /* 
-  les font size en px a changer en rem ?
-  16px = 1rem
-  typography */
+  /* typography */
   font-size: 1rem;
   font-weight: 300;
   
@@ -61,8 +61,8 @@
 .cite::before{
 
   /* box model */
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
 
   /* background */
   background-image: url("/assets/img/references/paper.svg");
@@ -112,8 +112,8 @@
 .paper::before{
   
   /* box model */
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
 
   /* background */
   background-image: url("/assets/img/references/paper.svg");

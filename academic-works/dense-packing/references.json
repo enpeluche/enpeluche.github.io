@@ -1,53 +1,86 @@
-@article{thomas1,
-    author = "Thomas Callister Hales",
-    title = "The Honeycomb Conjecture",
-    journal = "Discrete & Computational Geometry",
-    volume = "25",
-    number = "1",
-    pages = "1--22",
-    year = "2001",
-    DOI = "https://doi.org/10.1007/s004540010071",
-    keywords = "thomas1"
-}
-
+[ remplacer \cite{thomas1} en <a href="ref-thomas-2001"></a>
+    {
+        "id":"ref-thomas-2001",
+        "type":"paper",
+        "url": "https://doi.org/10.1007/s004540010071",
+        "title":"The Honeycomb Conjecture",
+        "year":"2001",
+        "authors": [
+            {
+                "given": "Thomas",
+                "family": "Callister Hales"
+            }
+        ]
+    },
+    {
+        "id":"ref-micmath",
+        "type":"video",
+        "url": "https://www.youtube.com/watch?v=onRwvJfatcs",
+        "title":"Didon et le problème isopérimétrique - Micmaths",
+        "year":"",
+    },
 @online{micmath1,
     author = "Mickaël Launay",
-    title = "Didon et le problème isopérimétrique - Micmaths",
-    url  = "https://www.youtube.com/watch?v=onRwvJfatcs",
-    keywords = "micmath1"
-}
 
+}
+    {
+        "id":"ref-empilement",
+        "type":"wikipedia",
+        "url": "https://fr.wikipedia.org/wiki/Empilement_compact",
+        "title":"Empilement compact",
+        "year":"",
+    },
 @online{empil1,
     author = "Wikipedia",
-    title = "Empilement compact",
-    url = "https://fr.wikipedia.org/wiki/Empilement_compact",
-    keywords = "empil1"
-}
+    title = "",
 
+}
+    {
+        "id":"ref-rousseau",
+        "type":"article",
+        "url": "https://accromath.uqam.ca/2018/02/quel-est-lempilement-le-plus-dense/",
+        "title":"Quel est l'empilement le plus dense ?",
+        "year":"",
+    },
 @online{empil2,
     author = "Christiane Rousseau",
-    title = "Quel est l'empilement le plus dense ?",
-    url = "https://accromath.uqam.ca/2018/02/quel-est-lempilement-le-plus-dense/",
-    keywords = "empil2"
-}
+    title = "",
 
+}
+    {
+        "id":"ref-isoperimetrie",
+        "type":"wikipedia",
+        "url": "https://fr.wikipedia.org/wiki/Isop",
+        "title":"Isopérimétrie",
+        "year":"",
+    },
 @online{empil3,
     author = "Wikipedia",
-    title = "Isopérimétrie",
-    url = "https://fr.wikipedia.org/wiki/Isop\%C3\%A9rim\%C3\%A9trie",
-    keywords = "empil3"
-}
+    title = "",
 
+}
+    {
+        "id":"ref-villemin",
+        "type":"article",
+        "url": "http://villemin.gerard.free.fr/Wwwgvmm/Geometri/SpheEmpi.htm",
+        "title":"Empilement des shpères - Conjecture de Kepler",
+        "year":"",
+    },
 @online{empil4,
     author = "Gerard Villemin",
-    title = "Empilement des shpères - Conjecture de Kepler",
-    url = "http://villemin.gerard.free.fr/Wwwgvmm/Geometri/SpheEmpi.htm",
-    keywords = "empil4"
-}
+    title = "",
 
+}
+    {
+        "id":"ref-voronoi",
+        "type":"wikipedia",
+        "url": "https://fr.wikipedia.org/wiki/Diagramme_de_Vorono%C3%AF",
+        "title":"Diagramme de Voronoï",
+        "year":"",
+    },
 @online{voronoi1,
     author = "Wikipedia",
-    title = "Diagramme de Voronoï",
-    url = "https://fr.wikipedia.org/wiki/Diagramme_de_Vorono%C3%AF",
-    keywords = "voronoi1"
+    title = "",
+
 }
+]

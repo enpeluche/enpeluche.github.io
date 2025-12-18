@@ -69,7 +69,7 @@ border-radius: 10px;
 .lecture{
   margin: auto;
 
-  background-color: rgb(171, 71, 188);
+  background-color: rgba(171, 71, 188, 0.9);
   color: rgb(255, 250, 238);
   font-weight: 700;
   border-radius: 4px;

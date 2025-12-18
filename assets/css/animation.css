@@ -1,0 +1,18 @@
+/* 1. On définit l'animation : un tour complet de 0 à 360 degrés */
+@keyframes tourner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 2. On applique l'animation à l'image */
+.image-rotative {
+    animation: tourner 60s linear infinite;
+    display: inline-block;
+    
+    /* Force le pivot au milieu exact de l'image */
+    transform-origin: center center;
+  }

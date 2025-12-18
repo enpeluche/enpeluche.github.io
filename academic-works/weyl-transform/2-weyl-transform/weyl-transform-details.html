@@ -59,59 +59,94 @@
 
             <div id="article">
                 
-
-
                 <h3>La transformée de Weyl</h3>
+
+                <div class="paragraph">
+                    On va donc maintenant introduire la transformée de Weyl et son lien avec la transformée de Wigner.
+                </div>
+
+                <div class="paragraph">
+                    On arrive maintenant au c\oe ur de ce mémoire, mais avant d'introduire la transformée de Weyl, on va
+                    introduire des outils nécessaires afin de comprendre et motiver son introduction.
+                </div>
     
-    On va donc maintenant introduire la transformée de Weyl et son lien avec la transformée de Wigner.
+                <div class="paragraph">
+                    Soit $\sigma \in S^m$, $m \in \R$, alors pour toute fonction $\varphi \in \mathcal{S} (\R^n)$, on se
+                    souvient à la fin de la première partie que 
+
+                    $$
+                    (T_\sigma \varphi)(x) = (2 \pi) ^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} \sigma (x, \xi) \varphi(y) dy d\xi, x \in \R ^n
+                    $$
+
+                    On a une autre façon d'associer $\sigma$ à un opérateur, la formule de Hörmander,
+
+                    $$
+                    (W_\sigma \varphi)(x) = (2 \pi) ^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} \sigma \left(\frac{x+y}{2}, \xi\right) \varphi(y) dy d\xi,~ x \in \R ^n
+                    $$
+
+                    On remarque qu'on a juste symétrisé la première variable de la fonction $\sigma$, mais ce petit changement aura des grandes conséquences. C'est un opérateur pseudo-différentiel, mais comment en est on arrivé à cette formule ? Essayons de transformer un peu la formule $(Weyl)$,
+
+                    $$
+                    \sigma(\hat{P},\hat{Q}) = \frac{1}{2 \pi \hbar} \iint \hat{\sigma} (p,q) e^{ \frac{i}{\hbar}(p\hat{P}+q\hat{Q})} dpdq
+                    $$
+
+                    En utilisant la formule de Glauber car $\hat{P}$ et $\hat{Q}$ commutent avec leur commutateur, et d'après
+                    les calculs de l'exponentielle des opérateurs positions et impulsion, à la fin de la partie sur les
+                    représentations du groupe de Heisenberg, on a, en développant $\hat{\sigma}$ en fonction de $\sigma$,
+
+                    $$
+                    = \frac{1}{2 \pi \hbar} \iiint \sigma (\xi,\omega) e^{-2 \pi i (p \xi + q \omega)} e^{2 \pi i q x + \pi i p q} f(x+p) d \xi d \omega dpdq$$
+                    
+                    En intégrant par rapport à $q$, on a
+                    
+                    $$
+                    = \frac{1}{2 \pi \hbar} \iiint \sigma (\xi,\omega) e^{-2 \pi i p \xi} f(x+p)~ \delta\left(x-\omega + \frac{p}{2}\right) d \xi d \omega dp$$
+                    
+                    où $\delta$ est le Dirac en ce point.
+                    
+                    $$
+                    = \frac{1}{2 \pi \hbar} \iint \sigma \left(\xi,x+\frac{p}{2}\right) e^{-2 \pi i p \xi} f(x+p)  dp d \xi $$
+                    
+                    On pose $y=x+p$, on obtient alors,
+                    
+                    $$
+                    = \frac{1}{2 \pi \hbar} \iint \sigma \left(\xi,\frac{x+y}{2}\right) e^{-2 \pi i (x-y) \xi} f(y) dp d \xi $$
+                    
+                    On reconnait alors la formule plus haut à un facteur près.
+                </div>
+
+                <div class="remark">
+                    Cette définition de $\sigma(\hat{P}, \hat{Q})$ ne dépend pas de la paramétrisation de la représentation $\rho$.
+                </div>
     
-    On arrive maintenant au c\oe ur de ce mémoire, mais avant d'introduire la transformée de Weyl, on va introduire des outils nécessaires afin de comprendre et motiver son introduction.
-    
-    Soit $\sigma \in S^m$, $m \in \R$, alors pour toute fonction $\varphi \in \mathcal{S} (\R^n)$, on se souvient à la fin de la première partie que 
-    $$(T_\sigma \varphi)(x) = (2 \pi) ^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} \sigma (x, \xi) \varphi(y) dy d\xi, x \in \R ^n$$
-    
-    On a une autre façon d'associer $\sigma$ à un opérateur, la formule de Hörmander,
-    
-    $$(W_\sigma \varphi)(x) = (2 \pi) ^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} \sigma \left(\frac{x+y}{2}, \xi\right) \varphi(y) dy d\xi,~ x \in \R ^n$$
-    
-    On remarque qu'on a juste symétrisé la première variable de la fonction $\sigma$, mais ce petit changement aura des grandes conséquences. C'est un opérateur pseudo-différentiel, mais comment en est on arrivé à cette formule ? Essayons de transformer un peu la formule $(Weyl)$,
-    
-    $$\sigma(\hat{P},\hat{Q}) = \frac{1}{2 \pi \hbar} \iint \hat{\sigma} (p,q) e^{ \frac{i}{\hbar}(p\hat{P}+q\hat{Q})} dpdq$$
-    
-    En utilisant la formule de Glauber car $\hat{P}$ et $\hat{Q}$ commutent avec leur commutateur, et d'après les calculs de l'exponentielle des opérateurs positions et impulsion, à la fin de la partie sur les représentations du groupe de Heisenberg, on a, en développant $\hat{\sigma}$ en fonction de $\sigma$,
-    
-    $$= \frac{1}{2 \pi \hbar} \iiiint \sigma (\xi,\omega) e^{-2 \pi i (p \xi + q \omega)} e^{2 \pi i q x + \pi i p q} f(x+p) d \xi d \omega dpdq$$
-    
-    En intégrant par rapport à $q$, on a
-    $$= \frac{1}{2 \pi \hbar} \iiint \sigma (\xi,\omega) e^{-2 \pi i p \xi} f(x+p)~ \delta\left(x-\omega + \frac{p}{2}\right) d \xi d \omega dp$$
-    où $\delta$ est le Dirac en ce point.
-    $$= \frac{1}{2 \pi \hbar} \iint \sigma \left(\xi,x+\frac{p}{2}\right) e^{-2 \pi i p \xi} f(x+p)  dp d \xi $$
-    
-    On pose $y=x+p$, on obtient alors,
-    $$= \frac{1}{2 \pi \hbar} \iint \sigma \left(\xi,\frac{x+y}{2}\right) e^{-2 \pi i (x-y) \xi} f(y) dp d \xi $$
-    On reconnait alors la formule plus haut à un facteur près.
-    
-    <div class="remark">
-        Cette définition de $\sigma(\hat{P}, \hat{Q})$ ne dépend pas de la paramétrisation de la représentation $\rho$.
-    </div>
-    
-    La proposition suivante est un outil pour les démonstrations futures, il ne sera pas démontré la démonstration étant trop difficile pour moi.
+
+                <div class="paragraph">
+                    La proposition suivante est un outil pour les démonstrations futures, il ne sera pas démontré la démonstration étant trop difficile pour moi.
+                </div>
     
     <div class="proposition">%lemme
         La limite
-        $$\underset{\epsilon \ra 0_+}{lim} (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} \theta( \epsilon \xi) e^{i(x-y)  \xi} \sigma(\frac{x+y}{2}, \xi) \varphi(y) dy d\xi$$
+
+        $$
+        \underset{\epsilon \ra 0_+}{lim} (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} \theta( \epsilon \xi) e^{i(x-y)  \xi} \sigma(\frac{x+y}{2}, \xi) \varphi(y) dy d\xi
+        $$
     
         existe et est indépendante du choix de la fonction $\theta$, de plus la convergence est unifrme pour $x \in \R$
     </div>
     
-    Aucune démonstration ne sera donné, on l'assumera pour vrai.
+                <div class="paragraph">
+                    Aucune démonstration ne sera donné, on l'assumera pour vrai.
+
+                </div>
     
     
-    <div class="proposition">
-        Soit $\sigma \in S^m, m \in \R$, alors $W_\sigma : S(\R^n) \ra S(\R^n)$ est continue.
-    </div>
+                <div class="proposition">
+                    Soit $\sigma \in S^m, m \in \R$, alors $W_\sigma : S(\R^n) \ra S(\R^n)$ est continue.
+                </div>
     
-    On appelle $W_\sigma$ la transformée de Weyl associée au symbole $\sigma$. Le théorème suivant <strong></strong>illustre le lien} de la transformée de Weyl avec la transformée de Wigner.
+                <div class="paragraph">
+                    On appelle $W_\sigma$ la transformée de Weyl associée au symbole $\sigma$. Le théorème suivant <strong></strong>illustre le lien} de la transformée de Weyl avec la transformée de Wigner.
+                </div>
     
                 <div class="theorem">
                     <p>
@@ -140,25 +175,39 @@
                     $$= (2 \pi)^{-n/2} \int_{\R^n} \overline{g(v)} (W_\sigma f)(v) dv = (2 \pi)^{n/2} \langle W_\sigma f, g\rangle$$
                 
                 </div>
+                
+                <div class="paragraph">
+                    Maintenant que l'on a vu et démontré le lien de la transformée de Weyl avec la transformée de Wigner, on va chercher à l'étendre sur l'espace $L^2(\R^n)$, et on va chercher à étendre son symbole à une classe plus large sur $L^2(\R^n)$.
+
+                </div>
+
+                <div class="paragraph">
+                    On introduit la définition d'algèbre.
+
+                </div>
+      
+                <div class = "definition">
+                    Une <strong>algèbre</strong> sur un corps commutatif $\mathbb{K}$, ou simplement $\mathbb{K}-$algèbre, est une structure algèbrique $(A,+, , \times)$ telle que:
+                    <ul>
+                        <li>$(A,+, )$ est un espace vectoriel sur $\mathbb{K}$.</li> 
+                        <li>la loi $\times$ est définie de $A \times A$ dans A et est bilinéaire.</li> 
+                    </ul>
+                </div>
+
+                <div class="paragraph">
+                    Une $\mathbb{C}^*$-algèbre est une algèbre de Banach involutive, c'est à dire que l'espace vectoriel sur le corps des complexes est normé et qu'il est muni d'une involution. Une involution est par exemple l'opération de prendre l'opérateur adjoint. Cet espace est donc stable par cette opération.
+
+                </div>
     
-        
-    Maintenant que l'on a vu et démontré le lien de la transformée de Weyl avec la transformée de Wigner, on va chercher à l'étendre sur l'espace $L^2(\R^n)$, et on va chercher à étendre son symbole à une classe plus large sur $L^2(\R^n)$.
-    
-    On introduit la définition d'algèbre.
-    
-    <div class = "definition">
-        Une <strong></strong>algèbre} sur un corps commutatif $\mathbb{K}$, ou simplement $\mathbb{K}-$algèbre, est une structure algèbrique $(A,+, , \times)$ telle que:
-        <ul>
-            <li></li> $(A,+, )$ est un espace vectoriel sur $\mathbb{K}$.
-            <li></li> la loi $\times$ est définie de $A \times A$ dans A et est bilinéaire.
-        </ul>
-    </div>
-    
-    Une $\mathbb{C}^*$-algèbre est une algèbre de Banach involutive, c'est à dire que l'espace vectoriel sur le corps des complexes est normé et qu'il est muni d'une involution. Une involution est par exemple l'opération de prendre l'opérateur adjoint. Cet espace est donc stable par cette opération.
-    
-    On appelle la $\mathbb{C}^*$-algèbre de tous les opérateurs linéaires bornés de $L^2(\R^n)$ dans $L^2(\R^n)$ par $B(L^2(\R^n))$. Les opérateurs bornés sont préservés par l'involution.
-    
-    Il est bon de chercher à étendre cet opérateur.
+                <div class="paragraph">
+                    On appelle la $\mathbb{C}^*$-algèbre de tous les opérateurs linéaires bornés de $L^2(\R^n)$ dans $L^2(\R^n)$ par $B(L^2(\R^n))$. Les opérateurs bornés sont préservés par l'involution.
+
+                </div>
+
+                <div class="paragraph">
+                    Il est bon de chercher à étendre cet opérateur.
+
+                </div>
     
                 <div class="theorem">
                     <p>
@@ -225,81 +274,119 @@
                     Il y a bien unicité de $\mathcal{Q}$.
                 </div>
     
-    Pour éviter les confusions, on nommera l'opérateur $\mathcal{Q}_\sigma$ par $W_\sigma$.
+                <div class="paragraph">
+                    Pour éviter les confusions, on nommera l'opérateur $\mathcal{Q}_\sigma$ par $W_\sigma$.
+
+                </div>
     
                 <h4>La transformée de Weyl et quelques exemples de correspondance</h4>
+
+                <div class="paragraph">
+                    On va maintenant illustrer par quelques exemples la transformée de Weyl de certains symboles, et vérifier qu'elle transforme $p$ en $\hat{P}$ et $q$ en $\hat{Q}$
+
+                </div>
+
+                <h4>Exemples</h4>
+                
+                <div class="paragraph">
+                    Soit $x,~y \in \R^n$. Soit $\varphi \in \mathcal{S}(\R^n)$.
+
+                </div>
+
+                <div class="example">
+                    \begin{exemple}[Avec $\sigma (x, \xi) := x$.]
+                    On a 
+                    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma\left(\frac{x+y}{2}, ~\xi\right) ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x+y}{2} ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x}{2} ~ \varphi(y) ~dy d\xi + (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{y}{2} ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} ~ \frac{x}{2} ~ \int_{\R^n} e^{ix  \xi} \left( \int_{\R^n} e^{-iy  \xi}  \varphi(y) ~dy\right) d\xi + (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi} \left(\int_{\R^n} e^{-iy  \xi}  y  \varphi(y) ~dy \right) d\xi$$
+                    
+                    $$= (2 \pi)^{-n} ~ \frac{x}{2} ~ \int_{\R^n} e^{ix  \xi} ~ \hat{\varphi}(\xi) ~ d\xi - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi} \left(\int_{\R^n} D_\xi( e^{-iy  \xi})  \varphi(y) ~dy \right) d\xi$$
+                    $$= \frac{x}{2} \varphi(x) - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi}~ (D_\xi\hat{\varphi})(\xi) ~ d\xi$$
+                    $$= \frac{x}{2} \varphi(x) - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi}~ (-x \varphi)\hat{~}(\xi) ~ d\xi$$
+                    $$= \frac{x}{2} \varphi(x) + \frac{x}{2}\varphi(x) = x \varphi(x) = (\mathcal{Q} \varphi)(x)$$
+                    \end{exemple}
+                </div>
     
-    On va maintenant illustrer par quelques exemples la transformée de Weyl de certains symboles, et vérifier qu'elle transforme $p$ en $\hat{P}$ et $q$ en $\hat{Q}$
+                <div class="example">
+                    \begin{exemple}[Avec $\sigma (x, \xi) := \xi$.]
+                    On a 
+                    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma(\frac{x+y}{2}, ~\xi) ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \xi ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} e^{ix\xi} ~ \xi \int_{\R^n} e^{-iy  \xi} ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} e^{ix\xi} ~ \xi ~ \hat{\varphi}(\xi) ~d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} D_x(e^{ix\xi}) ~ \hat{\varphi}(\xi) ~d\xi$$
+                    $$= D_x(\varphi(x)) = -i \frac{\partial}{\partial x} \varphi(x) = (\mathcal{P}\varphi)(x)$$
+                    \end{exemple}
+                </div>
     
-    \subsubsection{Exemples}
-    Soit $x,~y \in \R^n$. Soit $\varphi \in \mathcal{S}(\R^n)$.
+                <div class="example">
+                    \begin{exemple}[Avec $\sigma (x, \xi) := x \xi$ .]
+                    On a 
+                    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma(\frac{x+y}{2}, ~\xi) ~ \varphi(y) ~dy d\xi$$
+                    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x+y}{2} ~\xi ~ \varphi(y) ~dy d\xi$$
+                    $$= \frac{1}{2}(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ x \xi ~ \varphi(y) ~dy d\xi+\frac{1}{2}(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ y \xi ~ \varphi(y) ~dy d\xi$$
+                    $$= \frac{x}{2}(2 \pi)^{-n} \int_{\R^n} ~ \xi e^{i x  \xi}\int_{\R^n} e^{-iy  \xi} ~ \varphi(y) ~dy d\xi+\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi}\int_{\R^n} e^{-iy  \xi} ~ y ~ \varphi(y) ~dy d\xi$$
+                    $$= \frac{x}{2}(2 \pi)^{-n} \int_{\R^n} ~ \xi e^{i x  \xi} ~ \hat{\varphi} (\xi) d\xi-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi}\int_{\R^n} D_\xi(e^{-iy  \xi})~ \varphi(y) ~dy d\xi$$
+                    $$= \frac{-x}{2}(2 \pi)^{-n} \int_{\R^n} ~ D_x(e^{i x  \xi}) ~ \hat{\varphi} (\xi) d\xi-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi} (-x\varphi) \hat{~}(\xi) ~ d\xi$$
+                    $$= \frac{-x}{2} D_x(\varphi (x))-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n} e^{ix  \xi} (D_x(-x\varphi)) \hat{~}(\xi) ~ d\xi$$
+                    $$= \frac{-x}{2} D_x(\varphi (x))-\frac{1}{2} D_x(-x\varphi)(x)$$
+                    $$= \frac{ix}{2} \partial_x(\varphi (x))+\frac{i}{2} \partial_x(-x\varphi)(x) = (\frac{\hat{\mathcal{Q}}\hat{\mathcal{P}} + \hat{\mathcal{P}}\hat{\mathcal{Q}}}{2}f)(x)$$
+                    \end{exemple}
+                </div>
+                
+                <div class="paragraph">
+                    On remarque que la transformée de Weyl a symétrisée le calcul afin de le rendre commutatif !
+
+                </div>
+
+                <div class="paragraph">
+                    On aurait pu continuer en faisant les calculs pour $\sigma$ qui serait un polynôme en $\xi$ ou en $x$ ou même une fonction d'une seule variable, mais par manque de temps, je ne l'ai pas fais dans ce mémoire.
+
+                </div>
+   
+                <div class="paragraph">
+                    Ces calculs prennent maintenant plus sens sous la théorie des opérateurs pseudo-différentiels.
+
+                </div>
     
-    \begin{exemple}[Avec $\sigma (x, \xi) := x$.]
-    On a 
-    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma\left(\frac{x+y}{2}, ~\xi\right) ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x+y}{2} ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x}{2} ~ \varphi(y) ~dy d\xi + (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{y}{2} ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} ~ \frac{x}{2} ~ \int_{\R^n} e^{ix  \xi} \left( \int_{\R^n} e^{-iy  \xi}  \varphi(y) ~dy\right) d\xi + (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi} \left(\int_{\R^n} e^{-iy  \xi}  y  \varphi(y) ~dy \right) d\xi$$
-    
-    $$= (2 \pi)^{-n} ~ \frac{x}{2} ~ \int_{\R^n} e^{ix  \xi} ~ \hat{\varphi}(\xi) ~ d\xi - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi} \left(\int_{\R^n} D_\xi( e^{-iy  \xi})  \varphi(y) ~dy \right) d\xi$$
-    $$= \frac{x}{2} \varphi(x) - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi}~ (D_\xi\hat{\varphi})(\xi) ~ d\xi$$
-    $$= \frac{x}{2} \varphi(x) - (2 \pi)^{-n} ~ \frac{1}{2} ~\int_{\R^n} e^{ix  \xi}~ (-x \varphi)\hat{~}(\xi) ~ d\xi$$
-    $$= \frac{x}{2} \varphi(x) + \frac{x}{2}\varphi(x) = x \varphi(x) = (\mathcal{Q} \varphi)(x)$$
-    \end{exemple}
-    
-    \begin{exemple}[Avec $\sigma (x, \xi) := \xi$.]
-    On a 
-    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma(\frac{x+y}{2}, ~\xi) ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \xi ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} e^{ix\xi} ~ \xi \int_{\R^n} e^{-iy  \xi} ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} e^{ix\xi} ~ \xi ~ \hat{\varphi}(\xi) ~d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} D_x(e^{ix\xi}) ~ \hat{\varphi}(\xi) ~d\xi$$
-    $$= D_x(\varphi(x)) = -i \frac{\partial}{\partial x} \varphi(x) = (\mathcal{P}\varphi)(x)$$
-    \end{exemple}
-    
-    \begin{exemple}[Avec $\sigma (x, \xi) := x \xi$ .]
-    On a 
-    $$(W_\sigma \varphi)(x)=(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi}~ \sigma(\frac{x+y}{2}, ~\xi) ~ \varphi(y) ~dy d\xi$$
-    $$= (2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ \frac{x+y}{2} ~\xi ~ \varphi(y) ~dy d\xi$$
-    $$= \frac{1}{2}(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ x \xi ~ \varphi(y) ~dy d\xi+\frac{1}{2}(2 \pi)^{-n} \int_{\R^n} \int_{\R^n} e^{i(x-y)  \xi} ~ y \xi ~ \varphi(y) ~dy d\xi$$
-    $$= \frac{x}{2}(2 \pi)^{-n} \int_{\R^n} ~ \xi e^{i x  \xi}\int_{\R^n} e^{-iy  \xi} ~ \varphi(y) ~dy d\xi+\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi}\int_{\R^n} e^{-iy  \xi} ~ y ~ \varphi(y) ~dy d\xi$$
-    $$= \frac{x}{2}(2 \pi)^{-n} \int_{\R^n} ~ \xi e^{i x  \xi} ~ \hat{\varphi} (\xi) d\xi-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi}\int_{\R^n} D_\xi(e^{-iy  \xi})~ \varphi(y) ~dy d\xi$$
-    $$= \frac{-x}{2}(2 \pi)^{-n} \int_{\R^n} ~ D_x(e^{i x  \xi}) ~ \hat{\varphi} (\xi) d\xi-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n}  \xi e^{ix  \xi} (-x\varphi) \hat{~}(\xi) ~ d\xi$$
-    $$= \frac{-x}{2} D_x(\varphi (x))-\frac{1}{2}(2 \pi)^{-n} \int_{\R^n} e^{ix  \xi} (D_x(-x\varphi)) \hat{~}(\xi) ~ d\xi$$
-    $$= \frac{-x}{2} D_x(\varphi (x))-\frac{1}{2} D_x(-x\varphi)(x)$$
-    $$= \frac{ix}{2} \partial_x(\varphi (x))+\frac{i}{2} \partial_x(-x\varphi)(x) = (\frac{\hat{\mathcal{Q}}\hat{\mathcal{P}} + \hat{\mathcal{P}}\hat{\mathcal{Q}}}{2}f)(x)$$
-    \end{exemple}
-    
-    On remarque que la transformée de Weyl a symétrisée le calcul afin de le rendre commutatif !
-    
-    On aurait pu continuer en faisant les calculs pour $\sigma$ qui serait un polynôme en $\xi$ ou en $x$ ou même une fonction d'une seule variable, mais par manque de temps, je ne l'ai pas fais dans ce mémoire.
-    
-    Ces calculs prennent maintenant plus sens sous la théorie des opérateurs pseudo-différentiels.
-    
-    
-    A partir de maintenant on veut développer un calcul de la transformée de Weyl.
-    
+                <div class="paragraph">
+                    A partir de maintenant on veut développer un calcul de la transformée de Weyl.
+
+                </div>
+        
                 <h4>Opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$</h4>
     
-                On va introduire dans ce chapitre la notion d'opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$ qui sont <strong></strong>au coeur du développement d'un calcul associé à la transformée de Weyl}, puisque l'on verra dans la partie suivante que la notion de transformée de Weyl et d'opérateur de Hilbert-Schmidt <strong></strong>se confondent}.
+                <div class="paragraph">
+                    On va introduire dans ce chapitre la notion d'opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$ qui sont <strong></strong>au coeur du développement d'un calcul associé à la transformée de Weyl}, puisque l'on verra dans la partie suivante que la notion de transformée de Weyl et d'opérateur de Hilbert-Schmidt <strong></strong>se confondent}.
+
+                </div>
     
-    <div class = "definition">[Opérateur de Hilbert-Schmidt sur $L^2(\R^n)$]
-        Soit $h \in L^2(\R^{2n})$. On définit alors <strong></strong>l'opérateur intégral} $S_h : L^2(\R^n) \ra L^2(\R^n)$ par
-        $$(S_hf)(x) = \int_{\R^n} h(x,y)f(y)dy, ~~ x \in \R^n.$$
-    </div>
+                <div class="definition">[Opérateur de Hilbert-Schmidt sur $L^2(\R^n)$]
+                    Soit $h \in L^2(\R^{2n})$. On définit alors <strong></strong>l'opérateur intégral} $S_h : L^2(\R^n) \ra L^2(\R^n)$ par
+                    $$(S_hf)(x) = \int_{\R^n} h(x,y)f(y)dy, ~~ x \in \R^n.$$
+                </div>
     
-    Il est bon de vouloir munir les opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$ d'opérations qui <strong></strong>rendent le calcul agréable}.
+                <div class="paragraph">
+                    Il est bon de vouloir munir les opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$ d'opérations qui <strong></strong>rendent le calcul agréable}.
+
+                </div>
+
+                
+                <div class = "definition">
+                    Soit $f$, $g$ dans $L^2(\R^{2n})$.
+                    <ul>
+                        <li></li> On définit $g \circ h$ sur $\R^{2n}$ par $(g \circ h)(x,y) = \int_{\R^n} g(x,z)h(z,y)dz, x, y \in \R^n$.
+                        <li></li> On définit $h^*$ sur $\R^{2n}$ par $h^*(x,y) = \overline{h(y,x)}, x, y \in \R^n$.
+                    </ul>
+                </div>
     
-    <div class = "definition">
-    Soit $f$, $g$ dans $L^2(\R^{2n})$.
-        <ul>
-            <li></li> On définit $g \circ h$ sur $\R^{2n}$ par $(g \circ h)(x,y) = \int_{\R^n} g(x,z)h(z,y)dz, x, y \in \R^n$.
-            <li></li> On définit $h^*$ sur $\R^{2n}$ par $h^*(x,y) = \overline{h(y,x)}, x, y \in \R^n$.
-        </ul>
-    </div>
-    
-    Par la proposition suivante, on voit que <strong></strong>la composition est bien définie}.
-    
+                <div class="paragraph">
+                    Par la proposition suivante, on voit que <strong></strong>la composition est bien définie}.
+
+                </div>
+
+                
     <div class="proposition">
         Soit $g$ et $h$ dans $L^2(\R^{2n})$, alors $g \circ h \in L^2(\R^{2n})$.
     </div>
@@ -307,7 +394,10 @@
         Cette proposition ne sera pas démontrée, la preuve utilisant essentiellement l'inégalité de Cauchy-Schwarz.
     </div>
     
-    On est donc amené au <strong></strong>théorème principal} de cette partie.
+    <div class="paragraph">
+        On est donc amené au <strong></strong>théorème principal} de cette partie.
+
+    </div>
     
                 <div class="theorem">
                     <p>
@@ -378,7 +468,7 @@
     <div class = "definition">[Opérateur de torsion]
         On définit un opérateur linéaire $T : L^2(\R^n) \ra L^2(\R^n)$ par $(T f)(x,y) = f(x+\frac{y}{2}, x - \frac{y}{2})$, $x$, $y \in \R^n$ pour tout $f$ dans $L^2(\R^{2n})$.
         
-        On appelle $T$ <strong></strong>l'opérateur de torsion} sur $L^2(\R^{2n})$.
+        On appelle $T$ <strong>l'opérateur de torsion</strong> sur $L^2(\R^{2n})$.
     </div>
     
     
@@ -386,17 +476,17 @@
     $(Kf)(x,y) = (T^{-1} \mathcal{F}_2f)(y,x)$, $x$, $y \in \R^n$ pour tout $f$ dans $L^2(\R^{2n})$.
     
     <div class="proposition">
-        L'opérateur de torsion $T : L^2(\R^n) \ra L^2(R^n)$  est <strong></strong>unitaire}, et
+        L'opérateur de torsion $T : L^2(\R^n) \ra L^2(R^n)$  est <strong>unitaire</strong>, et
         $$(T^{-1} f)(x,y) = f\left(\frac{x+y}{2},x-y\right),~ x,~ y \in \R^n,$$
         pour tout $f \in L^2(\R^n)$.
     </div>
     <div class="proposition">
         L'opérateur linéaire $K$ sur $L^2(\R^n)$ a les propriétés suivantes :
         <ul>
-            <li></li> $K : L^2(\R^n) \ra L^2(\R^n)$ est un opérateur unitaire.
-            <li></li> $K = T^{-1} \mathcal{F}_2^{-1}$.
-            <li></li> $K_{\bar{f}} = (Kf)^*$, $f \in L^2(\R^{2n})$.
-            <li></li> $W(f,~g) = K^{-1}(f \otimes \bar{g})$, $f$, $g \in L^2(\R^n)$.
+            <li>$K : L^2(\R^n) \ra L^2(\R^n)$ est un opérateur unitaire.</li> 
+            <li>$K = T^{-1} \mathcal{F}_2^{-1}$.</li> 
+            <li>$K_{\bar{f}} = (Kf)^*$, $f \in L^2(\R^{2n})$.</li> 
+            <li>$W(f,~g) = K^{-1}(f \otimes \bar{g})$, $f$, $g \in L^2(\R^n)$.</li> 
         </ul>
     </div>
     
@@ -448,10 +538,9 @@
                 </div>
     
                 <div class="proof">
-        Soit $S_h$ un opérateur de Hilbert-Schmidt, $h \in L^2(\R^{2n})$.
+                    Soit $S_h$ un opérateur de Hilbert-Schmidt, $h \in L^2(\R^{2n})$.
         
-        En posant $\sigma = (2 \pi)^{n/2} K^{-1}h$, d'après le théorème précédent, $W_\sigma$ est un opérateur de Hilbert-Schmidt de noyau $(2\pi)^{-n/2} K (2 \pi)^{n/2} K^{-1} h = h$
-    
+        En posant $\sigma = (2 \pi)^{n/2} K^{-1}h$, d'après le théorème précédent, $W_\sigma$ est un opérateur de Hilbert-Schmidt de noyau $(2\pi)^{-n/2} K (2 \pi)^{n/2} K^{-1} h = h$ 
                 </div>
     
     En conclusion l'espace des opérateurs de Hilbert-Schmidt sur $L^2(\R^n)$ <strong></strong>est égal} à l'espace des transformées de Weyl avec symbole dans $L^2(\R^n)$.
@@ -470,17 +559,17 @@
     On dit que $\mathcal{H}$ est une <strong></strong>$\mathcal{H^*}$}-algèbre si les deux opérations satisfont :
     
     
-    <ul>\setlength{<li></li>sep}{1pt}
-        <li></li> $ a(b+c) = ab+ac$, $(a+b)c = ac+bc$.
-        <li></li> $ \lambda (ab) = (\lambda a) b = a (\lambda b)$.
-        <li></li> $ a(bc) = (ab)c$.
-        <li></li> $a^{**}=a$.
-        <li></li> $(a+b)^* = a^*+b^*$.
-        <li></li> $(ab)^* = b^* a^*$.
-        <li></li> $ (\lambda a)^* = \bar{\lambda} a^*$.
-        <li></li> $\| a^* \| = \| a \|$.
-        <li></li> $\|ab\| \leq \|a\| \|b\|$.
-        <li></li> $\langle ab, c \rangle = \langle b, a^*c \rangle$.
+    <ul>
+        <li>$ a(b+c) = ab+ac$, $(a+b)c = ac+bc$.</li> 
+        <li>$ \lambda (ab) = (\lambda a) b = a (\lambda b)$.</li> 
+        <li>$ a(bc) = (ab)c$.</li> 
+        <li>$a^{**}=a$.</li> 
+        <li>$(a+b)^* = a^*+b^*$.</li> 
+        <li>$(ab)^* = b^* a^*$.</li> 
+        <li>$ (\lambda a)^* = \bar{\lambda} a^*$.</li> 
+        <li>$\| a^* \| = \| a \|$.</li> 
+        <li>$\|ab\| \leq \|a\| \|b\|$.</li> 
+        <li>$\langle ab, c \rangle = \langle b, a^*c \rangle$.</li> 
     </ul>
         
     </div>
@@ -494,68 +583,66 @@
     </div>
     
     
-    <div class = "definition">% l'introduire avant
+                <div class = "definition">% l'introduire avant
+                    On note $HS(L^2(\R^n))$ <strong></strong>l'ensemble des opérateurs de Hilbert-Schmidt} sur $L^2(\R^n)$.
     
-    On note $HS(L^2(\R^n))$ <strong></strong>l'ensemble des opérateurs de Hilbert-Schmidt} sur $L^2(\R^n)$.
+                    On le munit d'un produit scalaire définit pour tout $A$, $B \in HS(L^2(\R^n))$ par $(A,B)_{HS} = \overset{\infty}{\underset{k=1}{\sum}} \langle A_{\varphi_k, B_{\varphi_k}} \rangle$,
     
-    On le munit d'un produit scalaire définit pour tout $A$, $B \in HS(L^2(\R^n))$ par $(A,B)_{HS} = \overset{\infty}{\underset{k=1}{\sum}} \langle A_{\varphi_k, B_{\varphi_k}} \rangle$,
+                    où les $\varphi_k$ forment une base orthonormale de $L^2(\R^n)$.
+                </div>
     
-    où les $\varphi_k$ forment une base orthonormale de $L^2(\R^n)$.
-    </div>
+                <div class="proposition">
+                    L'espace $HS(L^2(\R^n))$ équipé avec le produit scalaire $(~,~)_{HS}$ et les opérations de produit usuel et d'adjoint est une $\mathcal{H}^*$-algèbre.
+
+                    On la note encore $HS(L^2(\R^n))$.
+                </div>
     
-    <div class="proposition">
-    L'espace $HS(L^2(\R^n))$ équipé avec le produit scalaire $(~,~)_{HS}$ et les opérations de produit usuel et d'adjoint est une $\mathcal{H}^*$-algèbre.
-    
-    On la note encore $HS(L^2(\R^n))$.
-        
-    </div>
-    
-    <div class="proposition">
-        La $\mathcal{H}^*$-algèbre$(L^2(\R^{2n}), \circ, *)$ est isométriquement $*-$isomorphe à la $\mathcal{H}^*$-algèbre $HS(L^2(\R^n))$ par l'application $h \mapsto S_h$.
-    </div>
-    <div class="remark">
-        C'est à dire qu'il existe un isomorphisme isométrique.
-    </div>
+                <div class="proposition">
+                    La $\mathcal{H}^*$-algèbre$(L^2(\R^{2n}), \circ, *)$ est isométriquement $*-$isomorphe à la $\mathcal{H}^*$-algèbre $HS(L^2(\R^n))$ par l'application $h \mapsto S_h$.
+                </div>
+
+                <div class="remark">
+                    C'est à dire qu'il existe un isomorphisme isométrique.
+                </div>
     
     
-                    <div class = "definition">
+                <div class = "definition">
                     Soit $f$, $g \in L^2(\R^n)$, on définit la fonction $f \times g$ sur $\R^{2n}$ par
                     $$f \times g = K^{-1} (Kf \circ Kg)$$
-                    </div>
+                </div>
     
     
-                    <div class="proposition">
-                        L'espace de Hilbert $L^2(\R^{2n})$ équipé des deux opérations $f,~ g \mapsto f \times g$ et $f \mapsto \bar{f}$ est une $\mathcal{H}^*$-algèbre.
+                <div class="proposition">
+                    L'espace de Hilbert $L^2(\R^{2n})$ équipé des deux opérations $f,~ g \mapsto f \times g$ et $f \mapsto \bar{f}$ est une $\mathcal{H}^*$-algèbre.
                         
-                        De plus $K$ réalise un <strong></strong>isomorphisme} entre $(L^2(\R^{2n}), \times, -)$ et $(L^2(\R^{2n}), \circ, *)$.
-                    </div>
+                    De plus $K$ réalise un <strong></strong>isomorphisme} entre $(L^2(\R^{2n}), \times, -)$ et $(L^2(\R^{2n}), \circ, *)$.
+                </div>
     
     
-                    <div class="theorem">
-                        <p>
-                            L'application
+                <div class="theorem">
+                    <p>
+                        L'application
 
-                            $$
-                            L^2(\R^{2n}) \ni \sigma \mapsto (2 \pi)^{n/2} W_\sigma \in HS(L^2(\R^n))
-                            $$
+                        $$
+                        L^2(\R^{2n}) \ni \sigma \mapsto (2 \pi)^{n/2} W_\sigma \in HS(L^2(\R^n))
+                        $$
                             
-                            est un $*-$isomorphisme isométrique de $(L^2(\R^{2n}), \times, -)$ dans $HS(L^2(\R^{2n}))$.         
-                        </p>
+                        est un $*-$isomorphisme isométrique de $(L^2(\R^{2n}), \times, -)$ dans $HS(L^2(\R^{2n}))$.         
+                    </p>
                     
-                        <p>
-                            En conséquence, on a,
-                        </p>
-                        
-                        <ul>
-                            <li>$W_\sigma^* = W_{\bar{\sigma}}$</li> 
-                            <li>$W_\sigma W_\tau = W_{(2 \pi)^{-n/2} \sigma \times \tau}$</li> 
-                            <li>$W_\sigma + W_\tau = W_{\sigma+\tau}$</li> 
-                            <li>$\lambda W_\sigma = W_{\lambda \sigma}$</li> 
-                            <li>$\|W_\sigma\|_* \leq (2 \pi)^{-n/2} \|\sigma\|_{L^2(\R^n)} = \|W_\sigma\|_{HS}$</li>
-                        </ul>
-                    </div>
-    
-    
+                    <p>
+                        En conséquence, on a,
+                    </p>
+                    
+                    <ul>
+                        <li>$W_\sigma^* = W_{\bar{\sigma}}$</li> 
+                        <li>$W_\sigma W_\tau = W_{(2 \pi)^{-n/2} \sigma \times \tau}$</li> 
+                        <li>$W_\sigma + W_\tau = W_{\sigma+\tau}$</li> 
+                        <li>$\lambda W_\sigma = W_{\lambda \sigma}$</li> 
+                        <li>$\|W_\sigma\|_* \leq (2 \pi)^{-n/2} \|\sigma\|_{L^2(\R^n)} = \|W_\sigma\|_{HS}$</li>
+                    </ul>
+                </div>
+        
                 <div class="proof">
     
                     On a le diagramme suivant, qui montre facilement le théorème.

@@ -1,24 +1,22 @@
-main > #toc-container{
+#toc-container{
     position: sticky;
     align-self: flex-start;
     top: 0px;
-    background-color: white;
-    height: 100vh;
+    background-color:white;
+    
+    height: calc(100% - 88px);
 }
-
-#article > #toc-container{
-    width: 80%;
-    margin: auto;
-}
-
-
-
 
 #music{
     overflow: scroll;
     overflow-x: hidden;
     height: 100%;
+    max-height: calc(100% - 88px);
 }
+
+
+
+
 
 main > #toc-container > #full-toc{ /* quand il est sur le cote */
     max-width: 400px;
