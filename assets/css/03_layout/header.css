@@ -35,6 +35,27 @@ header nav{
 
 
 
+#main-header-hihi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Exemple de hauteur */
+  background-color: white; /* Important sinon on voit le texte passer dessous */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 5; /* Toujours au-dessus du reste */
+  
+  /* C'est ici que la magie de l'animation se passe */
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* La classe que le JS va ajouter quand on descend */
+.header-hidden {
+  transform: translateY(-100%); /* On le déplace de 100% de sa hauteur vers le haut */
+}
+
+
 
 
 

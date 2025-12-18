@@ -41,7 +41,7 @@ export async function loadTableOfContents() {
 
         const isAppendix = chap.type==="appendix";
 
-        const numLabel = isAppendix ? (chap.isNumbered ? `<div class="num">APPENDCICE ${++appendixNum}</div>` : ``) : (chap.isNumbered ? `<div class="num">CHAPITRE ${++chapNum}</div>` : ``);
+        const numLabel = isAppendix ? (chap.isNumbered ? `<div class="num">APPENDICE ${++appendixNum}</div>` : ``) : (chap.isNumbered ? `<div class="num">CHAPITRE ${++chapNum}</div>` : ``);
         const activeStyle = isActive ? 'border:2px solid var(--primary-border-color);' : '';
 
         const subListHTML = (chap.children || []).map((sub, i) => {

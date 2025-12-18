@@ -11,3 +11,5 @@ export function loadHeader() {
         console.error("Erreur lors du chargement de l'en-tête :", error);
     });
 }
+
+
