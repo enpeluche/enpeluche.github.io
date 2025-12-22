@@ -7,6 +7,7 @@ import { makeArticle } from './pages/article.js';
 import { loadHeader } from './components/header.js';
 import { createNews } from './news.js';
 import { initCarousel } from './components/carousel.js';
+import { createProject } from './project.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     setupKatex();
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     makeArticle();
     createNews();
     initCarousel();
+    createProject();
 });
 
 
@@ -39,7 +41,7 @@ window.addEventListener("scroll", () => {
   }
 
   // Si on descend (et qu'on a scrolé un peu pour éviter les faux mouvements)
-  if (currentScrollY > lastScrollY && currentScrollY > 50) {
+  if (currentScrollY > lastScrollY && currentScrollY > 5) {
     header.classList.add("header-hidden"); // Hop, on le cache vers le haut
     headerr.classList.add("header-hidden");
   } 

@@ -1,0 +1,13 @@
+{
+    
+    "academic_projects":[
+        "/academic-works/lattice-reduction/projects.json",
+        "/academic-works/beckett-gray-codes/projects.json",
+        "/academic-works/weyl-transform/projects.json",
+        "/academic-works/dense-packing/projects.json"
+    ],
+
+    "personal_projets":[
+        ""
+    ]
+}

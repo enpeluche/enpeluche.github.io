@@ -1,0 +1,28 @@
+{
+    "pdf":"https://raw.githubusercontent.com/Crowreed/weyl-transform-thesis/main/report/main.pdf",
+    "github":"https://github.com/Crowreed/weyl-transform-thesis",
+    "intro_folder":"1-quantum-mechanics-math/",
+    "context":"Mémoire (M1)",
+    "location_university":"Université de Bourgogne",
+    "date":"Janvier 2023 - Mai 2023",
+    "skills": {
+        "tech": [
+            "LaTeX"
+        ],
+        "concepts": [
+            "Transformée de Fourier",
+            "Mécanique quantique"
+        ]
+    },
+    "supervisor":{
+        "name":"Giuseppe Dito",
+        "mail":""
+    },
+    "authors": [
+        {
+            "name":"Lucas Petit",
+            "mail":"lucas.noirotorion@gmail.com",
+            "github":"https://github.com/Crowreed"
+        }
+    ]
+}

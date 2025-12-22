@@ -15,12 +15,13 @@
         "name":"Romain Lebreton",
         "mail":"romain.lebreton@lirmm.fr"
         },
-    "pdf":"https://github.com/Crowreed/lattice-reduction-internship/blob/main/report/PDF/report.pdf",
+    "pdf":"https://raw.githubusercontent.com/Crowreed/lattice-reduction-internship/main/report/PDF/report.pdf",
     "github":"https://github.com/Crowreed/lattice-reduction-internship",
+    "intro_folder":"0-introduction/",
     "skills": {
         "tech": [
             "Python",
-            "$\\LaTeX$",
+            "LaTeX",
             "SageMath"
         ],
         "concepts": [

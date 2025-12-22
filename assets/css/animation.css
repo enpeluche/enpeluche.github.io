@@ -16,3 +16,37 @@
     /* Force le pivot au milieu exact de l'image */
     transform-origin: center center;
   }
+
+
+  
+  .scrolling-bg {
+    /* ... tes réglages de couleur/image précédents ... */
+    background-color: #f8f9fa;
+    background-image: 
+        linear-gradient(#e1e1e1 1px, transparent 1px), 
+        linear-gradient(45deg, #e1e1e1 1px, transparent 1px);
+    background-size: 500px 500px;
+    
+    width: 100%;
+    min-height: 100vh;
+  
+    /* --- LES MODIFICATIONS IMPORTANTES --- */
+  
+    /* 1. L'animation doit impérativement être 'linear' */
+    animation: moveGrid 30s linear infinite;
+  
+    /* 2. L'astuce pour activer l'accélération matérielle (GPU) */
+    transform: translateZ(0); 
+    
+    /* 3. Prévient le navigateur que ça va bouger (optimisation) */
+    will-change: background-position;
+  }
+  
+  @keyframes moveGrid {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 500px 100px;
+    }
+  }

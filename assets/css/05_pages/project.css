@@ -1,13 +1,13 @@
 
 
 .projects{
-
-  width: 90%; 
-  max-width: 1200px; 
+  padding: 2rem;
+  width: 90%;
+  max-width: 1400px; 
 }
 .project-grid {
   display: grid;
-  gap: 40px;
+  gap: 2rem;
   grid-template-columns: 1fr; 
 }
 
@@ -28,8 +28,25 @@
 }
 .project{
   aspect-ratio: auto;
+  /* La transition est la clé : ça dit "Prends 0.3 secondes pour bouger" */
+  transition: transform 0.3s ease, box-shadow 3s ease;
+  cursor: pointer; /* Change la souris en main pour montrer que c'est cliquable */
+
 }
+
+/* 2. L'état survolé (Quand la souris est dessus) */
+.project:hover {
+    /* La carte remonte de 5 pixels */
+    transform: translateY(-5px);
+    
+    /* L'ombre devient plus floue et plus large en dessous */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
 @media (min-width: 768px) {
+ 
+ 
   .project{
     aspect-ratio: 5/3;
   }
@@ -100,28 +117,6 @@
   letter-spacing: 0px;
 }
 
-.arrowForwardIcon{
-  width: 18px;
-  aspect-ratio: 1 / 1;
-  padding-left: 8px;
-  fill: black;
-}
-
-.arrowBackwardIcon{
-    width: 18px;
-    padding-left: 8px;
-    fill: rgb(255, 250, 238);
-}
-
-.closeIcon{
-  width: 24px;
-  padding: 12px;
-}
-
-/**/
-svg{
-  display: block;
-}
 
 
 .links{
@@ -154,7 +149,20 @@ svg{
 
 
 #project-title{
-  margin: 4rem 0;
+  padding-top: 2rem;
   text-align: center;
   color: var(--secondary-text-color);
+}
+#project-subtitle{
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#project-page{
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px; width: 100%;
 }

@@ -43,31 +43,151 @@
 
     </head>
 
-    <body id="tsparticles">
+    <body>
+        <div style="z-index: -6;" id="tsparticles"></div>
         <header id="main-header"></header>
         
-        <main
-            style="
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;">
+        <main style="background-color: rgba(255,255,255, 0.5); display: flex; flex-direction: column; justify-content: space-between; max-width: 1200px; width: 100%;">
     
                     <div id="eee">
                         <p id="hello-world">Bonjour, je suis </p>
                         <h1 id="profile-name">Lucas Petit</h1>
                     </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <img id="profile-picture" src="/assets/img/P1034037.png" alt="Portrait de Lucas Petit">
+
+                        <h2 style="padding: 1rem; color: var(--secondary-text-color);">Titulaire d'un Master 2 en Algorithmie & Mathématiques.</h2>
+    
+                    </div>
                     
-                    <img id="profile-picture" src="/assets/img/lucas-petit-portrait.JPG" alt="Portrait de Lucas Petit">
-
-                    <h2 style="color: var(--secondary-text-color);">Titulaire d'un Master 2 en Algorithmie & Mathématiques.</h2>
-
-                    <p id="profile-description">
-                        Grâce à une double compétence en informatique théorique et en mathématique, j'ai l'expertise pour transformer l'abstraction mathématique en solutions logicielles concrètes, performantes et rigoureusement optimisées.
-                    </p>         
+                    <div id="profile-description">
+                        <div style="display: flex; justify-content: center;">
+                            <h3>À propos de moi</h3>
+                        </div>
+                        
+                        <p>
+                            Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées.
+                        </p>
+                    </div>      
 
             </main>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+            <script>
+                tsParticles.load("tsparticles", {
+                    fpsLimit: 100,
+                    "particles": {
+                        "number":  {
+                            "value": 100,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#7451eb"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 1.5,
+                                "color": "#7451eb"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            },
+                            "image": {
+                                "src": "img/github.svg",
+                                "width": 100,
+                                "height": 100
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "size_min": 1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 170,
+                            "color": "#271a38",
+                            "opacity": 0.75,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "bubble"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 300,
+            "size": 7,
+            "duration": 5,
+            "opacity": 8,
+            "speed": 5
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+       });
+        </script>
         <script type="module" src="/assets/js/main.js"></script>
        
     </body>

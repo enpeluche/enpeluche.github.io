@@ -54,7 +54,7 @@ Liste des selecteurs
 .proposition ul,
 .remark
 .theorem ul{
-  padding: 0 2.5rem;
+  padding-left: 2.5rem;
 }
 
 .conjecture ol,
@@ -70,7 +70,7 @@ Liste des selecteurs
 .remark
 .theorem ol{
   list-style-type:decimal;
-  padding: 0 2.5rem;
+  padding-left: 2.5rem;
 }
 
 .conjecture ul ul,
@@ -86,7 +86,7 @@ Liste des selecteurs
 .remark
 .theorem ul ul{
   list-style-type: square;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .conjecture ul ol,
@@ -101,7 +101,7 @@ Liste des selecteurs
 .proposition ul ol,
 .remark
 .theorem ul ol{
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .conjecture > ul > li,
@@ -116,7 +116,7 @@ Liste des selecteurs
 .proposition > ul > li,
 .remark
 .theorem > ul > li{
-  margin-bottom: 0.4rem 0;
+  margin-bottom: 0.3rem 0;
 }
 
 .conjecture li,
@@ -131,7 +131,7 @@ Liste des selecteurs
 .proposition li,
 .remark
 .theorem li{
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
 }
 
 /*--------------------------------------*/
@@ -229,11 +229,6 @@ Liste des selecteurs
 
 
 
-/*-----------------------*/
-.qed{
-  width: 1rem;
-  height: 1rem;
-}
 
 
 

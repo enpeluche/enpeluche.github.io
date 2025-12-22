@@ -21,4 +21,7 @@ export function setupKatex() {
             "\\ra": "\\rightarrow"
         }
     });
-}    
+}
+
+
+/* il serait temps que j y bosse la dessus*/

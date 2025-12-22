@@ -13,8 +13,8 @@ export function initCarousel() {
                 1 / ${slides.length}
             </div>`);
         
-        const prevBtn = carousel.querySelector(".prev");
-        const nextBtn = carousel.querySelector(".nextd");
+        const previous = carousel.querySelector(".prev");
+        const next = carousel.querySelector(".nextd");
         const counter = carousel.querySelector(".counter");
     
         let currentIndex = 0;
@@ -34,13 +34,8 @@ export function initCarousel() {
             }
         };
     
-    nextBtn.addEventListener("click", () => {
-    updateSlide(currentIndex + 1);
-    });
+        next.addEventListener("click", () => {updateSlide(currentIndex + 1);});
     
-    prevBtn.addEventListener("click", () => {
-    updateSlide(currentIndex - 1);
-    });
-    
+        previous.addEventListener("click", () => {updateSlide(currentIndex - 1);});
     });
 }

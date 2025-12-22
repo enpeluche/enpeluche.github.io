@@ -1,8 +1,10 @@
 
 
 #profile-description{
-  
-  z-index: 6;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  z-index: 10;
   text-align: justify;
 }
 
@@ -10,32 +12,32 @@
 #profile-name{
   font-size: clamp(3rem, 10vw, 6rem); 
   line-height: 1.1; /* Resserrer un peu l'interlignage */
-  margin: 10px 0;
   text-align: center;
   
-  z-index: 99;
+  z-index: 11;
 }
 
 #profile-picture{
   width: 280px;
   max-width: 80vw;
-  z-index: 3;
+  z-index: 13;
   height: auto;
   aspect-ratio: 1 / 1; 
   object-fit: cover; /* Coupe l'image si nécessaire au lieu de l'écraser */
   border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--primary-border-color);
+  box-shadow: 0 0 0 2px var(--primary-border-color);
 }
 
 #hello-world{
   font-size: 1.5rem;
   
-  z-index: 5;
+  z-index: 15;
   color: var(--secondary-text-color);
   text-transform: uppercase; color: var(--secondary-text-color);
 
 }
 #eee{
+  z-index: 45;
   margin-top: 4rem;
   text-align: center;
 }
@@ -51,4 +53,18 @@
   display: flex;
 flex-direction: column;
 align-items: center;
+}
+
+#profile-description h3 {
+  text-transform: uppercase;
+  font-size: 0.9rem; /* Ou la taille que tu veux */
+  font-weight: bold;
+  color: #555; /* Un gris sombre fait souvent plus élégant que le noir pur */
+  margin-bottom: 0.5rem; /* Remplace ton <br> par une vraie marge */
+  letter-spacing: 1px; /* Espacer un peu les lettres majuscules fait très "Premium" */
+}
+
+#profile-description p {
+  margin: 0;
+  line-height: 1.5; /* Aère le texte pour la lecture */
 }

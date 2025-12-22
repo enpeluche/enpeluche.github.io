@@ -1,13 +1,7 @@
-
-
-.nowrap{
-  white-space: normal;
-}
+.nowrap{white-space: normal;}
 
 @media (min-width: 768px) {
-  .nowrap {
-    white-space: nowrap;
-  }
+  .nowrap {white-space: nowrap;}
 }
 
 .hidden{

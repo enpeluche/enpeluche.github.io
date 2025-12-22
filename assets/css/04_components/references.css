@@ -25,12 +25,6 @@
   position: relative;
 }
 
-.author::after{
-
-  /* generated content */
-  content: ", ";
-}
-
 .cite{
   /* typography */
   font-size: 1rem;
