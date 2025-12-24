@@ -39,30 +39,33 @@ LA CARTE PRINCIPALE (CONTENEUR)
 1. BOUTON TÉLÉCHARGEMENT
 ========================================= */
 .download-section {
- margin-bottom: 40px;
- text-align: center;
+    margin: 2rem 0;
+    text-align: center;
 }
 
 .btn-cv {
- background-color: var(--primary);
- color: white;
- padding: 12px 25px;
- border-radius: 50px; /* Forme pilule */
- text-decoration: none;
- font-weight: 600;
- display: inline-flex;
- align-items: center;
- gap: 10px;
- transition: transform 0.2s, background-color 0.2s;
- box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3);
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(44, 62, 80, 0.3);
 }
 
 .btn-cv:hover {
- background-color: black;
- transform: translateY(-2px);
+    background-color: #2c3e50c7;
 }
 
-.btn-cv svg { width: 20px; height: 20px; fill: white; }
+.btn-cv svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+}
 
 /* =========================================
 2. GRID COMPÉTENCES (Le cœur du sujet)
@@ -137,45 +140,49 @@ LA CARTE PRINCIPALE (CONTENEUR)
  display: flex;
  flex-direction: row;
  justify-content: center;
- gap: 30px;
- margin-top: 10px;
+ gap: 2rem;
+ margin-top: 0.5rem;
 }
 
 .contact-item {
  display: flex;
- background-color: white;
- padding: 1rem;
  flex-direction: row;
  align-items: center;
+ justify-content: center;
+
+ padding: 0rem 0.5rem;
  
- border: 1px solid #eee;
- border-radius: 30px;
+ border: 1px solid var(--primary-border-color);
+ border-radius: 10px;
  text-decoration: none;
  color: var(--text-light);
  transition: color 0.2s;
  font-size: 0.85rem;
+ transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
 }
 
 .contact-icon {
- width: 50px;
- height: 50px;
+ width: 3rem;
+ height: 3rem;
  
- border-radius: 50%; /* Rond parfait */
+ border-radius: 50%;
  display: flex;
  align-items: center;
  justify-content: center;
- margin-bottom: 8px;
- transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
+ transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
 }
 
-.contact-icon svg { width: 24px; height: 24px; fill: var(--primary); }
+.contact-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--primary);
+}
 
-/* Hover Effects */
 .contact-item:hover {
- background-color: var(--primary);
- transform: scale(1.1);
- border-color: var(--primary);
- color: white !important;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white !important;
 }
-.contact-item:hover .contact-icon svg { fill: white; }
-
+.contact-item:hover .contact-icon svg {
+    fill: white;
+}
