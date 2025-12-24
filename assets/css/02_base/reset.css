@@ -20,6 +20,9 @@ button{
 *, *::before, *::after {
     box-sizing: border-box;
 }
+svg, svg::before, svg::after{
+  box-sizing: content-box;
+}
 
 .katex-display{
   overflow: hidden;

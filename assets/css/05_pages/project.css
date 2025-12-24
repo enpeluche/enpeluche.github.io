@@ -255,8 +255,7 @@
     background-color: white;
     text-decoration: none;
     transition: color 0.2s ease;
-    border: 1px solid var(--secondary-text-color);
-    border-radius: 50px;
+    border-top: 1px solid var(--secondary-text-color);
 }
 
 .project-footer a:hover {

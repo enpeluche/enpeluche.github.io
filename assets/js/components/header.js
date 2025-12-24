@@ -3,13 +3,16 @@ export function loadHeader() {
 
     .then(response => response.text())
     .then(data => {  
-        const header = document.getElementById('main-header');
+        const header = document.getElementById('mafin-header');
         if(!header) return;
         header.innerHTML = data;
     })
     .catch(error => {
         console.error("Erreur lors du chargement de l'en-tête :", error);
     });
+
+
+    
 }
 
 

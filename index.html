@@ -27,60 +27,6 @@
         >
 
         <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
-        
-        <style>
-            /* On cache le moteur */
-/* 1. On cache la checkbox */
-.lang-check { display: none; }
-
-/* 2. Le Conteneur (La piste grise) */
-.lang-label {
-    display: flex;             /* Pour aligner FR et EN */
-    align-items: center;
-    justify-content: space-between;
-    
-    width: 80px;               /* Largeur totale */
-    height: 30px;
-    background-color: #eee;    /* Fond gris clair */
-    border-radius: 30px;
-    position: relative;        /* Référence pour le curseur */
-    cursor: pointer;
-    padding: 0 5px;            /* Un peu d'espace sur les bords */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); /* Petite ombre intérieure */
-}
-
-/* 3. Le Curseur (La "bille" qui est devenue un rectangle arrondi) */
-.slider {
-    position: absolute;
-    top: 2px; 
-    left: 2px;                 /* Départ à gauche (sur FR) */
-    width: 38px;               /* Environ la moitié moins les marges */
-    height: 26px;
-    background-color: white;
-    border-radius: 20px;
-    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Animation fluide */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 0;                /* IL EST EN DESSOUS DU TEXTE */
-}
-
-/* 4. Le Texte (FR / EN) */
-.lang-text {
-    z-index: 1;                /* IL EST AU-DESSUS DU CURSEUR */
-    font-size: 12px;
-    font-weight: bold;
-    width: 50%;                /* Chacun prend la moitié */
-    text-align: center;
-    color: #555;
-    user-select: none;         /* Empêche de sélectionner le texte */
-}
-
-/* --- L'ANIMATION --- */
-
-/* Quand c'est coché, le curseur glisse à droite */
-.lang-check:checked + .lang-label .slider {
-    transform: translateX(38px); /* On le pousse vers EN */
-}
-        </style>
 
         <!-- for rendering latex -->
 
@@ -98,34 +44,87 @@
     </head>
 
     <body>
+        <!------------------------------ PARTICULES ---------------------------------->
         <div style="z-index: -6;" id="tsparticles"></div>
-        <header id="main-header"></header>
+
+        <!------------------------------ HEADER -------------------------------------->
+        
+        <header id="main-header">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/#homepage" title="Accueil Lucas Petit">
+                            <img
+                            class="image-rotative"
+                            src="/assets/img/logo/logo.png" title="Logo de Lucas Petit - étoile à 8 branches" 
+                            alt="Logo de Lucas Petit - étoile à 8 branches">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/#cv" title="CV">CV</a>
+                    </li>
+            
+                    <li class="ggg" style="transition: none;">
+                        <a   title="Projets">
+                            <svg viewBox="0 0 24 24" width="30" height="30">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                            <span data-i18n="section_projects_title">Projets</span>
+                            
+            
+                        </a>
+                       
+                        <div class="jac">
+                            <a data-i18n="projects_category_dev" href="/#dev">Développement</a>
+                            <a data-i18n="projects_category_academic" href="/#acad">Académiques</a>
+                        </div>            
+                    </li>
+            
+                    <li>
+                        <a href="/blog/" title="Blog">Blog</a>
+                    </li>
+            
+                    <li style="display: flex; flex-direction: column; justify-content: center;">
+                        <input type="checkbox" id="lang-toggle" class="lang-check">
+                
+                        <label for="lang-toggle" class="lang-label">
+                            <span class="slider"></span>
+                            
+                            <span class="lang-text">FR</span>
+                            <span class="lang-text">EN</span>
+                        </label></li>
+                </ul>
+            </nav>
+        </header>
 
         <main>
             <section id="homepage" style="min-height: 100vh;">
                 <div id="eee" class=" fade-in-up delay-1">
-                    <p id="hello-world">Bonjour, je suis </p>
+                    <p data-i18n="welcome" id="hello-world">Bonjour, je suis</p>
                     <h1 id="profile-name">Lucas Petit</h1>
                 </div>
 
                 <div style="display: flex; flex-direction: column; align-items: center;" class=" fade-in-up delay-2">
                     <img id="profile-picture" src="/assets/img/P1034037.png" alt="Portrait de Lucas Petit">
-                    <h2 style="padding: 1rem; color: var(--secondary-text-color);">Titulaire d'un Master 2 en Algorithmie & Mathématiques.</h2>
+                    <h2 data-i18n="education_master_degree" style="padding: 1rem; color: var(--secondary-text-color);">
+                        Titulaire d'un Master 2 en Algorithmie & Mathématiques.
+                    </h2>
                 </div>
                     
                 <div id="profile-description" class=" fade-in-up delay-3">
                     <div style="display: flex; justify-content: center;">
-                        <h3>À propos de moi</h3>
+                        <h3 data-i18n="section_about_title">À propos de moi</h3>
                     </div>
                         
-                    <p>
+                    <p data-i18n="about_description">
                         Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées.
                     </p>
                 </div>      
             </section>
             
             <section id="cv">
-                <h1 style="text-align: center; font-size: 3rem; padding: 2rem;">Compétences</h1>
+                <h1 data-i18n="section_skills_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Compétences</h1>
                 <div class="skills-grid">
                     <div class="skill-box">
                         <span class="skill-title">Programmation</span>
@@ -165,23 +164,31 @@
                     </div>
                 </div>
         
-                <h3>Qualités Humaines</h3>
-                <div class="soft-skills">
-                    <span class="tag">Rigueur scientifique</span>
-                    <span class="tag">Curiosité</span>
-                    <span class="tag">Travail d'équipe</span>
-                    <span class="tag">Pédagogie</span>
-                    <span class="tag">Résolution de problèmes</span>
+          
+                <div style="display: flex; justify-content: center;">
+                    <h3 data-i18n="section_soft_skills_title">Qualités Humaines</h3>
+                </div>
+                <div style="padding: 1rem;" class="soft-skills">
+                    <span data-i18n="skill_scientific_rigor" class="tag">Rigueur scientifique</span>
+                    <span data-i18n="skill_curiosity" class="tag">Curiosité</span>
+                    <span data-i18n="skill_creativity" class="tag">Créativité</span>
+                    <span data-i18n="skill_teamwork" class="tag">Travail d'équipe</span>
+                    <span data-i18n="skill_pedagogy" class="tag">Pédagogie</span>
+                    <span data-i18n="skill_problem_solving" class="tag">Résolution de problèmes</span>
                 </div>
             </div> 
-        
+
+            <!--
+                
             Coq / Preuve formelle
 
 Optimisation combinatoire / Graphes
 
 C++ / OCaml / Python (Mets tes langages forts)
-
 Master Mathématiques
+            -->
+        
+
             <!--   <main>
                 <h1>En construction !</h1>
                 <img
@@ -194,6 +201,7 @@ Master Mathématiques
 
             <div class="download-section fade-in-up delay-2">
                 <a
+                id="cv-link"
                 href="https://raw.githubusercontent.com/Crowreed/resume/main/fr/sample.pdf"
                 download="CV_Noirot_Lucas.pdf"
                 aria-label="Télécharger mon CV ! (PDF)"
@@ -205,22 +213,30 @@ Master Mathématiques
                     focusable="false"
                     >
                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                    Télécharger mon CV (PDF)
+                    <span data-i18n="btn_download_cv">Télécharger mon CV (PDF)</span>
                 </a>
             </div>
+
+
+            <div style="display: flex; justify-content: center;">
+                <h3 data-i18n="btn_contact_me">Me Contacter</h3>
+            </div>
     
-            <h3 class="fade-in-up delay-3">Me Contacter</h3>
+
+            <div data-i18n="status_availability" style="display: flex; justify-content: center; padding: 1rem;">
+                Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.
+            </div>
     
+            
 
-            Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.
-
-
-            Ingénieur R&D en Algorithmique & Mathématiques Appliquées" Sous-titre : Spécialisé en Méthodes Formelles, Optimisation et Cryptographie.
-            INGÉNIEUR ALGORITHMIQUE & SÉCURITÉ
-            Je conçois des systèmes logiciels critiques et optimisés." Sous-titre : À la recherche d'opportunités en Recherche Opérationnelle, Preuve Formelle (Coq) ou Cybersécurité.
+<!--
+    Ingénieur R&D en Algorithmique & Mathématiques Appliquées" Sous-titre : Spécialisé en Méthodes Formelles, Optimisation et Cryptographie.
+    INGÉNIEUR ALGORITHMIQUE & SÉCURITÉ
+    Je conçois des systèmes logiciels critiques et optimisés." Sous-titre : À la recherche d'opportunités en Recherche Opérationnelle, Preuve Formelle (Coq) ou Cybersécurité.
 
 Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Coq) et théorie des graphes, je cherche à rejoindre une équipe technique ambitieuse pour résoudre des problèmes d'optimisation ou de sécurité critique.
-            je recherche ...
+    je recherche ...   -->
+           
 
             <div class="contact-container fade-in-up delay-3">    
                 <a
@@ -281,7 +297,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
       
         <span  id="dev" ></span>
         <section id="projects">
-            <h1  style="text-align: center; font-size: 3rem; padding: 2rem;">Projets de développement</h1>
+            <h1 data-i18n="section_dev_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Projets de développement</h1>
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="all">Tout voir</button>
                 <button class="filter-btn" data-filter="cpp">C++</button>
@@ -297,23 +313,23 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://github.com/ton-profil/cpp-lattice-crypto" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Cryptosystème & Cryptanalyse</h3>
-                                    <h4>Implémentation d'un protocole de chiffrement post-quantique et attaque par réduction</h4>  
+                                    <h3 data-i18n="project_crypto_title">Cryptosystème & Cryptanalyse</h3>
+                                    <h4 data-i18n="project_crypto_subtitle">Implémentation d'un protocole de chiffrement post-quantique et attaque par réduction</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Domaine</strong>
+                                        <strong data-i18n="label_field" class="keyword-item">Domaine</strong>
                                         <span>Cybersécurité / R&D</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Cœur</strong>
+                                        <strong data-i18n="label_core" class="keyword-item">Cœur</strong>
                                         <span>C++ & Maths Appliquées</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     <p>
     
                                     </p>
@@ -322,7 +338,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                 
                                     <span class="tech-tag">
                                         C++
@@ -361,7 +377,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Voir le code et l'attaque" style="color: var(--secondary-text-color);" href="https://github.com/ton-profil/cpp-lattice-crypto">
-                                    Voir l'implémentation ->
+                                    Voir l'implémentation<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -370,29 +386,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://ton-site.github.io" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Portfolio Personnel</h3>
-                                    <h4>Développement d'une interface web responsive "from scratch"</h4>  
+                                    <h3 data-i18n="project_portfolio_title">Portfolio Personnel</h3>
+                                    <h4 data-i18n="project_portfolio_subtitle">Développement d'une interface web responsive "from scratch"</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Projet Personnel</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Période</strong>
+                                        <strong data-i18n="label_period" class="keyword-item">Période</strong>
                                         <span>Décembre 2025</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Conception et implémentation d'une vitrine numérique pour exposer mes travaux, projets, blog et CV.
                                     Architecture modulaire sans framework, optimisation des performances <!--(Score Lighthouse 100%)--> et design adaptatif mobile-first.
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                 
                                     <span class="tech-tag">
                                         HTML5
@@ -431,7 +447,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Voir le code source" style="color: var(--secondary-text-color);" href="https://github.com/ton-profil/portfolio-repo">
-                                    Voir le code source ->
+                                    Voir le code source<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -440,29 +456,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://github.com/ton-profil/ray-tracing-python" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Moteur de Ray Tracing</h3>
-                                    <h4>Génération d'images 3D par simulation physique de la lumière</h4>  
+                                    <h3 data-i18n="project_raytracer_title">Moteur de Ray Tracing</h3>
+                                    <h4 data-i18n="project_raytracer_subtitle">Génération d'images 3D par simulation physique de la lumière</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Projet Universitaire (Univ. de Bourgogne)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Type</strong>
+                                        <strong data-i18n="label_type" class="keyword-item">Type</strong>
                                         <span>Implémentation "From Scratch"</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Exploration et implémentation d'algorithmes de lancer de rayons (Ray Tracing) pour le rendu de scènes 3D. 
                                     Développement du moteur physique pour calculer les intersections rayons-objets, les ombres et la réflexion de la lumière sans moteur graphique externe.
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                 
                                     <span class="tech-tag">
                                         Python
@@ -501,7 +517,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Voir le code du Ray Tracer" style="color: var(--secondary-text-color);" href="https://github.com/ton-profil/ray-tracing-python">
-                                    Voir le code source ->
+                                    Voir le code source<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -510,29 +526,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://github.com/ton-profil/cpp-network-game" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Jeu Multijoueur en Réseau</h3>
-                                    <h4>Architecture Client-Serveur et protocole de communication custom</h4>  
+                                    <h3 data-i18n="project_multiplayer_game_title">Jeu Multijoueur en Réseau</h3>
+                                    <h4 data-i18n="project_multiplayer_game_subtitle">Architecture Client-Serveur et protocole de communication custom</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Type</strong>
+                                        <strong data-i18n="label_type" class="keyword-item">Type</strong>
                                         <span>Application Réseau / Système</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Langage</strong>
+                                        <strong data-i18n="label_language" class="keyword-item">Langage</strong>
                                         <span>C++ (Sockets Berkeley)</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Développement d'un moteur de jeu multijoueur en temps réel (LAN).
                                     Conception d'un protocole de communication binaire/texte propriétaire pour la synchronisation des états de jeu. Gestion des sockets (TCP/IP), des connexions entrantes et de la sérialisation des données.
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Compétences Clés</strong>
+                                    <strong data-i18n="" class="keyword-item">Compétences Clés</strong>
                                 
                                     <span class="tech-tag">
                                         C++
@@ -571,7 +587,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Voir l'implémentation réseau" style="color: var(--secondary-text-color);" href="https://github.com/ton-profil/cpp-network-game">
-                                    Voir le code source ->
+                                    Voir le code source<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -580,29 +596,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="fichiers/cours-calcul-diff.pdf" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Cours de Calcul Différentiel</h3>
-                                    <h4>Rédaction intégrale d'un manuel universitaire (100+ pages)</h4>  
+                                    <h3 data-i18n="project_diff_calc_title">Cours de Calcul Différentiel</h3>
+                                    <h4 data-i18n="project_diff_calc_subtitle">Rédaction intégrale d'un manuel universitaire (100+ pages)</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Format</strong>
+                                        <strong data-i18n="" class="keyword-item">Format</strong>
                                         <span>Polycopié / Livre</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Rôle</strong>
+                                        <strong data-i18n="" class="keyword-item">Rôle</strong>
                                         <span>Auteur & Éditeur</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Création d'un support pédagogique complet destiné aux étudiants de Licence/Prépas. 
                                     Structuration progressive des concepts, création de figures vectorielles (TikZ) et mise en page professionnelle via LaTeX.
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Compétences Clés</strong>
+                                    <strong data-i18n="" class="keyword-item">Compétences Clés</strong>
                                 
                                     <span class="tech-tag">
                                         LaTeX
@@ -637,7 +653,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Lire un extrait" style="color: var(--secondary-text-color);" href="fichiers/cours-calcul-diff.pdf" target="_blank">
-                                    📄 Télécharger / Lire le cours ->
+                                    📄 Télécharger / Lire le cours<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -647,29 +663,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://github.com/ton-profil/java-fractals" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Générateur de Fractales Interactif</h3>
-                                    <h4>Visualisation d'ensembles mathématiques complexes via la récursivité</h4>  
+                                    <h3 data-i18n="project_fractals_title">Générateur de Fractales Interactif</h3>
+                                    <h4 data-i18n="project_fractals_subtitle">Visualisation d'ensembles mathématiques complexes via la récursivité</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Projet Universitaire (Licence 2)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Langage</strong>
+                                        <strong data-i18n="label_language" class="keyword-item">Langage</strong>
                                         <span>Java (POO)</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Conception d'une application graphique pour générer et explorer des structures fractales (ex: Ensemble de Mandelbrot, Julia, Sierpinski).
                                     Utilisation intensive d'algorithmes récursifs et gestion de l'interface utilisateur (zoom, paramètres en temps réel) en Java.
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                 
                                     <span class="tech-tag">
                                         Java
@@ -708,7 +724,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a class="hidden" title="Voir le code Java" style="color: var(--secondary-text-color);" href="https://github.com/ton-profil/java-fractals">
-                                    Voir le code source ->
+                                    Voir le code source<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -717,29 +733,29 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             <a href="https://github.com/ton-profil/js-habit-tracker" target="_blank">
                         
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Habit Tracker App</h3>
-                                    <h4>Application web interactive de suivi de productivité et visualisation de données</h4>  
+                                    <h3 data-i18n="project_habit_tracker_title">Habit Tracker App</h3>
+                                    <h4 data-i18n="project_habit_tracker_subtitle">Application web interactive de suivi d'habitudes et visualisation de données</h4>  
                                 </div>
                         
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Type</strong>
+                                        <strong data-i18n="label_type" class="keyword-item">Type</strong>
                                         <span>Web App (Front-End)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Tech</strong>
+                                        <strong data-i18n="" class="keyword-item">Tech</strong>
                                         <span>Vanilla JavaScript</span>
                                     </div>
                                 </div>
                         
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
                                     Développement d'une application "Single Page" pour la gestion d'habitudes quotidiennes.
                                     Implémentation de la logique métier en JavaScript pur (ES6+), manipulation dynamique du DOM pour l'interactivité, et système de persistance des données via le LocalStorage du navigateur. Visualisation graphique de la progression (streaks/constance).
                                 </div>
                         
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                 
                                     <span class="tech-tag">
                                         JavaScript (ES6+)
@@ -778,7 +794,7 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 margin-top: 15px;
                             ">
                                 <a  class="hidden" title="Tester l'application" style="color: var(--secondary-text-color);" href="https://ton-profil.github.io/js-habit-tracker">
-                                    Voir la démo live ->
+                                    Voir la démo live<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
                                 </a>
                             </div>
                         
@@ -791,38 +807,38 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                        </div>        
          
 <span id="acad" ></span>
-                                       <h1  style="text-align: center; font-size: 3rem; padding: 2rem;">Projets académiques</h1>
+                                       <h1 data-i18n="section_academic_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Projets académiques</h1>
                         
                     <div class="project-grid">
                         
                         <div class="project">
                             <a href="/academic-works/reduction-reseaux/" style="text-decoration: none; color: inherit;">
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Réduction de réseaux</h3>
-                                    <h4>Adaptations d’idées provenant du cas polynomial au cas entier</h4>  
+                                    <h3 data-i18n="project_lattice_reduction_title">Réduction de réseaux</h3>
+                                    <h4 data-i18n="project_lattice_reduction_subtitle">Adaptations d’idées provenant du cas polynomial au cas entier</h4>  
                                 </div>
                                 
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Stage académique (M2)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Période</strong>
+                                        <strong data-i18n="label_period" class="keyword-item">Période</strong>
                                         <span>Février 2025 - Juin 2025</span>
                                     </div>
                                 </div>
     
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
-                                    <p>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                                    
                                         Étude et adaptation d'algorithmes de réduction de réseaux (type LLL/BKZ) du contexte des polynômes vers celui des entiers. 
                                         Travail de recherche incluant l'implémentation de prototypes en <strong>Python</strong> et <strong>SageMath</strong> pour analyser la complexité algorithmique et la stabilité numérique des nouvelles variantes proposées.
-                                    </p>
+                                    
                                 </div>
                             
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                     <span class="tech-tag">Python</span>
                                     <span class="tech-tag">LaTeX</span>
                                     <span class="tech-tag">SageMath</span>
@@ -833,10 +849,10 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             </a>
     
                             <div class="project-footer">
-                                <a title="Découvrir en détail le projet" href="/academic-works/lattice-reduction/">
-                                    <strong>
-                                        Découvrir en détail le projet ->
-                                    </strong>
+                                <a title="Découvrir en détail le projet" style=" display: flex; fill:var(--secondary-text-color);" href="/academic-works/lattice-reduction/">
+                                 
+                                       <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                                 
                                 </a>
                             </div>
                         </div>
@@ -844,31 +860,31 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                         <div class="project">
                             <a href="/academic-works/beckett-gray/" style="text-decoration: none; color: inherit;">
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Codes de Beckett-Gray</h3>
-                                    <h4>Implémentation, heuristiques et analyses de graphes</h4>            
+                                    <h3 data-i18n="project_beckett_gray_title">Codes de Beckett-Gray</h3>
+                                    <h4 data-i18n="project_beckett_gray_subtitle">Implémentation, heuristiques et analyses de graphes</h4>            
                                 </div>     
                                 
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Mémoire (M1)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Période</strong>
+                                        <strong data-i18n="label_period" class="keyword-item">Période</strong>
                                         <span>Janvier 2024 - Mai 2024</span>
                                     </div>
                                 </div>
                 
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
-                                    <p>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                                    
                                         Recherche de codes de Gray sans "flip" (Beckett-Gray) sur des graphes complexes. 
                                         Développement de solvers performants en <strong>C++</strong> (Backtracking et Heuristiques) pour explorer l'espace des solutions, identifier des contre-exemples et optimiser la recherche de cycles hamiltoniens spécifiques.
-                                    </p>
+                                    
                                 </div>
             
                                 <div>
-                                    <strong class="keyword-item">Technologies &amp; Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
                                     <span class="tech-tag">C++</span>
                                     <span class="tech-tag">Python</span>
                                     <span class="tech-tag">LaTeX</span>
@@ -878,10 +894,10 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                                 </div>
                             </a>
                             <div class="project-footer">
-                                <a title="Découvrir en détail le projet" href="/academic-works/beckett-gray-codes/">
-                                    <strong>
-                                        Découvrir en détail le projet ->
-                                    </strong>
+                                <a style=" display: flex; fill:var(--secondary-text-color);" title="Découvrir en détail le projet" href="/academic-works/beckett-gray-codes/">
+                                    
+                                       <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                                    
                                 </a>
                             </div>
                         </div>
@@ -889,31 +905,31 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                         <div class="project">
                             <a href="/academic-works/weyl-transform/" style="text-decoration: none; color: inherit;">
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>La transformation de Weyl</h3>
-                                    <h4>Une transformée de Fourier non commutative</h4>  
+                                    <h3 data-i18n="project_weyl_transform_title">La transformation de Weyl</h3>
+                                    <h4 data-i18n="project_weyl_transform_subtitle">Une transformée de Fourier non commutative</h4>  
                                 </div>
                               
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Projet de Recherche (L3)</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Domaine</strong>
+                                        <strong data-i18n="label_field" class="keyword-item">Domaine</strong>
                                         <span>Analyse Fonctionnelle</span>
                                     </div>
                                 </div>
     
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
-                                    <p>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                                   
                                         Étude approfondie de la quantification de Weyl et de ses propriétés harmoniques. 
                                         Rédaction d'un mémoire de synthèse liant l'analyse fonctionnelle mathématique aux formalismes d'opérateurs utilisés en mécanique quantique.
-                                    </p>
+                                   
                                 </div>
     
                                 <div>
-                                    <strong class="keyword-item">Technologies & Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies & Concepts</strong>
                                     <span class="tech-tag">LaTeX</span>
                                     <span class="concept-tag">Transformée de Fourier</span>
                                     <span class="concept-tag">Mécanique quantique</span>
@@ -922,10 +938,9 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             </a>         
                             
                             <div class="project-footer">
-                                <a title="Découvrir en détail le projet" href="/academic-works/weyl-transform/">
-                                    <strong>
-                                        Découvrir en détail le projet ->
-                                    </strong>
+                                <a  style=" display: flex; fill:var(--secondary-text-color);" title="Découvrir en détail le projet" href="/academic-works/weyl-transform/">
+                                        <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                                  
                                 </a>
                             </div>
                         </div>
@@ -933,31 +948,31 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                        <div class="project">
                             <a href="/academic-works/dense-packing/" style="text-decoration: none; color: inherit;">
                                 <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3>Empilement compact</h3>
-                                    <h4>Étude de l'inégalité isopérimétrique et simulations</h4>
+                                    <h3 data-i18n="project_close_packing_title">Empilement compact</h3>
+                                    <h4 data-i18n="project_close_packing_subtitle">Étude de l'inégalité isopérimétrique et simulations</h4>
                                 </div>
                                 
                                 <div class="meta-grid">
                                     <div>
-                                        <strong class="keyword-item">Contexte</strong>
+                                        <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
                                         <span>Projet Académique</span>
                                     </div>
                                     <div>
-                                        <strong class="keyword-item">Langage</strong>
+                                        <strong data-i18n="label_language" class="keyword-item">Langage</strong>
                                         <span>Java</span>
                                     </div>
                                 </div>
     
                                 <div style="margin-bottom: 1.5rem;">
-                                    <strong class="keyword-item">Résumé</strong>
-                                    <p>
+                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                                    
                                         Analyse géométrique du problème de l'empilement optimal (Sphere Packing). 
                                         Étude des bornes de densité via l'inégalité isopérimétrique et développement de simulations numériques en <strong>Java</strong> pour visualiser les configurations critiques.
-                                    </p>
+                                    
                                 </div>
     
                                 <div>
-                                    <strong class="keyword-item">Technologies & Concepts</strong>
+                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies & Concepts</strong>
                                     <span class="tech-tag">Java</span>
                                     <span class="concept-tag">Analyse</span>
                                     <span class="concept-tag">Géométrie</span>
@@ -966,10 +981,9 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                             </a>            
                             
                             <div class="project-footer">
-                                <a title="Découvrir en détail le projet" href="/academic-works/dense-packing/">
-                                    <strong>
-                                        Découvrir en détail le projet ->
-                                    </strong>
+                                <a style=" display: flex; fill:var(--secondary-text-color);" title="Découvrir en détail le projet" href="/academic-works/dense-packing/">
+                                       <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
+                                  
                                 </a>
                             </div>
                         </div>    
@@ -979,7 +993,141 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
             </section>
      
             <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-         
         <script type="module" src="/assets/js/main.js"></script>
+
+        <script>
+    const cvLink = document.getElementById('cv-link'); // On récupère le lien
+
+const traductions = {
+    fr: {
+        project_crypto_subtitle:"Implémentation d'un protocole de chiffrement post-quantique et attaque par réduction",
+        project_portfolio_subtitle:"Développement d'une interface web responsive 'from scratch'",
+        project_raytracer_subtitle:"Génération d'images 3D par simulation physique de la lumière",
+        project_multiplayer_game_subtitle:"Architecture Client-Serveur et protocole de communication custom",
+        project_diff_calc_subtitle:"Rédaction intégrale d'un manuel universitaire (100+ pages)",
+        project_fractals_subtitle:"Visualisation d'ensembles mathématiques complexes via la récursivité",
+        project_habit_tracker_subtitle:"Application web interactive de suivi d'habitudes et visualisation de données",
+        project_lattice_reduction_subtitle:"Adaptations d’idées provenant du cas polynomial au cas entier",
+        project_beckett_gray_subtitle:"Implémentation, heuristiques et analyses de graphes",
+        project_weyl_transform_subtitle:"Une transformée de Fourier non commutative",
+        project_close_packing_subtitle:"Étude de l'inégalité isopérimétrique et simulations",
+        btn_download_cv:"Télécharger mon CV (PDF)",
+        btn_contact_me:"Me Contacter",
+        status_availability:"Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.",
+        section_soft_skills_title:"Qualités Humaines",
+        skill_scientific_rigor:"Rigueur scientifique",
+        skill_curiosity:"Curiosité",
+        skill_teamwork:"Travail d'équipe",
+        skill_pedagogy:"Pédagogie",
+        skill_problem_solving:"Résolution de problèmes",
+        skill_creativity:"Créativité",
+        btn_view_project:"Découvrir en détail le projet",
+        label_context:"Contexte",
+        label_language:"Langage",
+        label_summary:"Résumé",
+        label_field:"Domaine",
+        label_period:"Période",
+        label_core:"Cœur",
+        label_tech_concepts:"Technologies & Concepts",
+        label_type:"Type",
+        project_crypto_title:"Cryptosystème & Cryptanalyse",
+        project_portfolio_title:"Portfolio Personnel",
+        project_raytracer_title:"Moteur de Ray Tracing",
+        project_multiplayer_game_title:"Jeu Multijoueur en Réseau",
+        project_diff_calc_title:"Cours de Calcul Différentiel",
+        project_fractals_title:"Générateur de Fractales Interactif",
+        project_habit_tracker_title:"Habit Tracker App",
+        project_lattice_reduction_title:"Réduction de réseaux",
+        project_beckett_gray_title:"Codes de Beckett-Gray",
+        project_weyl_transform_title:"La transformation de Weyl",
+        project_close_packing_title:"Empilement compact",
+        section_skills_title:"Compétences",
+        section_dev_projects_title:"Projets de développement",
+        section_academic_projects_title:"Projets académiques",
+        section_projects_title:"Projets",
+        projects_category_dev:"Développement",
+        projects_category_academic:"Académiques",
+        welcome: "Bonjour, je suis",
+        education_master_degree: "Titulaire d'un Master 2 en Algorithmie & Mathématiques.",
+        section_about_title: "À propos de moi",
+        about_description: "Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées."
+    },
+    en: {
+        project_crypto_subtitle:"Implementation of a post-quantum encryption protocol and reduction attack",
+        project_portfolio_subtitle:"Development of a responsive web interface from scratch",
+        project_raytracer_subtitle:"3D image generation via physical light simulation",
+        project_multiplayer_game_subtitle:"Client-Server architecture and custom communication protocol",
+        project_diff_calc_subtitle:"Full authorship of a university textbook (100+ pages)",
+        project_fractals_subtitle:"Visualization of complex mathematical sets via recursion",
+        project_habit_tracker_subtitle:"Interactive habit tracking web application and data visualization",
+        project_lattice_reduction_subtitle:"Adaptation of ideas from the polynomial case to the integer case",
+        project_beckett_gray_subtitle:"Implementation, heuristics, and graph analysis",
+        project_weyl_transform_subtitle:"A non-commutative Fourier transform",
+        project_close_packing_subtitle:"Study of the isoperimetric inequality and simulations",
+        btn_download_cv:"Download my CV (PDF)",
+        btn_contact_me:"Contact Me",
+        status_availability:"Available immediately for R&D or complex engineering projects.",
+        section_soft_skills_title:"Soft Skills",
+        skill_scientific_rigor:"Scientific Rigor",
+        skill_curiosity:"Curiosity",
+        skill_teamwork:"Teamwork",
+        skill_pedagogy:"Pedagogy",
+        skill_problem_solving:"Problem Solving",
+        skill_creativity:"Creativity",
+        btn_view_project:"View Project Details",
+        label_context:"Context",
+        label_language:"Language",
+        label_summary:"Summary",
+        label_field:"Field",
+        label_period:"Period",
+        label_core:"Core",
+        label_tech_concepts:"Technologies & Concepts",
+        label_type:"Type",
+        project_crypto_title:"Cryptosystem & Cryptanalysis",
+        project_portfolio_title:"Personal Portfolio",
+        project_raytracer_title:"Ray Tracing Engine",
+        project_multiplayer_game_title:"Networked Multiplayer Game",
+        project_diff_calc_title:"Differential Calculus Course",
+        project_fractals_title:"Interactive Fractal Generator",
+        project_habit_tracker_title:"Habit Tracker App",
+        project_lattice_reduction_title:"Lattice Reduction",
+        project_beckett_gray_title:"Beckett-Gray Codes",
+        project_weyl_transform_title:"The Weyl Transform",
+        project_close_packing_title:"Close-Packing",
+        section_skills_title:"Skills",
+        section_dev_projects_title:"Development Projects",
+        section_academic_projects_title:"Academic Projects",
+        section_projects_title:"Projects",
+        projects_category_dev:"Development",
+        projects_category_academic:"Academic",
+        welcome: "Hello, I am",
+        education_master_degree: "Master's Degree in Algorithmics & Mathematics.",
+        section_about_title: "About Me",
+        about_description: "Blending theoretical computer science with mathematics, I transform complex abstractions into concrete, high-performance, and rigorously optimized software solutions."
+    }
+};
+
+function changerLangue(langue) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const cle = element.getAttribute('data-i18n');
+        element.textContent = traductions[langue][cle];
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById('lang-toggle').addEventListener('change', function() {
+        if(this.checked) {
+            cvLink.href = "https://raw.githubusercontent.com/Crowreed/resume/main/en/sample.pdf";         
+            cvLink.setAttribute('download', 'Resume_Noirot_Lucas.pdf');
+            changerLangue('en');
+        } else {
+            cvLink.href = "https://raw.githubusercontent.com/Crowreed/resume/main/fr/sample.pdf";
+            cvLink.setAttribute('download', 'CV_Noirot_Lucas.pdf');
+            changerLangue('fr');
+        }
+    });
+});
+        </script>
     </body>
 </html>
