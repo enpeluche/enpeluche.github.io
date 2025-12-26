@@ -39,7 +39,6 @@ LA CARTE PRINCIPALE (CONTENEUR)
 1. BOUTON TÉLÉCHARGEMENT
 ========================================= */
 .download-section {
-    margin: 2rem 0;
     text-align: center;
 }
 
@@ -80,7 +79,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .skill-box {
- background: #f9f9f9;
+
  padding: 20px;
  border-radius: 8px;
 
@@ -94,11 +93,17 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .skill-list {
- list-style: none;
+ list-style-type: disc;
+
  padding: 0;
+ padding-left: 1rem;
  margin: 0;
  font-size: 0.95rem;
  color: var(--text-light);
+}
+
+.skill-list li::marker{
+    color: var(--secondary-text-color);
 }
 
 .skill-list li { margin-bottom: 6px; }
@@ -121,14 +126,13 @@ LA CARTE PRINCIPALE (CONTENEUR)
  flex-wrap: wrap;
  justify-content: center;
  gap: 10px;
- margin-bottom: 40px;
 }
 
 .tag {
- background-color: #e3f2fd;
- color: var(--accent);
+ background-color: #7551eb1a;
+ color: var(--primary-text-color);
  padding: 8px 16px;
- border-radius: 20px;
+ border-radius: 10px;
  font-weight: 500;
  font-size: 0.9rem;
 }

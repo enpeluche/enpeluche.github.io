@@ -52,3 +52,9 @@ main{
 #tsparticles{
   z-index:-1;
 }
+
+main > section{
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1500px;
+}

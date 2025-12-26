@@ -8,7 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Lucas Petit</title>
+        <title>Lucas Noirot</title>
 
         <meta
             name="description"
@@ -113,75 +113,125 @@
         </header>
 
         <main>
-            <section id="homepage" style="min-height: 100vh;">
-                <div id="eee" class="reveal">
-                    <p data-i18n="welcome" id="hello-world">Bonjour, je suis</p>
-                    <h1 id="profile-name">Lucas Petit</h1>
+            <section id="homepage">
+                <div id="intro">
+                    <p data-i18n="welcome" class="reveal" id="hello-world">Bonjour, je suis</p>
+                    <h1 class="reveal" id="profile-name">Lucas Noirot</h1>
                 </div>
 
-                <div style="display: flex; flex-direction: column; align-items: center;" class="reveal">
-                    <img id="profile-picture" src="/assets/img/P1034037.png" alt="Portrait de Lucas Petit">
-                    <h2 data-i18n="education_master_degree" style="padding: 1rem; color: var(--secondary-text-color);">
-                        Titulaire d'un Master 2 en Algorithmie & Mathématiques.
+                <div class="profile-card reveal">
+                    <img 
+                        id="profile-picture" 
+                        class="profile-avatar" 
+                        src="/assets/img/P1034037.png" 
+                        alt="Portrait de Lucas Petit"
+                    >
+                    
+                    <h2 data-i18n="education_master_degree" class="profile-subtitle">
+                        Titulaire d'un Master 2 en Algorithmique & Mathématiques.
                     </h2>
                 </div>
                     
-                <div id="profile-description" class="reveal">
-                    <div style="display: flex; justify-content: center;">
-                        <h3 data-i18n="section_about_title">À propos de moi</h3>
-                    </div>
-                        
-                    <p data-i18n="about_description">
-                        Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées.
-                    </p>
-                </div>      
-            </section>
+                <div id="profile-description" class="glass-panel reveal">
+    
+                <h3 class="about-title" data-i18n="section_about_title">
+                    À propos de moi
+                </h3>
+
+                <p>
+                    Je conçois des systèmes logiciels <strong>critiques</strong>, <strong>prouvés</strong> et <strong>optimisés</strong>.
+                    Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en code performant.
+                    Que ce soit en C++, OCaml ou Python, mon approche vise la robustesse absolue par l'usage de méthodes formelles.
+                </p>
+
+                <p style="padding-top: 0.5rem;">
+                    <strong>Ce que je cherche :</strong> Un rôle technique en Recherche Opérationnelle, Preuve Formelle ou Cybersécurité.
+                </p>
+
+                <p style="padding-top: 0.5rem;">
+                    <strong>Mon expertise technique :</strong>
+                </p>
+
+                <ul class="expert-list">
+                    <li>
+                        <strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP), Programmation par contraintes, Heuristiques & Métaheuristiques.
+                    </li>
+                    <li>
+                        <strong>Sûreté & Cryptographie :</strong> Méthodes formelles (Coq), Preuve de sécurité, Protocoles cryptographiques.
+                    </li>
+                    <li>
+                        <strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée (algorithmes en-ligne, distribués).
+                    </li>
+                </ul>
+            </div>
+        </section>
             
-            <section id="cv">
-                <h1 data-i18n="section_skills_title" style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal">Compétences</h1>
-                <div class="skills-grid reveal">
-                    <div class="skill-box">
-                        <span class="skill-title">Programmation</span>
-                        <ul class="skill-list">
-                            <li>C / C++</li>
-                            <li>Python</li>
-                            <li>HTML5 / CSS3 / JavaScript</li>
-                        </ul>
-                    </div>
+        <section id="cv" style=" display: flex; flex-direction: column;">
+            <h1 data-i18n="section_skills_title" style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal">Compétences</h1>
+            <div class="skills-grid reveal">
+                <div class="skill-box glass-panel">
+                    <span class="skill-title"><strong>Optimisation & Modélisation</strong> </span>
+                    <ul class="skill-list">
+                        <li>Modélisation mathématique</li>
+                        <li>PLNE (MIP)</li>
+                        <li>Programmation par contraintes</li>
+                        <li>Heuristiques & Métaheuristiques</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box glass-panel reveal">
+                    <span class="skill-title">Sûreté & Cryptographie</span>
+                    <ul class="skill-list">
+                        <li>Méthodes formelles (Coq)</li>
+                        <li>Preuve de sécurité</li>
+                        <li>Protocoles cryptographiques</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box glass-panel reveal">
+                    <span class="skill-title">Algorithmique Avancée</span>
+                    <ul class="skill-list">
+                        <li>Théorie des graphes avancée (algorithmes en-ligne, distribués)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box glass-panel reveal">
+                    <span class="skill-title">Langages</span>
+                    <ul class="skill-list">
+                        <li>C/C++</li>
+                        <li>Ocaml</li>
+                        <li>Python, SageMath</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
         
-                    <div class="skill-box reveal">
-                        <span class="skill-title">Logiciels & OS</span>
-                        <ul class="skill-list">
-                            <li>Git & GitHub</li>
-                            <li>VS Code, Inkscape</li>
-                            <li>LaTeX</li>
-                            <li>Linux / Ubuntu <span class="linux-badge">Expert</span></li>
-                            <li>Suite Office</li>
-                        </ul>
+                <div class="skill-box glass-panel reveal">
+                    <span class="skill-title">Logiciels & OS</span>
+            
+
+                    <div style="padding: 1rem;" class="soft-skills">
+                        <span data-i18n="skill_scientific_rigor" class="tag">Git & GitHub</span>
+                        <span data-i18n="skill_curiosity" class="tag">VS Code</span>
+                        <span data-i18n="skill_creativity" class="tag">LaTeX</span>
+                        <span data-i18n="skill_teamwork" class="tag">Travail d'équipe</span>
+                        <span data-i18n="skill_pedagogy" class="tag">Linux</span>
+                        <span data-i18n="skill_problem_solving" class="tag">Résolution de problèmes</span>
                     </div>
+                </div>
         
-                    <div class="skill-box reveal">
+                    <div class="skill-box glass-panel reveal">
                         <span class="skill-title">Langues</span>
                         <ul class="skill-list">
                             <li><strong>Anglais :</strong> C1 (Technique courant)</li>
                             <li><strong>Français :</strong> Langue maternelle</li>
                         </ul>
                     </div>
-                    
-                    <div class="skill-box reveal">
-                        <span class="skill-title">Mathématiques</span>
-                        <ul class="skill-list">
-                            <li>Théorie des graphes</li>
-                            <li>Algorithmique</li>
-                            <li>Optimisation</li>
-                        </ul>
-                    </div>
                 </div>
         
           
-                <div style="display: flex; justify-content: center;" class="reveal">
-                    <h3 data-i18n="section_soft_skills_title">Qualités Humaines</h3>
-                </div>
+                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;" class="reveal">
+                    <h3 data-i18n="section_soft_skills_title" class="about-title">Qualités Humaines</h3>
+                
                 <div style="padding: 1rem;" class="soft-skills">
                     <span data-i18n="skill_scientific_rigor" class="tag">Rigueur scientifique</span>
                     <span data-i18n="skill_curiosity" class="tag">Curiosité</span>
@@ -189,30 +239,10 @@
                     <span data-i18n="skill_teamwork" class="tag">Travail d'équipe</span>
                     <span data-i18n="skill_pedagogy" class="tag">Pédagogie</span>
                     <span data-i18n="skill_problem_solving" class="tag">Résolution de problèmes</span>
-                </div>
+                </div></div>
             </div> 
 
-            <!--
-                
-            Coq / Preuve formelle
-
-Optimisation combinatoire / Graphes
-
-C++ / OCaml / Python (Mets tes langages forts)
-Master Mathématiques
-            -->
-        
-
-            <!--   <main>
-                <h1>En construction !</h1>
-                <img
-                    class="image-rotative"
-                    style="max-width: 90%;"
-                    src="/assets/img/logo/logo-512x512.png" style="height: 700px;" title="Logo de Lucas Petit - étoile à 8 branches" 
-            <div id="tsparticles"></div>
-                    alt="Logo de Lucas Petit - étoile à 8 branches">
-            </main>-->
-
+         
             <div class="download-section  reveal">
                 <a
                 id="cv-link"
@@ -232,25 +262,32 @@ Master Mathématiques
             </div>
 
 
-            <div class="reveal" style="display: flex; justify-content: center;">
-                <h3 data-i18n="btn_contact_me">Me Contacter</h3>
-            </div>
-    
+        </section>
+        
+        <section style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h1 data-i18n="" style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal">Me Contacter</h1>
 
-            <div class="reveal" data-i18n="status_availability" style="display: flex; justify-content: center; padding: 1rem;">
-                Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.
-            </div>
-    
-            
+        <div class="glass-panel" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding: 1rem;">
 
-<!--
-    Ingénieur R&D en Algorithmique & Mathématiques Appliquées" Sous-titre : Spécialisé en Méthodes Formelles, Optimisation et Cryptographie.
-    INGÉNIEUR ALGORITHMIQUE & SÉCURITÉ
-    Je conçois des systèmes logiciels critiques et optimisés." Sous-titre : À la recherche d'opportunités en Recherche Opérationnelle, Preuve Formelle (Coq) ou Cybersécurité.
 
-Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Coq) et théorie des graphes, je cherche à rejoindre une équipe technique ambitieuse pour résoudre des problèmes d'optimisation ou de sécurité critique.
-    je recherche ...   -->
+            <p class="reveal" style="font-size: 1.2rem;">
+                <strong style="color: #8a2be2; margin-bottom: 1rem;"> Jeune diplômé en quête de défis techniques.</strong>
+            </p>   
            
+                <p class="reveal" style="margin-bottom: 1.5rem; line-height: 1.6;">
+                    À la recherche de ma <strong>première opportunité en CDI</strong> en tant qu'Ingénieur R&D. 
+                    Je souhaite rejoindre une équipe ambitieuse pour concevoir des solutions fiables en 
+                    <strong>Optimisation</strong>, <strong>Méthodes Formelles</strong> ou <strong>Cybersécurité</strong>.
+                </p>
+                <div class="reveal" style="border-top: 1px solid var(--primary-border-color); display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem; ">
+                    <strong class="about-title" style="margin-top: 1rem; margin-bottom: 1rem;">   Disponibilité </strong> <br>Février 2026
+                    <br>
+                    <em style="font-size: 0.9rem;">(Ouvert aux échanges et entretiens dès aujourd'hui)</em>
+                </div>
+    
+        </div>
+       
+            
 
             <div class="contact-container  reveal">    
                 <a
@@ -306,12 +343,24 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                     <span>GitHub</span>
                 </a>
             </div>
-          
         </section>
-      
+
+
+        <!--
+            Ingénieur R&D en Algorithmique & Mathématiques Appliquées" Sous-titre : Spécialisé en Méthodes Formelles, Optimisation et Cryptographie.
+            INGÉNIEUR ALGORITHMIQUE & SÉCURITÉ
+            Sous-titre : À la recherche d'opportunités en Recherche Opérationnelle, Preuve Formelle (Coq) ou Cybersécurité.
+        
+       je cherche à rejoindre une équipe technique ambitieuse pour résoudre des problèmes d'optimisation ou de sécurité critique.
+            je recherche ...   -->
+
+         
+          
+
+
         <span  id="dev" ></span>
         <section id="projects">
-            <h1 data-i18n="section_dev_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Projets de développement</h1>
+            <h1 data-i18n="section_dev_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Projets personnels</h1>
             <div class="filter-container reveal">
                 <button class="filter-btn active" data-filter="all">Tout voir</button>
                 <button class="filter-btn" data-filter="cpp">C++</button>
@@ -1005,6 +1054,8 @@ Fort d'un Master en Mathématiques et d'une expertise en méthodes formelles (Co
                     </div>        
          
             </section>
+
+            <div id="scroll-down-indicator"></div>
      
             <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
         <script type="module" src="/assets/js/main.js"></script>
@@ -1153,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // C'est ici que la magie opère :
       // On ajoute un délai inline directement en JS.
       // Ex: 1er élément = 0s, 2ème = 0.2s, 3ème = 0.4s, etc.
-      entry.target.style.transitionDelay = `${index * 0.2}s`;
+      entry.target.style.transitionDelay = `${index * 0.1}s`;
       
       entry.target.classList.add('active');
       

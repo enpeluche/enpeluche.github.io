@@ -1,6 +1,6 @@
 export function initParticles(){
     tsParticles.load("tsparticles", {
-        fpsLimit: 100,
+        fpsLimit: 30,
         "particles": {
             "number":  {
                 "value": 50,
@@ -60,7 +60,7 @@ export function initParticles(){
             },
             "move": {
                 "enable": true,
-                "speed": 0.5,
+                "speed": 0.75,
                 "direction": "none",
                 "random": true,
                 "straight": false,
@@ -96,13 +96,13 @@ export function initParticles(){
                 "bubble": {
                     "distance": 300,
                     "size": 4,
-                    "duration": 5,
+                    "duration": 3,
                     "opacity": 8,
                     "speed": 5
                 },
                 "repulse": {
-                    "distance": 200,
-                    "duration": 2
+                    "distance": 250,
+                    "duration": 4
                 },
                 "push": {
                     "particles_nb": 1

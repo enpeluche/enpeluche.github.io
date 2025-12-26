@@ -1,64 +1,84 @@
-
-/* 1. L'animation de base (invisible au départ) */
-.fade-in-up {
-    opacity: 0; /* Caché par défaut */
-    transform: translateY(30px); /* Décalé vers le bas de 30px */
-    
-    /* L'animation : nom, durée, courbe de vitesse, et 'forwards' pour qu'il reste visible à la fin */
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Bonjour, je suis Lucas Petit */
+#intro{
+  z-index: 45;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-main section{
-  width: 100%;
-  max-width: 1500px;
+
+/*Bonjour, je suis*/
+#hello-world{
+  font-size: 1.5rem;
+  
+  z-index: 15;
+  color: var(--secondary-text-color);
+  text-transform: uppercase; color: var(--secondary-text-color);
+
 }
 
-/* 2. Les Keyframes (Le mouvement) */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-        backdrop-filter: blur(5px);
-    }
-    to {
-        opacity: 1;
-        backdrop-filter: blur(5px);
-        transform: translateY(0);
-    }
+/*Lucas Petit*/
+#profile-name{
+  font-size: clamp(3rem, 10vw, 6rem); 
+  line-height: 1.1;
+  text-align: center;
+  z-index: 11;
 }
 
-/* 3. Les Délais (C'est ça qui crée l'effet de cascade) */
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.3s; }
-.delay-3 { animation-delay: 0.45s; }
-.delay-4 { animation-delay: 0.6s; }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0);
+  
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);  
+}
+
 
 #profile-description{
+
   padding: 1rem;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 400;
+  font-size: 1rem;
   z-index: 10;
   text-align: justify;
 }
 
 
-#profile-name{
-  font-size: clamp(3rem, 10vw, 6rem); 
-  line-height: 1.1; /* Resserrer un peu l'interlignage */
-  text-align: center;
-  
-  z-index: 11;
+.profile-card {
+margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-#profile-picture{
-  width: 200px;
-  max-width: 80vw;
-  z-index: 13;
-  height: auto;
-  aspect-ratio: 1 / 1; 
-  object-fit: cover; /* Coupe l'image si nécessaire au lieu de l'écraser */
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--primary-border-color);
+/* La photo de profil */
+.profile-avatar {
+
+    width: 200px;
+    max-width: 80vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    
+    border-radius: 50%;
+    border: 2px solid var(--primary-border-color);
+    
+    z-index: 13;
+    margin-bottom: 1rem;
+}
+
+/* Le sous-titre (Master 2...) */
+.profile-subtitle {
+    color: var(--secondary-text-color);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+    padding-top: 0.5rem;
 }
 
 
@@ -75,20 +95,6 @@ main section{
   }
 }
 
-#hello-world{
-  font-size: 1.5rem;
-  
-  z-index: 15;
-  color: var(--secondary-text-color);
-  text-transform: uppercase; color: var(--secondary-text-color);
-
-}
-#eee{
-  z-index: 45;
-  margin-top: 4rem;
-  text-align: center;
-}
-
 
 
 .hero h2{
@@ -102,9 +108,9 @@ flex-direction: column;
 align-items: center;
 }
 
-#profile-description h3 {
+.about-title {
   text-transform: uppercase;
-  font-size: 0.9rem; /* Ou la taille que tu veux */
+  font-size: 1.4rem; /* Ou la taille que tu veux */
   font-weight: bold;
   color: #555; /* Un gris sombre fait souvent plus élégant que le noir pur */
   margin-bottom: 0.5rem; /* Remplace ton <br> par une vraie marge */
@@ -114,4 +120,36 @@ align-items: center;
 #profile-description p {
   margin: 0;
   line-height: 1.5; /* Aère le texte pour la lecture */
+}
+/* --- Classes spécifiques pour le bloc "À propos" --- */
+
+.about-container {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    width: 80%; 
+    margin: auto;
+}
+
+.about-title {
+    font-size: 1.6rem; 
+    text-align: center;
+    /* margin-bottom: 1rem;  <-- Décommente si tu veux aérer sous le titre */
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.mt-small {
+    margin-top: 0.5rem; /* Ton margin-top: 0.5rem réutilisable */
+}
+
+.expert-list {
+    padding-left: 2rem;
+    list-style-type: square;
+}
+
+.expert-list li::marker{
+  color: var(--secondary-text-color) !important;
 }
