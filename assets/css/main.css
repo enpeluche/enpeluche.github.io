@@ -11,7 +11,7 @@
 @import '04_components/icon.css';
 @import '04_components/inter.css';
 @import '04_components/references.css';
-@import '04_components/toc.css';
+
 
 @import '05_pages/algorithm.css';
 @import '05_pages/article.css';
@@ -31,3 +31,6 @@
 @import 'cv.css';
 @import 'blog.css';
 @import 'translate.css';
+
+
+@import '/components/TableOfContents/TableOfContents.css';

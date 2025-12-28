@@ -1,4 +1,4 @@
-import { loadTableOfContents } from './components/toc.js';
+import { loadTableOfContents } from '/components/TableOfContents/TableOfContents.js';
 import { setupKatex } from './lib/katex-config.js';
 import { loadFooter } from './components/footer.js';
 import { loadReferences } from './pages/references.js';
