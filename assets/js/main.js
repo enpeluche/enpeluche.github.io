@@ -1,38 +1,36 @@
-import { loadTableOfContents } from '/components/TableOfContents/TableOfContents.js';
-import { setupKatex } from './lib/katex-config.js';
-import { loadFooter } from './components/footer.js';
-import { loadReferences } from './pages/references.js';
-import { makeAlgorithm } from './pages/algorithm.js';
-import { makeArticle } from './pages/article.js';
-import { loadHeader } from './components/header.js';
-import { createNews } from './news.js';
-import { initCarousel } from './components/carousel.js';
-import { createProject } from './project.js';
-import { initDownScroll } from './scroll-down.js';
-import { initParticles } from './particles.js';
+import { loadTableOfContents } from "/components/TableOfContents/TableOfContents.js";
+import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 
-import { initBlog } from './blog.js';
+import { setupKatex } from "./lib/katex-config.js";
+import { loadFooter } from "./components/footer.js";
+import { loadReferences } from "./pages/references.js";
+import { makeAlgorithm } from "./pages/algorithm.js";
+import { makeArticle } from "./pages/article.js";
+import { loadHeader } from "./components/header.js";
+import { createNews } from "./news.js";
+import { initCarousel } from "./components/carousel.js";
+import { createProject } from "./project.js";
+import { initParticles } from "./particles.js";
 
+import { initBlog } from "./blog.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    setupKatex();
-    loadTableOfContents(); 
-    loadFooter();
-    loadHeader();
-    loadReferences();
-    makeAlgorithm();    
-    makeArticle();
-    createNews();
-    initCarousel();
-    createProject();
-    initDownScroll();
+  setupKatex();
+  loadTableOfContents();
+  initScrollDown();
+  loadFooter();
+  loadHeader();
+  loadReferences();
+  makeAlgorithm();
+  makeArticle();
+  createNews();
+  initCarousel();
+  createProject();
 
-    initBlog();
+  initBlog();
 
-
-    initParticles();
+  initParticles();
 });
-
 
 ///////////////////////////
 
@@ -55,7 +53,7 @@ window.addEventListener("scroll", () => {
   if (currentScrollY > lastScrollY && currentScrollY > 5) {
     header.classList.add("header-hidden"); // Hop, on le cache vers le haut
     headerr.classList.add("header-hidden");
-  } 
+  }
   // Si on remonte
   else if (currentScrollY < lastScrollY) {
     header.classList.remove("header-hidden"); // Hop, on le fait réapparaître
@@ -66,37 +64,34 @@ window.addEventListener("scroll", () => {
   lastScrollY = currentScrollY;
 });
 
-
-
 // 1. On sélectionne tous les éléments
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projects = document.querySelectorAll('.project');
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
 
 // 2. On ajoute un écouteur d'événement sur chaque bouton
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        
-        // A. Gérer la classe "active" sur les boutons (visuel)
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // A. Gérer la classe "active" sur les boutons (visuel)
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
 
-        // B. Récupérer la catégorie cliquée
-        const filterValue = button.getAttribute('data-filter');
+    // B. Récupérer la catégorie cliquée
+    const filterValue = button.getAttribute("data-filter");
 
-        // C. Filtrer les projets
-        projects.forEach(project => {
-            // On récupère les catégories du projet (ex: "cpp maths")
-            const projectCategories = project.getAttribute('data-category');
+    // C. Filtrer les projets
+    projects.forEach((project) => {
+      // On récupère les catégories du projet (ex: "cpp maths")
+      const projectCategories = project.getAttribute("data-category");
 
-            if (filterValue === 'all' || projectCategories.includes(filterValue)) {
-                // Si "Tout voir" OU si le projet a la catégorie correspondante
-                project.classList.remove('hide');
-                project.classList.add('show');
-            } else {
-                // Sinon, on cache
-                project.classList.add('hide');
-                project.classList.remove('show');
-            }
-        });
+      if (filterValue === "all" || projectCategories.includes(filterValue)) {
+        // Si "Tout voir" OU si le projet a la catégorie correspondante
+        project.classList.remove("hide");
+        project.classList.add("show");
+      } else {
+        // Sinon, on cache
+        project.classList.add("hide");
+        project.classList.remove("show");
+      }
     });
+  });
 });
