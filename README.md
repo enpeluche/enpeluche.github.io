@@ -11,6 +11,10 @@ Bienvenue ! Il s'agit de mon site personnel, conçu **from scratch** (de zéro) 
 
 Ce projet est le pilier de mon auto-formation. Lancé en **décembre**, il m'a permis de passer de la théorie à la pratique en construisant un site complet, performant et structuré.
 
+## 📅 Roadmap (Prochaines étapes)
+
+L'objectif est de finaliser la version stable pour la **première semaine** de **Janvier 2026**.
+
 ## Compétences acquises
 
 Au-delà du code pur, ce projet m'a permis de maîtriser l'environnement de développement professionnel :
@@ -70,6 +74,10 @@ Welcome! This is my personal website, built **from scratch** to showcase my proj
 ## Objective
 
 This project is the cornerstone of my self-education. Launched in **December**, it allowed me to move from theory to practice by building a complete, performant, and structured website.
+
+## 📅 Roadmap (Next steps)
+
+The goal is to finalise a stable version for the **first week** of **january 2026**.
 
 ## Acquired Skills
 
