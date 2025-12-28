@@ -2,31 +2,33 @@
   margin: 0;
   padding: 0;
 }
-
-ul, ol {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ul,
+ol {
   list-style-type: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--primary-text-color);
 }
 
-button{
+button {
   border: 0;
 }
 
-/* Applique la règle à TOUS les éléments du site */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-svg, svg::before, svg::after{
+svg,
+svg::before,
+svg::after {
   box-sizing: content-box;
 }
 
-.katex-display{
+.katex-display {
   overflow: hidden;
 
   overflow-x: scroll;
 }
-
