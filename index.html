@@ -791,83 +791,14 @@
                                 </a>
                             </div>
                         
-                        </div>
-                        <div class="project" data-category="web">
-                            <a href="https://github.com/ton-profil/js-habit-tracker" target="_blank">
-                        
-                                <div style="margin-bottom:1.5rem;" class="description">
-                                    <h3 data-i18n="project_habit_tracker_title">Habit Tracker App</h3>
-                                    <h4 data-i18n="project_habit_tracker_subtitle">Application web interactive de suivi d'habitudes et visualisation de données</h4>  
-                                </div>
-                        
-                                <div class="meta-grid">
-                                    <div>
-                                        <strong data-i18n="label_type" class="keyword-item">Type</strong>
-                                        <span>Web App (Front-End)</span>
-                                    </div>
-                                    <div>
-                                        <strong data-i18n="" class="keyword-item">Tech</strong>
-                                        <span>Vanilla JavaScript</span>
-                                    </div>
-                                </div>
-                        
-                                <div style="margin-bottom: 1.5rem;">
-                                    <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
-                                    Développement d'une application "Single Page" pour la gestion d'habitudes quotidiennes.
-                                    Implémentation de la logique métier en JavaScript pur (ES6+), manipulation dynamique du DOM pour l'interactivité, et système de persistance des données via le LocalStorage du navigateur. Visualisation graphique de la progression (streaks/constance).
-                                </div>
-                        
-                                <div>
-                                    <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp; Concepts</strong>
-                                
-                                    <span class="tech-tag">
-                                        JavaScript (ES6+)
-                                    </span>
-                        
-                                    <span class="tech-tag">
-                                        HTML5 / CSS3
-                                    </span>
-                                    
-                                    <span class="tech-tag">
-                                        LocalStorage
-                                    </span>
-                        
-                                    <span class="concept-tag">
-                                        DOM Manipulation
-                                    </span>
-                        
-                                    <span class="concept-tag">
-                                        Data Visualization
-                                    </span>
-                        
-                                    <span class="concept-tag">
-                                        UX / UI
-                                    </span>
-                                    
-                                    <span class="concept-tag">
-                                        Persistance de données
-                                    </span>
-                                </div>
-                            </a>
-                        
-                            <div style="
-                                width: 100%;
-                                text-align: center;
-                                font-weight: 500;
-                                margin-top: 15px;
-                            ">
-                                <a  class="hidden" title="Tester l'application" style="color: var(--secondary-text-color);" href="https://ton-profil.github.io/js-habit-tracker">
-                                    Voir la démo live<svg width="24" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>
-                                </a>
-                            </div>
-                        
-                        </div>
+                        </div>  
     
                         <!--afficher une belle fleche sur le bas en js si on est' pas en abs
     
                         faire FR EN en vrai, darkmode aussi
      -->
-                                       </div>        
+                                       </div>
+                                        
          
 <span id="acad" ></span>
                                        <h1 data-i18n="section_academic_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">Projets académiques</h1>
@@ -1195,29 +1126,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
         </script>
 
-        <script>
-            const observer = new IntersectionObserver((entries) => {
-  // 'entries' contient la liste des éléments qui viennent d'apparaître à l'écran
-  entries.forEach((entry, index) => {
+<script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          
+          // 1. On identifie le parent direct de l'élément visible
+          const parent = entry.target.parentElement;
+          
+          // 2. On récupère TOUS les éléments '.reveal' qui sont dans ce même parent
+          // Cela nous permet de savoir combien de "frères" il a
+          const siblings = parent.querySelectorAll('.reveal');
+          
+          // 3. On trouve le numéro (index) de notre élément actuel parmi ses frères
+          // Array.from() transforme la liste en tableau pour utiliser .indexOf()
+          const index = Array.from(siblings).indexOf(entry.target);
+          
+          // 4. On applique le délai basé sur sa position réelle dans le HTML
+          // Le 1er élément du bloc aura 0s, le 2ème 0.1s, etc.
+          entry.target.style.transitionDelay = `${index * 0.1}s`;
+          
+          entry.target.classList.add('active');
+          
+          // On arrête d'observer pour la performance
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
     
-    if (entry.isIntersecting) {
-      // C'est ici que la magie opère :
-      // On ajoute un délai inline directement en JS.
-      // Ex: 1er élément = 0s, 2ème = 0.2s, 3ème = 0.4s, etc.
-      entry.target.style.transitionDelay = `${index * 0.1}s`;
-      
-      entry.target.classList.add('active');
-      
-      // On arrête d'observer une fois l'anim lancée (pour la performance)
-      observer.unobserve(entry.target); 
-    }
-  });
-}, {
-  threshold: 0.1
-});
-
-const hiddenElements = document.querySelectorAll('.reveal');
-hiddenElements.forEach((el) => observer.observe(el));
-        </script>
+    const hiddenElements = document.querySelectorAll('.reveal');
+    hiddenElements.forEach((el) => observer.observe(el));
+    </script> 
     </body>
 </html>
