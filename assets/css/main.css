@@ -20,7 +20,7 @@
 @import "06_trumps/utils.css";
 
 @import "table.css";
-@import "news.css";
+
 @import "animation.css";
 @import "components/carousel.css";
 
@@ -33,4 +33,5 @@
 
 @import "/components/TableOfContents/TableOfContents.css";
 
-@import "/components/TableOfContents/Carousel.css";
+@import "/components/Carousel/Carousel.css";
+@import "/components/New/news.css";
