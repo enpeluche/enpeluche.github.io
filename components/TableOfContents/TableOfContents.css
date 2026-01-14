@@ -82,7 +82,6 @@
   opacity: 0;
   pointer-events: none; /* Non cliquable quand fermé  ca aussi*/
 
-  overflow: scroll;
   overflow-x: hidden;
 }
 
