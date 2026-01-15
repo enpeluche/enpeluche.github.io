@@ -70,19 +70,20 @@ LA CARTE PRINCIPALE (CONTENEUR)
 2. GRID COMPÉTENCES (Le cœur du sujet)
 ========================================= */
 .skills-grid {
- display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
  width: 100%;
- /* Magie : 2 colonnes sur PC, 1 sur mobile automatiquement */
- grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
- gap: 30px;
+
+  /*gap: 2rem;*/
  margin-bottom: 40px;
 }
 
 .skill-box {
-
+  margin: 0.5rem;
  padding: 20px;
  border-radius: 8px;
-
 }
 
 .skill-title {
