@@ -31,6 +31,7 @@
 
     <script data-goatcounter="https://enpeluche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+    <script defer src="/assets/js/translate.js"></script>
     <!-- ALL STYLESHEET -->
 
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -128,76 +129,75 @@
                     À propos de moi
                 </h3>
 
-                <p>
+                <p data-i18n="section_about_description">
                     Je conçois des systèmes logiciels <strong>critiques</strong>, <strong>prouvés</strong> et
-                    <strong>optimisés</strong>.Combinant informatique théorique et mathématiques, je transforme
+                    <strong>optimisés</strong>. Combinant informatique théorique et mathématiques, je transforme
                     l'abstraction complexe en code performant. Que ce soit en C++, OCaml ou Python, mon approche vise la
-                    robustesse absolue par l'usage de méthodesformelles.
+                    robustesse absolue par l'usage de méthodes formelles.
                 </p>
 
-                <p style="padding-top: 0.5rem;">
+                <p data-i18n="section_about_seeking" style="padding-top: 0.5rem;">
                     <strong>Ce que je cherche :</strong> Un rôle technique en Recherche Opérationnelle, Preuve Formelle
                     ou Cybersécurité.
                 </p>
 
-                <p style="padding-top: 0.5rem;">
+                <p data-i18n="expertise_intro" style="padding-top: 0.5rem;">
                     <strong>Mon expertise technique :</strong>
                 </p>
 
                 <ul class="expert-list">
-                    <li>
+                    <li data-i18n="skill_optimization">
                         <strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP),
                         Programmation par contraintes, Heuristiques & Métaheuristiques.
                     </li>
-                    <li>
+                    <li data-i18n="skill_safety_crypto">
                         <strong>Sûreté & Cryptographie :</strong> Méthodes formelles (Coq), Preuve de sécurité,
                         Protocoles cryptographiques.
                     </li>
-                    <li>
+                    <li data-i18n="skill_algorithms">
                         <strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée
                         (algorithmes en-ligne, distribués).
                     </li>
                 </ul>
             </div>
         </section>
-
         <section id="cv" style=" display: flex; flex-direction: column;">
-            <h1 data-i18n="section_skills_title" style="text-align: center; font-size: 3rem; padding: 2rem;"
-                class="reveal">
+            <h1 style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal"
+                data-i18n="skills_main_title">
                 Compétences
             </h1>
+
             <div class="skills-grid reveal">
                 <div class="skill-box glass-panel">
-                    <span class="skill-title">Optimisation & Modélisation</span>
+                    <span class="skill-title" data-i18n="skill_title_opti">Optimisation & Modélisation</span>
                     <ul class="skill-list">
-                        <li>Modélisation mathématique</li>
-                        <li>PLNE (MIP)</li>
-                        <li>Programmation par contraintes</li>
-                        <li>Heuristiques & Métaheuristiques</li>
+                        <li data-i18n="skill_detail_math">Modélisation mathématique</li>
+                        <li data-i18n="skill_detail_plne">PLNE (MIP)</li>
+                        <li data-i18n="skill_detail_constraints">Programmation par contraintes</li>
+                        <li data-i18n="skill_detail_heuristics">Heuristiques & Métaheuristiques</li>
                     </ul>
                 </div>
 
                 <div class="skill-box glass-panel">
-                    <span class="skill-title">Sûreté & Cryptographie</span>
+                    <span class="skill-title" data-i18n="skill_title_safety">Sûreté & Cryptographie</span>
                     <ul class="skill-list">
-                        <li>Méthodes formelles (Coq)</li>
-                        <li>Preuve de sécurité</li>
-                        <li>Protocoles cryptographiques</li>
+                        <li data-i18n="skill_detail_formal">Méthodes formelles (Coq)</li>
+                        <li data-i18n="skill_detail_proof">Preuve de sécurité</li>
+                        <li data-i18n="skill_detail_crypto">Protocoles cryptographiques</li>
                     </ul>
                 </div>
 
                 <div class="skill-box glass-panel reveal">
-                    <span class="skill-title">Algorithmique Avancée</span>
+                    <span class="skill-title" data-i18n="skill_title_algo">Algorithmique Avancée</span>
                     <ul class="skill-list">
-                        <li>Théorie des graphes avancée (algorithmes en-ligne, distribués)</li>
+                        <li data-i18n="skill_detail_graphs">Théorie des graphes avancée (algorithmes en-ligne,
+                            distribués)</li>
                     </ul>
                 </div>
 
                 <div class="skill-box glass-panel reveal">
-                    <span class="skill-title">Langages</span>
-
+                    <span class="skill-title" data-i18n="skill_title_languages">Langages</span>
                     <div style="display: flex;">
-
                     <ul class="skill-list">
                         <li>C/C++</li>
                         <li>Ocaml</li>
@@ -212,23 +212,22 @@
                 </div>
 
                 <div class="skill-box glass-panel reveal">
-                    <span class="skill-title">Logiciels & OS</span>
-
+                    <span class="skill-title" data-i18n="skill_title_software">Logiciels & OS</span>
                     <div style="padding: 1rem;" class="soft-skills">
-                        <span data-i18n="skill_scientific_rigor" class="tag">Git & GitHub</span>
-                        <span data-i18n="skill_curiosity" class="tag">VS Code</span>
-                        <span data-i18n="skill_creativity" class="tag">LaTeX</span>
-                        <span data-i18n="skill_teamwork" class="tag">Travail d'équipe</span>
-                        <span data-i18n="skill_pedagogy" class="tag">Linux</span>
-                        <span data-i18n="skill_problem_solving" class="tag">Résolution de problèmes</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">LaTeX</span>
+                    </div>
+                    <div style="padding: 1rem;" class="soft-skills">
+                        <span class="tag">Linux</span>
                     </div>
                 </div>
 
                 <div class="skill-box glass-panel reveal">
-                    <span class="skill-title">Langues</span>
+                    <span class="skill-title" data-i18n="skill_title_spoken_langs">Langues</span>
                     <ul class="skill-list">
-                        <li><strong>Anglais :</strong> C1 (Technique courant)</li>
-                        <li><strong>Français :</strong> Langue maternelle</li>
+                        <li data-i18n="lang_english"><strong>Anglais :</strong> C1 (Technique courant)</li>
+                        <li data-i18n="lang_french"><strong>Français :</strong> Langue maternelle</li>
                     </ul>
                 </div>
             </div>
@@ -247,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="download-section  reveal">
+            <div class="download-section reveal">
                 <a id="cv-link" target="_blank"
                     href="https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf"
                     download="CV_Noirot_Lucas.pdf" aria-label="Télécharger mon CV ! (PDF)" class="btn-cv">
@@ -260,18 +259,19 @@
         </section>
 
         <section style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <h1 data-i18n="" style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal">
+            <h1 data-i18n="contact_title" style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal">
                 Me Contacter
             </h1>
             <div class="glass-panel"
                 style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding: 1rem;">
 
                 <p class="reveal" style="font-size: 1.2rem;">
-                    <strong style="color: #8a2be2; margin-bottom: 1rem;"> Jeune diplômé en quête de défis
+                    <strong data-i18n="contact_tagline" style="color: #8a2be2; margin-bottom: 1rem;"> Jeune diplômé en
+                        quête de défis
                         techniques.</strong>
                 </p>
 
-                <p class="reveal" style="margin-bottom: 1.5rem; line-height: 1.6;">
+                <p data-i18n="contact_description" class="reveal" style="margin-bottom: 1.5rem; line-height: 1.6;">
                     À la recherche de ma <strong>première opportunité en CDI</strong> en tant qu'Ingénieur R&D.
                     Je souhaite rejoindre une équipe ambitieuse pour concevoir des solutions fiables en
                     <strong>Optimisation</strong>, <strong>Méthodes Formelles</strong> ou
@@ -279,11 +279,16 @@
                 </p>
                 <div class="reveal"
                     style="border-top: 1px solid var(--primary-border-color); display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem; ">
-                    <strong class="about-title" style="margin-top: 1rem; margin-bottom: 1rem;"> Disponibilité </strong>
-                    <br>Février
-                    2026
+                    <strong data-i18n="contact_availability_label class=" about-title"
+                        style="margin-top: 1rem; margin-bottom: 1rem;">
+                        Disponibilité </strong>
                     <br>
-                    <em style="font-size: 0.9rem;">(Ouvert aux échanges et entretiens dès aujourd'hui)</em>
+
+                    <span data-i18n="contact_availability_date">Février
+                        2026</span>
+                    <br>
+                    <em style="font-size: 0.9rem;" data-i18n="contact_availability_note">(Ouvert aux échanges et
+                        entretiens dès aujourd'hui)</em>
                 </div>
             </div>
             <div class="contact-container reveal">
@@ -933,141 +938,6 @@
 
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
         <script type="module" src="/assets/js/main.js"></script>
-
-        <script>
-            const cvLink = document.getElementById('cv-link'); // On récupère le lien
-
-            const traductions = {
-                fr: {
-                    project_crypto_subtitle: "Implémentation d'un protocole de chiffrement post-quantique et attaque par réduction",
-                    project_portfolio_subtitle: "Développement d'une interface web responsive 'from scratch'",
-                    project_raytracer_subtitle: "Génération d'images 3D par simulation physique de la lumière",
-                    project_multiplayer_game_subtitle: "Architecture Client-Serveur et protocole de communication custom",
-                    project_diff_calc_subtitle: "Rédaction intégrale d'un manuel universitaire (100+ pages)",
-                    project_fractals_subtitle: "Visualisation d'ensembles mathématiques complexes via la récursivité",
-                    project_habit_tracker_subtitle: "Application web interactive de suivi d'habitudes et visualisation de données",
-                    project_lattice_reduction_subtitle: "Adaptations d’idées provenant du cas polynomial au cas entier",
-                    project_beckett_gray_subtitle: "Implémentation, heuristiques et analyses de graphes",
-                    project_weyl_transform_subtitle: "Une transformée de Fourier non commutative",
-                    project_close_packing_subtitle: "Étude de l'inégalité isopérimétrique et simulations",
-                    btn_download_cv: "Télécharger mon CV (PDF)",
-                    btn_contact_me: "Me Contacter",
-                    status_availability: "Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.",
-                    section_soft_skills_title: "Qualités Humaines",
-                    skill_scientific_rigor: "Rigueur scientifique",
-                    skill_curiosity: "Curiosité",
-                    skill_teamwork: "Travail d'équipe",
-                    skill_pedagogy: "Pédagogie",
-                    skill_problem_solving: "Résolution de problèmes",
-                    skill_creativity: "Créativité",
-                    btn_view_project: "Découvrir en détail le projet",
-                    label_context: "Contexte",
-                    label_language: "Langage",
-                    label_summary: "Résumé",
-                    label_field: "Domaine",
-                    label_period: "Période",
-                    label_core: "Cœur",
-                    label_tech_concepts: "Technologies & Concepts",
-                    label_type: "Type",
-                    project_crypto_title: "Cryptosystème & Cryptanalyse",
-                    project_portfolio_title: "Portfolio Personnel",
-                    project_raytracer_title: "Moteur de Ray Tracing",
-                    project_multiplayer_game_title: "Jeu Multijoueur en Réseau",
-                    project_diff_calc_title: "Cours de Calcul Différentiel",
-                    project_fractals_title: "Générateur de Fractales Interactif",
-                    project_habit_tracker_title: "Habit Tracker App",
-                    project_lattice_reduction_title: "Réduction de réseaux",
-                    project_beckett_gray_title: "Codes de Beckett-Gray",
-                    project_weyl_transform_title: "La transformation de Weyl",
-                    project_close_packing_title: "Empilement compact",
-                    section_skills_title: "Compétences",
-                    section_dev_projects_title: "Projets de développement",
-                    section_academic_projects_title: "Projets académiques",
-                    section_projects_title: "Projets",
-                    projects_category_dev: "Développement",
-                    projects_category_academic: "Académiques",
-                    welcome: "Bonjour, je suis",
-                    education_master_degree: "Titulaire d'un Master 2 en Algorithmie & Mathématiques.",
-                    section_about_title: "À propos de moi",
-                    about_description: "Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées."
-                },
-                en: {
-                    project_crypto_subtitle: "Implementation of a post-quantum encryption protocol and reduction attack",
-                    project_portfolio_subtitle: "Development of a responsive web interface from scratch",
-                    project_raytracer_subtitle: "3D image generation via physical light simulation",
-                    project_multiplayer_game_subtitle: "Client-Server architecture and custom communication protocol",
-                    project_diff_calc_subtitle: "Full authorship of a university textbook (100+ pages)",
-                    project_fractals_subtitle: "Visualization of complex mathematical sets via recursion",
-                    project_habit_tracker_subtitle: "Interactive habit tracking web application and data visualization",
-                    project_lattice_reduction_subtitle: "Adaptation of ideas from the polynomial case to the integer case",
-                    project_beckett_gray_subtitle: "Implementation, heuristics, and graph analysis",
-                    project_weyl_transform_subtitle: "A non-commutative Fourier transform",
-                    project_close_packing_subtitle: "Study of the isoperimetric inequality and simulations",
-                    btn_download_cv: "Download my CV (PDF)",
-                    btn_contact_me: "Contact Me",
-                    status_availability: "Available immediately for R&D or complex engineering projects.",
-                    section_soft_skills_title: "Soft Skills",
-                    skill_scientific_rigor: "Scientific Rigor",
-                    skill_curiosity: "Curiosity",
-                    skill_teamwork: "Teamwork",
-                    skill_pedagogy: "Pedagogy",
-                    skill_problem_solving: "Problem Solving",
-                    skill_creativity: "Creativity",
-                    btn_view_project: "View Project Details",
-                    label_context: "Context",
-                    label_language: "Language",
-                    label_summary: "Summary",
-                    label_field: "Field",
-                    label_period: "Period",
-                    label_core: "Core",
-                    label_tech_concepts: "Technologies & Concepts",
-                    label_type: "Type",
-                    project_crypto_title: "Cryptosystem & Cryptanalysis",
-                    project_portfolio_title: "Personal Portfolio",
-                    project_raytracer_title: "Ray Tracing Engine",
-                    project_multiplayer_game_title: "Networked Multiplayer Game",
-                    project_diff_calc_title: "Differential Calculus Course",
-                    project_fractals_title: "Interactive Fractal Generator",
-                    project_habit_tracker_title: "Habit Tracker App",
-                    project_lattice_reduction_title: "Lattice Reduction",
-                    project_beckett_gray_title: "Beckett-Gray Codes",
-                    project_weyl_transform_title: "The Weyl Transform",
-                    project_close_packing_title: "Close-Packing",
-                    section_skills_title: "Skills",
-                    section_dev_projects_title: "Development Projects",
-                    section_academic_projects_title: "Academic Projects",
-                    section_projects_title: "Projects",
-                    projects_category_dev: "Development",
-                    projects_category_academic: "Academic",
-                    welcome: "Hello, I am",
-                    education_master_degree: "Master's Degree in Algorithmics & Mathematics.",
-                    section_about_title: "About Me",
-                    about_description: "Blending theoretical computer science with mathematics, I transform complex abstractions into concrete, high-performance, and rigorously optimized software solutions."
-                }
-            };
-
-            function changerLangue(langue) {
-                document.querySelectorAll('[data-i18n]').forEach(element => {
-                    const cle = element.getAttribute('data-i18n');
-                    element.textContent = traductions[langue][cle];
-                });
-            }
-
-            document.addEventListener("DOMContentLoaded", () => {
-
-                document.getElementById('lang-toggle').addEventListener('change', function () {
-                    if (this.checked) {
-                        cvLink.href = "https://raw.githubusercontent.com/enpeluche/resume/main/dist/en/CV_Lucas_Noirot-Petit.pdf";
-                        cvLink.setAttribute('download', 'CV_Lucas_Noirot-Petit.pdf');
-                        changerLangue('en');
-                    } else {
-                        cvLink.href = "https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf";
-                        cvLink.setAttribute('download', 'CV_Lucas_Noirot-Petit.pdf');
-                        changerLangue('fr');
-                    }
-                });
-            });
-        </script>
 
         <script>
             const observer = new IntersectionObserver((entries) => {

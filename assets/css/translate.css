@@ -1,52 +1,45 @@
-/* On cache le moteur */
-/* 1. On cache la checkbox */
-.lang-check { display: none; }
+.lang-check {
+  display: none;
+}
 
-/* 2. Le Conteneur (La piste grise) */
 .lang-label {
-    display: flex;             /* Pour aligner FR et EN */
-    align-items: center;
-    justify-content: space-between;
-    
-    width: 80px;               /* Largeur totale */
-    height: 30px;
-    background-color: #eee;    /* Fond gris clair */
-    border-radius: 30px;
-    position: relative;        /* Référence pour le curseur */
-    cursor: pointer;
-    padding: 0 5px;            /* Un peu d'espace sur les bords */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); /* Petite ombre intérieure */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80px;
+  height: 30px;
+  background-color: #eee;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  padding: 0 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 3. Le Curseur (La "bille" qui est devenue un rectangle arrondi) */
 .slider {
-    position: absolute;
-    top: 2px; 
-    left: 2px;                 /* Départ à gauche (sur FR) */
-    width: 38px;               /* Environ la moitié moins les marges */
-    height: 26px;
-    background-color: white;
-    border-radius: 20px;
-    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Animation fluide */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 0;                /* IL EST EN DESSOUS DU TEXTE */
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 38px;
+  height: 26px;
+  background-color: white;
+  border-radius: 20px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 0;
 }
 
-/* 4. Le Texte (FR / EN) */
 .lang-text {
-    z-index: 1;                /* IL EST AU-DESSUS DU CURSEUR */
-    font-size: 12px;
-    font-weight: bold;
-    width: 50%;                /* Chacun prend la moitié */
-    text-align: center;
-    color: #555;
-    user-select: none;         /* Empêche de sélectionner le texte */
+  z-index: 1;
+  font-size: 12px;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+  color: #555;
+  user-select: none;
 }
 
-/* --- L'ANIMATION --- */
-
-/* Quand c'est coché, le curseur glisse à droite */
 .lang-check:checked + .lang-label .slider {
-    transform: translateX(38px); /* On le pousse vers EN */
+  transform: translateX(38px);
 }
- 
