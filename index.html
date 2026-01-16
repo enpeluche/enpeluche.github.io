@@ -198,12 +198,12 @@
                 <div class="skill-box glass-panel reveal">
                     <span class="skill-title" data-i18n="skill_title_languages">Langages</span>
                     <div style="display: flex;">
-                    <ul class="skill-list">
-                        <li>C/C++</li>
-                        <li>Ocaml</li>
-                        <li>Python, SageMath</li>
-                        <li>Java</li>
-                    </ul>
+                        <ul class="skill-list">
+                            <li>C/C++</li>
+                            <li>Ocaml</li>
+                            <li>Python, SageMath</li>
+                            <li>Java</li>
+                        </ul>
                         <ul class="skill-list">
                             <li>Rust</li>
                             <li>HTML/CSS/JS</li>
@@ -374,12 +374,12 @@
 
                         <div style="margin-bottom: 1.5rem;">
                             <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
-                            <p>
-                                Développement d'un protocole de chiffrement asymétrique basé sur la dureté des problèmes
-                                de réseaux euclidiens (SVP/CVP). Mise en œuvre d'une attaque par cryptanalyse :
-                                utilisation d'algorithmes de réduction de base (type LLL/BKZ) pour tenter de casser la
-                                clé privée et évaluer la robustesse du système.
-                            </p>
+
+                            Développement d'un protocole de chiffrement asymétrique basé sur la dureté des problèmes
+                            de réseaux euclidiens (SVP/CVP). Mise en œuvre d'une attaque par cryptanalyse :
+                            utilisation d'algorithmes de réduction de base (type LLL/BKZ) pour tenter de casser la
+                            clé privée et évaluer la robustesse du système.
+
                         </div>
 
                         <div>
@@ -709,11 +709,9 @@
         <span id="acad"></span>
         <section>
             <h1 data-i18n="section_academic_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">
-                Projets
-                académiques</h1>
+                Projets académiques</h1>
 
             <div class="project-grid reveal">
-
                 <div class="project">
                     <a href="/academic-works/reduction-reseaux/" style="text-decoration: none; color: inherit;">
                         <div style="margin-bottom:1.5rem;" class="description">
@@ -724,47 +722,56 @@
 
                         <div class="meta-grid">
                             <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
-                                <span>Stage académique (M2)</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                                    </path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>
+                                <span style="font-size: 0.9rem;">Stage académique (M2)</span>
                             </div>
                             <div>
-                                <strong data-i18n="label_period" class="keyword-item">Période</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+
                                 <span>Février 2025 - Juin 2025</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
 
                             Étude et adaptation d'algorithmes de réduction de réseaux (type LLL/BKZ) du contexte des
-                            polynômes
-                            vers celui des entiers.
+                            polynômes vers celui des entiers.
                             Travail de recherche incluant l'implémentation de prototypes en <strong>Python</strong> et
                             <strong>SageMath</strong> pour analyser la complexité algorithmique et la stabilité
-                            numérique des
-                            nouvelles variantes proposées.
+                            numérique des nouvelles variantes.
 
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
+                        <div style="padding-bottom: 0.5rem;">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">LaTeX</span>
                             <span class="tech-tag">SageMath</span>
                             <span class="concept-tag">Algorithmique</span>
-                            <span class="concept-tag">Réduction de réseau</span>
                             <span class="concept-tag">Algèbre linéaire</span>
                         </div>
                     </a>
 
                     <div class="project-footer">
                         <a title="Découvrir en détail le projet"
-                            style=" display: flex; fill:var(--secondary-text-color);"
+                            style="font-size: 0.9rem; display: flex; fill:var(--secondary-text-color);"
                             href="https://enpeluche.github.io/lattice-reduction-internship/">
 
-                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24"
-                                viewBox="0 0 24 24">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
 
@@ -783,17 +790,30 @@
 
                         <div class="meta-grid">
                             <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                                    </path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>
                                 <span>Mémoire (M1)</span>
                             </div>
                             <div>
-                                <strong data-i18n="label_period" class="keyword-item">Période</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
                                 <span>Janvier 2024 - Mai 2024</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
 
                             Recherche de codes de Gray sans "flip" (Beckett-Gray) sur des graphes complexes.
                             Développement de solvers performants en <strong>C++</strong> (Backtracking et Heuristiques)
@@ -804,15 +824,12 @@
 
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
+                        <div style="padding-bottom: 0.5rem;">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">LaTeX</span>
                             <span class="concept-tag">Théorie des graphes</span>
                             <span class="concept-tag">Heuristique</span>
-                            <span class="concept-tag">Optimisation Combinatoire</span>
                         </div>
                     </a>
                     <div class="project-footer">
@@ -838,17 +855,19 @@
 
                         <div class="meta-grid">
                             <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                                    </path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>
                                 <span>Projet de Recherche (L3)</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_field" class="keyword-item">Domaine</strong>
-                                <span>Analyse Fonctionnelle</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
 
                             Étude approfondie de la quantification de Weyl et de ses propriétés harmoniques.
                             Rédaction d'un mémoire de synthèse liant l'analyse fonctionnelle mathématique aux
@@ -857,12 +876,10 @@
 
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &Concepts</strong>
+                        <div style="padding-bottom: 0.5rem;">
                             <span class="tech-tag">LaTeX</span>
                             <span class="concept-tag">Transformée de Fourier</span>
                             <span class="concept-tag">Mécanique quantique</span>
-                            <span class="concept-tag">Analyse harmonique</span>
                         </div>
                     </a>
 
@@ -889,17 +906,19 @@
 
                         <div class="meta-grid">
                             <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                                    </path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>
                                 <span>Projet Académique</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_language" class="keyword-item">Langage</strong>
-                                <span>Java</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
 
                             Analyse géométrique du problème de l'empilement optimal (Sphere Packing).
                             Étude des bornes de densité via l'inégalité isopérimétrique et développement de simulations
@@ -908,9 +927,7 @@
 
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &
-                                Concepts</strong>
+                        <div style="padding-bottom: 0.5rem;">
                             <span class="tech-tag">Java</span>
                             <span class="concept-tag">Analyse</span>
                             <span class="concept-tag">Géométrie</span>
