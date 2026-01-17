@@ -15,7 +15,7 @@
 @import "05_pages/algorithm.css";
 @import "05_pages/article.css";
 @import "05_pages/homepage.css";
-@import "05_pages/project.css";
+@import "/components/Project/Project.css";
 
 @import "06_trumps/utils.css";
 
