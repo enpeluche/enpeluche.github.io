@@ -12,7 +12,8 @@
 @import "04_components/inter.css";
 @import "04_components/references.css";
 
-@import "05_pages/algorithm.css";
+@import "/components/Algorithm/Algorithm.css";
+
 @import "05_pages/article.css";
 @import "05_pages/homepage.css";
 @import "/components/Project/Project.css";

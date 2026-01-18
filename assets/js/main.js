@@ -2,15 +2,16 @@ import { loadTableOfContents } from "/components/TableOfContents/TableOfContents
 import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 import { initCarousel } from "/components/Carousel/Carousel.js";
 import { createNews } from "/components/News/News.js";
+import { createProject } from "/components/Project/Project.js";
+import { makeAlgorithm } from "/components/Algorithm/Algorithm.js";
 
 import { setupKatex } from "./lib/katex-config.js";
 import { loadFooter } from "./components/footer.js";
 import { loadReferences } from "./pages/references.js";
-import { makeAlgorithm } from "./pages/algorithm.js";
+
 import { makeArticle } from "./pages/article.js";
 import { loadHeader } from "./components/header.js";
 
-import { createProject } from "./project.js";
 import { initParticles } from "./particles.js";
 
 import { initBlog } from "./blog.js";
