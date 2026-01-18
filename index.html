@@ -328,21 +328,62 @@
         </section>
 
 
-        <!--
-                    Ingénieur R&D en Algorithmique & Mathématiques Appliquées" Sous-titre : Spécialisé en Méthodes Formelles, Optimisation et Cryptographie.
-                    INGÉNIEUR ALGORITHMIQUE & SÉCURITÉ
-                    Sous-titre : À la recherche d'opportunités en Recherche Opérationnelle, Preuve Formelle (Coq) ou Cybersécurité.
-                
-               je cherche à rejoindre une équipe technique ambitieuse pour résoudre des problèmes d'optimisation ou de sécurité critique.
-                    je recherche ...   -->
+
+        <style>
+            .section-title {
+                text-align: center;
+                font-size: 3rem;
+                padding: 2rem;
+            }
+
+            .tag-wrapper {
+                padding-bottom: 0.5rem;
+            }
+
+            .project-card-description {
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+                line-height: 1.2;
+            }
+
+
+            .details {
+                padding-top: 0.5rem;
+                font-size: 0.9rem;
+                color: var(--secondary-text-color);
+                text-decoration: none;
+                transition: color 0.2s ease, text-decoration 0.2 ease;
+                border-top: 1px solid var(--secondary-text-color);
+
+                display: flex;
+                fill: var(--secondary-text-color);
+
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+
+            .project:hover .details {
+                text-decoration: underline;
+            }
+
+            .description {
+                margin-bottom: 1rem;
+            }
+        </style>
+
+
 
         <span id="dev"></span>
+
+
+
+
+
         <section id="projects">
-            <h1 data-i18n="section_dev_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">
-                Projets
-                personnels
-            </h1>
-            <div class="filter-container reveal">
+            <h1 data-i18n="section_dev_projects_title" class="section-title">Projets personnels</h1>
+
+            <div class="hidden filter-container reveal">
                 <button class="filter-btn active" data-filter="all">Tout voir</button>
                 <button class="filter-btn" data-filter="cpp">C++</button>
                 <button class="filter-btn" data-filter="web">HTML / CSS / JS</button>
@@ -351,41 +392,33 @@
             </div>
 
             <div class="project-grid reveal">
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="cpp">
                     <a href="https://github.com/ton-profil/cpp-lattice-crypto" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_crypto_title">Cryptosystème & Cryptanalyse</h3>
-                            <h4 data-i18n="project_crypto_subtitle">Implémentation d'un protocole de chiffrement
-                                post-quantique
-                                et attaque par réduction</h4>
+                        <div class="description">
+                            <h3 data-i18n="crypto_title">Cryptosystème & Cryptanalyse</h3>
+                            <h4 data-i18n="crypto_subtitle">Implémentation et analyse d'un protocole de
+                                chiffrement post-quantique</h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="label_field" class="keyword-item">Domaine</strong>
-                                <span>Cybersécurité / R&D</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_core" class="keyword-item">Cœur</strong>
-                                <span>C++ & Maths Appliquées</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Cybersécurité / R&D</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
-
+                        <div class="project-card-description">
                             Développement d'un protocole de chiffrement asymétrique basé sur la dureté des problèmes
                             de réseaux euclidiens (SVP/CVP). Mise en œuvre d'une attaque par cryptanalyse :
                             utilisation d'algorithmes de réduction de base (type LLL/BKZ) pour tenter de casser la
                             clé privée et évaluer la robustesse du système.
-
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
-
+                        <div class="tag-wrapper">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Algèbre Linéaire</span>
                             <span class="concept-tag">Cryptographie</span>
@@ -396,55 +429,43 @@
                         </div>
                     </a>
 
-                    <div style="
-                                        width: 100%;
-                                        text-align: center;
-                                        font-weight: 500;
-                                        margin-top: 15px;
-                                    ">
-                        <a class="hidden" title="Voir le code et l'attaque" style="color: var(--secondary-text-color);"
-                            href="https://github.com/ton-profil/cpp-lattice-crypto">
-                            Voir l'implémentation<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
 
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="web">
                     <a href="https://ton-site.github.io" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_portfolio_title">Portfolio Personnel</h3>
-                            <h4 data-i18n="project_portfolio_subtitle">
+                        <div class="description">
+                            <h3 data-i18n="portfolio_title">Portfolio Personnel</h3>
+                            <h4 data-i18n="portfolio_subtitle">
                                 Développement d'une interface web responsive
-                                "from
-                                scratch"</h4>
+                                "from scratch"</h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
-                                <span>Projet Personnel</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_period" class="keyword-item">Période</strong>
-                                <span>Décembre 2025</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Projet Personnel</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div class="project-card-description">
                             Conception et implémentation d'une vitrine numérique pour exposer mes travaux, projets, blog
-                            et CV.
-                            Architecture modulaire sans framework, optimisation des performances
-                            <!--(Score Lighthouse 100%)-->
-                            et design adaptatif mobile-first.
+                            et CV. Architecture modulaire sans framework, optimisation des performances et design
+                            adaptatif mobile-first.
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
+                        <div class="tag-wrapper">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
@@ -455,53 +476,47 @@
                         </div>
                     </a>
 
-                    <div style="
-                                        width: 100%;
-                                        text-align: center;
-                                        font-weight: 500;
-                                        margin-top: 15px;
-                                    ">
-                        <a class="hidden" title="Voir le code source" style="color: var(--secondary-text-color);"
-                            href="https://github.com/ton-profil/portfolio-repo">
-                            Voir le code source<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
 
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="maths python">
                     <a href="https://github.com/ton-profil/ray-tracing-python" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_raytracer_title">Moteur de Ray Tracing</h3>
-                            <h4 data-i18n="project_raytracer_subtitle">
+                        <div class="description">
+                            <h3 data-i18n="raytracer_title">Moteur de Ray Tracing</h3>
+                            <h4 data-i18n="raytracer_subtitle">
                                 Génération d'images 3D par simulation physique de la lumière
                             </h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
-                                <span>Projet Universitaire (Univ. de Bourgogne)</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Projet Universitaire </span>
                             </div>
-                            <div>
-                                <strong data-i18n="label_type" class="keyword-item">Type</strong>
-                                <span>Implémentation "From Scratch"</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Implémentation "From Scratch"</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div class="project-card-description">
                             Exploration et implémentation d'algorithmes de lancer de rayons (Ray Tracing) pour le rendu
-                            de scènes 3D.
-                            Développement du moteur physique pour calculer les intersections rayons-objets, les ombres
-                            et la réflexion de la lumière sans moteur graphique externe.
+                            de scènes 3D. Développement du moteur physique pour calculer les intersections
+                            rayons-objets, les ombres et la réflexion de la lumière sans moteur graphique externe.
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
+                        <div class="tag-wrapper">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">NumPy</span>
                             <span class="tech-tag">POO</span>
@@ -512,25 +527,23 @@
                         </div>
                     </a>
 
-                    <div style="
-                                width: 100%;
-                                text-align: center;
-                                font-weight: 500;
-                                margin-top: 15px;
-                             ">
-                        <a class="hidden" title="Voir le code du Ray Tracer" style="color: var(--secondary-text-color);"
-                            href="https://github.com/ton-profil/ray-tracing-python">
-                            Voir le code source<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
 
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="cpp maths">
                     <a href="https://github.com/ton-profil/cpp-network-game" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
+                        <div class="description">
                             <h3 data-i18n="project_multiplayer_game_title">Jeu Multijoueur en Réseau</h3>
                             <h4 data-i18n="project_multiplayer_game_subtitle">Architecture Client-Serveur et protocole
                                 de communication custom
@@ -538,27 +551,19 @@
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="label_type" class="keyword-item">Type</strong>
-                                <span>Application Réseau / Système</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_language" class="keyword-item">Langage</strong>
-                                <span>C++ (Sockets Berkeley)</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Application Réseau / Système</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
-                            Développement d'un moteur de jeu multijoueur en temps réel (LAN).
-                            Conception d'un protocole de communication binaire/texte propriétaire pour la
-                            synchronisation des
-                            états de jeu. Gestion des sockets (TCP/IP), des connexions entrantes et de la sérialisation
-                            des données.
+                        <div class="project-card-description">
+                            Développement d'un moteur de jeu multijoueur en temps réel (LAN). Conception d'un protocole
+                            de communication binaire/texte propriétaire pour la synchronisation des états de jeu.
+                            Gestion des sockets (TCP/IP), des connexions entrantes et de la sérialisation des données.
                         </div>
 
-                        <div>
-                            <strong data-i18n="" class="keyword-item">Compétences Clés</strong>
+                        <div class="tag-wrapper">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Sockets API</span>
                             <span class="tech-tag">TCP/IP</span>
@@ -569,26 +574,23 @@
                         </div>
                     </a>
 
-                    <div style="
-                                        width: 100%;
-                                        text-align: center;
-                                        font-weight: 500;
-                                        margin-top: 15px;
-                                    ">
-                        <a class="hidden" title="Voir l'implémentation réseau"
-                            style="color: var(--secondary-text-color);"
-                            href="https://github.com/ton-profil/cpp-network-game">
-                            Voir le code source<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
 
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="maths">
                     <a href="fichiers/cours-calcul-diff.pdf" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
+                        <div class="description">
                             <h3 data-i18n="project_diff_calc_title">Cours de Calcul Différentiel</h3>
                             <h4 data-i18n="project_diff_calc_subtitle">Rédaction intégrale d'un manuel universitaire
                                 (100+
@@ -596,25 +598,23 @@
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="" class="keyword-item">Format</strong>
-                                <span>Polycopié / Livre</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Polycopié / Livre</span>
                             </div>
-                            <div>
-                                <strong data-i18n="" class="keyword-item">Rôle</strong>
-                                <span>Auteur & Éditeur</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Auteur & Éditeur</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div class="project-card-description">
                             Création d'un support pédagogique complet destiné aux étudiants de Licence/Prépas.
                             Structuration progressive des concepts, création de figures vectorielles (TikZ) et mise en
                             page via LaTeX.
                         </div>
 
-                        <div>
-                            <strong data-i18n="" class="keyword-item">Compétences Clés</strong>
+                        <div class="tag-wrapper">
                             <span class="tech-tag">LaTeX</span>
                             <span class="tech-tag">TikZ (Graphisme)</span>
                             <span class="concept-tag">Pédagogie</span>
@@ -624,26 +624,24 @@
                         </div>
                     </a>
 
-                    <div style="
-                                        width: 100%;
-                                        text-align: center;
-                                        font-weight: 500;
-                                        margin-top: 15px;
-                                    ">
-                        <a class="hidden" title="Lire un extrait" style="color: var(--secondary-text-color);"
-                            href="fichiers/cours-calcul-diff.pdf" target="_blank">
-                            📄 Télécharger / Lire le cours<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
-
                 </div>
+
                 <!-- idee : banque d images pour chaaques projet's-->
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project" data-category="maths java">
                     <a href="https://github.com/ton-profil/java-fractals" target="_blank">
 
-                        <div style="margin-bottom:1.5rem;" class="description">
+                        <div class="description">
                             <h3 data-i18n="project_fractals_title">Générateur de Fractales Interactif</h3>
                             <h4 data-i18n="project_fractals_subtitle">Visualisation d'ensembles mathématiques complexes
                                 via la
@@ -651,28 +649,19 @@
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <strong data-i18n="label_context" class="keyword-item">Contexte</strong>
-                                <span>Projet Universitaire (Licence 2)</span>
-                            </div>
-                            <div>
-                                <strong data-i18n="label_language" class="keyword-item">Langage</strong>
-                                <span>Java (POO)</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Projet Universitaire (Licence 2)</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1.5rem;">
-                            <strong data-i18n="label_summary" class="keyword-item">Résumé</strong>
+                        <div class="project-card-description">
                             Conception d'une application graphique pour générer et explorer des structures fractales
-                            (ex:
-                            Ensemble de Mandelbrot, Julia, Sierpinski).
-                            Utilisation intensive d'algorithmes récursifs et gestion de l'interface utilisateur (zoom,
-                            paramètres en temps réel) en Java.
+                            (ex: Ensemble de Mandelbrot, Julia, Sierpinski). Utilisation intensive d'algorithmes
+                            récursifs et gestion de l'interface utilisateur (zoom, paramètres en temps réel) en Java.
                         </div>
 
-                        <div>
-                            <strong data-i18n="label_tech_concepts" class="keyword-item">Technologies &amp;
-                                Concepts</strong>
+                        <div class="tag-wrapper">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Swing / JavaFX</span>
                             <span class="tech-tag">POO</span>
@@ -683,80 +672,55 @@
                         </div>
                     </a>
 
-                    <div style="
-                                        width: 100%;
-                                        text-align: center;
-                                        font-weight: 500;
-                                        margin-top: 15px;
-                                    ">
-                        <a class="hidden" title="Voir le code Java" style="color: var(--secondary-text-color);"
-                            href="https://github.com/ton-profil/java-fractals">
-                            Voir le code source<svg width="24" viewBox="0 0 24 24">
+                    <div class="project-footer">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-                        </a>
+                        </span>
                     </div>
 
                 </div>
-
-                <!--afficher une belle fleche sur le bas en js si on est' pas en abs
-            
-                                faire FR EN en vrai, darkmode aussi
-             -->
             </div>
         </section>
 
         <span id="acad"></span>
         <section>
-            <h1 data-i18n="section_academic_projects_title" style="text-align: center; font-size: 3rem; padding: 2rem;">
-                Projets académiques</h1>
+            <h1 data-i18n="section_academic_projects_title" class="section-title">Projets académiques</h1>
 
-            <div class="project-grid reveal">
+            <div class="project-grid">
+
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project">
-                    <a href="/academic-works/reduction-reseaux/" style="text-decoration: none; color: inherit;">
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_lattice_reduction_title">Réduction de réseaux</h3>
-                            <h4 data-i18n="project_lattice_reduction_subtitle">Adaptations d’idées provenant du cas
+                    <a href="https://enpeluche.github.io/lattice-reduction-internship/">
+                        <div class=" description">
+                            <h3 data-i18n="lattice_reduction_title">Réduction de réseaux</h3>
+                            <h4 data-i18n="lattice_reduction_subtitle">Adaptations d’idées provenant du cas
                                 polynomial au cas entier</h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                                    </path>
-                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                                </svg>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
                                 <span style="font-size: 0.9rem;">Stage académique (M2)</span>
                             </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <calendar-icon></calendar-icon>
 
-                                <span>Février 2025 - Juin 2025</span>
+                                <span style="font-size: 0.9rem;">Février 2025 - Juin 2025</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
-
+                        <div class="project-card-description">
                             Étude et adaptation d'algorithmes de réduction de réseaux (type LLL/BKZ) du contexte des
-                            polynômes vers celui des entiers.
-                            Travail de recherche incluant l'implémentation de prototypes en <strong>Python</strong> et
-                            <strong>SageMath</strong> pour analyser la complexité algorithmique et la stabilité
-                            numérique des nouvelles variantes.
-
+                            polynômes vers celui des entiers. Travail de recherche incluant l'implémentation de
+                            prototypes en <strong>Python</strong> et <strong>SageMath</strong> pour analyser la
+                            complexité algorithmique et la stabilité numérique des nouvelles variantes.
                         </div>
 
-                        <div style="padding-bottom: 0.5rem;">
+                        <div class="tag-wrapper">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">LaTeX</span>
                             <span class="tech-tag">SageMath</span>
@@ -766,22 +730,20 @@
                     </a>
 
                     <div class="project-footer">
-                        <a title="Découvrir en détail le projet"
-                            style="font-size: 0.9rem; display: flex; fill:var(--secondary-text-color);"
-                            href="https://enpeluche.github.io/lattice-reduction-internship/">
-
+                        <span class="details">
                             <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
                             <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-
-                        </a>
+                        </span>
                     </div>
                 </div>
 
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project">
-                    <a href="/academic-works/beckett-gray/" style="text-decoration: none; color: inherit;">
-                        <div style="margin-bottom:1.5rem;" class="description">
+                    <a href="/academic-works/beckett-gray-codes/">
+                        <div class="description">
                             <h3 data-i18n="project_beckett_gray_title">Codes de Beckett-Gray</h3>
                             <h4 data-i18n="project_beckett_gray_subtitle">Implémentation, heuristiques et analyses de
                                 graphes
@@ -789,42 +751,25 @@
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                                    </path>
-                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                                </svg>
-                                <span>Mémoire (M1)</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Mémoire (M1)</span>
                             </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                <span>Janvier 2024 - Mai 2024</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+
+                                <calendar-icon></calendar-icon>
+                                <span style="font-size: 0.9rem;">Janvier 2024 - Mai 2024</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
-
+                        <div class="project-card-description">
                             Recherche de codes de Gray sans "flip" (Beckett-Gray) sur des graphes complexes.
                             Développement de solvers performants en <strong>C++</strong> (Backtracking et Heuristiques)
-                            pour
-                            explorer l'espace des solutions, identifier des contre-exemples et optimiser la recherche de
-                            cycles
-                            hamiltoniens spécifiques.
-
+                            pour explorer l'espace des solutions, identifier des contre-exemples et optimiser la
+                            recherche de cycles hamiltoniens spécifiques.
                         </div>
 
-                        <div style="padding-bottom: 0.5rem;">
+                        <div class="tag-wrapper">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">LaTeX</span>
@@ -833,50 +778,40 @@
                         </div>
                     </a>
                     <div class="project-footer">
-                        <a style=" display: flex; fill:var(--secondary-text-color);"
-                            title="Découvrir en détail le projet" href="/academic-works/beckett-gray-codes/">
-
-                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24"
-                                viewBox="0 0 24 24">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-
-                        </a>
+                        </span>
                     </div>
                 </div>
 
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project">
-                    <a href="/academic-works/weyl-transform/" style="text-decoration: none; color: inherit;">
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_weyl_transform_title">La transformation de Weyl</h3>
-                            <h4 data-i18n="project_weyl_transform_subtitle">Une transformée de Fourier non commutative
+                    <a href="/academic-works/weyl-transform/">
+                        <div class="description">
+                            <h3 data-i18n="weyl_transform_title">La transformation de Weyl</h3>
+                            <h4 data-i18n="weyl_transform_subtitle">Une transformée de Fourier non commutative
                             </h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                                    </path>
-                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                                </svg>
-                                <span>Projet de Recherche (L3)</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+
+                                <span style="font-size: 0.9rem;">Projet de recherche (L3)</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
-
+                        <div class="project-card-description">
                             Étude approfondie de la quantification de Weyl et de ses propriétés harmoniques.
                             Rédaction d'un mémoire de synthèse liant l'analyse fonctionnelle mathématique aux
-                            formalismes
-                            d'opérateurs utilisés en mécanique quantique.
-
+                            formalismes d'opérateurs utilisés en mécanique quantique.
                         </div>
 
-                        <div style="padding-bottom: 0.5rem;">
+                        <div class="tag-wrapper">
                             <span class="tech-tag">LaTeX</span>
                             <span class="concept-tag">Transformée de Fourier</span>
                             <span class="concept-tag">Mécanique quantique</span>
@@ -884,50 +819,40 @@
                     </a>
 
                     <div class="project-footer">
-                        <a style=" display: flex; fill:var(--secondary-text-color);"
-                            title="Découvrir en détail le projet" href="/academic-works/weyl-transform/">
-                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24"
-                                viewBox="0 0 24 24">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-
-                        </a>
+                        </span>
                     </div>
                 </div>
 
+                <!--------------------------------------------------------------------------------------------->
+
                 <div class="project">
-                    <a href="/academic-works/dense-packing/" style="text-decoration: none; color: inherit;">
-                        <div style="margin-bottom:1.5rem;" class="description">
-                            <h3 data-i18n="project_close_packing_title">Empilement compact</h3>
-                            <h4 data-i18n="project_close_packing_subtitle">Étude de l'inégalité isopérimétrique et
+                    <a href="/academic-works/dense-packing/">
+                        <div class="description">
+                            <h3 data-i18n="close_packing_title">Empilement compact</h3>
+                            <h4 data-i18n="close_packing_subtitle">Étude de l'inégalité isopérimétrique et
                                 simulations
                             </h4>
                         </div>
 
                         <div class="meta-grid">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                                    </path>
-                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                                </svg>
-                                <span>Projet Académique</span>
+                            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                <tag-icon></tag-icon>
+                                <span style="font-size: 0.9rem;">Projet académique</span>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
-
-                            Analyse géométrique du problème de l'empilement optimal (Sphere Packing).
-                            Étude des bornes de densité via l'inégalité isopérimétrique et développement de simulations
-                            numériques en
+                        <div class="project-card-description">
+                            Analyse géométrique du problème de l'empilement optimal (Sphere Packing). Étude des bornes
+                            de densité via l'inégalité isopérimétrique et développement de simulations numériques en
                             <strong>Java</strong> pour visualiser les configurations critiques.
-
                         </div>
 
-                        <div style="padding-bottom: 0.5rem;">
+                        <div class="tag-wrapper">
                             <span class="tech-tag">Java</span>
                             <span class="concept-tag">Analyse</span>
                             <span class="concept-tag">Géométrie</span>
@@ -936,16 +861,16 @@
                     </a>
 
                     <div class="project-footer">
-                        <a style=" display: flex; fill:var(--secondary-text-color);"
-                            title="Découvrir en détail le projet" href="/academic-works/dense-packing/">
-                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span><svg width="24"
-                                viewBox="0 0 24 24">
+                        <span class="details">
+                            <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
+                            <svg width="24" viewBox="0 0 24 24">
                                 <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                             </svg>
-
-                        </a>
+                        </span>
                     </div>
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
 
             </div>
 
@@ -988,6 +913,47 @@
 
             const hiddenElements = document.querySelectorAll('.reveal');
             hiddenElements.forEach((el) => observer.observe(el));
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const tagIconSVG = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>`;
+
+
+                const sgg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                                    </path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>`;
+
+                const placeholders = document.querySelectorAll('calendar-icon');
+
+
+                placeholders.forEach(el => {
+                    el.outerHTML = tagIconSVG;
+                });
+
+
+
+                const ddd = document.querySelectorAll('tag-icon');
+
+
+                ddd.forEach(el => {
+                    el.outerHTML = sgg;
+                });
+            });
         </script>
 </body>
 
