@@ -400,10 +400,9 @@
                     <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">
 
                         <div class="description">
-                            <h3 data-i18n="raytracer_title">Moteur de Rendu : Surfaces Implicites</h3>
+                            <h3 data-i18n="raytracer_title">Ray Tracing Algébrique</h3>
                             <h4 data-i18n="raytracer_subtitle">
-                                Visualisation de surfaces algébriques via résolution polynomiale et algorithme de
-                                Casteljau
+                                Moteur 3D basé sur la résolution exacte de surfaces implicites
                             </h4>
                         </div>
 
@@ -419,19 +418,18 @@
                         </div>
 
                         <div class="project-card-description">
-                            Développement d'un moteur de Ray Tracing dédié aux surfaces définies par $f(x,y,z)=0$.
-                            Implémentation d'un solveur utilisant la <strong>base de Bernstein</strong> pour trouver les
-                            racines d'intersection, gestion des opérations booléennes (<strong>CSG</strong>) et
-                            optimisation spatiale par <strong>AABB</strong>.
+                            Intersection rayon–surface réduite à la résolution de
+                            <code>f(O + tD) = 0</code> (degré ≤ 4) via isolement de racines en base de
+                            <strong>Bernstein</strong> et subdivision de <strong>De Casteljau</strong>.
                         </div>
 
                         <div class="tag-wrapper">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Rust</span>
-                            <span class="concept-tag">Algorithme de Casteljau</span>
-                            <span class="concept-tag">Géométrie Algébrique</span>
-                            <span class="concept-tag">Arbres CSG</span>
-                            <span class="concept-tag">Optimisation AABB</span>
+                            <span class="tech-tag">Rust (WIP)</span>
+                            <span class="concept-tag">Bernstein Basis</span>
+                            <span class="concept-tag">De Casteljau</span>
+                            <span class="concept-tag">CSG</span>
+                            <span class="concept-tag">Algebraic Surfaces</span>
                         </div>
 
 
