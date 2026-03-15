@@ -70,14 +70,15 @@ export function renderArticles(articlesList) {
             
             </a>
         `;
-
-    // Interception du clic pour le mode SPA (Single Page Application)
     const link = card.querySelector(".js-load-article");
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      loadArticle(articleUrl);
-    });
 
+      // LA MAGIE EST ICI : Change l'URL sans recharger la page
+      window.history.pushState({}, "", `?post=${article.folder}`);
+
+      displayArticle(articleUrl); // (Ton ancien loadArticle)
+    });
     // On ajoute la carte à la grille.
     grid.appendChild(card);
   });
@@ -148,7 +149,7 @@ function initBlogSystem(allArticlesData) {
   }
 }
 
-async function loadArticle(url) {
+async function displayArticle(url) {
   try {
     contentLoader.innerHTML =
       "<p style='text-align:center; padding:2rem;'>Chargement...</p>";
@@ -174,18 +175,28 @@ if (backBtn) {
     articleView.classList.add("hidden");
     blogView.classList.remove("hidden");
 
+    // LA MAGIE EST ICI : On remet le chemin de base (ex: /blog/)
+    window.history.pushState({}, "", window.location.pathname);
+
     setTimeout(() => {
       contentLoader.innerHTML = "";
     }, 300);
   });
 }
-
 export async function initBlog() {
   const articlesData = await fetchData();
 
-  console.log("Articles chargés :", articlesData);
-
-  renderArticles(articlesData);
-
+  // On gère la grille, la recherche et le tri
   initBlogSystem(articlesData);
+
+  // === LE DÉTECTEUR DE LIEN DIRECT ===
+  // On regarde s'il y a "?post=..." dans l'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const postFolder = urlParams.get("post");
+
+  if (postFolder) {
+    // Si oui, on reconstitue le chemin et on l'ouvre directement !
+    const articleUrl = `/blog/articles/${postFolder}/article.html`;
+    displayArticle(articleUrl);
+  }
 }
