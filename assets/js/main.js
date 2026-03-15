@@ -14,7 +14,7 @@ import { loadHeader } from "./components/header.js";
 
 import { initParticles } from "./particles.js";
 
-import { initBlog } from "./blog.js";
+import { initBlog } from "../../blog/blog.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupKatex();

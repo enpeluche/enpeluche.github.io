@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Ma remise de diplômes",
+    "date": "2025-12-13",
+    "category": "life",
+    "folder": "2025-12-13-graduation",
+    "summary": "Retour sur cette journée inoubliable..."
+  },
+  {
+    "title": "Projet de Ray Tracing, optimisation",
+    "date": "2026-03-15",
+    "category": "python",
+    "folder": "2026-03-15-raytracing_00",
+    "summary": "Premier article de vulgarisation sur mon projet de ray tracing."
+  }
+]

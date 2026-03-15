@@ -1,0 +1,144 @@
+<h1>Mon projet de Ray Tracing !</h1>
+
+<div class="paragraph">
+    Récemment, j'ai réalisé un projet de ray tracing, accessible ici :
+    <a href="https://github.com/enpeluche/bernstein-raytracer">enpeluche/bernstein-raytracer</a> ! Je vais faire une
+    série d'articles pour expliquer le fonctionnement de ce projet, notamment ses aspects mathématiques.
+</div>
+
+<div class="paragraph">
+    Voici un exemple de ce que l'on peut générer :
+
+    <figure>
+        <video autoplay loop muted playsinline style="max-width: 70%; border-radius: 8px;">
+            <source src="/blog/articles/2026-03-15-raytracing_00/taubin_heart_rota_z.mp4" type="video/mp4">
+            Ton navigateur ne supporte pas la vidéo.
+        </video>
+
+        <figcaption><b>Note</b> : Surface implicite de degré 6 (Taubin, 1993, 1994) <br>
+            <b>Équation</b> : $(x^2 + \frac{9}{4}y^2+z^2-1)^3-x^2z^3-\frac{9}{80}y^2 z^3=0$
+        </figcaption>
+    </figure>
+</div>
+
+<h2>Comment fonctionne le ray tracing ?</h2>
+
+<div class="paragraph">
+    Le <b>ray tracing</b> consiste à simuler le trajet de la lumière pour générer une image. Dans la réalité, la lumière
+    part des sources lumineuses et se propage dans toutes les directions. Mais simuler tous ces rayons serait
+    extrêmement coûteux. L’idée du ray tracing est donc de faire l’inverse : on envoie des rayons depuis la caméra vers
+    la scène et on cherche quels objets ils rencontrent.
+</div>
+
+<div class="paragraph">
+    Ici, on travaille dans l'espace euclidien $\mathbb{R}^3$, muni du produit scalaire usuel, qui induit la norme
+    euclidienne.
+</div>
+
+<h3>Comment modélise-t-on un rayon ?</h3>
+
+<div class="paragraph">
+    Un <b>rayon</b> est défini par la représentation paramétrique suivante :
+
+    $$R(t) = O + t \cdot D, \quad t \in \R_+,~ O \in \R^3,~ D\in \R^3$$
+</div>
+
+<div class="paragraph">
+    On normalise la direction ($\|D\|=1$), pour que le paramètre $t$ corresponde à la distance euclidienne parcourue.
+    Ainsi, trouver la distance de l'objet reviendra simplement à trouver la valeur de $t$.
+</div>
+
+<h3>Comment modélise-t-on un objet à dessiner ?</h3>
+
+<div class="paragraph">
+    Nous allons dessiner des objets mathématiques définis comme des surfaces implicites.
+
+    Une <b>surface implicite</b> est définie comme l'ensemble
+
+    $$S = \{(x,y,z) \in \mathbb{R}^3 \mid f(x,y,z)=0\}$$
+
+    Beaucoup d’objets utilisés en ray tracing peuvent être décrits de cette façon.
+</div>
+
+<h3>Comment calcule-t-on l'intersection ?</h3>
+
+<div class="paragraph">
+    On cherche les valeurs de $t$ telles que le point du rayon appartienne à la surface. On doit donc résoudre
+    l'équation :
+
+    $$f(R(t)) = 0 \Rightarrow f(O+tD) = 0$$
+
+    On obtient alors un polynôme en $t$, dont le degré dépend de celui de $f$. Trouver les points d'intersection revient
+    à
+    trouver les racines de ce polynôme. La complexité du problème dépend du degré de ce polynôme.
+</div>
+
+<h2>Exemple : l'intersection avec une sphère.</h2>
+
+<div class="paragraph">
+    La sphère unité (rayon $1$, centre à l'origine) est définie par l'équation :
+
+    $$x^2 + y^2 + z^2 - 1 = 0$$
+
+    En injectant la représentation du rayon, on obtient :
+
+    $$(ox+tdx)^2 + (oy+tdy)^2 + (oz+tdz)^2 - 1 = 0$$
+
+    En développant, on voit apparaître des motifs géométriques familiers : $\|O\|^2$, $\|D\|^2$, $O \cdot D$
+
+    Comme nous avons normalisé la direction, le polynôme se simplifie :
+
+    $\|O\|^2 - 1 + t(2 \times O \cdot D) + t^2 = 0$
+
+    C'est un polynôme de degré $2$. Pour trouver les racines, on utilise le discriminant $\Delta$. Mais avant cela,
+    regardons la géométrie.
+</div>
+
+<h2>Le lien entre l'algèbre et la géométrie.</h2>
+
+<div class="paragraph">
+    La distance au carré entre le rayon et le centre est donnée par $g(t) = \|O+tD\|^2$.
+
+    Le minimum de cette distance est atteint lorsque $g'(t) = 0$, soit:
+
+    $$2 O \cdot D + 2t\|D\|^2=0 \Rightarrow t_{min} = -O \cdot D$$
+
+    Alors la distance minimale est :
+    $\|O+t_{min}D\|^2 = \|O -O \cdot D \times D\|^2 = \|O\|^2 - (O \cdot D)^2$
+</div>
+
+<div class="paragraph">
+    Donc :
+
+    <ul>
+        <li>Si $g(t_{min}) < 1$ : le rayon traverse la sphère.</li>
+        <li>Si $g(t_{min}) = 1$ : le rayon touche la sphère.</li>
+        <li>Si $g(t_{min}) > 1$ : le rayon manque la sphère.</li>
+    </ul>
+</div>
+
+<div class="paragraph">
+    Revenons au discriminant.
+
+    On a $\frac{\Delta}{4} = (O \cdot D)^2-\|O\|^2+1 = 1 - g(t_{min})$.
+
+    <ul>
+        <li>Si $\Delta < 0$ alors $g(t_{min})> 1$</li>
+        <li>Si $\Delta = 0$ alors $g(t_{min}) = 1$</li>
+        <li>Si $\Delta > 0$ alors $g(t_{min}) < 1$ </li>
+    </ul>
+
+    Le discriminant nul correspond donc à une racine double du polynôme d’intersection. Géométriquement, cela signifie
+    que le rayon touche la sphère sans la traverser : il est tangent.
+
+    <figure>
+        <img src="/blog/articles/2026-03-15-raytracing_00/sphere.png" alt="" width="300">
+        <figcaption></figcaption>
+    </figure>
+</div>
+
+<div class="paragraph">
+    Dans le prochain article, nous verrons les méthodes que j'ai mises en place pour évaluer ce polynôme
+    automatiquement pour des surfaces beaucoup plus complexes (comme le cœur de Taubin) via des DAG et de la
+    dérivation symbolique.
+</div>
