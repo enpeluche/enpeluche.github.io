@@ -5,8 +5,6 @@ import { createNews } from "/components/News/News.js";
 import { createProject } from "/components/Project/Project.js";
 import { makeAlgorithm } from "/components/Algorithm/Algorithm.js";
 
-import { setupKatex } from "./lib/katex-config.js";
-import { loadFooter } from "./components/footer.js";
 import { loadReferences } from "./pages/references.js";
 
 import { makeArticle } from "./pages/article.js";
