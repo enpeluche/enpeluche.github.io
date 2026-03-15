@@ -4,6 +4,9 @@ import { initCarousel } from "/components/Carousel/Carousel.js";
 import { createNews } from "/components/News/News.js";
 import { createProject } from "/components/Project/Project.js";
 import { makeAlgorithm } from "/components/Algorithm/Algorithm.js";
+import { loadFooter } from "/components/Footer/footer.js";
+
+import { setupKatex } from "./katex-config.js";
 
 import { loadReferences } from "./pages/references.js";
 
