@@ -74,12 +74,10 @@ export function renderArticles(articlesList) {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // LA MAGIE EST ICI : Change l'URL sans recharger la page
       window.history.pushState({}, "", `?post=${article.folder}`);
 
-      displayArticle(articleUrl); // (Ton ancien loadArticle)
+      displayArticle(articleUrl);
     });
-    // On ajoute la carte à la grille.
     grid.appendChild(card);
   });
 }
@@ -121,29 +119,22 @@ function initBlogSystem(allArticlesData) {
   const sortSelect = document.getElementById("blog-sort");
 
   if (sortSelect) {
-    // On regarde si l'utilisateur avait déjà choisi un tri, sinon on met "newest" par défaut
     const savedSort = localStorage.getItem("blogSortPref") || "newest";
 
-    // On met à jour l'interface visuelle (le menu déroulant)
     sortSelect.value = savedSort;
 
-    // On trie immédiatement les articles avant le premier affichage !
     const initialSorted = sortArticles(allArticlesData, savedSort);
     renderArticles(initialSorted);
   }
 
-  // === NOUVEAUTÉ : Écouteur de changement de tri ===
   if (sortSelect) {
     sortSelect.addEventListener("change", () => {
       const sortValue = sortSelect.value;
 
-      // 1. On sauvegarde le choix dans le cache du navigateur
       localStorage.setItem("blogSortPref", sortValue);
 
-      // 2. On utilise notre super sous-méthode
       const sorted = sortArticles(allArticlesData, sortValue);
 
-      // 3. On réaffiche
       renderArticles(sorted);
     });
   }
@@ -175,7 +166,6 @@ if (backBtn) {
     articleView.classList.add("hidden");
     blogView.classList.remove("hidden");
 
-    // LA MAGIE EST ICI : On remet le chemin de base (ex: /blog/)
     window.history.pushState({}, "", window.location.pathname);
 
     setTimeout(() => {
@@ -186,16 +176,12 @@ if (backBtn) {
 export async function initBlog() {
   const articlesData = await fetchData();
 
-  // On gère la grille, la recherche et le tri
   initBlogSystem(articlesData);
 
-  // === LE DÉTECTEUR DE LIEN DIRECT ===
-  // On regarde s'il y a "?post=..." dans l'URL
   const urlParams = new URLSearchParams(window.location.search);
   const postFolder = urlParams.get("post");
 
   if (postFolder) {
-    // Si oui, on reconstitue le chemin et on l'ouvre directement !
     const articleUrl = `/blog/articles/${postFolder}/article.html`;
     displayArticle(articleUrl);
   }
