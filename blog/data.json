@@ -1,16 +1,16 @@
 [
   {
-    "title": "Ma remise de diplômes",
+    "title": "Cérémonie de remise des diplômes",
     "date": "2025-12-13",
     "category": "life",
     "folder": "2025-12-13-graduation",
-    "summary": "Retour sur cette journée inoubliable..."
+    "summary": "Retour sur ma remise de diplôme du Master Informatique et petite plongée dans l'histoire fascinante de la faculté des sciences de Montpellier."
   },
   {
-    "title": "Projet de Ray Tracing, optimisation",
+    "title": "Mon projet de Ray Tracing !",
     "date": "2026-03-15",
-    "category": "python",
+    "category": "maths",
     "folder": "2026-03-15-raytracing_00",
-    "summary": "Premier article de vulgarisation sur mon projet de ray tracing."
+    "summary": "Introduction aux concepts mathématiques du ray tracing : modélisation des rayons, surfaces implicites et calcul d'intersection avec une sphère."
   }
 ]

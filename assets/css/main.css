@@ -29,6 +29,7 @@
 @import "project-filter.css";
 @import "cv.css";
 @import "../../blog/blog.css";
+@import "../../blog/article.css";
 @import "translate.css";
 
 @import "/components/TableOfContents/TableOfContents.css";

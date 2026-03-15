@@ -59,6 +59,7 @@ export function renderArticles(articlesList) {
         <a href="#" class="stretched-link js-load-article" data-url="${articleUrl}">
             <div class="card-header">
                 <span class="card-title">${article.title}</span>
+                <span class="card-category">${article.category}</span>
                 <time class="card-date" datetime="${article.date}">
                     ${new Date(article.date).toLocaleDateString("fr-FR")}
                 </time>
@@ -109,7 +110,8 @@ function initBlogSystem(allArticlesData) {
     const filtered = allArticlesData.filter((article) => {
       return (
         article.title.toLowerCase().includes(term) ||
-        (article.summary && article.summary.toLowerCase().includes(term))
+        (article.summary && article.summary.toLowerCase().includes(term)) ||
+        (article.category && article.category.toLowerCase().includes(term))
       );
     });
 
