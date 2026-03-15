@@ -69,12 +69,14 @@
   padding: 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  margin: 0.1rem;
 }
 
 .card-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
   transition: transform 0.5s ease; /* Bonus : pour zoomer au survol ! */
 }
 
@@ -102,7 +104,7 @@
   padding-right: 40px;
   border: 1px solid var(--primary-border-color);
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: white;
   color: inherit;
 }
 
@@ -119,7 +121,7 @@
   padding: 10px;
   border: 1px solid var(--primary-border-color);
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: white;
   color: inherit;
   cursor: pointer;
 }
@@ -132,6 +134,10 @@
 }
 .article-body h1 {
   text-align: center;
+}
+
+.article-body img {
+  max-width: 90%;
 }
 /*article.css*/
 #article-view {
