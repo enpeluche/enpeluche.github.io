@@ -10,7 +10,7 @@ import { setupKatex } from "./katex-config.js";
 
 import { loadReferences } from "./pages/references.js";
 
-import { makeArticle } from "./pages/article.js";
+import { makeArticle } from "/components/Course/Course.js";
 import { loadHeader } from "./components/header.js";
 
 import { initParticles } from "./particles.js";
