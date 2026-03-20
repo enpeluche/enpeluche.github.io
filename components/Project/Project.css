@@ -172,7 +172,7 @@
   background-color: rgba(171, 71, 188, 0.74);
 }
 
-.tech-tag {
+.tech {
   background-color: #e9ecef;
   color: #333;
   padding: 4px 10px;
@@ -184,7 +184,7 @@
   display: inline-block;
 }
 
-.concept-tag {
+.concept {
   border: 1px solid var(--secondary-text-color);
   color: var(--secondary-text-color);
   padding: 3px 9px;
