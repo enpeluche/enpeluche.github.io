@@ -50,6 +50,65 @@
         }
     </style>
 
+    <style>
+        /* Le conteneur du mot réactif */
+        .hover-preview {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            cursor: help;
+            /* Pour indiquer qu'il y a une info bulle */
+            text-decoration: underline dotted var(--secondary-text-color);
+            font-weight: bold;
+            color: var(--secondary-text-color);
+            transition: all 0.3s ease;
+        }
+
+        .hover-preview svg {
+            width: 0.9em;
+            height: 0.9em;
+            margin-right: 0.1rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .hover-preview:hover {
+            text-decoration: none;
+        }
+
+        .hover-preview:hover svg {
+            opacity: 0;
+        }
+
+        .hover-preview img {
+            position: absolute;
+            bottom: 120%;
+            /* Légèrement plus bas pour un effet de "pop" plus doux */
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            /* Centré horizontalement et décalé */
+
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+
+
+            /* Effet d'apparition */
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            /* Crucial pour ne pas bloquer la souris */
+        }
+
+        .hover-preview:hover img {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+
 </head>
 
 <body>
@@ -336,7 +395,7 @@
                 padding: 2rem;
             }
 
-            .tag-wrapper {
+            .project-tags {
                 padding-bottom: 0.5rem;
             }
 
@@ -356,10 +415,16 @@
                 border-top: 1px solid var(--secondary-text-color);
 
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 fill: var(--secondary-text-color);
 
-                align-items: center;
                 gap: 0.25rem;
+            }
+
+            .details svg {
+                display: block;
+                margin: 0;
             }
 
 
@@ -372,13 +437,7 @@
             }
         </style>
 
-
-
         <span id="dev"></span>
-
-
-
-
 
         <section id="projects">
             <h1 data-i18n="section_dev_projects_title" class="section-title">Projets personnels</h1>
@@ -396,49 +455,82 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="maths python">
+                <div class="project" data-category="maths python rust">
                     <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">
 
                         <div class="description">
                             <h3 data-i18n="raytracer_title">Ray Tracing Algébrique</h3>
                             <h4 data-i18n="raytracer_subtitle">
-                                Moteur 3D basé sur la résolution exacte de surfaces implicites
+                                Moteur 3D basé sur la résolution exacte de surfaces implicites réelles
                             </h4>
                         </div>
 
                         <div class="meta-grid">
                             <div style="display: flex; align-items: center; gap: 0.25rem;">
                                 <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Recherche & Développement</span>
+                                <span style="font-size: 0.9rem;">R&D</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.25rem;">
                                 <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Moteur de calcul symbolique "From Scratch"</span>
+                                <span style="font-size: 0.9rem;">Moteur de calcul symbolique</span>
                             </div>
                         </div>
 
                         <div class="project-card-description">
-                            Intersection rayon–surface réduite à la résolution de
-                            <code>f(O + tD) = 0</code> (degré ≤ 4) via isolement de racines en base de
-                            <strong>Bernstein</strong> et subdivision de <strong>De Casteljau</strong>.
+                            <div style="margin-bottom: 0.5rem;">
+                                Intersection rayon–surface via la résolution de l'équation $f(O + tD) = 0$.<br>
+                                Isolement des racines en base de <strong>Bernstein</strong> via l'algorithme de
+                                <strong>De Casteljau</strong>.<br>
+                                Gestion de géométrie constructive (<strong>CSG</strong>), plusieurs caméras, effet
+                                d'ombre portée. <br style="margin-bottom: 0.5rem;">
+                                Réalisation de tests unitaires et benchmarks (Criterion). <br
+                                    style="margin-bottom: 0.25rem;">
+                                🦀 Portage du solveur en Rust en cours d'implémentation.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Rust (WIP)</span>
-                            <span class="concept-tag">Bernstein Basis</span>
-                            <span class="concept-tag">De Casteljau</span>
-                            <span class="concept-tag">CSG</span>
-                            <span class="concept-tag">Algebraic Surfaces</span>
+                            <div style="margin-bottom: 0.25rem;">
+                                <strong>Optimisations</strong>: AABB, heuristiques, Horner, SIMD, Descartes' rule of
+                                signs
                         </div>
 
+                            <div>
+                                <strong>Exemples de surfaces</strong> :
+                                <span class="hover-preview">
+                                    <eye-icon></eye-icon>
+                                    Cœur de Taubin
+                                    <img src="assets/img/miniatures_hover/Taubin Heart_orthographiccamera.webp"
+                                        alt="Rendu algébrique du Cœur de Taubin">
+                                </span>,
+                                <span class="hover-preview">
+                                    <eye-icon></eye-icon>
+                                    surface de Roman
+                                    <img src="assets/img/miniatures_hover/roman_isometric_orthographic.webp"
+                                        alt="Rendu algébrique de la surface de Roman">
+                                </span>,
+                                <span class="hover-preview">
+                                    <eye-icon></eye-icon>
+                                    quadriques
+                                    <img src="assets/img/miniatures_hover/hyperboloid_of_one_sheet_cylindricalcamera.webp"
+                                        alt="Rendu algébrique d'une quadrique">
+                                </span>.
+                            </div>
+                        </div>
+
+                        <div class="project-tags">
+                            <span class="tech">Python</span>
+                            <span class="tech">Rust (WIP)</span>
+                            <span class="tech">Docker</span>
+                            <span class="concept">Bernstein Basis</span>
+                            <span class="concept">De Casteljau</span>
+                            <span class="concept">CSG</span>
+                            <span class="concept">Algebraic Surfaces</span>
+                            <span class="concept">Géométrie différentielle</span>
+                        </div>
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Explorer l'architecture du moteur</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -471,23 +563,22 @@
                             adaptatif mobile-first.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Git / GitHub Pages</span>
-                            <span class="concept-tag">Responsive Design</span>
-                            <span class="concept-tag">Performance Web</span>
-                            <span class="concept-tag">Accessibilité</span>
+                        <div class="project-tags">
+                            <span class="tech">HTML5</span>
+                            <span class="tech">CSS3</span>
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">Git / GitHub Pages</span>
+
+                            <span class="concept">Responsive Design</span>
+                            <span class="concept">Performance Web</span>
+                            <span class="concept">Accessibilité</span>
                         </div>
 
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -518,14 +609,14 @@
                             clé privée et évaluer la robustesse du système.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Algèbre Linéaire</span>
-                            <span class="concept-tag">Cryptographie</span>
-                            <span class="concept-tag">Post-Quantique</span>
-                            <span class="concept-tag">Réseaux Euclidiens</span>
-                            <span class="concept-tag">Algorithme LLL</span>
-                            <span class="concept-tag">Cryptanalyse</span>
+                        <div class="project-tags">
+                            <span class="tech">C++</span>
+                            <span class="tech">Algèbre Linéaire</span>
+                            <span class="concept">Cryptographie</span>
+                            <span class="concept">Post-Quantique</span>
+                            <span class="concept">Réseaux Euclidiens</span>
+                            <span class="concept">Algorithme LLL</span>
+                            <span class="concept">Cryptanalyse</span>
                         </div>
 
 
@@ -570,14 +661,14 @@
                             Gestion des sockets (TCP/IP), des connexions entrantes et de la sérialisation des données.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Sockets API</span>
-                            <span class="tech-tag">TCP/IP</span>
-                            <span class="concept-tag">Réseaux</span>
-                            <span class="concept-tag">Protocole Custom</span>
-                            <span class="concept-tag">Client-Serveur</span>
-                            <span class="concept-tag">Sérialisation</span>
+                        <div class="project-tags">
+                            <span class="tech">C++</span>
+                            <span class="tech">Sockets API</span>
+                            <span class="tech">TCP/IP</span>
+                            <span class="concept">Réseaux</span>
+                            <span class="concept">Protocole Custom</span>
+                            <span class="concept">Client-Serveur</span>
+                            <span class="concept">Sérialisation</span>
                         </div>
 
 
@@ -623,13 +714,13 @@
                             page via LaTeX.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">LaTeX</span>
-                            <span class="tech-tag">TikZ (Graphisme)</span>
-                            <span class="concept-tag">Pédagogie</span>
-                            <span class="concept-tag">Vulgarisation</span>
-                            <span class="concept-tag">Rédaction Technique</span>
-                            <span class="concept-tag">Mathématiques</span>
+                        <div class="project-tags">
+                            <span class="tech">LaTeX</span>
+                            <span class="tech">TikZ (Graphisme)</span>
+                            <span class="concept">Pédagogie</span>
+                            <span class="concept">Vulgarisation</span>
+                            <span class="concept">Rédaction Technique</span>
+                            <span class="concept">Mathématiques</span>
                         </div>
 
 
@@ -672,14 +763,14 @@
                             récursifs et gestion de l'interface utilisateur (zoom, paramètres en temps réel) en Java.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Swing / JavaFX</span>
-                            <span class="tech-tag">POO</span>
-                            <span class="concept-tag">Récursivité</span>
-                            <span class="concept-tag">Géométrie Fractale</span>
-                            <span class="concept-tag">Algorithmique</span>
-                            <span class="concept-tag">Rendu Graphique</span>
+                        <div class="project-tags">
+                            <span class="tech">Java</span>
+                            <span class="tech">Swing / JavaFX</span>
+                            <span class="tech">POO</span>
+                            <span class="concept">Récursivité</span>
+                            <span class="concept">Géométrie Fractale</span>
+                            <span class="concept">Algorithmique</span>
+                            <span class="concept">Rendu Graphique</span>
                         </div>
 
 
@@ -732,21 +823,20 @@
                             complexité algorithmique et la stabilité numérique des nouvelles variantes.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LaTeX</span>
-                            <span class="tech-tag">SageMath</span>
-                            <span class="concept-tag">Algorithmique</span>
-                            <span class="concept-tag">Algèbre linéaire</span>
+                        <div class="project-tags">
+                            <span class="tech">Python</span>
+                            <span class="tech">LaTeX</span>
+                            <span class="tech">SageMath</span>
+
+                            <span class="concept">Algorithmique</span>
+                            <span class="concept">Algèbre linéaire</span>
                         </div>
 
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -782,20 +872,19 @@
                             recherche de cycles hamiltoniens spécifiques.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LaTeX</span>
-                            <span class="concept-tag">Théorie des graphes</span>
-                            <span class="concept-tag">Heuristique</span>
+                        <div class="project-tags">
+                            <span class="tech">C++</span>
+                            <span class="tech">Python</span>
+                            <span class="tech">LaTeX</span>
+
+                            <span class="concept">Théorie des graphes</span>
+                            <span class="concept">Heuristique</span>
                         </div>
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -825,19 +914,18 @@
                             formalismes d'opérateurs utilisés en mécanique quantique.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">LaTeX</span>
-                            <span class="concept-tag">Transformée de Fourier</span>
-                            <span class="concept-tag">Mécanique quantique</span>
+                        <div class="project-tags">
+                            <span class="tech">LaTeX</span>
+
+                            <span class="concept">Transformée de Fourier</span>
+                            <span class="concept">Mécanique quantique</span>
                         </div>
 
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -867,20 +955,19 @@
                             <strong>Java</strong> pour visualiser les configurations critiques.
                         </div>
 
-                        <div class="tag-wrapper">
-                            <span class="tech-tag">Java</span>
-                            <span class="concept-tag">Analyse</span>
-                            <span class="concept-tag">Géométrie</span>
-                            <span class="concept-tag">Simulation</span>
+                        <div class="project-tags">
+                            <span class="tech">Java</span>
+
+                            <span class="concept">Analyse</span>
+                            <span class="concept">Géométrie</span>
+                            <span class="concept">Simulation</span>
                         </div>
 
 
                         <div class="project-footer">
                             <span class="details">
                                 <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
+                                <right-arrow></right-arrow>
                             </span>
                         </div>
                     </a>
@@ -970,6 +1057,30 @@
                     el.outerHTML = sgg;
                 });
             });
+        </script>
+        <script>
+            class RightArrow extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `
+                        <svg width="24" viewBox="0 0 24 24">
+                                        <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+                                    </svg>
+                        `;
+                }
+            }
+
+            class Eye extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>
+                    `;
+                }
+            }
+
+            customElements.define('eye-icon', Eye);
+            customElements.define('right-arrow', RightArrow);
         </script>
 </body>
 
