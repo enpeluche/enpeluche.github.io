@@ -1,15 +1,10 @@
-import { loadTableOfContents } from "/components/TableOfContents/TableOfContents.js";
 import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 import { initCarousel } from "/components/Carousel/Carousel.js";
-import { createNews } from "/components/News/News.js";
-import { makeAlgorithm } from "/components/Algorithm/Algorithm.js";
-import { loadFooter } from "/components/Footer/footer.js";
 
 import { setupKatex } from "./katex-config.js";
 
 import { loadReferences } from "./pages/references.js";
 
-import { makeArticle } from "/components/Course/Course.js";
 import { loadHeader } from "./components/header.js";
 
 import { initParticles } from "./particles.js";
@@ -18,22 +13,15 @@ import { initBlog } from "../../blog/blog.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupKatex();
-  loadTableOfContents();
   initScrollDown();
-  loadFooter();
   loadHeader();
   loadReferences();
-  makeAlgorithm();
-  makeArticle();
-  createNews();
   initCarousel();
 
   initBlog();
 
   initParticles();
 });
-
-///////////////////////////
 
 // On sélectionne le header
 const header = document.getElementById("main-header-hihi");
