@@ -1,45 +1,41 @@
 /* Bonjour, je suis Lucas Petit */
-#intro{
+#intro {
   z-index: 45;
   margin-top: 2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-
 /*Bonjour, je suis*/
-#hello-world{
+#hello-world {
   font-size: 1.5rem;
-  
+
   z-index: 15;
   color: var(--secondary-text-color);
-  text-transform: uppercase; color: var(--secondary-text-color);
-
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
 }
 
 /*Lucas Petit*/
-#profile-name{
-  font-size: clamp(3rem, 10vw, 6rem); 
+#profile-name {
+  font-size: clamp(3rem, 10vw, 6rem);
   line-height: 1.1;
   text-align: center;
   z-index: 11;
 }
 
-
 .glass-panel {
   background: rgba(255, 255, 255, 0);
-  
+
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  
+
   border: 1px solid rgba(255, 255, 255, 0.2);
-  
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);  
+
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
-
-#profile-description{
-
+#profile-description {
   padding: 1rem;
   font-weight: 400;
   font-size: 1rem;
@@ -47,65 +43,60 @@
   text-align: justify;
 }
 
-
 .profile-card {
-margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* La photo de profil */
 .profile-avatar {
+  width: 200px;
+  max-width: 80vw;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 
-    width: 200px;
-    max-width: 80vw;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    
-    border-radius: 50%;
-    border: 2px solid var(--primary-border-color);
-    
-    z-index: 13;
-    margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--primary-border-color);
+
+  z-index: 13;
+  margin-bottom: 1rem;
 }
 
 /* Le sous-titre (Master 2...) */
 .profile-subtitle {
-    color: var(--secondary-text-color);
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0;
-    padding-top: 0.5rem;
+  color: var(--secondary-text-color);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  padding-top: 0.5rem;
 }
 
-
 @media (min-width: 768px) {
-  #profile-picture{
+  #profile-picture {
     width: 280px;
     max-width: 80vw;
     z-index: 13;
     height: auto;
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1;
     object-fit: cover; /* Coupe l'image si nécessaire au lieu de l'écraser */
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--primary-border-color);
   }
 }
 
-
-
-.hero h2{
+.hero h2 {
   margin: 15px 0;
   font-size: 1.875rem;
 }
 
-.hero div{
+.hero div {
   display: flex;
-flex-direction: column;
-align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-title {
@@ -124,32 +115,32 @@ align-items: center;
 /* --- Classes spécifiques pour le bloc "À propos" --- */
 
 .about-container {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: flex-start; 
-    width: 80%; 
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80%;
+  margin: auto;
 }
 
 .about-title {
-    font-size: 1.6rem; 
-    text-align: center;
-    /* margin-bottom: 1rem;  <-- Décommente si tu veux aérer sous le titre */
+  font-size: 1.6rem;
+  text-align: center;
+  /* margin-bottom: 1rem;  <-- Décommente si tu veux aérer sous le titre */
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 .mt-small {
-    margin-top: 0.5rem; /* Ton margin-top: 0.5rem réutilisable */
+  margin-top: 0.5rem; /* Ton margin-top: 0.5rem réutilisable */
 }
 
 .expert-list {
-    padding-left: 2rem;
-    list-style-type: square;
+  padding-left: 2rem;
+  list-style-type: square;
 }
 
-.expert-list li::marker{
+.expert-list li::marker {
   color: var(--secondary-text-color) !important;
 }

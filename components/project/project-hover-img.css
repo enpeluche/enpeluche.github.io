@@ -1,0 +1,53 @@
+hover-preview {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted var(--secondary-text-color);
+  font-weight: bold;
+  color: var(--secondary-text-color);
+  transition: all 0.3s ease;
+}
+
+hover-preview svg {
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.1rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+hover-preview:hover {
+  text-decoration: none;
+}
+
+hover-preview:hover svg {
+  opacity: 0;
+}
+
+hover-preview img {
+  position: absolute;
+  bottom: 120%;
+  /* Légèrement plus bas pour un effet de "pop" plus doux */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  /* Centré horizontalement et décalé */
+
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+
+  /* Effet d'apparition */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  /* Crucial pour ne pas bloquer la souris */
+}
+
+hover-preview:hover img {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}

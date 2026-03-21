@@ -2,7 +2,6 @@ import { loadTableOfContents } from "/components/TableOfContents/TableOfContents
 import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 import { initCarousel } from "/components/Carousel/Carousel.js";
 import { createNews } from "/components/News/News.js";
-import { createProject } from "/components/Project/Project.js";
 import { makeAlgorithm } from "/components/Algorithm/Algorithm.js";
 import { loadFooter } from "/components/Footer/footer.js";
 
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   makeArticle();
   createNews();
   initCarousel();
-  createProject();
 
   initBlog();
 
@@ -67,34 +65,45 @@ window.addEventListener("scroll", () => {
   lastScrollY = currentScrollY;
 });
 
-// 1. On sélectionne tous les éléments
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll(".project");
+// 1. On cible tous les conteneurs de filtres
+const filterContainers = document.querySelectorAll(".filter-container");
 
-// 2. On ajoute un écouteur d'événement sur chaque bouton
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // A. Gérer la classe "active" sur les boutons (visuel)
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
+filterContainers.forEach((container) => {
+  // 2. On récupère les boutons de CE conteneur spécifique
+  const filterButtons = container.querySelectorAll(".filter-btn");
 
-    // B. Récupérer la catégorie cliquée
-    const filterValue = button.getAttribute("data-filter");
+  // 3. LA MAGIE EST ICI : On cherche la grille de projets qui est juste après ce conteneur
+  // nextElementSibling va attraper la <div class="project-grid"> qui suit tes boutons
+  const projectGrid = container.nextElementSibling;
 
-    // C. Filtrer les projets
-    projects.forEach((project) => {
-      // On récupère les catégories du projet (ex: "cpp maths")
-      const projectCategories = project.getAttribute("data-category");
+  // Si pour une raison ou une autre on ne trouve pas la grille, on arrête pour éviter une erreur
+  if (!projectGrid || !projectGrid.classList.contains("project-grid")) return;
 
-      if (filterValue === "all" || projectCategories.includes(filterValue)) {
-        // Si "Tout voir" OU si le projet a la catégorie correspondante
-        project.classList.remove("hide");
-        project.classList.add("show");
-      } else {
-        // Sinon, on cache
-        project.classList.add("hide");
-        project.classList.remove("show");
-      }
+  // On récupère uniquement les projets de CETTE grille
+  const projects = projectGrid.querySelectorAll(".project");
+
+  // 4. On applique ta logique de filtrage
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // A. Gérer la classe "active" uniquement sur les boutons de ce groupe
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      // B. Récupérer la catégorie cliquée
+      const filterValue = button.getAttribute("data-filter");
+
+      // C. Filtrer les projets de CETTE grille uniquement
+      projects.forEach((project) => {
+        const projectCategories = project.getAttribute("data-category");
+
+        if (filterValue === "all" || projectCategories.includes(filterValue)) {
+          project.classList.remove("hide");
+          project.classList.add("show");
+        } else {
+          project.classList.add("hide");
+          project.classList.remove("show");
+        }
+      });
     });
   });
 });

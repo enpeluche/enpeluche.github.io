@@ -50,65 +50,6 @@
         }
     </style>
 
-    <style>
-        /* Le conteneur du mot réactif */
-        .hover-preview {
-            display: inline-flex;
-            align-items: center;
-            position: relative;
-            cursor: help;
-            /* Pour indiquer qu'il y a une info bulle */
-            text-decoration: underline dotted var(--secondary-text-color);
-            font-weight: bold;
-            color: var(--secondary-text-color);
-            transition: all 0.3s ease;
-        }
-
-        .hover-preview svg {
-            width: 0.9em;
-            height: 0.9em;
-            margin-right: 0.1rem;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .hover-preview:hover {
-            text-decoration: none;
-        }
-
-        .hover-preview:hover svg {
-            opacity: 0;
-        }
-
-        .hover-preview img {
-            position: absolute;
-            bottom: 120%;
-            /* Légèrement plus bas pour un effet de "pop" plus doux */
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            /* Centré horizontalement et décalé */
-
-            width: 200px;
-            border-radius: 5px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-
-
-            /* Effet d'apparition */
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
-            /* Crucial pour ne pas bloquer la souris */
-        }
-
-        .hover-preview:hover img {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
-
 </head>
 
 <body>
@@ -386,156 +327,233 @@
             </div>
         </section>
 
-
-
-        <style>
-            .section-title {
-                text-align: center;
-                font-size: 3rem;
-                padding: 2rem;
-            }
-
-            .project-tags {
-                padding-bottom: 0.5rem;
-            }
-
-            .project-card-description {
-                margin-bottom: 1rem;
-                font-size: 0.9rem;
-                line-height: 1.2;
-            }
-
-
-            .details {
-                padding-top: 0.5rem;
-                font-size: 0.9rem;
-                color: var(--secondary-text-color);
-                text-decoration: none;
-                transition: color 0.2s ease, text-decoration 0.2 ease;
-                border-top: 1px solid var(--secondary-text-color);
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                fill: var(--secondary-text-color);
-
-                gap: 0.25rem;
-            }
-
-            .details svg {
-                display: block;
-                margin: 0;
-            }
-
-
-            .project:hover .details {
-                text-decoration: underline;
-            }
-
-            .description {
-                margin-bottom: 1rem;
-            }
-        </style>
-
         <span id="dev"></span>
+        <!---
+        TODO: voir où est le code de tagicon et le mettre en bas de index html
+        TODO: faire la traduction, bien séparer français/anglais
+        --->
 
         <section id="projects">
-            <h1 data-i18n="section_dev_projects_title" class="section-title">Projets personnels</h1>
+            <h1 data-i18n="section_dev_projects_title" class="section-title">Recherche & Ingénierie</h1>
 
-            <div class="hidden filter-container reveal">
+            <div class="filter-container reveal">
                 <button class="filter-btn active" data-filter="all">Tout voir</button>
-                <button class="filter-btn" data-filter="cpp">C++</button>
+
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="rust">Rust</button>
                 <button class="filter-btn" data-filter="web">HTML / CSS / JS</button>
-                <button class="filter-btn" data-filter="java">java</button>
-                <button class="filter-btn" data-filter="python">python</button>
+                <button class="filter-btn" data-filter="RD">R&D</button>
             </div>
 
             <div class="project-grid reveal">
 
 
+
+
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="maths python rust">
-                    <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">
+                <div class="project" data-category="sage crypto RD">
+                    <a href="https://enpeluche.github.io/lattice-reduction-internship/">
+                        <header>
+                            <h3 data-i18n="lattice_reduction_title">Réduction de réseaux euclidiens</h3>
+                            <h4 data-i18n="lattice_reduction_subtitle">Adaptations d’idées provenant du cas
+                                polynomial au cas entier</h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>Stage de recherche (M2)</project-category>
+                            <project-date>Février 2025 - Juin 2025</project-date>
+                        </div>
 
                         <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Exploration des similarités et différences entre réduction de réseaux
+                                <strong>polynomiaux</strong> et <strong>euclidiens</strong>, avec adaptation
+                                d'idées algorithmiques du cas polynomial vers le cas entier (algorithme LLL).
+                            </div>
+                            <div>
+                                <strong>Contexte</strong> : la réduction de réseaux est au cœur de la cryptographie
+                                post-quantique, dont la sécurité repose sur des problèmes réputés résistants aux
+                                attaques quantiques.
+                            </div>
+                            <div>
+                                <strong>Implémentation</strong> : Prototypes en SageMath pour analyser
+                                complexité algorithmique et stabilité numérique des variantes étudiées.
+                            </div>
+                            <div>
+                                <strong>Communication</strong> : Présentation technique d'1h30 en anglais
+                                au <em>Lattice Club</em> sur LLL.
+                            </div>
+                            <div>
+                                <strong>Travail de recherche</strong> : revue d’état de l’art et analyse critique
+                                d’articles scientifiques.
+                            </div>
+                        </div>
+
+                        <div class="tags">
+                            <tech-tag>SageMath</tech-tag>
+
+                            <concept-tag>Cryptographie post-quantique</concept-tag>
+                            <concept-tag>Analyse de complexité</concept-tag>
+                            <concept-tag>Réduction de réseaux</concept-tag>
+                        </div>
+
+                        <footer>
+                            <span data-i18n="btn_view_project">Lire le rapport de recherche</span>
+                            <right-arrow></right-arrow>
+                        </footer>
+                    </a>
+                </div>
+
+
+                <div class="project" data-category="python rust RD">
+                    <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">
+
+                        <header>
                             <h3 data-i18n="raytracer_title">Ray Tracing Algébrique</h3>
                             <h4 data-i18n="raytracer_subtitle">
-                                Moteur 3D basé sur la résolution exacte de surfaces implicites réelles
+                                Solveur exact pour surfaces implicites
                             </h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>R&D</project-category>
+                            <project-category>Moteur de calcul symbolique</project-category>
                         </div>
 
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">R&D</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Moteur de calcul symbolique</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            <div style="margin-bottom: 0.5rem;">
-                                Intersection rayon–surface via la résolution de l'équation $f(O + tD) = 0$.<br>
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Intersection rayon–surface via la résolution de l'équation $f(O + tD) = 0$.
                                 Isolement des racines en base de <strong>Bernstein</strong> via l'algorithme de
-                                <strong>De Casteljau</strong>.<br>
-                                Gestion de géométrie constructive (<strong>CSG</strong>), plusieurs caméras, effet
-                                d'ombre portée. <br style="margin-bottom: 0.5rem;">
-                                Réalisation de tests unitaires et benchmarks (Criterion). <br
-                                    style="margin-bottom: 0.25rem;">
-                                🦀 Portage du solveur en Rust en cours d'implémentation.
-                        </div>
+                                <strong>De Casteljau</strong>.
+                                Gestion de géométrie constructive (<strong>CSG</strong>), multi-caméras, ombre portée.
+                            </div>
+                            <div>
+                                <strong>Qualité logicielle</strong>:
+                                Réalisation de tests unitaires et benchmarks (Criterion).
+                            </div>
 
-                            <div style="margin-bottom: 0.25rem;">
-                                <strong>Optimisations</strong>: AABB, heuristiques, Horner, SIMD, Descartes' rule of
-                                signs
-                        </div>
+
+                            <div>
+                                <strong>Optimisations</strong>:
+                                AABB, heuristiques, Horner, SIMD
+                            </div>
+
+
 
                             <div>
                                 <strong>Exemples de surfaces</strong> :
-                                <span class="hover-preview">
-                                    <eye-icon></eye-icon>
+                                <hover-preview src="assets/img/miniatures_hover/Taubin Heart_orthographiccamera.webp"
+                                    alt="Rendu algébrique du Cœur de Taubin">
                                     Cœur de Taubin
-                                    <img src="assets/img/miniatures_hover/Taubin Heart_orthographiccamera.webp"
-                                        alt="Rendu algébrique du Cœur de Taubin">
-                                </span>,
-                                <span class="hover-preview">
-                                    <eye-icon></eye-icon>
+                                </hover-preview>,
+                                <hover-preview src="assets/img/miniatures_hover/roman_isometric_orthographic.webp"
+                                    alt="Rendu algébrique de la surface de Roman">
                                     surface de Roman
-                                    <img src="assets/img/miniatures_hover/roman_isometric_orthographic.webp"
-                                        alt="Rendu algébrique de la surface de Roman">
-                                </span>,
-                                <span class="hover-preview">
-                                    <eye-icon></eye-icon>
+                                </hover-preview>,
+                                <hover-preview
+                                    src="assets/img/miniatures_hover/hyperboloid_of_one_sheet_cylindricalcamera.webp"
+                                    alt="Rendu algébrique d'une quadrique">
                                     quadriques
-                                    <img src="assets/img/miniatures_hover/hyperboloid_of_one_sheet_cylindricalcamera.webp"
-                                        alt="Rendu algébrique d'une quadrique">
-                                </span>.
+                                </hover-preview>.
+                            </div>
+
+                            <div>
+                                <strong>Roadmap</strong>:
+                                🦀 Portage du solveur en Rust en cours d'implémentation. (mars 2026)
                             </div>
                         </div>
 
-                        <div class="project-tags">
-                            <span class="tech">Python</span>
-                            <span class="tech">Rust (WIP)</span>
-                            <span class="tech">Docker</span>
-                            <span class="concept">Bernstein Basis</span>
-                            <span class="concept">De Casteljau</span>
-                            <span class="concept">CSG</span>
-                            <span class="concept">Algebraic Surfaces</span>
-                            <span class="concept">Géométrie différentielle</span>
+                        <div class="tags">
+                            <tech-tag>Python</tech-tag>
+                            <tech-tag>Rust</tech-tag>
+                            <tech-tag>Docker</tech-tag>
+                            <concept-tag>De Casteljau</concept-tag>
+                            <concept-tag>Surfaces algébriques</concept-tag>
+                            <concept-tag>Géométrie différentielle</concept-tag>
                         </div>
 
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Explorer l'architecture du moteur</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
+                        <footer>
+                            <span>Explorer l'architecture du moteur</span>
+                            <right-arrow></right-arrow>
+                        </footer>
                     </a>
 
                 </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
+                <div class="project" data-category="cpp RD">
+                    <a href="https://enpeluche.github.io/beckett-gray-research/" target="_blank">
+                        <header>
+                            <h3 data-i18n="project_beckett_gray_title">Codes de Beckett-Gray</h3>
+                            <h4 data-i18n="project_beckett_gray_subtitle">Implémentation, heuristiques et analyses de
+                                graphes
+                            </h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>Mémoire (M1)</project-category>
+                            <project-date>Janvier 2024 - Mai 2024</project-date>
+                        </div>
+
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Recherche de codes de Gray sans retour arrière (<strong>Beckett-Gray</strong>)
+                                sur l'<strong>hypercube</strong>, via la recherche de cycles hamiltoniens
+                                spécifiques dans des graphes de grande dimension.
+                            </div>
+                            <div>
+                                <strong>Solvers</strong> : Implémentation en C++ de moteurs de recherche
+                                par backtracking et heuristiques pour explorer l'espace des solutions
+                                et identifier des contre-exemples.
+                            </div>
+                            <div>
+                                <strong>Analyse</strong> : Étude statistique des propriétés et motifs
+                                récurrents dans les codes générés.
+                            </div>
+                        </div>
+
+                        <div class="tags">
+                            <tech-tag>C++</tech-tag>
+                            <tech-tag>Python</tech-tag>
+                            <tech-tag>$\LaTeX$</tech-tag>
+                            <concept-tag>Théorie des graphes</concept-tag>
+                            <concept-tag>Cycles hamiltoniens</concept-tag>
+                            <concept-tag>Heuristique</concept-tag>
+                        </div>
+
+                        <footer>
+                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </footer>
+                    </a>
+                </div>
+
+        </section>
+
+        <span id="acad"></span>
+
+        <section>
+            <h1 data-i18n="section_academic_projects_title" class="section-title">Projets complémentaires</h1>
+
+            <div class="filter-container reveal">
+                <button class="filter-btn active" data-filter="all">Tout voir</button>
+                <button class="filter-btn" data-filter="cpp">C++</button>
+                <button class="filter-btn" data-filter="java">java</button>
+                <button class="filter-btn" data-filter="python">python</button>
+                <button class="filter-btn" data-filter="sage">Sagemath</button>
+                <button class="filter-btn" data-filter="crypto">Cryptographie</button>
+                <button class="filter-btn" data-filter="RD">R&D</button>
+
+            </div>
+
+            <div class="project-grid">
+
+
 
                 <!--------------------------------------------------------------------------------------------->
 
@@ -543,433 +561,155 @@
                 <div class="project" data-category="web">
                     <a href="https://enpeluche.github.io" target="_blank">
 
-                        <div class="description">
+                        <header>
                             <h3 data-i18n="portfolio_title">Portfolio Personnel</h3>
                             <h4 data-i18n="portfolio_subtitle">
-                                Développement d'une interface web responsive
-                                "from scratch"</h4>
+                                Interface web sur-mesure orientée performance et accessibilité.</h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>Projet Personnel</project-category>
+                            <project-category>From Scratch</project-category>
                         </div>
 
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Projet Personnel</span>
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Conception et implémentation d'un portfolio numérique 100% from scratch ( sans framework
+                                JS, sans CSS framework, sans générateur de site).
+                            </div>
+
+
+                            <div>
+                                <strong>Systèmes dynamiques</strong> :
+                                Filtrage natif des projets, moteur de blog, système de traduction, web components
+                                custom.
+                            </div>
+                            <div>
+                                <strong>UI/UX</strong> :
+                                Expérience utilisateur "Mobile-First", animations fluides et design sur-mesure.
+                            </div>
+                            <div>
+                                <strong>Infrastructure</strong> :
+                                Déploiement automatisé via GitHub Pages, incluant un système de génération de tables des
+                                matières dynamiques.
+                            </div>
+
+                            <div>
+                                <strong>Roadmap</strong> : 🌓 Implémentation du mode sombre (Dark Mode) + amélioration
+                                de l’accessibilité.
                             </div>
                         </div>
 
-                        <div class="project-card-description">
-                            Conception et implémentation d'une vitrine numérique pour exposer mes travaux, projets, blog
-                            et CV. Architecture modulaire sans framework, optimisation des performances et design
-                            adaptatif mobile-first.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">HTML5</span>
-                            <span class="tech">CSS3</span>
-                            <span class="tech">JavaScript</span>
-                            <span class="tech">Git / GitHub Pages</span>
-
-                            <span class="concept">Responsive Design</span>
-                            <span class="concept">Performance Web</span>
-                            <span class="concept">Accessibilité</span>
+                        <div class="tags">
+                            <tech-tag>HTML5 / CSS3</tech-tag>
+                            <tech-tag>JavaScript</tech-tag>
+                            <tech-tag>Git / GitHub Pages</tech-tag>
+                            <concept-tag>Responsive Design</concept-tag>
+                            <concept-tag>Accessibilité</concept-tag>
                         </div>
 
 
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
+                        <footer>
+                            <span data-i18n="btn_view_project">Explorer le portfolio</span>
+                            <right-arrow></right-arrow>
+                        </footer>
                     </a>
 
                 </div>
 
-                <!--
-                <div class="project" data-category="cpp">
-                    <a href="https://github.com/ton-profil/cpp-lattice-crypto" target="_blank">
-
-                        <div class="description">
-                            <h3 data-i18n="crypto_title">Cryptosystème & Cryptanalyse</h3>
-                            <h4 data-i18n="crypto_subtitle">Implémentation et analyse d'un protocole de
-                                chiffrement post-quantique</h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Cybersécurité / R&D</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Développement d'un protocole de chiffrement asymétrique basé sur la dureté des problèmes
-                            de réseaux euclidiens (SVP/CVP). Mise en œuvre d'une attaque par cryptanalyse :
-                            utilisation d'algorithmes de réduction de base (type LLL/BKZ) pour tenter de casser la
-                            clé privée et évaluer la robustesse du système.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">C++</span>
-                            <span class="tech">Algèbre Linéaire</span>
-                            <span class="concept">Cryptographie</span>
-                            <span class="concept">Post-Quantique</span>
-                            <span class="concept">Réseaux Euclidiens</span>
-                            <span class="concept">Algorithme LLL</span>
-                            <span class="concept">Cryptanalyse</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
-
-                </div>-->
 
                 <!--------------------------------------------------------------------------------------------->
 
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <!--
-                <div class="project" data-category="cpp maths">
-                    <a href="https://github.com/ton-profil/cpp-network-game" target="_blank">
-
-                        <div class="description">
-                            <h3 data-i18n="project_multiplayer_game_title">Jeu Multijoueur en Réseau</h3>
-                            <h4 data-i18n="project_multiplayer_game_subtitle">Architecture Client-Serveur et protocole
-                                de communication custom
-                            </h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Application Réseau / Système</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Développement d'un moteur de jeu multijoueur en temps réel (LAN). Conception d'un protocole
-                            de communication binaire/texte propriétaire pour la synchronisation des états de jeu.
-                            Gestion des sockets (TCP/IP), des connexions entrantes et de la sérialisation des données.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">C++</span>
-                            <span class="tech">Sockets API</span>
-                            <span class="tech">TCP/IP</span>
-                            <span class="concept">Réseaux</span>
-                            <span class="concept">Protocole Custom</span>
-                            <span class="concept">Client-Serveur</span>
-                            <span class="concept">Sérialisation</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
-
-                </div>-->
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <!--
                 <div class="project" data-category="maths">
-                    <a href="fichiers/cours-calcul-diff.pdf" target="_blank">
-
-                        <div class="description">
-                            <h3 data-i18n="project_diff_calc_title">Cours de Calcul Différentiel</h3>
-                            <h4 data-i18n="project_diff_calc_subtitle">Rédaction intégrale d'un manuel universitaire
-                                (100+
-                                pages)</h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Polycopié / Livre</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Auteur & Éditeur</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Création d'un support pédagogique complet destiné aux étudiants de Licence/Prépas.
-                            Structuration progressive des concepts, création de figures vectorielles (TikZ) et mise en
-                            page via LaTeX.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">LaTeX</span>
-                            <span class="tech">TikZ (Graphisme)</span>
-                            <span class="concept">Pédagogie</span>
-                            <span class="concept">Vulgarisation</span>
-                            <span class="concept">Rédaction Technique</span>
-                            <span class="concept">Mathématiques</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
-                </div>-->
-
-                <!-- idee : banque d images pour chaaques projet's-->
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <!--
-                <div class="project" data-category="maths java">
-                    <a href="https://github.com/ton-profil/java-fractals" target="_blank">
-
-                        <div class="description">
-                            <h3 data-i18n="project_fractals_title">Générateur de Fractales Interactif</h3>
-                            <h4 data-i18n="project_fractals_subtitle">Visualisation d'ensembles mathématiques complexes
-                                via la
-                                récursivité</h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Projet Universitaire (Licence 2)</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Conception d'une application graphique pour générer et explorer des structures fractales
-                            (ex: Ensemble de Mandelbrot, Julia, Sierpinski). Utilisation intensive d'algorithmes
-                            récursifs et gestion de l'interface utilisateur (zoom, paramètres en temps réel) en Java.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">Java</span>
-                            <span class="tech">Swing / JavaFX</span>
-                            <span class="tech">POO</span>
-                            <span class="concept">Récursivité</span>
-                            <span class="concept">Géométrie Fractale</span>
-                            <span class="concept">Algorithmique</span>
-                            <span class="concept">Rendu Graphique</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <svg width="24" viewBox="0 0 24 24">
-                                    <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
-
-                </div>
-            </div>-->
-        </section>
-
-        <span id="acad"></span>
-        <section>
-            <h1 data-i18n="section_academic_projects_title" class="section-title">Projets académiques</h1>
-
-            <div class="project-grid">
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <div class="project">
-                    <a href="https://enpeluche.github.io/lattice-reduction-internship/">
-                        <div class=" description">
-                            <h3 data-i18n="lattice_reduction_title">Réduction de réseaux</h3>
-                            <h4 data-i18n="lattice_reduction_subtitle">Adaptations d’idées provenant du cas
-                                polynomial au cas entier</h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Stage académique (M2)</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <calendar-icon></calendar-icon>
-
-                                <span style="font-size: 0.9rem;">Février 2025 - Juin 2025</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Étude et adaptation d'algorithmes de réduction de réseaux (type LLL/BKZ) du contexte des
-                            polynômes vers celui des entiers. Travail de recherche incluant l'implémentation de
-                            prototypes en <strong>Python</strong> et <strong>SageMath</strong> pour analyser la
-                            complexité algorithmique et la stabilité numérique des nouvelles variantes.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">Python</span>
-                            <span class="tech">LaTeX</span>
-                            <span class="tech">SageMath</span>
-
-                            <span class="concept">Algorithmique</span>
-                            <span class="concept">Algèbre linéaire</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <div class="project">
-                    <a href="https://enpeluche.github.io/beckett-gray-research/">
-                        <div class="description">
-                            <h3 data-i18n="project_beckett_gray_title">Codes de Beckett-Gray</h3>
-                            <h4 data-i18n="project_beckett_gray_subtitle">Implémentation, heuristiques et analyses de
-                                graphes
-                            </h4>
-                        </div>
-
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Mémoire (M1)</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-
-                                <calendar-icon></calendar-icon>
-                                <span style="font-size: 0.9rem;">Janvier 2024 - Mai 2024</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card-description">
-                            Recherche de codes de Gray sans "flip" (Beckett-Gray) sur des graphes complexes.
-                            Développement de solvers performants en <strong>C++</strong> (Backtracking et Heuristiques)
-                            pour explorer l'espace des solutions, identifier des contre-exemples et optimiser la
-                            recherche de cycles hamiltoniens spécifiques.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">C++</span>
-                            <span class="tech">Python</span>
-                            <span class="tech">LaTeX</span>
-
-                            <span class="concept">Théorie des graphes</span>
-                            <span class="concept">Heuristique</span>
-                        </div>
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-
-                <!--------------------------------------------------------------------------------------------->
-
-                <div class="project">
-                    <a href="https://enpeluche.github.io/weyl-transform-thesis/">
-                        <div class="description">
+                    <a href="https://enpeluche.github.io/weyl-transform-thesis/" target="_blank">
+                        <header>
                             <h3 data-i18n="weyl_transform_title">La transformation de Weyl</h3>
-                            <h4 data-i18n="weyl_transform_subtitle">Une transformée de Fourier non commutative
+                            <h4 data-i18n="weyl_transform_subtitle">Quantification de Weyl et analyse sur l’espace des
+                                phases
                             </h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>Mémoire de recherche (M1)</project-category>
                         </div>
 
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-
-                                <span style="font-size: 0.9rem;">Projet de recherche (L3)</span>
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Étude de la <strong>quantification de Weyl</strong> : correspondance entre
+                                fonctions sur l'espace des phases et opérateurs en mécanique quantique,
+                                en contournant la non-commutativité de P̂ et Q̂.
+                            </div>
+                            <div>
+                                <strong>Outils</strong> : Transformée de Fourier-Wigner, groupe de
+                                Heisenberg, opérateurs pseudo-différentiels, transformée de Wigner.
+                            </div>
+                            <div>
+                                <strong>Lien physique-mathématique</strong> : Formalisme rigoureux ancré
+                                dans les postulats de la mécanique quantique.
                             </div>
                         </div>
 
-                        <div class="project-card-description">
-                            Étude approfondie de la quantification de Weyl et de ses propriétés harmoniques.
-                            Rédaction d'un mémoire de synthèse liant l'analyse fonctionnelle mathématique aux
-                            formalismes d'opérateurs utilisés en mécanique quantique.
-                        </div>
-
-                        <div class="project-tags">
-                            <span class="tech">LaTeX</span>
-
-                            <span class="concept">Transformée de Fourier</span>
-                            <span class="concept">Mécanique quantique</span>
+                        <div class="tags">
+                            <tech-tag>$\LaTeX$</tech-tag>
+                            <concept-tag>Analyse fonctionnelle / harmonique</concept-tag>
+                            <concept-tag>Mécanique quantique</concept-tag>
                         </div>
 
 
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
+                        <footer>
+                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </footer>
                     </a>
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project">
-                    <a href="https://enpeluche.github.io/dense-packing-thesis/">
-                        <div class="description">
+                <div class="project" data-category="maths java">
+                    <a href="https://enpeluche.github.io/dense-packing-thesis/" target="_blank">
+                        <header>
                             <h3 data-i18n="close_packing_title">Empilement compact</h3>
                             <h4 data-i18n="close_packing_subtitle">Étude de l'inégalité isopérimétrique et
                                 simulations
                             </h4>
+                        </header>
+
+                        <div class="meta">
+                            <project-category>Mémoire (L3)</project-category>
                         </div>
 
-                        <div class="meta-grid">
-                            <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                <tag-icon></tag-icon>
-                                <span style="font-size: 0.9rem;">Projet académique</span>
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Étude du problème de l'<strong>empilement compact</strong> (conjecture de Kepler)
+                                et de l'<strong>inégalité isopérimétrique</strong>, et exploration du lien
+                                entre ces deux problèmes fondamentaux de géométrie.
+                            </div>
+                            <div>
+                                <strong>Contexte</strong> : De Kepler (1611) à Hales, jusqu'aux travaux de
+                                <strong>Maryna Viazovska</strong> (dimensions 8 et 24, médaille Fields 2022).
+                            </div>
+                            <div>
+                                <strong>Simulations</strong> : Développement en Java pour visualiser
+                                les configurations d'empilement critiques.
                             </div>
                         </div>
 
-                        <div class="project-card-description">
-                            Analyse géométrique du problème de l'empilement optimal (Sphere Packing). Étude des bornes
-                            de densité via l'inégalité isopérimétrique et développement de simulations numériques en
-                            <strong>Java</strong> pour visualiser les configurations critiques.
+                        <div class="tags">
+                            <tech-tag>Java</tech-tag>
+                            <tech-tag>$\LaTeX$</tech-tag>
+                            <concept-tag>Analyse</concept-tag>
+                            <concept-tag>Conjecture de Kepler</concept-tag>
+                            <concept-tag>Géométrie euclidienne</concept-tag>
+                            <concept-tag>Simulation</concept-tag>
                         </div>
 
-                        <div class="project-tags">
-                            <span class="tech">Java</span>
-
-                            <span class="concept">Analyse</span>
-                            <span class="concept">Géométrie</span>
-                            <span class="concept">Simulation</span>
-                        </div>
-
-
-                        <div class="project-footer">
-                            <span class="details">
-                                <span data-i18n="btn_view_project">Découvrir en détail le projet</span>
-                                <right-arrow></right-arrow>
-                            </span>
-                        </div>
+                        <footer>
+                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </footer>
                     </a>
                 </div>
 
@@ -1022,7 +762,7 @@
             document.addEventListener("DOMContentLoaded", function () {
 
                 const tagIconSVG = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -1032,7 +772,7 @@
                                 </svg>`;
 
 
-                const sgg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                const sgg = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <path
@@ -1062,7 +802,7 @@
             class RightArrow extends HTMLElement {
                 connectedCallback() {
                     this.innerHTML = `
-                        <svg width="24" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" width="24" viewBox="0 0 24 24">
                                         <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
                                     </svg>
                         `;
@@ -1072,7 +812,7 @@
             class Eye extends HTMLElement {
                 connectedCallback() {
                     this.innerHTML = `
-                    <svg viewBox="0 0 24 24" fill="currentColor">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                     </svg>
                     `;
@@ -1081,6 +821,52 @@
 
             customElements.define('eye-icon', Eye);
             customElements.define('right-arrow', RightArrow);
+        </script>
+
+        <script>
+            class TechTag extends HTMLElement { }
+            customElements.define('tech-tag', TechTag);
+
+            class ConceptTag extends HTMLElement { }
+            customElements.define('concept-tag', ConceptTag);
+        </script>
+
+        <script>
+            class MetaCategory extends HTMLElement {
+                connectedCallback() {
+                    const text = this.innerHTML;
+                    this.innerHTML = `<tag-icon></tag-icon> <span>${text}</span>`;
+                }
+            }
+            customElements.define('project-category', MetaCategory);
+
+            class MetaDate extends HTMLElement {
+                connectedCallback() {
+                    const text = this.innerHTML;
+                    this.innerHTML = `<calendar-icon></calendar-icon> <span>${text}</span>`;
+                }
+            }
+            customElements.define('project-date', MetaDate);
+        </script>
+
+        <script>
+            class HoverPreview extends HTMLElement {
+                connectedCallback() {
+                    const text = this.innerHTML.trim();
+
+                    const src = this.getAttribute('src');
+                    const alt = this.getAttribute('alt') || 'Aperçu 3D';
+
+                    this.innerHTML = `
+                        <eye-icon aria-hidden="true"></eye-icon>
+                        ${text}
+                        <img src="${src}" loading="lazy" alt="${alt}">
+                    `;
+                }
+            }
+
+            // On déclare la nouvelle balise au navigateur
+            customElements.define('hover-preview', HoverPreview);
         </script>
 </body>
 

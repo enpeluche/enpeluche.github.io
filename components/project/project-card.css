@@ -1,0 +1,181 @@
+.description {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.description > div {
+  padding-bottom: 0.25rem;
+}
+
+/*carte d'un projet*/
+
+.project {
+  /* Ajoute ceci : */
+  box-sizing: border-box; /* Assure que le padding ne s'ajoute pas à la largeur totale */
+  max-width: 100%;
+  min-width: 0; /* Oblige Flexbox à respecter les limites du parent */
+  overflow-wrap: break-word; /* Coupe les mots ou équations trop longs s'ils dépassent */
+  aspect-ratio: auto;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid rgb(218, 217, 220);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  transition:
+    transform 0.8s ease,
+    backdrop-filter 0.8s ease,
+    box-shadow 0.8s ease;
+}
+
+.project a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0px 5px var(--secondary-text-color);
+  /* backdrop-filter: blur(3px); */
+}
+
+/*footer*/
+.project footer {
+  text-align: center;
+  font-weight: 500;
+  margin-top: auto;
+
+  padding-top: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  color: var(--secondary-text-color);
+  fill: var(--secondary-text-color);
+  border-top: 1px solid var(--secondary-text-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.25rem;
+
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2 ease;
+}
+
+footer svg {
+  display: block;
+  margin: 0;
+}
+
+.project:hover footer {
+  text-decoration: underline;
+}
+/*header*/
+
+.project header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.project header h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-text-color);
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .project header h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.project header h4 {
+  font-size: 1rem;
+}
+
+/*Project metadata*/
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta > * {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meta > * > span {
+  font-size: 0.9rem;
+}
+
+/*Montag 451*/
+.tags {
+  display: flex;
+  padding-bottom: 0.5rem;
+  font-size: 0.9em;
+}
+
+.tags > * {
+  display: inline-block;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+
+  border-radius: 5px;
+  padding: 0.2rem 0.4rem;
+}
+
+.tags .tech,
+.tags tech-tag {
+  background-color: #eaedef;
+  border: 1px solid #727b81;
+  color: var(--primary-text-color);
+}
+
+.tags .concept,
+.tags concept-tag {
+  border: 1px solid var(--secondary-text-color);
+  color: var(--secondary-text-color);
+}
+
+@media (max-width: 768px) {
+  .project a {
+    min-width: 0; /* ← empêche la carte de s'étirer */
+    overflow: hidden;
+  }
+
+  .project {
+    width: 100%; /* Force la carte à prendre exactement la largeur de l'écran moins les marges */
+  }
+
+  .tags {
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* scroll fluide iOS */
+    padding-bottom: 0.25rem;
+
+    /* masque le débordement proprement */
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  .tags > * {
+    flex-shrink: 0;
+  }
+
+  /* cache la scrollbar sans perdre la fonctionnalité */
+  .tags::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,26 @@
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    text-align: center;
+    font-size: 3rem;
+    padding: 2rem;
+  }
+}
+
+.project-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

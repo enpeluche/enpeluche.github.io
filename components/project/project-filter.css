@@ -1,0 +1,44 @@
+.filter-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-text-color);
+  background: white;
+  color: var(--primary-text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  box-shadow: 0 0 0 1px var(--secondary-text-color);
+}
+.filter-btn.active {
+  box-shadow: 0 0 0 2px var(--secondary-text-color);
+}
+
+.project.hide {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project.show {
+  animation: fadeIn 0.5s ease forwards;
+}

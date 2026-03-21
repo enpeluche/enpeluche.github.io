@@ -19,12 +19,12 @@ LA CARTE PRINCIPALE (CONTENEUR)
   width: 100%;
   max-width: 1500px;
   border-radius: var(--radius);
-  overflow: hidden; /* Pour que rien ne dépasse des coins arrondis */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  box-sizing: border-box; /* Indispensable ! */
+  box-sizing: border-box;
 }
 
 /* =========================================
@@ -146,8 +146,18 @@ LA CARTE PRINCIPALE (CONTENEUR)
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
 }
 
 .contact-item {

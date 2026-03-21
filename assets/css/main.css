@@ -15,14 +15,18 @@
 @import "/components/Algorithm/Algorithm.css";
 
 @import "05_pages/homepage.css";
-@import "/components/Project/Project.css";
+
+/*Project part*/
+@import "/components/project/project-card.css";
+@import "/components/project/project-filter.css";
+@import "/components/project/project-grid.css";
+@import "/components/project/project-hover-img.css";
 
 @import "06_trumps/utils.css";
 
 @import "table.css";
 
 @import "animation.css";
-@import "components/carousel.css";
 
 @import "/components/ScrollDown/ScrollDown.css";
 
@@ -35,4 +39,4 @@
 @import "/components/TableOfContents/TableOfContents.css";
 
 @import "/components/Carousel/Carousel.css";
-@import "/components/New/News.css";
+@import "/components/News/News.css";
