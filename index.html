@@ -349,26 +349,78 @@
             <div class="project-grid reveal">
 
 
+                <div class="project" data-category="rust crypto RD">
+                    <a href="https://github.com/enpeluche/lattice-chat" target="_blank">
+                        <header>
+                            <h3 data-i18n="lattice_chat_title">Lattice-Chat</h3>
+                            <h4 data-i18n="lattice_chat_subtitle">
+                                Messagerie chiffrée post-quantique et cryptanalyse par LLL
+                            </h4>
+                        </header>
 
+                        <div class="meta">
+                            <project-category>R&D</project-category>
+                            <project-category>Projet Personnel</project-category>
+                        </div>
+
+                        <div class="description">
+                            <div
+                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                                Système de messagerie chiffrée de bout en bout dont la sécurité repose
+                                sur la difficulté du problème <strong>SVP</strong> — résistant aux attaques quantiques.
+                            </div>
+                            <div>
+                                <strong>Cryptographie</strong> : Échange de clés post-quantique via
+                                <strong>LWE</strong> (Learning With Errors), chiffrement symétrique
+                                des messages par <strong>ChaCha20</strong>.
+                            </div>
+                            <div>
+                                <strong>Réseau</strong> : Stack réseau asynchrone en Rust
+                                (Tokio, TCP/WebSockets).
+                            </div>
+                            <div>
+                                <strong>Cryptanalyse</strong> : Simulation d'attaques par réduction
+                                de base (<strong>LLL</strong>) et benchmarks selon la dimension,
+                                le bruit et le module.
+                            </div>
+                            <div>
+                                <strong>Roadmap</strong> : 🦀 Projet en cours d'implémentation. (mars 2026)
+                            </div>
+                        </div>
+
+                        <div class="tags">
+                            <tech-tag>Rust</tech-tag>
+                            <tech-tag>Tokio</tech-tag>
+                            <concept-tag>Cryptographie post-quantique</concept-tag>
+                            <concept-tag>LWE</concept-tag>
+                            <concept-tag>Réduction de réseaux</concept-tag>
+                            <concept-tag>Cryptanalyse</concept-tag>
+                        </div>
+
+                        <footer>
+                            <span data-i18n="btn_view_project">Explorer le projet</span>
+                            <right-arrow></right-arrow>
+                        </footer>
+                    </a>
+                </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="sage crypto RD">
                     <a href="https://enpeluche.github.io/lattice-reduction-internship/">
                         <header>
-                            <h3 data-i18n="lattice_reduction_title">Réduction de réseaux euclidiens</h3>
-                            <h4 data-i18n="lattice_reduction_subtitle">Adaptations d’idées provenant du cas
+                            <h3 data-i18n="internship_title">Réduction de réseaux euclidiens</h3>
+                            <h4 data-i18n="internship_subtitle">Adaptations d’idées provenant du cas
                                 polynomial au cas entier</h4>
                         </header>
 
                         <div class="meta">
-                            <project-category>Stage de recherche (M2)</project-category>
-                            <project-date>Février 2025 - Juin 2025</project-date>
+                            <project-category data-i18n="internship_category">Stage de recherche (M2)</project-category>
+                            <project-date data-i18n="internship_date">Février 2025 - Juin 2025</project-date>
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Exploration des similarités et différences entre réduction de réseaux
                                 <strong>polynomiaux</strong> et <strong>euclidiens</strong>, avec adaptation
                                 d'idées algorithmiques du cas polynomial vers le cas entier (algorithme LLL).
@@ -401,7 +453,7 @@
                         </div>
 
                         <footer>
-                            <span data-i18n="btn_view_project">Lire le rapport de recherche</span>
+                            <span>Lire le rapport de recherche</span>
                             <right-arrow></right-arrow>
                         </footer>
                     </a>
@@ -424,8 +476,7 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Intersection rayon–surface via la résolution de l'équation $f(O + tD) = 0$.
                                 Isolement des racines en base de <strong>Bernstein</strong> via l'algorithme de
                                 <strong>De Casteljau</strong>.
@@ -501,8 +552,7 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Recherche de codes de Gray sans retour arrière (<strong>Beckett-Gray</strong>)
                                 sur l'<strong>hypercube</strong>, via la recherche de cycles hamiltoniens
                                 spécifiques dans des graphes de grande dimension.
@@ -569,8 +619,7 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Conception et implémentation d'un portfolio numérique 100% from scratch ( sans framework
                                 JS, sans CSS framework, sans générateur de site).
                             </div>
@@ -631,8 +680,7 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Étude de la <strong>quantification de Weyl</strong> : correspondance entre
                                 fonctions sur l'espace des phases et opérateurs en mécanique quantique,
                                 en contournant la non-commutativité de P̂ et Q̂.
@@ -677,8 +725,7 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                            <div>
                                 Étude du problème de l'<strong>empilement compact</strong> (conjecture de Kepler)
                                 et de l'<strong>inégalité isopérimétrique</strong>, et exploration du lien
                                 entre ces deux problèmes fondamentaux de géométrie.
