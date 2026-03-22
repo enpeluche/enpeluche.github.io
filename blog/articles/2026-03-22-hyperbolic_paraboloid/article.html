@@ -1,0 +1,156 @@
+<h1>Le Paraboloïde Hyperbolique : Quand la ligne droite crée la courbe</h1>
+
+<div class="paragraph">
+    Cette surface a l’air courbée, mais elle est entièrement composée de droites !
+</div>
+
+<figure>
+    <figure>
+        <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/hyperbolic_paraboloid_perspectivecamera__.webp"
+            alt="">
+        <figcaption>Paraboloïde hyperbolique <br> Perspective</figcaption>
+    </figure>
+</figure>
+
+<div class="paragraph">
+    Dans mon <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">moteur de <strong>ray
+            tracing</strong></a>, cette surface est définie de manière implicite.
+
+    L'ensemble des points de la surface est défini par l'équation implicite :
+    $$\{(x, y, z) \in \R^3 | x^2-y^2-z=0\}$$
+
+    Trouver l'impact d'un rayon lumineux revient à résoudre l'équation $f(O+tD)=0$ où $O$ est l'origine du rayon et $D$
+    sa direction.
+</div>
+
+
+<div class="paragraph">
+    Je parle bien entendu du célèbre <strong>paraboloïde hyperbolique</strong>. Nous allons étudier son aspect le plus
+    fascinant : sa nature de <strong>surface réglée</strong>, et voir comment l'origami permet de lui donner vie.
+</div>
+
+<div class="paragraph">
+    <strong>Définition</strong> : En géométrie, une surface réglée est une surface par chaque point de laquelle passe
+    une droite (appelée génératrice) contenue dans la surface.
+</div>
+
+<div class="paragraph">
+    Le paraboloïde hyperbolique est un cas d'école : c'est l'exemple le plus simple de surface
+    <strong>doublement</strong> réglée : par tout point passent deux droites.
+</div>
+
+<div class="paragraph">
+    Ces deux familles sont en fait les <strong>seules</strong> droites entièrement contenues dans la surface (je
+    laisserais la démonstration en exercice).
+</div>
+
+<h2>Deux approches pour un même secret</h2>
+
+<h3>L'approche algébrique : le changement de regard</h3>
+
+<div class="paragraph">
+    On peut partir de l'équation implicite :
+    $$x^2-y^2-z=0 \Rightarrow (x-y)(x+y) -z = 0$$
+
+    En posant $u = x+y$ et $v = x-y$ on obtient $z = uv$.
+
+    On peut alors exprimer x et y en fonction de u et v :
+    $$x = \frac{u+v}{2}, y=\frac{u-v}{2}$$
+
+    L'ensemble des points de la surface est donc aussi défini par :
+    $$\left\{\left(\frac{u+v}{2}, \frac{u-v}{2}, uv\right)| u \in \R, v\in \R \right \}$$
+
+</div>
+
+<h4>Pourquoi cela prouve-t-il la présence de droites ?</h4>
+
+<div class="paragraph">
+    En fixant $u = u_0$, nous voyons que cela devient affine en $v$ :
+    $$\frac{1}{2}\left(u_0, u_0, 0\right)+\frac{v}{2}\left(1, -1, 2u_0 \right)$$
+
+    Pareillement en fixant $v=v_0$, on obtient une écriture affine en $u$ :
+    $$\frac{1}{2}\left(v_0, v_0, 0\right)+\frac{u}{2}\left(1, 1, 2v_0 \right)$$
+
+    On obtient donc deux familles de droites affines dont l’union reconstruit exactement le paraboloïde hyperbolique.
+</div>
+
+
+
+<h3>L'approche géométrique : la construction par le mouvement</h3>
+
+<div class="paragraph">
+    Si l'on prend une droite dans le plan $(x,y)$ définie par $y=x−a$, regardons ce que cela donne pour $z$, avec une
+    paramétrisation par $t$:
+
+    donc $x=t$, $y=t−a$ et
+
+    $$z =t^2 - (t-a)^2 = 2at-a^2$$
+
+    On obtient donc le point
+    $$(x, y, z) = (t, t-a, 2at-a^2)$$
+
+    Ici encore, pour un a fixé, $z$ dépend linéairement de $t$. C'est une droite affine qui "grimpe" sur la selle.
+
+    On peut symétriquement faire $x=t , y=-t-a$ pour obtenir une nouvelle famille de droites, qui descendra sur la
+    selle.
+
+</div>
+
+<h2>Courbure et Gradient : La signature de la selle</h2>
+
+<div class="paragraph">
+    La géométrie différentielle nous confirme cette forme :
+
+    <ul>
+        <li>Le <strong>gradient</strong> : $ \nabla f = (2x, -2y, -1)$</li>
+        <li>La <strong>matrice Hessienne</strong> a pour valeurs propres $2$ et $-2$.</li>
+    </ul>
+</div>
+
+<div class="paragraph">
+    Le signe opposé des courbures principales, positive dans une direction, négative dans l'autre, est la signature
+    géométrique de la double réglure. La structure en deux familles de droites explique la géométrie locale de la
+    surface, notamment la façon dont elle “se plie” dans deux directions opposées.
+</div>
+
+<div class="paragraph">
+    Cette propriété est exploitée en architecture (toits en selle) et en design, car elle permet de construire des
+    surfaces courbes à partir d’éléments rectilignes.
+</div>
+
+<h2>Le lien avec l'Origami : Plier le rigide pour créer le courbe</h2>
+
+<div class="paragraph">
+    L’origami exploite directement cette propriété : en pliant uniquement des lignes droites, on peut créer l’illusion
+    d’une surface courbe. Chaque droite correspond à un pli et chaque pli une droite. Il y a deux familles, donc deux
+    directions de plis.
+</div>
+
+<figure>
+    <figure>
+        <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/IMG_4530.webp" alt="">
+        <figcaption>Origami de paraboloïde hyperbolique</figcaption>
+    </figure>
+</figure>
+
+<div class="paragraph">
+    Voici rapidement les différentes étapes de la construction si vous souhaitez le reproduire chez vous :
+</div>
+
+<figure>
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step0.webp" alt="">
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step1.webp" alt="">
+
+
+    <figcaption>Étapes de construction</figcaption>
+</figure>
+
+
+<h3>Aller plus loin : Le 6ème axiome</h3>
+
+<div class="paragraph">
+    L'origami est un loisir, mais aussi une branche de la géométrie. Les <strong>axiomes de Huzita-Hatori</strong>
+    définissent ce qu'il est possible de construire en pliant. Le 6ème axiome est particulièrement célèbre : il permet
+    de résoudre des <strong>équations du troisième degré</strong>, ce que la règle et le compas sont incapables de faire
+    ! Mais ce sera pour un prochain article avec la théorie de Galois et les extensions quadratiques.
+</div>

@@ -1,5 +1,3 @@
-import { setupKatex } from "../shared-assets/katex-config.js";
-
 const blogView = document.getElementById("blog-view");
 const articleView = document.getElementById("article-view");
 const contentLoader = document.getElementById("article-content-loader");
@@ -52,7 +50,7 @@ export function renderArticles(articlesList) {
 
     const basePath = `/blog/articles/${article.folder}/`;
 
-    const coverUrl = basePath + "cover.jpg";
+    const coverUrl = basePath + "cover.webp";
     const articleUrl = basePath + "article.html";
 
     card.innerHTML = `
@@ -67,8 +65,6 @@ export function renderArticles(articlesList) {
             <div class="card-content">
                 <img src="${coverUrl}" alt="${article.title}" loading="lazy">
             </div>
-            
-            
             </a>
         `;
     const link = card.querySelector(".js-load-article");
@@ -157,7 +153,28 @@ async function displayArticle(url) {
 
     contentLoader.innerHTML = html;
 
-    setupKatex(contentLoader);
+    renderMathInElement(contentLoader, {
+      delimiters: [
+        { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+        { left: "\\begin{align}", right: "\\end{align}", display: true },
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false },
+      ],
+      macros: {
+        "\\F": "\\mathbb{F}",
+        "\\K": "\\mathbb{K}",
+        "\\LL": "\\mathscr{L}",
+        "\\nint": "\\left\\lceil #1 \\right\\rfloor",
+        "\\ps": "\\left\\langle #1 , #2 \\right\\rangle",
+        "\\norm": "\\left\\| #1 \\right\\|",
+        "\\gscoeff": "\\frac{\\ps{#1}{#2}}{\\norm{#2}^2} #2",
+        "\\OO": "\\mathcal{O}",
+        "\\ra": "\\rightarrow",
+        "\\rdeg": "\\operatorname{rdeg}",
+      },
+    });
   } catch (error) {
     contentLoader.innerHTML = `<p style="color:red; text-align:center;">Erreur : ${error.message}</p>`;
   }

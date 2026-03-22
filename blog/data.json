@@ -12,5 +12,12 @@
     "category": "maths",
     "folder": "2026-03-15-raytracing_00",
     "summary": "Introduction aux concepts mathématiques du ray tracing : modélisation des rayons, surfaces implicites et calcul d'intersection avec une sphère."
+  },
+  {
+    "title": "Le Paraboloïde Hyperbolique : Quand la ligne droite crée la courbe",
+    "date": "2026-03-22",
+    "category": "maths",
+    "folder": "2026-03-22-hyperbolic_paraboloid",
+    "summary": "Exploration d'une surface doublement réglée fascinante : du rendu implicite dans mon moteur de raytracing à sa concrétisation physique par l'origami et les axiomes de Huzita-Hatori."
   }
 ]
