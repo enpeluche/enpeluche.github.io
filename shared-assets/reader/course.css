@@ -15,6 +15,16 @@ Liste des selecteurs
 .theorem
 */
 
+:root {
+  --list-indent: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --list-indent: 2.5rem;
+  }
+}
+
 #article {
   max-width: 1000px;
   width: 100%;
@@ -26,104 +36,41 @@ Liste des selecteurs
 /*                                      */
 /* -------- gestion des listes -------- */
 
-.conjecture > ul,
-.counterexample > ul,
-.definition > ul,
-.example > ul,
-.lemma > ul,
-.notation > ul,
-.paragraph > ul,
-.problem > ul,
-.proof > ul,
-.proposition > ul,
-.remark .theorem > ul {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) > ul {
   margin: 1rem 0;
   list-style-type: disc;
 }
 
-.conjecture ul,
-.counterexample ul,
-.definition ul,
-.example ul,
-.lemma ul,
-.notation ul,
-.paragraph ul,
-.problem ul,
-.proof ul,
-.proposition ul,
-.remark .theorem ul {
-  padding-left: 2.5rem;
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) ul {
+  padding-left: var(--list-indent);
 }
 
-.conjecture ol,
-.counterexample ol,
-.definition ol,
-.example ol,
-.lemma ol,
-.notation ol,
-.paragraph ol,
-.problem ol,
-.proof ol,
-.proposition ol,
-.remark .theorem ol {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) ol {
   list-style-type: decimal;
-  padding-left: 2.5rem;
+  padding-left: var(--list-indent);
 }
 
-.conjecture ul ul,
-.counterexample ul ul,
-.definition ul ul,
-.example ul ul,
-.lemma ul ul,
-.notation ul ul,
-.paragraph ul ul,
-.problem ul ul,
-.proof ul ul,
-.proposition ul ul,
-.remark .theorem ul ul {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) ul ul {
   list-style-type: square;
   margin-bottom: 0.6rem;
 }
 
-.conjecture ul ol,
-.counterexample ul ol,
-.definition ul ol,
-.example ul ol,
-.lemma ul ol,
-.notation ul ol,
-.paragraph ul ol,
-.problem ul ol,
-.proof ul ol,
-.proposition ul ol,
-.remark .theorem ul ol {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) ul ol {
   margin-bottom: 0.6rem;
 }
 
-.conjecture > ul > li,
-.counterexample > ul > li,
-.definition > ul > li,
-.example > ul > li,
-.lemma > ul > li,
-.notation > ul > li,
-.paragraph > ul > li,
-.problem > ul > li,
-.proof > ul > li,
-.proposition > ul > li,
-.remark .theorem > ul > li {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) > ul > li {
   margin-bottom: 0.3rem 0;
 }
 
-.conjecture li,
-.counterexample li,
-.definition li,
-.example li,
-.lemma li,
-.notation li,
-.paragraph li,
-.problem li,
-.proof li,
-.proposition li,
-.remark .theorem li {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) li {
   padding: 0.3rem 0;
 }
 
@@ -181,35 +128,15 @@ Liste des selecteurs
 
 /* Gestion des liens */
 
-.conjecture a,
-.counterexample a,
-.definition a,
-.example a,
-.lemma a,
-.notation a,
-.paragraph a,
-.problem a,
-.proof a,
-.proposition a,
-.remark a,
-.theorem a {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem )a {
   color: var(--secondary-text-color);
   display: inline;
   text-decoration: underline;
 }
 
-.conjecture a:hover,
-.counterexample a:hover,
-.definition a:hover,
-.example a:hover,
-.lemma a:hover,
-.notation a:hover,
-.paragraph a:hover,
-.problem a:hover,
-.proof a:hover,
-.proposition a:hover,
-.remark a:hover,
-.theorem a:hover {
+/* prettier-ignore */
+:is(.conjecture, .counterexample, .definition, .example, .lemma, .notation, .paragraph, .problem, .proof, .proposition, .remark, .theorem ) a:hover {
   text-decoration: none;
 }
 
