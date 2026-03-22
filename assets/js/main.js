@@ -1,7 +1,7 @@
 import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 import { initCarousel } from "/components/Carousel/Carousel.js";
 
-import { setupKatex } from "./katex-config.js";
+import { setupKatex } from "../../shared-assets/katex-config.js";
 
 import { loadReferences } from "./pages/references.js";
 
