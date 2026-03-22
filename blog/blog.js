@@ -1,4 +1,4 @@
-import { setupKatex } from "/assets/js/katex-config.js";
+import { setupKatex } from "../shared-assets/katex-config.js";
 
 const blogView = document.getElementById("blog-view");
 const articleView = document.getElementById("article-view");
