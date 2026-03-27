@@ -70,7 +70,6 @@
 }
 
 .card-content {
-  background-color: greenyellow;
   display: flex;
 
   justify-content: space-between;
