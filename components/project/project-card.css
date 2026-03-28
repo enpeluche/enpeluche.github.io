@@ -1,18 +1,27 @@
 .description {
+  position: relative;
+
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
 .description > div {
-  padding-bottom: 0.25rem;
+  text-align: justify;
+  padding-bottom: 0.5rem;
 }
 
 .description div:first-child {
-  border-bottom: 1px dashed var(--secondary-text-color);
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+.ddescription div:first-child {
+  border-bottom: 2px dashed var(--secondary-text-color);
+  text-align: justify;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .project {
+  position: relative;
   box-sizing: border-box;
   max-width: 100%;
   min-width: 0;
@@ -39,6 +48,16 @@
   height: 100%;
 }
 
+.project a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* S'assure qu'il est cliquable au-dessus du texte */
+}
+
 .project:hover {
   transform: translateY(-5px);
   box-shadow: 0 0px 5px var(--secondary-text-color);
@@ -47,7 +66,6 @@
 .project footer {
   text-align: center;
   font-weight: 500;
-  margin-top: auto;
 
   padding-top: 0.5rem;
   font-size: 0.9rem;
@@ -78,12 +96,13 @@ footer svg {
 }
 
 .project header {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
 .project header h3 {
   font-size: 2rem;
+  margin-bottom: 0.25rem;
   font-weight: 700;
   color: var(--secondary-text-color);
 }
@@ -101,8 +120,10 @@ footer svg {
 .meta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding-inline: 1rem;
+
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .meta > * {
@@ -117,6 +138,7 @@ footer svg {
 
 /*Montag 451*/
 .tags {
+  margin-top: auto;
   display: flex;
   padding-bottom: 0.5rem;
   font-size: 0.9em;
