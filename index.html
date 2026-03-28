@@ -40,6 +40,7 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
 
+    <script src="assets/js/translate.js"></script>
     <style>
         .reveal {
             opacity: 0;
@@ -330,34 +331,42 @@
                 </a>
             </div>
         </section>
-
+        <!----------------------------------------------------------------------------------------------------------->
         <span id="dev"></span>
         <!---
         TODO: voir où est le code de tagicon et le mettre en bas de index html
         TODO: faire la traduction, bien séparer français/anglais
+
+        TODO: Pour les icônes : aria-hidden="true", focusable="false", fill="currentColor", taille de base 24 par 24
+        TODO : il faudra absolument que le parent HTML possède un texte alternatif : aria-label="Mon profil LinkedIn"
+        changer tout les icones en UI icon, ca veut dire quoi ui ?
+        un composant unique et générique (ex: <ui-icon name="github"></ui-icon>) qui piocherait dynamiquement le bon chemin SVG en fonction de l'attribut passé
         --->
 
         <section id="projects">
-            <h1 data-i18n="section_dev_projects_title" class="section-title">Recherche & Ingénierie</h1>
+            <h1 data-i18n="research_engineering" class="section-title">Recherche & Ingénierie</h1>
 
             <div class="filter-container reveal">
-                <button class="filter-btn active" data-filter="all">Tout voir</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="view_all">Tout voir</button>
                 <button class="filter-btn" data-filter="sage">Sagemath</button>
                 <button class="filter-btn" data-filter="python">Python</button>
                 <button class="filter-btn" data-filter="rust">Rust</button>
                 <button class="filter-btn" data-filter="cpp">C++</button>
-                <button class="filter-btn" data-filter="crypto">Cryptographie</button>
+                <button class="filter-btn" data-filter="crypto" data-i18n="cryptography">Cryptographie</button>
+                <button class="filter-btn" data-filter="java">java</button>
                 <button class="filter-btn" data-filter="RD">R&D</button>
             </div>
 
             <div class="project-grid reveal">
 
+                <!----------------------------------------------------------------------------------------------------------->
+
 
                 <div class="project" data-category="rust crypto RD">
-                    <a href="https://github.com/enpeluche/lattice-based-messaging" target="_blank">
+
                         <header>
-                            <h3 data-i18n="lattice_chat_title">Lattice-Chat</h3>
-                            <h4 data-i18n="lattice_chat_subtitle">
+                        <h3 data-i18n="latticechat_title">Lattice-Chat</h3>
+                        <h4 data-i18n="latticechat_subtitle">
                                 Messagerie chiffrée post-quantique et cryptanalyse par LLL
                             </h4>
                         </header>
@@ -368,10 +377,9 @@
                         </div>
 
                         <div class="description">
-                            <div
-                                style="border-bottom: 1px dashed var(--secondary-text-color);margin-top: 0.25rem;margin-bottom: 0.25rem;">
+                        <div>
                                 Système de messagerie chiffrée de bout en bout dont la sécurité repose
-                                sur la difficulté du problème <strong>SVP</strong> — résistant aux attaques quantiques.
+                            sur la difficulté du problème <strong>SVP</strong> résistant aux attaques quantiques.
                             </div>
                             <div>
                                 <strong>Cryptographie</strong> : Échange de clés post-quantique via
@@ -392,33 +400,36 @@
                             </div>
                         </div>
 
+
+
                         <div class="tags">
                             <tech-tag>Rust</tech-tag>
                             <tech-tag>Tokio</tech-tag>
-                            <concept-tag>Cryptographie post-quantique</concept-tag>
+                        <concept-tag data-i18n="post_quantum_cryptography">Cryptographie
+                            post-quantique</concept-tag>
                             <concept-tag>LWE</concept-tag>
-                            <concept-tag>Réduction de réseaux</concept-tag>
-                            <concept-tag>Cryptanalyse</concept-tag>
+                        <concept-tag data-i18n="lattice_reduction">Réduction de réseaux</concept-tag>
+                        <concept-tag data-i18n="cryptanalysis">Cryptanalyse</concept-tag>
                         </div>
 
                         <footer>
+                        <a href="https://github.com/enpeluche/lattice-based-messaging" target="_blank"></a>
                             <span data-i18n="explore_project">Explorer le projet</span>
                             <right-arrow></right-arrow>
+
                         </footer>
-                    </a>
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="java RD">
-                    <a href="https://github.com/enpeluche/java-wsrp-solver" target="_blank">
+
                         <header>
                             <h3>Solveur WSRP</h3>
                             <h4>Optimisation de tournées sous contraintes de compétences</h4>
                         </header>
                         <div class="meta">
                             <project-category>R&D</project-category>
-                            <project-category>Projet académique</project-category>
                         </div>
                         <div class="description">
                             <div>
@@ -441,6 +452,8 @@
                                 sur les tâches, minimisation du temps de trajet et des retards.
                             </div>
                         </div>
+
+
                         <div class="tags">
                             <tech-tag>Java</tech-tag>
                             <tech-tag>OR-Tools</tech-tag>
@@ -451,27 +464,29 @@
                         </div>
 
                         <footer>
+                        <a href="https://github.com/enpeluche/java-wsrp-solver" target="_blank"></a>
                             <span data-i18n="explore_project">Explorer le solveur</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="sage crypto RD">
-                    <a href="https://enpeluche.github.io/lattice-reduction-internship/" target="_blank">
+
                         <header>
                             <h3 data-i18n="internship_title">Réduction de réseaux euclidiens</h3>
                             <h4 data-i18n="internship_subtitle">Adaptations d’idées provenant du cas
                                 polynomial au cas entier</h4>
                         </header>
 
+
                         <div class="meta">
                             <project-category data-i18n="internship_category">Stage de recherche (M2)</project-category>
+                        <project-category>R&D</project-category>
                             <project-date data-i18n="internship_date">Février 2025 - Juin 2025</project-date>
                         </div>
-
                         <div class="description">
                             <div>
                                 Exploration des similarités et différences entre réduction de réseaux
@@ -497,24 +512,28 @@
                             </div>
                         </div>
 
+
+
                         <div class="tags">
                             <tech-tag>SageMath</tech-tag>
 
-                            <concept-tag>Cryptographie post-quantique</concept-tag>
-                            <concept-tag>Analyse de complexité</concept-tag>
-                            <concept-tag>Réduction de réseaux</concept-tag>
+                        <concept-tag data-i18n="post_quantum_cryptography">Cryptographie
+                            post-quantique</concept-tag>
+                        <concept-tag data-i18n="complexity_analysis">Analyse de complexité</concept-tag>
+                        <concept-tag data-i18n="lattice_reduction">Réduction de réseaux</concept-tag>
                         </div>
 
                         <footer>
-                            <span>Lire le rapport de recherche</span>
+                        <a href="https://enpeluche.github.io/lattice-reduction-internship/" target="_blank"></a>
+                        <span data-i18n="read_research_report">Lire le rapport de recherche</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
                 </div>
 
 
                 <div class="project" data-category="python rust RD">
-                    <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank">
+
 
                         <header>
                             <h3 data-i18n="raytracer_title">Ray Tracing Algébrique</h3>
@@ -522,11 +541,12 @@
                                 Solveur exact pour surfaces implicites
                             </h4>
                         </header>
-
                         <div class="meta">
                             <project-category>R&D</project-category>
                             <project-category>Moteur de calcul symbolique</project-category>
                         </div>
+
+
 
                         <div class="description">
                             <div>
@@ -571,36 +591,38 @@
                             </div>
                         </div>
 
+
                         <div class="tags">
                             <tech-tag>Python</tech-tag>
                             <tech-tag>Rust</tech-tag>
                             <tech-tag>Docker</tech-tag>
                             <concept-tag>De Casteljau</concept-tag>
-                            <concept-tag>Surfaces algébriques</concept-tag>
-                            <concept-tag>Géométrie différentielle</concept-tag>
+                        <concept-tag data-i18n="algebraic_surfaces">Surfaces algébriques</concept-tag>
+                        <concept-tag data-i18n="differential_geometry">Géométrie différentielle</concept-tag>
                         </div>
 
                         <footer>
-                            <span>Explorer l'architecture du moteur</span>
+                        <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank"></a>
+                        <span data-i18n="explore_engine_architecture">Explorer l'architecture du moteur</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
 
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="cpp RD">
-                    <a href="https://enpeluche.github.io/beckett-gray-research/" target="_blank">
+
                         <header>
-                            <h3 data-i18n="project_beckett_gray_title">Codes de Beckett-Gray</h3>
-                            <h4 data-i18n="project_beckett_gray_subtitle">Implémentation, heuristiques et analyses de
-                                graphes
-                            </h4>
+                        <h3 data-i18n="beckett_title">Codes de Beckett-Gray</h3>
+                        <h4 data-i18n="beckett_subtitle">Implémentation, heuristiques et analyses de graphes </h4>
                         </header>
+
 
                         <div class="meta">
                             <project-category>Mémoire (M1)</project-category>
+                        <project-category>R&D</project-category>
                             <project-date>Janvier 2024 - Mai 2024</project-date>
                         </div>
 
@@ -621,20 +643,22 @@
                             </div>
                         </div>
 
+
                         <div class="tags">
                             <tech-tag>C++</tech-tag>
                             <tech-tag>Python</tech-tag>
                             <tech-tag>$\LaTeX$</tech-tag>
-                            <concept-tag>Théorie des graphes</concept-tag>
-                            <concept-tag>Cycles hamiltoniens</concept-tag>
-                            <concept-tag>Heuristique</concept-tag>
+                        <concept-tag data-i18n="graph_theory">Théorie des graphes</concept-tag>
+                        <concept-tag data-i18n="hamiltonian_cycles">Cycles hamiltoniens</concept-tag>
+                        <concept-tag data-i18n="heuristics">Heuristique</concept-tag>
                         </div>
 
                         <footer>
-                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                        <a href="https://enpeluche.github.io/beckett-gray-research/" target="_blank"></a>
+                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
                 </div>
 
         </section>
@@ -642,10 +666,10 @@
         <span id="acad"></span>
 
         <section>
-            <h1 data-i18n="section_academic_projects_title" class="section-title">Projets complémentaires</h1>
+            <h1 data-i18n="additional_projects" class="section-title">Projets complémentaires</h1>
 
             <div class="filter-container reveal">
-                <button class="filter-btn active" data-filter="all">Tout voir</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="view_all">Tout voir</button>
                 <button class="filter-btn" data-filter="java">java</button>
                 <button class="filter-btn" data-filter="web">HTML / CSS / JS</button>
             </div>
@@ -658,12 +682,13 @@
 
 
                 <div class="project" data-category="web">
-                    <a href="https://enpeluche.github.io" target="_blank">
+
 
                         <header>
                             <h3 data-i18n="portfolio_title">Portfolio Personnel</h3>
                             <h4 data-i18n="portfolio_subtitle">
-                                Interface web sur-mesure orientée performance et accessibilité.</h4>
+                            Interface web sur-mesure orientée performance et accessibilité.
+                        </h4>
                         </header>
 
                         <div class="meta">
@@ -699,20 +724,23 @@
                             </div>
                         </div>
 
+
+
                         <div class="tags">
                             <tech-tag>HTML5 / CSS3</tech-tag>
                             <tech-tag>JavaScript</tech-tag>
                             <tech-tag>Git / GitHub Pages</tech-tag>
                             <concept-tag>Responsive Design</concept-tag>
-                            <concept-tag>Accessibilité</concept-tag>
+                        <concept-tag data-i18n="accessibility">Accessibilité</concept-tag>
                         </div>
 
 
                         <footer>
-                            <span data-i18n="btn_view_project">Explorer le portfolio</span>
+                        <a href="https://enpeluche.github.io" target="_blank"></a>
+                        <span data-i18n="explore_portfolio">Explorer le portfolio</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
 
                 </div>
 
@@ -720,17 +748,17 @@
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="maths">
-                    <a href="https://enpeluche.github.io/weyl-transform-thesis/" target="_blank">
+
                         <header>
-                            <h3 data-i18n="weyl_transform_title">La transformation de Weyl</h3>
-                            <h4 data-i18n="weyl_transform_subtitle">Quantification de Weyl et analyse sur l’espace des
+                        <h3 data-i18n="weyl_title">La transformation de Weyl</h3>
+                        <h4 data-i18n="weyl_subtitle">Quantification de Weyl et analyse sur l’espace des
                                 phases
                             </h4>
                         </header>
-
                         <div class="meta">
                             <project-category>Mémoire de recherche (M1)</project-category>
                         </div>
+
 
                         <div class="description">
                             <div>
@@ -748,35 +776,35 @@
                             </div>
                         </div>
 
+
+
                         <div class="tags">
                             <tech-tag>$\LaTeX$</tech-tag>
-                            <concept-tag>Analyse fonctionnelle / harmonique</concept-tag>
-                            <concept-tag>Mécanique quantique</concept-tag>
+                        <concept-tag data-i18n="functional_harmonic_analysis">Analyse fonctionnelle /
+                            harmonique</concept-tag>
+                        <concept-tag data-i18n="quantum_mechanics">Mécanique quantique</concept-tag>
                         </div>
 
 
                         <footer>
-                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                        <a href="https://enpeluche.github.io/weyl-transform-thesis/" target="_blank"></a>
+                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" data-category="maths java">
-                    <a href="https://enpeluche.github.io/dense-packing-thesis/" target="_blank">
+
                         <header>
-                            <h3 data-i18n="close_packing_title">Empilement compact</h3>
-                            <h4 data-i18n="close_packing_subtitle">Étude de l'inégalité isopérimétrique et
-                                simulations
-                            </h4>
+                        <h3 data-i18n="packing_title">Empilement compact</h3>
+                        <h4 data-i18n="packing_subtitle">Étude de l'inégalité isopérimétrique et simulations</h4>
                         </header>
 
                         <div class="meta">
                             <project-category>Mémoire (L3)</project-category>
                         </div>
-
                         <div class="description">
                             <div>
                                 Étude du problème de l'<strong>empilement compact</strong> (conjecture de Kepler)
@@ -793,20 +821,23 @@
                             </div>
                         </div>
 
+
+
                         <div class="tags">
                             <tech-tag>Java</tech-tag>
                             <tech-tag>$\LaTeX$</tech-tag>
-                            <concept-tag>Analyse</concept-tag>
-                            <concept-tag>Conjecture de Kepler</concept-tag>
-                            <concept-tag>Géométrie euclidienne</concept-tag>
+                        <concept-tag data-i18n="analysis">Analyse</concept-tag>
+                        <concept-tag data-i18n="kepler_conjecture">Conjecture de Kepler</concept-tag>
+                        <concept-tag data-i18n="euclidean_geometry">Géométrie euclidienne</concept-tag>
                             <concept-tag>Simulation</concept-tag>
                         </div>
 
                         <footer>
-                            <span data-i18n="btn_view_project">Lire le mémoire de recherche</span>
+                        <a href="https://enpeluche.github.io/dense-packing-thesis/" target="_blank"></a>
+                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
                             <right-arrow></right-arrow>
                         </footer>
-                    </a>
+
                 </div>
 
                 <!--------------------------------------------------------------------------------------------->
@@ -855,11 +886,40 @@
         </script>
 
         <script>
+            const iconPaths = {
+                email: 'M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z',
+                linkedin: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z',
+                docker: 'M334,110.1c-8.3-5.6-30.2-8-46.1-3.7-.9-15.8-9-29.2-24-40.8l-5.5-3.7-3.7,5.6c-7.2,11-10.3,25.7-9.2,39,.8,8.2,3.7,17.4,9.2,24.1-20.7,12-39.8,9.3-124.3,9.3H0c-.4,19.1,2.7,55.8,26,85.6,2.6,3.3,5.4,6.5,8.5,9.6,19,19,47.6,32.9,90.5,33,65.4,0,121.4-35.3,155.5-120.8,11.2.2,40.8,2,55.3-26,.4-.5,3.7-7.4,3.7-7.4l-5.5-3.7h0ZM85.2,92.7h-36.7v36.7h36.7v-36.7ZM132.6,92.7h-36.7v36.7h36.7v-36.7ZM179.9,92.7h-36.7v36.7h36.7v-36.7ZM227.3,92.7h-36.7v36.7h36.7v-36.7ZM37.8,92.7H1.1v36.7h36.7v-36.7ZM85.2,46.3h-36.7v36.7h36.7v-36.7ZM132.6,46.3h-36.7v36.7h36.7v-36.7ZM179.9,46.3h-36.7v36.7h36.7v-36.7ZM179.9,0h-36.7v36.7h36.7V0',
+                github: 'M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z',
+                linux: 'M11.97 24a2.21 2.21 0 0 1-1.3-.43c-.7-.52-1.27-1.18-2.04-1.63a7.41 7.41 0 0 1-2.98-3.32c-.37-.8-.68-1.64-1-2.47a2.53 2.53 0 0 1-.03-.38c0-.66.08-1.31.25-1.94.3-.96.67-1.89.92-2.86.3-1.07.48-2.18.57-3.29.14-1.35.45-2.65 1.2-3.8A7.8 7.8 0 0 1 11.23.63c.53-.25 1.1-.4 1.68-.49.33-.06.66-.08.98-.05.8.07 1.55.3 2.27.65 1.15.54 2.06 1.34 2.8 2.33 1 1.3 1.57 2.76 1.83 4.35.19 1.07.26 2.16.2 3.24a13.36 13.36 0 0 1-.22 2.32c-.17.91-.4 1.8-.68 2.68-.2.62-.47 1.23-.73 1.84-.42 1-.95 1.93-1.62 2.77a7.51 7.51 0 0 1-2.73 2.1 4.5 4.5 0 0 1-1.58.48A4.18 4.18 0 0 1 11.97 24zm4.4-11.27c.1-.48.2-.95.27-1.44.1-1.08.17-2.16.15-3.25a8.7 8.7 0 0 0-.64-3.53c-.32-.82-.82-1.52-1.4-2.16-.76-.8-1.7-1.3-2.78-1.5-.7-.14-1.4-.1-2.08.1-1.18.33-2.16.98-2.92 1.95a8.53 8.53 0 0 0-1.63 3.4 16.3 16.3 0 0 0-.4 3.49c-.06.74-.08 1.48-.05 2.22.04 1.05.2 2.08.38 3.12.18.99.39 1.98.74 2.92.54 1.4 1.33 2.64 2.45 3.65 1.18 1.04 2.58 1.6 4.18 1.62 1.16 0 2.22-.38 3.14-1.07 1.2-.9 2.14-2.04 2.78-3.41.52-1.09.9-2.22 1.17-3.39.22-.89.4-1.8.64-2.7zm-6.1-2.02c.08.62.1 1.25.1 1.88 0 .4 0 .8-.05 1.2-.08.6-.2 1.19-.38 1.77a2.53 2.53 0 0 1-1.18 1.44c-.7.36-1.43.3-2.08-.14a2.22 2.22 0 0 1-1-1.84c-.05-.82-.04-1.64.12-2.45.18-.87.45-1.72.77-2.55.27-.69.65-1.3 1.17-1.8.68-.64 1.5-.96 2.46-.92.2 0 .4.04.57.14a1.86 1.86 0 0 1 .84 1.4c.15.65.23 1.33.26 2.01v.05zm5.55-.18c.03.65.04 1.3.06 1.96 0 .42-.04.83-.1 1.25-.09.6-.2 1.18-.4 1.75a2.54 2.54 0 0 1-1.2 1.43c-.7.35-1.44.28-2.08-.16a2.2 2.2 0 0 1-.98-1.8c-.05-.8-.04-1.63.1-2.44.18-.88.45-1.72.78-2.55.26-.68.64-1.3 1.15-1.8.68-.64 1.5-.95 2.44-.92.2 0 .4.04.58.14a1.86 1.86 0 0 1 .83 1.38c.16.65.24 1.32.26 2v.04zm-8.8 6.57c-.52-.15-1-.28-1.46-.42-.65-.2-1.28-.42-1.88-.74a1.76 1.76 0 0 0-2.34.8 1.77 1.77 0 0 0 .76 2.37c1.12.63 2.34.98 3.6 1.16.7.1 1.42.12 2.13.06a3.68 3.68 0 0 0 2.2-.74 1.82 1.82 0 0 0 .66-1.5c-.04-.88-.5-1.4-1.3-1.63a8.95 8.95 0 0 0-2.37-.22zm7.6 0c-.54.1-1.07.2-1.6.3a8.4 8.4 0 0 0-2.26.54c-.75.3-1.12.86-1.1 1.63a1.82 1.82 0 0 0 1 1.63c.6.32 1.25.54 1.9.7a9.23 9.23 0 0 0 4.14-.1c.64-.17 1.26-.4 1.85-.7a1.78 1.78 0 0 0 .9-2.38 1.76 1.76 0 0 0-2.3-.85 10.45 10.45 0 0 0-2.52.92v-.03z',
+            };
+
+            class UiIcon extends HTMLElement {
+                connectedCallback() {
+                    const iconName = this.getAttribute('name');
+                    const pathData = iconPaths[iconName];
+
+                    if (pathData) {
+                        this.innerHTML = `
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="100%" height="100%" fill="currentColor">
+                                <path d="${pathData}"></path>
+                            </svg>
+                            `;
+                    } else {
+                        console.warn(`L'icône "${iconName}" n'existe pas.`);
+                    }
+                }
+            }
+
+            customElements.define('ui-icon', UiIcon);
+        </script>
+
+        <script>
             document.addEventListener("DOMContentLoaded", function () {
 
                 const tagIconSVG = `
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                <svg aria-hidden="true" fill="white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--secondary-text-color)" stroke-width="3" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -868,8 +928,8 @@
                                 </svg>`;
 
 
-                const sgg = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                const sgg = `<svg  fill="white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--secondary-text-color)" stroke-width="3" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <path
                                         d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
@@ -917,6 +977,44 @@
 
             customElements.define('eye-icon', Eye);
             customElements.define('right-arrow', RightArrow);
+        </script>
+
+        <script>
+            // Composant Email
+            class IconEmail extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                    `;
+                }
+            }
+            customElements.define('icon-email', IconEmail);
+
+            // Composant LinkedIn
+            class IconLinkedin extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    `;
+                }
+            }
+            customElements.define('icon-linkedin', IconLinkedin);
+
+            // Composant GitHub
+            class IconGithub extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    `;
+                }
+            }
+            customElements.define('icon-github', IconGithub);
         </script>
 
         <script>

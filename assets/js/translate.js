@@ -1,5 +1,226 @@
 const cvLink = document.getElementById("cv-link"); // On récupère le lien
 
+const filters_traduction = {
+  view_all: {
+    fr: "Tout voir",
+    en: "View all",
+  },
+};
+
+const tags_traduction = {
+  post_quantum_cryptography: {
+    fr: "Cryptographie post-quantique",
+    en: "Post-Quantum Cryptography",
+  },
+  cryptography: {
+    fr: "Cryptographie",
+    en: "Cryptography",
+  },
+  lattice_reduction: {
+    fr: "Réduction de réseaux",
+    en: "Lattice Reduction",
+  },
+  cryptanalysis: {
+    fr: "Cryptanalyse",
+    en: "Cryptanalysis",
+  },
+  complexity_analysis: {
+    fr: "Analyse de complexité",
+    en: "Complexity Analysis",
+  },
+  algebraic_surfaces: {
+    fr: "Surfaces algébriques",
+    en: "Algebraic Surfaces",
+  },
+  differential_geometry: {
+    fr: "Géométrie différentielle",
+    en: "Differential Geometry",
+  },
+  graph_theory: {
+    fr: "Théorie des graphes",
+    en: "Graph Theory",
+  },
+  hamiltonian_cycles: {
+    fr: "Cycles hamiltoniens",
+    en: "Hamiltonian Cycles",
+  },
+  heuristics: {
+    fr: "Heuristique",
+    en: "Heuristics",
+  },
+  accessibility: {
+    fr: "Accessibilité",
+    en: "Accessibility",
+  },
+  functional_harmonic_analysis: {
+    fr: "Analyse fonctionnelle / harmonique",
+    en: "Functional / Harmonic Analysis",
+  },
+  quantum_mechanics: {
+    fr: "Mécanique quantique",
+    en: "Quantum Mechanics",
+  },
+  analysis: {
+    fr: "Analyse",
+    en: "Analysis",
+  },
+  kepler_conjecture: {
+    fr: "Conjecture de Kepler",
+    en: "Kepler Conjecture",
+  },
+  euclidean_geometry: {
+    fr: "Géométrie euclidienne",
+    en: "Euclidean Geometry",
+  },
+};
+
+const footer_traduction = {
+  explore_project: {
+    fr: "Explorer le projet",
+    en: "Explore the project",
+  },
+  read_research_report: {
+    fr: "Lire le rapport de recherche",
+    en: "Read the research report",
+  },
+  explore_engine_architecture: {
+    fr: "Explorer l'architecture du moteur",
+    en: "Explore the engine architecture",
+  },
+  read_research_thesis: {
+    fr: "Lire le mémoire de recherche",
+    en: "Read the research thesis",
+  },
+  explore_portfolio: {
+    fr: "Explorer le portfolio",
+    en: "Explore the portfolio",
+  },
+};
+
+const sections_traduction = {
+  research_engineering: {
+    fr: "Recherche & Ingénierie",
+    en: "Research & Engineering",
+  },
+  additional_projects: {
+    fr: "Projets complémentaires",
+    en: "Additional Projects",
+  },
+};
+
+const latticechat_project = {
+  latticechat_title: {
+    fr: "Lattice-Chat",
+    en: "Lattice-Chat",
+  },
+  latticechat_subtitle: {
+    fr: "Messagerie chiffrée post-quantique et cryptanalyse par LLL",
+    en: "Post-quantum encrypted messaging and LLL cryptanalysis",
+  },
+  latticechat_category: {
+    fr: "Projet Personnel",
+    en: "Personal Project",
+  },
+};
+
+const internship_project = {
+  internship_title: {
+    fr: "Réduction de réseaux euclidiens",
+    en: "Euclidean lattice reduction",
+  },
+  internship_subtitle: {
+    fr: "Adaptations d’idées provenant du cas polynomial au cas entier",
+    en: "Adapting concepts from polynomial to euclidean lattices",
+  },
+  internship_category: {
+    fr: "Stage de recherche (M2)",
+    en: "Graduate Research Internship",
+  },
+  internship_date: {
+    fr: "Février 2025 - Juin 2025",
+    en: "February 2025 - June 2025",
+  },
+};
+
+const raytracer_project = {
+  raytracer_title: {
+    fr: "Ray Tracing Algébrique",
+    en: "Algebraic Ray Tracing",
+  },
+  raytracer_subtitle: {
+    fr: "Solveur exact pour surfaces implicites",
+    en: "Exact solver for implicit surfaces",
+  },
+  raytracer_category: {
+    fr: "Moteur de calcul symbolique",
+    en: "Symbolic Computation Engine",
+  },
+};
+
+const beckett_project = {
+  beckett_title: {
+    fr: "Codes de Beckett-Gray",
+    en: "Beckett-Gray Codes",
+  },
+  beckett_subtitle: {
+    fr: "Implémentation, heuristiques et analyses de graphes",
+    en: "Implementation, heuristics, and graph analysis",
+  },
+  beckett_category: {
+    fr: "Mémoire (M1)",
+    en: "Thesis (M1)",
+  },
+  beckett_date: {
+    fr: "Janvier 2024 - Mai 2024",
+    en: "January 2024 - May 2024",
+  },
+};
+
+const portfolio_project = {
+  portfolio_title: {
+    fr: "Portfolio Personnel",
+    en: "Personal Portfolio",
+  },
+  portfolio_subtitle: {
+    fr: "Interface web sur-mesure orientée performance et accessibilité.",
+    en: "Custom web interface focused on performance and accessibility.",
+  },
+  portfolio_category: {
+    fr: "Projet Personnel",
+    en: "Personal Project",
+  },
+};
+
+const weyl_project = {
+  weyl_title: {
+    fr: "La transformation de Weyl",
+    en: "The Weyl Transform",
+  },
+  weyl_subtitle: {
+    fr: "Quantification de Weyl et analyse sur l’espace des phases",
+    en: "Weyl quantization and phase space analysis",
+  },
+  weyl_category: {
+    fr: "Mémoire de recherche (M1)",
+    en: "Research Thesis (M1)",
+  },
+};
+
+const packing_project = {
+  packing_title: {
+    fr: "Empilement compact",
+    en: "Close Packing",
+  },
+  packing_subtitle: {
+    fr: "Étude de l'inégalité isopérimétrique et simulations",
+    en: "Study of the isoperimetric inequality and simulations",
+  },
+  packing_category: {
+    fr: "Mémoire (L3)",
+    en: "Bachelor's Thesis (L3)",
+  },
+};
+
 const homepage_traduction = {
   welcome: {
     fr: "Bonjour, je suis",
@@ -145,8 +366,8 @@ const homepage_contact = {
     en: "Availability",
   },
   contact_availability_date: {
-    fr: "Février 2026",
-    en: "February 2026",
+    fr: "Mars 2026",
+    en: "March 2026",
   },
   contact_availability_note: {
     fr: "(Ouvert aux échanges et entretiens dès aujourd'hui)",
@@ -155,9 +376,20 @@ const homepage_contact = {
 };
 
 const traductions = {
+  ...filters_traduction,
+  ...tags_traduction,
+  ...latticechat_project,
+  ...internship_project,
+  ...raytracer_project,
+  ...beckett_project,
+  ...portfolio_project,
+  ...weyl_project,
+  ...packing_project,
   ...homepage_traduction,
   ...homepage_skills,
   ...homepage_contact,
+  ...footer_traduction,
+  ...sections_traduction,
 };
 
 const traducctions = {
@@ -294,20 +526,40 @@ const traducctions = {
       "Blending theoretical computer science with mathematics, I transform complex abstractions into concrete, high-performance, and rigorously optimized software solutions.",
   },
 };
+//
+//document.addEventListener("DOMContentLoaded", () => {
+// document
+// .getElementById("lang-toggle")
+// .addEventListener("change", function () {
+//   if (this.checked) {
+//   cvLink.href =
+//   "https://raw.githubusercontent.com/enpeluche/resume/main/dist/en/CV_Lucas_Noirot-Petit.pdf";
+//        cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
+//changerLangue("en");
+//    } else {
+//  cvLink.href =
+//      "https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf"//;
+//        cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
+//changerLangue("fr");
+//}
+//});
+//});
 
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("lang-toggle")
     .addEventListener("change", function () {
       if (this.checked) {
-        cvLink.href =
-          "https://raw.githubusercontent.com/enpeluche/resume/main/dist/en/CV_Lucas_Noirot-Petit.pdf";
-        cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
-        changerLangue("en");
+        // On désactive temporairement le changement de CV pour tester
+        // cvLink.href = "https://raw.githubusercontent.com/.../en/CV_Lucas_Noirot-Petit.pdf";
+        // cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
+
+        changerLangue("en"); // Maintenant, cette ligne devrait s'exécuter !
       } else {
-        cvLink.href =
-          "https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf";
-        cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
+        // On désactive temporairement le changement de CV pour tester
+        // cvLink.href = "https://raw.githubusercontent.com/.../fr/CV_Lucas_Noirot-Petit.pdf";
+        // cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit.pdf");
+
         changerLangue("fr");
       }
     });
