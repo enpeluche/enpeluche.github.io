@@ -2,14 +2,15 @@
 CONFIGURATIONS DE BASE
 ========================================= */
 :root {
-  --primary: #2c3e50e1; /* Bleu nuit professionnel 2c3e50 */
-  --accent: #3498db; /* Bleu plus clair pour les liens/boutons */
+  --primary: #2c3e50e1;
+  --accent: #3498db;
   --bg-card: #ffffff;
   --bg-page: #ffffff;
   --text-main: #333;
   --text-light: #666;
   --radius: 12px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --accent-color: #8a2be2;
 }
 
 /* =========================================
@@ -61,31 +62,64 @@ LA CARTE PRINCIPALE (CONTENEUR)
 /* =========================================
 2. GRID COMPÉTENCES (Le cœur du sujet)
 ========================================= */
+
+/* Espacement entre les groupes de compétences dans une même carte */
+.skill-section-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* On ajoute une marge au-dessus de chaque groupe, SAUF le premier */
+.skill-section-group + .skill-section-group {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2); /* Un fin trait violet transparent pour séparer élégamment */
+}
+
+/* Assure-toi que les tags s'alignent bien à gauche (ou au centre) dans la carte */
+.skill-section-group .soft-skills {
+  justify-content: flex-start; /* Aligne les tags avec le texte au lieu de les centrer */
+}
+
 .skills-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Autorise le passage à la ligne */
+  justify-content: center; /* Centre les éléments, créant la magie sur la dernière ligne ! */
+  gap: 1.5rem;
 
   width: 100%;
-
-  /*gap: 2rem;*/
-  margin-bottom: 40px;
+  max-width: 1600px; /* Limite la largeur pour ne pas trop étirer sur PC */
+  margin: 0 auto 40px auto;
 }
+
 .skill-box {
-  margin: 0.5rem 0rem;
+  /* Mobile First : 1 seule colonne (100% de largeur) */
+  width: 100%;
+
   padding: 20px;
   border-radius: 8px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Tablette : 2 colonnes */
 @media (min-width: 768px) {
   .skill-box {
-    margin: 0.5rem;
-    padding: 20px;
-    border-radius: 8px;
-    width: auto;
+    /* On prend 50% de la largeur, MOINS la moitié de l'espacement (gap) */
+    width: calc(50% - 0.75rem);
   }
 }
+
+/* Desktop : 3 colonnes (Ce qui créera naturellement le 3 en haut, 2 en bas centrés) */
+@media (min-width: 1024px) {
+  .skill-box {
+    /* On prend 33.33% de la largeur, MOINS l'espacement réparti */
+    width: calc(33.333% - 1rem);
+  }
+}
+
 .skill-title {
+  text-align: center;
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
@@ -142,9 +176,75 @@ LA CARTE PRINCIPALE (CONTENEUR)
 /* =========================================
 4. CONTACT (Flex Row)
 ========================================= */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .contact-section {
+    padding: 2rem 1rem;
+  }
+}
+
+.contact-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+/* --- La carte d'information --- */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 5vw, 2rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  text-align: center;
+}
+
+.contact-tagline {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.contact-description {
+  line-height: 1.6;
+  color: var(--primary-text-color);
+}
+
+/* --- Bloc de disponibilité --- */
+.availability-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: clamp(1rem, 2.5vw, 1.5rem);
+  border-top: 1px solid var(--primary-border-color);
+  gap: 0.5rem;
+}
+
+.availability-date {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.availability-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 .contact-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   margin-top: 0.5rem;
@@ -152,11 +252,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 
 @media (min-width: 768px) {
   .contact-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     gap: 2rem;
-    margin-top: 0.5rem;
   }
 }
 
@@ -165,40 +261,34 @@ LA CARTE PRINCIPALE (CONTENEUR)
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
 
-  padding: 0rem 0.5rem;
+  padding: 0.5rem 1rem;
 
   border: 1px solid var(--primary-border-color);
   border-radius: 10px;
   text-decoration: none;
+
   color: var(--text-light);
-  transition: color 0.2s;
   font-size: 0.85rem;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
+
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.contact-icon {
-  width: 3rem;
-  height: 3rem;
-
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
-}
-
-.contact-icon svg {
+.contact-item ui-icon {
   width: 1.5rem;
   height: 1.5rem;
-  fill: var(--primary);
+  color: var(--primary);
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contact-item:hover {
   background-color: var(--primary);
   border-color: var(--primary);
-  color: white !important;
+  color: white;
 }
-.contact-item:hover .contact-icon svg {
-  fill: white;
+.contact-item:hover ui-icon {
+  color: white;
+  transform: scale(1.15);
 }
