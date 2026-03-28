@@ -402,7 +402,56 @@
                         </div>
 
                         <footer>
-                            <span data-i18n="btn_view_project">Explorer le projet</span>
+                            <span data-i18n="explore_project">Explorer le projet</span>
+                            <right-arrow></right-arrow>
+                        </footer>
+                    </a>
+                </div>
+
+                <!--------------------------------------------------------------------------------------------->
+
+                <div class="project" data-category="java RD">
+                    <a href="https://github.com/enpeluche/java-wsrp-solver" target="_blank">
+                        <header>
+                            <h3>Solveur WSRP</h3>
+                            <h4>Optimisation de tournées sous contraintes de compétences</h4>
+                        </header>
+                        <div class="meta">
+                            <project-category>R&D</project-category>
+                            <project-category>Projet académique</project-category>
+                        </div>
+                        <div class="description">
+                            <div>
+                                Résolution du problème de planification et routage
+                                de techniciens (<strong>WSRP</strong>) sous contraintes
+                                de compétences et fenêtres temporelles.
+                            </div>
+                            <div>
+                                <strong>Modélisation</strong> : Formulation en
+                                Programmation Linéaire en Nombres Entiers (<strong>MIP</strong>)
+                                avec OR-Tools (SCIP).
+                            </div>
+                            <div>
+                                <strong>Heuristique</strong> : Solver glouton pour
+                                initialisation rapide, utilisé comme <strong>warm start</strong>
+                                pour accélérer la convergence du MIP.
+                            </div>
+                            <div>
+                                <strong>Critères</strong> : Maximisation du temps passé
+                                sur les tâches, minimisation du temps de trajet et des retards.
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <tech-tag>Java</tech-tag>
+                            <tech-tag>OR-Tools</tech-tag>
+                            <concept-tag>PLNE</concept-tag>
+                            <concept-tag>Optimisation combinatoire</concept-tag>
+                            <concept-tag>Heuristique gloutonne</concept-tag>
+                            <concept-tag>Warm start</concept-tag>
+                        </div>
+
+                        <footer>
+                            <span data-i18n="explore_project">Explorer le solveur</span>
                             <right-arrow></right-arrow>
                         </footer>
                     </a>
