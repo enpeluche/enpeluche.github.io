@@ -6,17 +6,20 @@
   padding-bottom: 0.25rem;
 }
 
-/*carte d'un projet*/
+.description div:first-child {
+  border-bottom: 1px dashed var(--secondary-text-color);
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 
 .project {
-  /* Ajoute ceci : */
-  box-sizing: border-box; /* Assure que le padding ne s'ajoute pas à la largeur totale */
+  box-sizing: border-box;
   max-width: 100%;
-  min-width: 0; /* Oblige Flexbox à respecter les limites du parent */
-  overflow-wrap: break-word; /* Coupe les mots ou équations trop longs s'ils dépassent */
+  min-width: 0;
+  overflow-wrap: break-word;
   aspect-ratio: auto;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0.75rem;
   border: 1px solid rgb(218, 217, 220);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -39,10 +42,8 @@
 .project:hover {
   transform: translateY(-5px);
   box-shadow: 0 0px 5px var(--secondary-text-color);
-  /* backdrop-filter: blur(3px); */
 }
 
-/*footer*/
 .project footer {
   text-align: center;
   font-weight: 500;
@@ -75,10 +76,9 @@ footer svg {
 .project:hover footer {
   text-decoration: underline;
 }
-/*header*/
 
 .project header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -86,7 +86,6 @@ footer svg {
   font-size: 2rem;
   font-weight: 700;
   color: var(--secondary-text-color);
-  padding: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -99,14 +98,11 @@ footer svg {
   font-size: 1rem;
 }
 
-/*Project metadata*/
-
 .meta {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-inline: 1rem;
-  margin-bottom: 1rem;
 }
 
 .meta > * {
@@ -135,14 +131,12 @@ footer svg {
   padding: 0.2rem 0.4rem;
 }
 
-.tags .tech,
 .tags tech-tag {
-  background-color: #eaedef;
-  border: 1px solid #727b81;
+  background-color: #eaedef61;
+  border: 1px solid rgba(114, 123, 129, 0.4);
   color: var(--primary-text-color);
 }
 
-.tags .concept,
 .tags concept-tag {
   border: 1px solid var(--secondary-text-color);
   color: var(--secondary-text-color);
@@ -150,22 +144,20 @@ footer svg {
 
 @media (max-width: 768px) {
   .project a {
-    min-width: 0; /* ← empêche la carte de s'étirer */
+    min-width: 0;
     overflow: hidden;
   }
 
   .project {
-    width: 100%; /* Force la carte à prendre exactement la largeur de l'écran moins les marges */
+    width: 100%;
   }
 
   .tags {
     min-width: 0;
     flex-wrap: nowrap;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* scroll fluide iOS */
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 0.25rem;
-
-    /* masque le débordement proprement */
     mask-image: linear-gradient(to right, black 85%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
   }
@@ -174,7 +166,6 @@ footer svg {
     flex-shrink: 0;
   }
 
-  /* cache la scrollbar sans perdre la fonctionnalité */
   .tags::-webkit-scrollbar {
     display: none;
   }

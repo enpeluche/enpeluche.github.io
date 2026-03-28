@@ -16,14 +16,13 @@
 @import "/components/project/project-hover-img.css";
 
 @import url("https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css");
-@import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/algorithm.css");
+
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/course.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/figure.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/footer.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/footnotes.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/references.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/table.css");
-@import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/toc.css");
 
 @import "06_trumps/utils.css";
 
