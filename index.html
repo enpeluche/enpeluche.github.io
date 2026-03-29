@@ -359,7 +359,7 @@
                         <project-category>Projet Personnel</project-category>
                     </div>
 
-                    <div class="description">
+                    <div data-i18n="latticechat_description" class="description">
                         <div>
                             Système de messagerie chiffrée de bout en bout dont la sécurité repose
                             sur la difficulté du problème <strong>SVP</strong> résistant aux attaques quantiques.
@@ -408,13 +408,13 @@
                 <div class="project" data-category="java RD">
 
                     <header>
-                        <h3>Solveur WSRP</h3>
-                        <h4>Optimisation de tournées sous contraintes de compétences</h4>
+                        <h3 data-i18n="wsrp_title">Solveur WSRP</h3>
+                        <h4 data-i18n="wsrp_subtitle">Optimisation de tournées sous contraintes de compétences</h4>
                     </header>
                     <div class="meta">
                         <project-category>R&D</project-category>
                     </div>
-                    <div class="description">
+                    <div data-i18n="wsrp_description" class="description">
                         <div>
                             Résolution du problème de planification et routage
                             de techniciens (<strong>WSRP</strong>) sous contraintes
@@ -440,9 +440,9 @@
                     <div class="tags">
                         <tech-tag>Java</tech-tag>
                         <tech-tag>OR-Tools</tech-tag>
-                        <concept-tag>PLNE</concept-tag>
-                        <concept-tag>Optimisation combinatoire</concept-tag>
-                        <concept-tag>Heuristique gloutonne</concept-tag>
+                        <concept-tag data-i18n="mip">PLNE</concept-tag>
+                        <concept-tag data-i18n="combinatorial_optimization">Optimisation combinatoire</concept-tag>
+                        <concept-tag data-i18n="greedy_heuristic">Heuristique gloutonne</concept-tag>
                         <concept-tag>Warm start</concept-tag>
                     </div>
 
@@ -470,7 +470,7 @@
                         <project-category>R&D</project-category>
                         <project-date data-i18n="internship_date">Février 2025 - Juin 2025</project-date>
                     </div>
-                    <div class="description">
+                    <div data-i18n="internship_description" class="description">
                         <div>
                             Exploration des similarités et différences entre réduction de réseaux
                             <strong>polynomiaux</strong> et <strong>euclidiens</strong>, avec adaptation
@@ -526,12 +526,12 @@
                     </header>
                     <div class="meta">
                         <project-category>R&D</project-category>
-                        <project-category>Moteur de calcul symbolique</project-category>
+                        <project-category data-i18n="raytracer_category">Moteur de calcul symbolique</project-category>
                     </div>
 
 
 
-                    <div class="description">
+                    <div data-i18n="raytracer_description" class="description">
                         <div>
                             Intersection rayon–surface via la résolution de l'équation $f(O + tD) = 0$.
                             Isolement des racines en base de <strong>Bernstein</strong> via l'algorithme de
@@ -604,12 +604,12 @@
 
 
                     <div class="meta">
-                        <project-category>Mémoire (M1)</project-category>
+                        <project-category data-i18n="beckett_category">Mémoire (M1)</project-category>
                         <project-category>R&D</project-category>
-                        <project-date>Janvier 2024 - Mai 2024</project-date>
+                        <project-date data-i18n="beckett_date">Janvier 2024 - Mai 2024</project-date>
                     </div>
 
-                    <div class="description">
+                    <div data-i18n="beckett_description" class="description">
                         <div>
                             Recherche de codes de Gray sans retour arrière (<strong>Beckett-Gray</strong>)
                             sur l'<strong>hypercube</strong>, via la recherche de cycles hamiltoniens
@@ -646,7 +646,8 @@
 
         </section>
 
-        <span id="acad"></span>
+        <span
+            id="acad"></span><!--------------------------------------------------------------------------------------------->
 
         <section>
             <h1 data-i18n="additional_projects" class="section-title">Projets complémentaires</h1>
@@ -679,7 +680,7 @@
                         <project-category>From Scratch</project-category>
                     </div>
 
-                    <div class="description">
+                    <div data-i18n="portfolio_description" class="description">
                         <div>
                             Conception et implémentation d'un portfolio numérique 100% from scratch ( sans framework
                             JS, sans CSS framework, sans générateur de site).
@@ -739,11 +740,11 @@
                         </h4>
                     </header>
                     <div class="meta">
-                        <project-category>Mémoire de recherche (M1)</project-category>
+                        <project-category data-i18n="weyl_category">Mémoire de recherche (M1)</project-category>
                     </div>
 
 
-                    <div class="description">
+                    <div data-i18n="weyl_description" class="description">
                         <div>
                             Étude de la <strong>quantification de Weyl</strong> : correspondance entre
                             fonctions sur l'espace des phases et opérateurs en mécanique quantique,
@@ -786,9 +787,9 @@
                     </header>
 
                     <div class="meta">
-                        <project-category>Mémoire (L3)</project-category>
+                        <project-category data-i18n="packing_category">Mémoire (L3)</project-category>
                     </div>
-                    <div class="description">
+                    <div data-filter="packing_description" class="description">
                         <div>
                             Étude du problème de l'<strong>empilement compact</strong> (conjecture de Kepler)
                             et de l'<strong>inégalité isopérimétrique</strong>, et exploration du lien
@@ -1011,16 +1012,40 @@
         <script>
             class MetaCategory extends HTMLElement {
                 connectedCallback() {
-                    const text = this.innerHTML;
-                    this.innerHTML = `<tag-icon></tag-icon> <span>${text}</span>`;
+                    // 1. On récupère le texte initial et la clé de traduction du parent
+                    const text = this.innerHTML.trim();
+                    const i18nKey = this.getAttribute('data-i18n');
+
+                    if (i18nKey) {
+                        // 2. On reconstruit l'intérieur, en plaçant le data-i18n sur le span !
+                        this.innerHTML = `<tag-icon></tag-icon> <span data-i18n="${i18nKey}">${text}</span>`;
+
+                        // 3. On nettoie le parent pour que le script de traduction ne cible que le span
+                        this.removeAttribute('data-i18n');
+                    } else {
+                        // Comportement de secours s'il n'y a pas de traduction
+                        this.innerHTML = `<tag-icon></tag-icon> <span>${text}</span>`;
+                    }
                 }
             }
             customElements.define('project-category', MetaCategory);
 
             class MetaDate extends HTMLElement {
                 connectedCallback() {
-                    const text = this.innerHTML;
-                    this.innerHTML = `<calendar-icon></calendar-icon> <span>${text}</span>`;
+                    // 1. On récupère le texte initial et la clé de traduction du parent
+                    const text = this.innerHTML.trim();
+                    const i18nKey = this.getAttribute('data-i18n');
+
+                    if (i18nKey) {
+                        // 2. On reconstruit l'intérieur, en plaçant le data-i18n sur le span !
+                        this.innerHTML = `<calendar-icon></calendar-icon> <span data-i18n="${i18nKey}">${text}</span>`;
+
+                        // 3. On nettoie le parent pour que le script de traduction ne cible que le span
+                        this.removeAttribute('data-i18n');
+                    } else {
+                        // Comportement de secours s'il n'y a pas de traduction
+                        this.innerHTML = `<calendar-icon></calendar-icon> <span>${text}</span>`;
+                    }
                 }
             }
             customElements.define('project-date', MetaDate);
