@@ -17,76 +17,95 @@
   width: 100%;
 }
 
+/* --- Carte d'article : image, puis catégorie et date, titre, résumé --- */
+
 .blog-card {
   display: flex;
   flex-direction: column;
-
   width: 100%;
+  overflow: hidden; /* coins arrondis aussi sur l'image */
 
-  will-change: transform, opacity;
-
-  height: auto;
   border-radius: var(--radius);
-
-  cursor: pointer;
-
-  border: 1px solid var(--primary-border-color, #ccc);
+  border: 1px solid var(--primary-border-color);
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
-  transition:
-    transform var(--transation-duration) ease,
-    box-shadow var(--transation-duration) ease;
+  transition: box-shadow var(--transation-duration) ease;
 }
 
 .blog-card:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.blog-card a {
+.blog-card-link {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  color: inherit;
+}
+
+/* Cadre qui rogne l'image quand elle est zoomée au survol */
+.blog-card-cover-frame {
   overflow: hidden;
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--primary-border-color, #ccc);
-}
-
-.card-title {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--primary-text-color);
-  margin: 0;
-  opacity: 0.7;
-}
-
-.card-date {
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-.card-content {
-  display: flex;
-
-  justify-content: space-between;
-  padding: 0;
-
-  height: 100%;
-  margin: 0.1rem;
-}
-
-.card-content img {
-  aspect-ratio: 16 / 9;
+.blog-card-cover {
+  display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   transition: transform var(--transation-duration) ease;
 }
 
-.blog-card:hover .card-content img {
+.blog-card:hover .blog-card-cover {
   transform: scale(1.05);
+}
+
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted-text-color);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--primary-text-color);
+}
+
+.blog-card:hover .card-title {
+  color: var(--secondary-text-color);
+}
+
+/* Résumé limité à 3 lignes */
+.card-summary {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--soft-text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-card-cover {
+    transition: none;
+  }
+
+  .blog-card:hover .blog-card-cover {
+    transform: none;
+  }
 }
 
 .blog-toolbar {
@@ -136,7 +155,7 @@
 }
 
 .card-category {
-  background-color: var(--primary-color, #7451eb);
+  background-color: #7451eb; /* blanc sur ce violet : lisible de jour comme de nuit */
   color: white;
   font-size: 0.7rem;
   padding: 3px 8px;
