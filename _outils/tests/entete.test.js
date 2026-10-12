@@ -53,6 +53,18 @@ module.exports = async ({ base, ok, nouvellePage, attendre, articles }) => {
   ok(await p.evaluate(() => document.activeElement.closest(".nav-dropdown-menu") !== null), "Tab entre dans le menu déroulant");
   await p.keyboard.press("Escape");
 
+  // Liens du menu sur l'accueil : la page défile jusqu'à la section, sans être rechargée
+  ok((await p.getAttribute('a.nav-link[data-spy="phd"]', "href")) === "#phd", "accueil : le lien « Thèse » est une ancre de la page (#phd)");
+  await p.evaluate(() => {
+    window.__pasRechargee = true;
+  });
+  await p.click('a.nav-link[data-spy="phd"]');
+  ok(await attendre(p, () => location.hash === "#phd"), "accueil : le lien « Thèse » mène à #phd");
+  ok(await p.evaluate(() => window.__pasRechargee === true), "accueil : la page n'est pas rechargée (simple défilement)");
+  ok(await attendre(p, () => Math.abs(document.getElementById("phd").getBoundingClientRect().top) < 2), "accueil : la section « Thèse » arrive en haut de l'écran");
+  await p.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await attendre(p, () => !document.getElementById("main-header").classList.contains("header-hidden"));
+
   // Traduction du menu
   await p.click('label[for="lang-toggle"]');
   const texte = () => [...document.querySelectorAll("#main-header .nav-link, .nav-dropdown-menu a")].map((e) => e.textContent.trim()).join(" | ");
@@ -66,8 +78,7 @@ module.exports = async ({ base, ok, nouvellePage, attendre, articles }) => {
   await p.goto(base + "/", { waitUntil: "networkidle" });
   await p.tap(".nav-dropdown-toggle");
   ok(await attendre(p, menuOuvert), "téléphone : menu déroulant ouvert au toucher");
-  // Depuis /?lang=fr, le lien /#acad recharge la page : on attend la fin du chargement avant de vérifier
-  await p.tap('.nav-dropdown-menu a[href="/#acad"]');
+  await p.tap('.nav-dropdown-menu a[href$="#acad"]');
   await p.waitForURL(/#acad$/);
   await p.waitForLoadState("networkidle");
   ok(await attendre(p, menuFerme), "téléphone : menu déroulant refermé après un choix");
@@ -86,6 +97,7 @@ module.exports = async ({ base, ok, nouvellePage, attendre, articles }) => {
   ok((await p.$("#lang-toggle")) === null, "blog : pas de bouton de langue");
   ok((await p.evaluate(ongletCourant)) === "Blog", "blog : onglet « Blog » courant");
   ok((await p.getAttribute('.nav-link[data-page="blog"]', "aria-current")) === "page", 'blog : aria-current="page"');
+  ok((await p.getAttribute('a.nav-link[data-spy="phd"]', "href")) === "/#phd", "blog : le lien « Thèse » mène toujours à l'accueil (/#phd)");
   const dossier = articles()[0].folder;
   await p.goto(`${base}/blog/articles/${dossier}/`, { waitUntil: "networkidle" });
   ok((await p.evaluate(ongletCourant)) === "Blog", "page d'article : onglet « Blog » courant");

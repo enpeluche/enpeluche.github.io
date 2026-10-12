@@ -102,6 +102,15 @@ class SiteHeader extends HTMLElement {
 
     this.innerHTML = headerTemplate(this.hasAttribute("lang-toggle"));
 
+    // Sur l'accueil, les liens du menu (/#phd…) deviennent de simples ancres (#phd) : l'adresse y porte
+    // ?lang=…, et un lien /#phd la changerait, ce qui rechargerait toute la page au lieu de défiler
+    // jusqu'à la section. Sur les autres pages (blog), ils mènent toujours à l'accueil.
+    if (["/", "/index.html"].includes(window.location.pathname)) {
+      this.querySelectorAll('a[href^="/#"]').forEach((link) => {
+        link.setAttribute("href", link.getAttribute("href").slice(1));
+      });
+    }
+
     this.initDropdown();
     this.initThemeToggle();
 
