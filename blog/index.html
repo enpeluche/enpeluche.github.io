@@ -11,18 +11,25 @@
 
     <title>Blog - Lucas Noirot (Petit)</title>
 
-    <meta name="description" content="performantes">
+    <meta name="description"
+        content="Le blog de Lucas Noirot (Petit) : articles sur les mathématiques, l'algorithmique, le ray tracing et la vie étudiante.">
 
     <meta name="keywords" content="">
 
     <meta name="author" content="Lucas Noirot (Petit)">
 
+    <!-- Aperçu lors d'un partage (LinkedIn, messageries…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lucas Noirot (Petit)">
     <meta property="og:title" content="Blog - Lucas Noirot (Petit)">
-
     <meta property="og:description"
         content="Découvrez mes articles sur le développement, le ray tracing, les maths et la vie étudiante !">
-
-    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enpeluche.github.io/blog/">
+    <meta property="og:image" content="https://enpeluche.github.io/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lucas Noirot (Petit), doctorant en algorithmique à l'institut FEMTO-ST">
+    <meta property="og:locale" content="fr_FR">
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -44,56 +51,17 @@
     <!-- ALL STYLESHEET -->
 
     <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Header commun : à charger avant le <body> (voir le fichier) -->
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
 </head>
 
 <body>
 
     <div id="tsparticles"></div>
 
-    <!-- TODO : remove this to call directly the header-->
-    <header id="main-header">
-        <nav>
-            <ul>
-                <li>
-                    <a href="/#homepage" title="Accueil Lucas Noirot (Petit)">
-                        <img class="image-rotative" src="/assets/img/logo/logo.png"
-                            title="Logo de Lucas Noirot (Petit) - étoile à 8 branches"
-                            alt="Logo de Lucas Noirot (Petit) - étoile à 8 branches">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/#phd" title="Thèse">Thèse</a>
-                </li>
-
-                <li>
-                    <a href="/#cv" title="CV">CV</a>
-                </li>
-
-                <li class="ggg" style="transition: none;">
-                    <a title="Projets">
-                        <svg viewBox="0 0 24 24" width="30" height="30">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-                        </svg>
-                        Projets
-
-                    </a>
-
-
-                    <div class="jac">
-                        <a href="/#dev">Développement</a>
-                        <a href="/#acad">Académiques</a>
-                    </div>
-
-                </li>
-
-                <li>
-                    <a href="/blog/" title="Blog">Blog</a>
-                </li>
-            </ul>
-        </nav>
-
-    </header>
+    <!-- Header commun, sans bouton de langue : le blog n'est qu'en français -->
+    <site-header></site-header>
 
 
 

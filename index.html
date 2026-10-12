@@ -18,6 +18,23 @@
 
     <meta name="author" content="Lucas Noirot (Petit)">
 
+    <!-- Aperçu lors d'un partage (LinkedIn, messageries…). Les robots ne lisent que ce HTML,
+         sans JavaScript : l'aperçu est donc toujours en français, même pour ?lang=en. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lucas Noirot (Petit)">
+    <meta property="og:title" content="Lucas Noirot (Petit) · Doctorant en algorithmique">
+    <meta property="og:description" content="Doctorant à l'institut FEMTO-ST (SUPMICROTECH) : algorithmique sobre et
+            conviviale pour l'allocation des ressources dans un data center. Projets, compétences et blog.">
+    <meta property="og:url" content="https://enpeluche.github.io/">
+    <meta property="og:image" content="https://enpeluche.github.io/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lucas Noirot (Petit), doctorant en algorithmique à l'institut FEMTO-ST">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!-- for rendering latex -->
@@ -40,7 +57,9 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <script src="assets/js/translate.js"></script>
+    <!-- Header commun : à charger avant le <body> (voir le fichier) -->
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
+    <script src="/assets/js/translate.js"></script>
     <style>
         .reveal {
             opacity: 0;
@@ -63,58 +82,7 @@
 
     <!------------------------------ HEADER -------------------------------------->
 
-    <header id="main-header">
-        <nav>
-            <ul>
-                <li>
-                    <a href="/#homepage" title="Accueil Lucas Noirot (Petit)">
-                        <img class="image-rotative" src="/assets/img/logo/logo.png"
-                            title="Logo de Lucas Noirot (Petit) - étoile à 8 branches"
-                            alt="Logo de Lucas Noirot (Petit) - étoile à 8 branches">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/#phd" data-i18n="nav_phd">Thèse</a>
-                </li>
-
-                <li>
-                    <a href="/#cv" title="CV">CV</a>
-                </li>
-
-                <li class="ggg" style="transition: none;">
-                    <a title="Projets">
-                        <svg viewBox="0 0 24 24" width="30" height="30">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-                        </svg>
-                        <span data-i18n="section_projects_title">Projets</span>
-
-
-                    </a>
-
-                    <div class="jac">
-                        <a data-i18n="projects_category_dev" href="/#dev">Développement</a>
-                        <a data-i18n="projects_category_academic" href="/#acad">Académiques</a>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="/blog/" title="Blog">Blog</a>
-                </li>
-
-                <li style="display: flex; flex-direction: column; justify-content: center;">
-                    <input type="checkbox" id="lang-toggle" class="lang-check" autocomplete="off">
-
-                    <label for="lang-toggle" class="lang-label">
-                        <span class="slider"></span>
-
-                        <span class="lang-text">FR</span>
-                        <span class="lang-text">EN</span>
-                    </label>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <site-header lang-toggle></site-header>
 
     <main>
         <section id="homepage">
@@ -384,48 +352,6 @@
         </section>
 
         <!----------------------------------------------------------------------------------------------------------->
-
-        <section class="contact-section">
-            <h1 data-i18n="contact_title" class="reveal contact-title">
-                Me Contacter
-            </h1>
-            <div class="glass-panel contact-card">
-                <p class="reveal contact-tagline">
-                    <strong data-i18n="contact_tagline">Ouvert aux collaborations</strong>
-                </p>
-
-                <p data-i18n="contact_description" class="reveal contact-description">
-                    Vous travaillez sur l'allocation de ressources, l'optimisation en ligne, la théorie des jeux ou
-                    l'équité algorithmique ? Je suis partant pour échanger, que ce soit pour une <strong>collaboration
-                        de recherche</strong>, un <strong>projet appliqué</strong> ou simplement une discussion
-                    scientifique.
-                </p>
-            </div>
-            <div class="contact-container reveal">
-                <a href="mailto:lucas.noirot@supmicrotech.fr" class="contact-item">
-                    <ui-icon name="email"></ui-icon>
-                    <span>Email</span>
-                </a>
-
-                <a href="https://linkedin.com/in/enpeluche" target="_blank" rel="noopener noreferrer"
-                    class="contact-item">
-                    <ui-icon name="linkedin"></ui-icon>
-                    <span>LinkedIn</span>
-                </a>
-
-                <a href="https://github.com/enpeluche" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <ui-icon name="github"></ui-icon>
-                    <span>GitHub</span>
-                </a>
-
-                <a href="https://www.femto-st.fr/fr/personnel-femto/lucasnoirot" target="_blank"
-                    rel="noopener noreferrer" class="contact-item">
-                    <ui-icon name="institution"></ui-icon>
-                    <span>FEMTO-ST</span>
-                </a>
-            </div>
-        </section>
-        <!----------------------------------------------------------------------------------------------------------->
         <span id="dev"></span>
         <!---
         TODO: voir où est le code de tagicon et le mettre en bas de index html
@@ -694,13 +620,13 @@
                     </footer>
 
                 </div>
-
+            </div>
         </section>
 
         <span
             id="acad"></span><!--------------------------------------------------------------------------------------------->
 
-        <section>
+        <section id="projects-more">
             <h1 data-i18n="additional_projects" class="section-title">Projets complémentaires</h1>
 
             <div class="filter-container reveal">
@@ -881,7 +807,51 @@
 
         </section>
 
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <section id="contact" class="contact-section">
+            <h1 data-i18n="contact_title" class="reveal contact-title">
+                Me Contacter
+            </h1>
+            <div class="glass-panel contact-card">
+                <p class="reveal contact-tagline">
+                    <strong data-i18n="contact_tagline">Ouvert aux collaborations</strong>
+                </p>
+
+                <p data-i18n="contact_description" class="reveal contact-description">
+                    Vous travaillez sur l'allocation de ressources, l'optimisation en ligne, la théorie des jeux ou
+                    l'équité algorithmique ? Je suis partant pour échanger, que ce soit pour une <strong>collaboration
+                        de recherche</strong>, un <strong>projet appliqué</strong> ou simplement une discussion
+                    scientifique.
+                </p>
+            </div>
+            <div class="contact-container reveal">
+                <a href="mailto:lucas.noirot@supmicrotech.fr" class="contact-item">
+                    <ui-icon name="email"></ui-icon>
+                    <span>Email</span>
+                </a>
+
+                <a href="https://linkedin.com/in/enpeluche" target="_blank" rel="noopener noreferrer"
+                    class="contact-item">
+                    <ui-icon name="linkedin"></ui-icon>
+                    <span>LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/enpeluche" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <ui-icon name="github"></ui-icon>
+                    <span>GitHub</span>
+                </a>
+
+                <a href="https://www.femto-st.fr/fr/personnel-femto/lucasnoirot" target="_blank"
+                    rel="noopener noreferrer" class="contact-item">
+                    <ui-icon name="institution"></ui-icon>
+                    <span>FEMTO-ST</span>
+                </a>
+            </div>
+        </section>
+
         <div id="scroll-down-indicator"></div>
+    </main>
 
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
         <script type="module" src="/assets/js/main.js"></script>

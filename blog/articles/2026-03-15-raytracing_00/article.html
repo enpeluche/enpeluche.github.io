@@ -73,7 +73,7 @@
     trouver les racines de ce polynôme. La complexité du problème dépend du degré de ce polynôme.
 </div>
 
-<h2>Exemple : l'intersection avec une sphère.</h2>
+<h2>Exemple : l'intersection avec une sphère</h2>
 
 <div class="paragraph">
     La sphère unité (rayon $1$, centre à l'origine) est définie par l'équation :
@@ -82,7 +82,7 @@
 
     En injectant la représentation du rayon, on obtient :
 
-    $$(ox+tdx)^2 + (oy+tdy)^2 + (oz+tdz)^2 - 1 = 0$$
+    $$(o_x+td_x)^2 + (o_y+td_y)^2 + (o_z+td_z)^2 - 1 = 0$$
 
     En développant, on voit apparaître des motifs géométriques familiers : $\|O\|^2$, $\|D\|^2$, $O \cdot D$
 
@@ -94,17 +94,17 @@
     regardons la géométrie.
 </div>
 
-<h2>Le lien entre l'algèbre et la géométrie.</h2>
+<h2>Le lien entre l'algèbre et la géométrie</h2>
 
 <div class="paragraph">
     La distance au carré entre le rayon et le centre est donnée par $g(t) = \|O+tD\|^2$.
 
-    Le minimum de cette distance est atteint lorsque $g'(t) = 0$, soit:
+    Le minimum de cette distance est atteint lorsque $g'(t) = 0$, soit :
 
     $$2 O \cdot D + 2t\|D\|^2=0 \Rightarrow t_{min} = -O \cdot D$$
 
     Alors la distance minimale est :
-    $\|O+t_{min}D\|^2 = \|O -O \cdot D \times D\|^2 = \|O\|^2 - (O \cdot D)^2$
+    $\|O+t_{min}D\|^2 = \|O - (O \cdot D)\,D\|^2 = \|O\|^2 - (O \cdot D)^2$
 </div>
 
 <div class="paragraph">
@@ -132,8 +132,9 @@
     que le rayon touche la sphère sans la traverser : il est tangent.
 
     <figure>
-        <img src="/blog/articles/2026-03-15-raytracing_00/sphere.webp" alt="" width="300">
-        <figcaption></figcaption>
+        <img src="/blog/articles/2026-03-15-raytracing_00/sphere.webp" width="300"
+            alt="Schéma : trois rayons partent de l'œil vers une sphère de rayon 1. Si Δ < 0 le rayon la manque, si Δ = 0 il est tangent, si Δ > 0 il la traverse.">
+        <figcaption>Les trois cas selon le signe du discriminant $\Delta$</figcaption>
     </figure>
 </div>
 

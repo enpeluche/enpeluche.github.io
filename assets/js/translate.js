@@ -741,14 +741,6 @@ const nav_traduction = {
     fr: "Projets",
     en: "Projects",
   },
-  projects_category_dev: {
-    fr: "Développement",
-    en: "Development",
-  },
-  projects_category_academic: {
-    fr: "Académiques",
-    en: "Academic",
-  },
 };
 
 const phd_traduction = {
