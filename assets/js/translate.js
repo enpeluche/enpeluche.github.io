@@ -18,10 +18,6 @@ const tags_traduction = {
     fr: "Réduction de réseaux",
     en: "Lattice Reduction",
   },
-  cryptanalysis: {
-    fr: "Cryptanalyse",
-    en: "Cryptanalysis",
-  },
   complexity_analysis: {
     fr: "Analyse de complexité",
     en: "Complexity Analysis",
@@ -139,69 +135,6 @@ const sections_traduction = {
   additional_projects: {
     fr: "Projets complémentaires",
     en: "Additional Projects",
-  },
-};
-
-const latticechat_project = {
-  latticechat_title: {
-    fr: "Lattice-Chat",
-    en: "Lattice-Chat",
-  },
-  latticechat_subtitle: {
-    fr: "Messagerie chiffrée post-quantique et cryptanalyse par LLL",
-    en: "Post-quantum encrypted messaging and LLL cryptanalysis",
-  },
-  latticechat_category: {
-    fr: "Projet Personnel",
-    en: "Personal Project",
-  },
-  latticechat_description: {
-    fr: `
-    <div>
-        Système de messagerie chiffrée de bout en bout dont la sécurité repose
-        sur la difficulté du problème <strong>SVP</strong> résistant aux attaques quantiques.
-    </div>
-    <div>
-        <strong>Cryptographie</strong> : Échange de clés post-quantique via
-        <strong>LWE</strong> (Learning With Errors), chiffrement symétrique
-        des messages par <strong>ChaCha20</strong>.
-    </div>
-    <div>
-        <strong>Réseau</strong> : Stack réseau asynchrone en Rust
-        (Tokio, TCP/WebSockets).
-    </div>
-    <div>
-        <strong>Cryptanalyse</strong> : Simulation d'attaques par réduction
-        de base (<strong>LLL</strong>) et benchmarks selon la dimension,
-        le bruit et le module.
-    </div>
-    <div>
-        <strong>Roadmap</strong> : 🦀 Projet en cours d'implémentation. (mars 2026)
-    </div>
-    `,
-    en: `
-      <div>
-          End-to-end encrypted messaging system whose security relies on
-          the hardness of the quantum-resistant <strong>SVP</strong> (Shortest Vector Problem).
-      </div>
-      <div>
-          <strong>Cryptography</strong>: Post-quantum key exchange via
-          <strong>LWE</strong> (Learning With Errors), symmetric message
-          encryption using <strong>ChaCha20</strong>.
-      </div>
-      <div>
-          <strong>Networking</strong>: Asynchronous network stack in Rust
-          (Tokio, TCP/WebSockets).
-      </div>
-      <div>
-          <strong>Cryptanalysis</strong>: Simulation of attacks via lattice
-          basis reduction (<strong>LLL</strong>) and benchmarks based on dimension,
-          noise, and modulus.
-      </div>
-      <div>
-          <strong>Roadmap</strong>: 🦀 Project currently being implemented. (March 2026)
-      </div>
-    `,
   },
 };
 
@@ -328,7 +261,7 @@ const raytracer_project = {
 
     <div>
         <strong>Roadmap</strong>:
-        🦀 Portage du solveur en Rust en cours d'implémentation. (mars 2026)
+        🦀 Portage du solveur en Rust, prévu plus tard (date non définie).
     </div>
     `,
     en: `
@@ -364,7 +297,7 @@ const raytracer_project = {
       </div>
       <div>
           <strong>Roadmap</strong>:
-          🦀 Rust port of the solver currently being implemented. (March 2026)
+          🦀 Rust port of the solver, planned for later (no set date).
       </div>
     `,
   },
@@ -657,22 +590,6 @@ const homepage_traduction = {
     fr: "Je travaille sur l'allocation de ressources dans les data centers, avec deux exigences : la <strong>sobriété</strong> énergétique et l'<strong>équité</strong> entre utilisateurs. Formé en informatique théorique et en mathématiques, j'aime aller du modèle à la machine : <strong>formaliser</strong> un problème, <strong>prouver</strong> des garanties, puis <strong>implémenter</strong> et mesurer, en C++, Rust ou Python.",
     en: "I work on resource allocation in data centers, with two requirements in mind: energy <strong>frugality</strong> and <strong>fairness</strong> among users. Trained in theoretical computer science and mathematics, I enjoy going from model to machine: <strong>formalizing</strong> a problem, <strong>proving</strong> guarantees, then <strong>implementing</strong> and measuring, in C++, Rust or Python.",
   },
-  expertise_intro: {
-    fr: "<strong>Mon expertise technique :</strong>",
-    en: "<strong>My technical expertise:</strong>",
-  },
-  skill_optimization: {
-    fr: "<strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP), Programmation par contraintes, Heuristiques & Métaheuristiques.",
-    en: "<strong>Optimization & Modeling:</strong> Mathematical modeling, MILP, Constraint Programming, Heuristics & Metaheuristics.",
-  },
-  skill_crypto: {
-    fr: "<strong>Cryptographie :</strong> Réduction de réseaux (LLL), Cryptographie post-quantique (LWE), Cryptanalyse.",
-    en: "<strong>Cryptography:</strong> Lattice reduction (LLL), Post-quantum cryptography (LWE), Cryptanalysis.",
-  },
-  skill_algorithms: {
-    fr: "<strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée (algorithmes en-ligne, distribués).",
-    en: "<strong>Advanced Algorithmics:</strong> Complexity analysis, Advanced graph theory (online and distributed algorithms).",
-  },
 };
 
 const homepage_skills = {
@@ -758,12 +675,8 @@ const homepage_skills = {
     en: "Lattice reduction (LLL)",
   },
   skill_detail_pqc: {
-    fr: "Cryptographie post-quantique (LWE)",
-    en: "Post-quantum cryptography (LWE)",
-  },
-  skill_detail_cryptanalysis: {
-    fr: "Cryptanalyse",
-    en: "Cryptanalysis",
+    fr: "Cryptographie post-quantique",
+    en: "Post-quantum cryptography",
   },
   skill_detail_crypto: {
     fr: "Protocoles cryptographiques",
@@ -851,6 +764,10 @@ const phd_traduction = {
     fr: "Comment partager les ressources d'un data center entre ses utilisateurs de façon à la fois économe et équitable, alors que les demandes arrivent au fil de l'eau ? Ma thèse aborde cette question à la croisée de l'optimisation en ligne, de la théorie des jeux et du choix social computationnel.",
     en: "How can a data center's resources be shared among its users in a way that is both frugal and fair, while requests keep arriving over time? My thesis tackles this question at the crossroads of online optimization, game theory and computational social choice.",
   },
+  phd_parameterized: {
+    fr: "<strong>Une piste que j'aimerais explorer :</strong> aborder ces problèmes sous l'angle de la <strong>complexité paramétrée</strong>, et en particulier de la <strong>kernelisation</strong> : réduire une instance, avant de la résoudre, à un noyau dont la taille ne dépend que d'un paramètre du problème. Ces techniques de prétraitement, aux garanties fortes, restent encore relativement peu explorées pour l'ordonnancement et l'allocation de ressources.",
+    en: "<strong>A direction I'd like to explore:</strong> approaching these problems through <strong>parameterized complexity</strong>, and <strong>kernelization</strong> in particular: shrinking an instance, before solving it, down to a kernel whose size depends only on a parameter of the problem. These preprocessing techniques come with strong guarantees, yet remain relatively little explored for scheduling and resource allocation.",
+  },
   phd_supervision_label: {
     fr: "Encadrement",
     en: "Supervision",
@@ -897,7 +814,6 @@ const traductions = {
   ...filters_traduction,
   ...tags_traduction,
   ...wsrp_project,
-  ...latticechat_project,
   ...internship_project,
   ...raytracer_project,
   ...beckett_project,

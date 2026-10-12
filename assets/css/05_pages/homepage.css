@@ -136,15 +136,6 @@
   margin-top: 0.5rem; /* Ton margin-top: 0.5rem réutilisable */
 }
 
-.expert-list {
-  padding-left: 2rem;
-  list-style-type: square;
-}
-
-.expert-list li::marker {
-  color: var(--secondary-text-color) !important;
-}
-
 /* (Petit) : nom d'usage, en retrait par rapport au nom de famille */
 .profile-name-usage {
   font-size: 0.5em;
