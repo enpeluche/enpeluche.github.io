@@ -52,7 +52,16 @@ main {
 }
 
 main > section {
-  min-height: 100vh;
   width: 100%;
   max-width: 1700px;
+}
+
+/* Espacement fixe entre les sections : aéré, sans écran à moitié vide
+   (remplace l'ancien min-height: 100vh) */
+main > section:not(:first-of-type) {
+  margin-top: 4rem;
+}
+
+main > section:last-of-type {
+  margin-bottom: 4rem;
 }
