@@ -212,6 +212,84 @@
   color: var(--muted-text-color);
 }
 
+/* --- Section « En dehors du labo » : même famille que les cartes projets --- */
+
+.hobbies-section {
+  padding: 0 1rem;
+}
+
+.hobbies {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hobby {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  overflow: hidden;
+
+  border: 1px solid var(--primary-border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: var(--card-background);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.hobby-media {
+  min-height: 340px;
+}
+
+/* Une carte sur deux : image à droite */
+.hobby:nth-child(even) .hobby-media {
+  order: 2;
+}
+
+.hobby-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.hobby-text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-text-color);
+}
+
+.hobby-text p {
+  line-height: 1.7;
+}
+
+.hobby-text .tags {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+.hobby-links {
+  font-size: 0.85rem;
+}
+
+/* Petits écrans : image au-dessus du texte */
+@media (max-width: 760px) {
+  .hobby {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby:nth-child(even) .hobby-media {
+    order: 0;
+  }
+
+  .hobby-media {
+    min-height: 260px;
+  }
+}
+
 .tags.phd-tags {
   justify-content: center;
   margin-top: 0;

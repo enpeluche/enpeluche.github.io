@@ -1,0 +1,45 @@
+/* <folded-image> : voir FoldedImage.js */
+
+folded-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+folded-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Les plis recouvrent la photo, puis s'effacent en se dépliant légèrement */
+folded-image .folded-folds {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+folded-image:hover .folded-folds,
+folded-image.is-open .folded-folds {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+folded-image:focus-visible {
+  outline: 3px solid var(--secondary-text-color);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  folded-image .folded-folds {
+    transition: none;
+  }
+
+  folded-image:hover .folded-folds,
+  folded-image.is-open .folded-folds {
+    transform: none;
+  }
+}

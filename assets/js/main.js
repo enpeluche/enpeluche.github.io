@@ -1,5 +1,6 @@
 import { initScrollDown } from "/components/ScrollDown/ScrollDown.js";
 import { initCarousel } from "/components/Carousel/Carousel.js";
+import "/components/FoldedImage/FoldedImage.js"; // définit <folded-image>, utilisé par « En dehors du labo »
 
 import { loadReferences } from "./pages/references.js";
 
