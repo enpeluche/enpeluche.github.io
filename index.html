@@ -147,25 +147,6 @@
                     <strong>formaliser</strong> un problème, <strong>prouver</strong> des garanties, puis
                     <strong>implémenter</strong> et mesurer, en C++, Rust ou Python.
                 </p>
-
-                <p data-i18n="expertise_intro" style="padding-top: 0.5rem;">
-                    <strong>Mon expertise technique :</strong>
-                </p>
-
-                <ul class="expert-list">
-                    <li data-i18n="skill_optimization">
-                        <strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP),
-                        Programmation par contraintes, Heuristiques & Métaheuristiques.
-                    </li>
-                    <li data-i18n="skill_crypto">
-                        <strong>Cryptographie :</strong> Réduction de réseaux (LLL), Cryptographie post-quantique
-                        (LWE), Cryptanalyse.
-                    </li>
-                    <li data-i18n="skill_algorithms">
-                        <strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée
-                        (algorithmes en-ligne, distribués).
-                    </li>
-                </ul>
             </div>
         </section>
 
@@ -183,6 +164,14 @@
                     Comment partager les ressources d'un data center entre ses utilisateurs de façon à la fois économe
                     et équitable, alors que les demandes arrivent au fil de l'eau ? Ma thèse aborde cette question à la
                     croisée de l'optimisation en ligne, de la théorie des jeux et du choix social computationnel.
+                </p>
+
+                <p data-i18n="phd_parameterized" class="phd-summary">
+                    <strong>Une piste que j'aimerais explorer :</strong> aborder ces problèmes sous l'angle de la
+                    <strong>complexité paramétrée</strong>, et en particulier de la <strong>kernelisation</strong> :
+                    réduire une instance, avant de la résoudre, à un noyau dont la taille ne dépend que d'un paramètre
+                    du problème. Ces techniques de prétraitement, aux garanties fortes, restent encore relativement peu
+                    explorées pour l'ordonnancement et l'allocation de ressources.
                 </p>
 
                 <dl class="phd-facts">
@@ -304,13 +293,10 @@
                     <h3 class="skill-title" data-i18n="skill_title_crypto">Cryptographie & Réseaux euclidiens</h3>
                     <ul class="skill-list">
                         <li data-i18n="skill_detail_lattice">Réduction de réseaux (LLL)</li>
-                        <li data-i18n="skill_detail_pqc">Cryptographie post-quantique (LWE)</li>
-                        <li data-i18n="skill_detail_cryptanalysis">Cryptanalyse</li>
+                        <li data-i18n="skill_detail_pqc">Cryptographie post-quantique</li>
                         <li data-i18n="skill_detail_crypto">Protocoles cryptographiques</li>
                     </ul>
                     <div class="tags tags-wrap">
-                        <tech-tag>Rust</tech-tag>
-                        <tech-tag>Tokio</tech-tag>
                         <tech-tag>SageMath</tech-tag>
                     </div>
                     <p class="skill-projects">
@@ -318,8 +304,6 @@
                             :</span>
                         <a data-i18n="skill_link_internship" class="skill-project-link"
                             href="#project-internship">Stage de M2</a>
-                        <a data-i18n="latticechat_title" class="skill-project-link"
-                            href="#project-latticechat">Lattice-Chat</a>
                     </p>
                 </div>
 
@@ -471,66 +455,6 @@
 
                 <!----------------------------------------------------------------------------------------------------------->
 
-
-                <div class="project" id="project-latticechat" data-category="rust crypto RD">
-
-                    <header>
-                        <h3 data-i18n="latticechat_title">Lattice-Chat</h3>
-                        <h4 data-i18n="latticechat_subtitle">
-                            Messagerie chiffrée post-quantique et cryptanalyse par LLL
-                        </h4>
-                    </header>
-
-                    <div class="meta">
-                        <project-category>R&D</project-category>
-                        <project-category>Projet Personnel</project-category>
-                    </div>
-
-                    <div data-i18n="latticechat_description" class="description">
-                        <div>
-                            Système de messagerie chiffrée de bout en bout dont la sécurité repose
-                            sur la difficulté du problème <strong>SVP</strong> résistant aux attaques quantiques.
-                        </div>
-                        <div>
-                            <strong>Cryptographie</strong> : Échange de clés post-quantique via
-                            <strong>LWE</strong> (Learning With Errors), chiffrement symétrique
-                            des messages par <strong>ChaCha20</strong>.
-                        </div>
-                        <div>
-                            <strong>Réseau</strong> : Stack réseau asynchrone en Rust
-                            (Tokio, TCP/WebSockets).
-                        </div>
-                        <div>
-                            <strong>Cryptanalyse</strong> : Simulation d'attaques par réduction
-                            de base (<strong>LLL</strong>) et benchmarks selon la dimension,
-                            le bruit et le module.
-                        </div>
-                        <div>
-                            <strong>Roadmap</strong> : 🦀 Projet en cours d'implémentation. (mars 2026)
-                        </div>
-                    </div>
-
-
-
-                    <div class="tags">
-                        <tech-tag>Rust</tech-tag>
-                        <tech-tag>Tokio</tech-tag>
-                        <concept-tag data-i18n="post_quantum_cryptography">Cryptographie
-                            post-quantique</concept-tag>
-                        <concept-tag>LWE</concept-tag>
-                        <concept-tag data-i18n="lattice_reduction">Réduction de réseaux</concept-tag>
-                        <concept-tag data-i18n="cryptanalysis">Cryptanalyse</concept-tag>
-                    </div>
-
-                    <footer>
-                        <a href="https://github.com/enpeluche/lattice-based-messaging" target="_blank"></a>
-                        <span data-i18n="explore_project">Explorer le projet</span>
-                        <right-arrow></right-arrow>
-
-                    </footer>
-                </div>
-
-                <!--------------------------------------------------------------------------------------------->
 
                 <div class="project" id="project-wsrp" data-category="java RD">
 
@@ -697,7 +621,7 @@
 
                         <div>
                             <strong>Roadmap</strong>:
-                            🦀 Portage du solveur en Rust en cours d'implémentation. (mars 2026)
+                            🦀 Portage du solveur en Rust, prévu plus tard (date non définie).
                         </div>
                     </div>
 

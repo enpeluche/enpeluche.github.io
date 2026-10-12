@@ -3,15 +3,12 @@ import { initCarousel } from "/components/Carousel/Carousel.js";
 
 import { loadReferences } from "./pages/references.js";
 
-import { loadHeader } from "./components/header.js";
-
 import { initParticles } from "./particles.js";
 
 import { initBlog } from "../../blog/blog.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initScrollDown();
-  loadHeader();
   loadReferences();
   initCarousel();
 
@@ -20,25 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
   initParticles();
 });
 
-const header = document.getElementById("main-header-hihi");
-const headerr = document.getElementById("main-header");
+// Header masqué quand on descend, réaffiché quand on remonte
+const header = document.getElementById("main-header");
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
+  if (!header) return;
+
   const currentScrollY = window.scrollY;
 
   if (currentScrollY <= 0) {
     header.classList.remove("header-hidden");
-    headerr.classList.remove("header-hidden");
     return;
   }
 
   if (currentScrollY > lastScrollY && currentScrollY > 5) {
     header.classList.add("header-hidden");
-    headerr.classList.add("header-hidden");
   } else if (currentScrollY < lastScrollY) {
     header.classList.remove("header-hidden");
-    headerr.classList.remove("header-hidden");
   }
 
   lastScrollY = currentScrollY;
