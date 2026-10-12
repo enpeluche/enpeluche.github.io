@@ -1,5 +1,17 @@
+/* Cachée visuellement, mais toujours atteignable au clavier (Tab, puis Espace) */
 .lang-check {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.lang-check:focus-visible + .lang-label {
+  outline: 2px solid var(--secondary-text-color);
+  outline-offset: 2px;
 }
 
 .lang-label {

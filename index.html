@@ -507,9 +507,10 @@
                     </div>
 
                     <footer>
-                        <a href="https://github.com/enpeluche/java-wsrp-solver" target="_blank"></a>
-                        <span data-i18n="explore_project">Explorer le solveur</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://github.com/enpeluche/java-wsrp-solver" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="explore_project">Explorer le solveur</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
                 </div>
@@ -568,9 +569,10 @@
                     </div>
 
                     <footer>
-                        <a href="https://enpeluche.github.io/lattice-reduction-internship/" target="_blank"></a>
-                        <span data-i18n="read_research_report">Lire le rapport de recherche</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://enpeluche.github.io/lattice-reduction-internship/" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="read_research_report">Lire le rapport de recherche</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
                 </div>
@@ -647,9 +649,10 @@
                     </div>
 
                     <footer>
-                        <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank"></a>
-                        <span data-i18n="explore_engine_architecture">Explorer l'architecture du moteur</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://github.com/enpeluche/bernstein-raytracer" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="explore_engine_architecture">Explorer l'architecture du moteur</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
 
@@ -700,9 +703,10 @@
                     </div>
 
                     <footer>
-                        <a href="https://enpeluche.github.io/beckett-gray-research/" target="_blank"></a>
-                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://enpeluche.github.io/beckett-gray-research/" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
                 </div>
@@ -779,9 +783,10 @@
 
 
                     <footer>
-                        <a href="https://enpeluche.github.io" target="_blank"></a>
-                        <span data-i18n="explore_portfolio">Explorer le portfolio</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://enpeluche.github.io" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="explore_portfolio">Explorer le portfolio</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
 
@@ -831,9 +836,10 @@
 
 
                     <footer>
-                        <a href="https://enpeluche.github.io/weyl-transform-thesis/" target="_blank"></a>
-                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://enpeluche.github.io/weyl-transform-thesis/" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
                 </div>
 
@@ -878,9 +884,10 @@
                     </div>
 
                     <footer>
-                        <a href="https://enpeluche.github.io/dense-packing-thesis/" target="_blank"></a>
-                        <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
-                        <right-arrow></right-arrow>
+                        <a href="https://enpeluche.github.io/dense-packing-thesis/" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="read_research_thesis">Lire le mémoire de recherche</span>
+                            <right-arrow></right-arrow>
+                        </a>
                     </footer>
 
                 </div>
@@ -1203,6 +1210,16 @@
                         ${text}
                         <img src="${src}" loading="lazy" alt="${alt}">
                     `;
+
+                    // Atteignable au clavier (Tab) : l'aperçu s'affiche aussi au focus.
+                    // Échap le referme sans déplacer le focus ; il revient au prochain survol ou focus.
+                    this.tabIndex = 0;
+                    this.addEventListener('keydown', (event) => {
+                        if (event.key === 'Escape') this.classList.add('preview-dismissed');
+                    });
+                    for (const fin of ['blur', 'mouseleave']) {
+                        this.addEventListener(fin, () => this.classList.remove('preview-dismissed'));
+                    }
                 }
             }
 

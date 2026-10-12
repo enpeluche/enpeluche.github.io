@@ -69,10 +69,17 @@ filterContainers.forEach((container) => {
 
   const projects = projectGrid.querySelectorAll(".project");
 
+  // aria-pressed : le filtre actif est aussi annoncé par les lecteurs d'écran
+  filterButtons.forEach((btn) => btn.setAttribute("aria-pressed", String(btn.classList.contains("active"))));
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+      });
       button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
 
       const filterValue = button.getAttribute("data-filter");
 
