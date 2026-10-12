@@ -29,9 +29,11 @@ export function initScrollDown() {
   window.addEventListener("scroll", checkScroll, { passive: true });
 
   arrow.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     window.scrollBy({
       top: window.innerHeight / 2,
-      behavior: "smooth",
+      behavior: reduceMotion ? "auto" : "smooth",
     });
   });
 }

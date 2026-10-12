@@ -50,3 +50,39 @@
         background-position: 500px 100px;
     }
   }
+/*
+  Visiteurs qui ont activé "réduire les animations" dans leur système
+  (macOS/iOS : Réduire les animations, Windows : Afficher les animations désactivé,
+  Android : Supprimer les animations). On coupe les mouvements, on garde les changements
+  de couleur (ex. la surbrillance d'une carte projet atteinte par un lien).
+  Les particules sont gérées dans assets/js/particles.js, l'apparition au scroll dans index.html.
+
+  Sélecteurs préfixés par :root pour l'emporter sur les fichiers importés après celui-ci
+  (ScrollDown.css, Carousel.css, translate.css…).
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  :root .image-rotative,
+  :root #scroll-down-indicator,
+  :root .project.show,
+  :root .carousel img {
+    animation: none;
+  }
+
+  :root .project:hover {
+    transform: none;
+  }
+
+  :root #main-header,
+  :root .nav-dropdown-menu,
+  :root .nav-dropdown-toggle svg,
+  :root .nav-link::after,
+  :root .theme-toggle-knob,
+  :root .slider,
+  :root .project {
+    transition: none;
+  }
+}

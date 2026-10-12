@@ -10,7 +10,7 @@ site-header {
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: white; /* Important sinon on voit le texte passer dessous */
+  background-color: var(--surface-color); /* Opaque, sinon on voit le texte passer dessous */
   border-bottom: 1px solid var(--primary-border-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 5; /* Toujours au-dessus du reste */
@@ -120,7 +120,7 @@ header img {
   padding: 0.5rem 0.5rem 0 1rem;
   white-space: nowrap;
 
-  background-color: white;
+  background-color: var(--surface-color);
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
 
   /* Fermé : invisible et légèrement remonté (effet de descente à l'ouverture) */
@@ -170,6 +170,106 @@ header img {
   .nav-dropdown:hover .nav-dropdown-menu {
     transform: translate(-50%, 0);
   }
+}
+
+/* --- Interrupteur jour/nuit (même famille visuelle que FR/EN) --- */
+
+.nav-theme {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 56px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 30px;
+
+  background-color: var(--toggle-track-color);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.theme-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  background-color: var(--toggle-knob-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle-knob {
+  transform: translateX(26px);
+}
+
+.theme-icon {
+  position: relative; /* au-dessus du curseur */
+  width: 16px;
+  height: 16px;
+  fill: var(--muted-text-color);
+}
+
+/* L'icône du mode actif, sous le curseur, passe en violet */
+.theme-toggle[aria-checked="false"] .theme-icon-sun,
+.theme-toggle[aria-checked="true"] .theme-icon-moon {
+  fill: var(--secondary-text-color);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--secondary-text-color);
+  outline-offset: 2px;
+}
+
+/* Petits écrans : header compacté pour faire tenir les deux interrupteurs */
+@media (max-width: 480px) {
+  header img {
+    height: 34px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .nav-dropdown-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .theme-toggle {
+    width: 48px;
+    height: 26px;
+    padding: 0 5px;
+  }
+
+  .theme-toggle-knob {
+    width: 22px;
+    height: 22px;
+  }
+
+  .theme-toggle[aria-checked="true"] .theme-toggle-knob {
+    transform: translateX(22px);
+  }
+
+  .theme-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* Logo noir : passé en blanc la nuit */
+:root[data-theme="dark"] #main-header img {
+  filter: invert(1);
 }
 
 /* --- Bouton de langue --- */

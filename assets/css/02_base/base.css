@@ -2,7 +2,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: InterVariable, sans-serif;
-  background: #fff;
+  background: var(--background-color);
+  transition: background-color 0.3s ease; /* passage jour/nuit en douceur */
 
   scroll-behavior: smooth;
 
@@ -44,7 +45,7 @@ main {
 }
 
 .concept {
-  background-color: white;
+  background-color: var(--surface-color);
 }
 
 #tsparticles {

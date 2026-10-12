@@ -737,6 +737,10 @@ const nav_traduction = {
     fr: "Thèse",
     en: "PhD",
   },
+  theme_toggle_label: {
+    fr: "Mode nuit",
+    en: "Night mode",
+  },
   section_projects_title: {
     fr: "Projets",
     en: "Projects",

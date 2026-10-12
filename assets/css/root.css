@@ -1,8 +1,59 @@
+/*
+  Couleurs du site, en mode jour (par défaut) et en mode nuit.
+  Le thème est posé sur <html data-theme="..."> par assets/js/theme.js.
+  Toute nouvelle couleur passe par une variable d'ici, pour exister dans les deux thèmes.
+*/
+
 :root {
+  color-scheme: light;
+
   --primary-text-color: #271a38;
   --secondary-text-color: #7451eb;
+  --muted-text-color: #555; /* petits titres en capitales, libellés */
+  --soft-text-color: #666; /* listes secondaires, liens de contact */
 
   --background-color: white;
+  --surface-color: white; /* fonds opaques : header, menus, boutons, champs */
+  --glass-background: rgba(255, 255, 255, 0);
+  --card-background: rgba(255, 255, 255, 0.2);
+  --accent-soft-background: #7551eb1a; /* pastilles violettes pâles */
+
+  --tag-background: #eaedef61;
+  --tag-border-color: rgba(114, 123, 129, 0.4);
 
   --primary-border-color: rgb(218, 217, 220);
+
+  --button-background: #2c3e50e1; /* bouton CV, survol des liens de contact */
+  --button-hover-background: #2c3e50c7;
+
+  --toggle-track-color: #eee; /* interrupteurs FR/EN et jour/nuit */
+  --toggle-knob-color: white;
+}
+
+/* Mode nuit : bleu nuit profond. Contrastes vérifiés (WCAG AA, ≥ 4,5:1) :
+   texte 15:1, violet 6,9:1, texte discret 7,9:1 sur le fond. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --primary-text-color: #e7e4f3;
+  --secondary-text-color: #a48bff;
+  --muted-text-color: #a9a5c2;
+  --soft-text-color: #a9a5c2;
+
+  --background-color: #0b1026;
+  --surface-color: #141c3d;
+  --glass-background: rgba(255, 255, 255, 0.03);
+  --card-background: rgba(255, 255, 255, 0.04);
+  --accent-soft-background: rgba(164, 139, 255, 0.15);
+
+  --tag-background: rgba(255, 255, 255, 0.06);
+  --tag-border-color: rgba(255, 255, 255, 0.2);
+
+  --primary-border-color: rgba(255, 255, 255, 0.14);
+
+  --button-background: #5b3fd6;
+  --button-hover-background: #6a4ff0;
+
+  --toggle-track-color: #1f2a55;
+  --toggle-knob-color: #3a4785;
 }

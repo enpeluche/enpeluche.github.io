@@ -13,6 +13,13 @@ CONFIGURATIONS DE BASE
   --accent-color: #8a2be2;
 }
 
+/* Mode nuit : --primary sert de couleur de texte (titres des compétences, icônes de contact) */
+:root[data-theme="dark"] {
+  --primary: #d6d1ee;
+  --text-light: var(--soft-text-color);
+  --accent-color: var(--secondary-text-color);
+}
+
 /* =========================================
 LA CARTE PRINCIPALE (CONTENEUR)
 ========================================= */
@@ -36,7 +43,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .btn-cv {
-  background-color: var(--primary);
+  background-color: var(--button-background);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -50,7 +57,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .btn-cv:hover {
-  background-color: #2c3e50c7;
+  background-color: var(--button-hover-background);
 }
 
 .btn-cv svg {
@@ -174,7 +181,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 .skill-project-link {
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
-  background-color: #7551eb1a;
+  background-color: var(--accent-soft-background);
   color: var(--secondary-text-color);
   font-weight: 500;
 }
@@ -208,7 +215,7 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .tag {
-  background-color: #7551eb1a;
+  background-color: var(--accent-soft-background);
   color: var(--primary-text-color);
   padding: 8px 16px;
   border-radius: 10px;
@@ -305,8 +312,8 @@ LA CARTE PRINCIPALE (CONTENEUR)
 }
 
 .contact-item:hover {
-  background-color: var(--primary);
-  border-color: var(--primary);
+  background-color: var(--button-background);
+  border-color: var(--button-background);
   color: white;
 }
 .contact-item:hover ui-icon {
