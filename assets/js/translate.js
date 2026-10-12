@@ -651,6 +651,30 @@ const homepage_skills = {
     fr: "Stage de M2",
     en: "Master's internship",
   },
+  hobbies_title: {
+    fr: "En dehors du labo",
+    en: "Outside the lab",
+  },
+  hobby_origami_title: {
+    fr: "Origami",
+    en: "Origami",
+  },
+  hobby_origami_text: {
+    fr: "Le pliage est pour moi un terrain de jeu géométrique. Ce paraboloïde hyperbolique, plié dans une seule feuille, est une surface courbe faite uniquement de droites.",
+    en: "Folding is a geometric playground for me. This hyperbolic paraboloid, folded from a single sheet, is a curved surface made only of straight lines.",
+  },
+  ruled_surfaces: {
+    fr: "Surfaces réglées",
+    en: "Ruled surfaces",
+  },
+  huzita_axioms: {
+    fr: "Axiomes de Huzita-Hatori",
+    en: "Huzita–Hatori axioms",
+  },
+  hobby_origami_link: {
+    fr: "Article sur le paraboloïde",
+    en: "Paraboloid article (FR)",
+  },
   proof_origami: {
     fr: "Article sur l'origami",
     en: "Origami article (FR)",
