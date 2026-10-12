@@ -226,3 +226,21 @@ footer svg {
     box-shadow: 0 0 0 3px transparent;
   }
 }
+
+/* Bandeau illustré en tête de carte. Le SVG (généré par _outils/bandeaux.py) sert de masque :
+   il prend la couleur violette du thème, de jour comme de nuit. Purement décoratif. */
+.project-banner {
+  position: relative;
+  aspect-ratio: 4 / 1;
+  margin: -0.75rem -0.75rem 0.75rem;
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.project-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0.4rem 0.5rem;
+  background-color: var(--secondary-text-color);
+  -webkit-mask: var(--banner) center / contain no-repeat;
+  mask: var(--banner) center / contain no-repeat;
+}
