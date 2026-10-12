@@ -1,0 +1,11 @@
+{
+  "name": "tests-site-enpeluche",
+  "private": true,
+  "description": "Tests automatiques du site (voir _outils/LISEZMOI.md)",
+  "scripts": {
+    "test": "node lancer.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
