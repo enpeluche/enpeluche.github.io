@@ -2,8 +2,15 @@
 
 const { devices } = require("playwright");
 
-const menuOuvert = () => getComputedStyle(document.querySelector(".nav-dropdown-menu")).visibility === "visible";
-const menuFerme = () => getComputedStyle(document.querySelector(".nav-dropdown-menu")).visibility !== "visible";
+// Le menu peut ne pas exister encore (page en cours de rechargement) : on attend alors qu'il apparaisse
+const menuOuvert = () => {
+  const menu = document.querySelector(".nav-dropdown-menu");
+  return !!menu && getComputedStyle(menu).visibility === "visible";
+};
+const menuFerme = () => {
+  const menu = document.querySelector(".nav-dropdown-menu");
+  return !!menu && getComputedStyle(menu).visibility !== "visible";
+};
 const ongletCourant = () => [...document.querySelectorAll(".nav-link.is-current")].map((e) => e.textContent.trim()).join(",");
 
 module.exports = async ({ base, ok, nouvellePage, attendre, articles }) => {
@@ -59,7 +66,10 @@ module.exports = async ({ base, ok, nouvellePage, attendre, articles }) => {
   await p.goto(base + "/", { waitUntil: "networkidle" });
   await p.tap(".nav-dropdown-toggle");
   ok(await attendre(p, menuOuvert), "téléphone : menu déroulant ouvert au toucher");
+  // Depuis /?lang=fr, le lien /#acad recharge la page : on attend la fin du chargement avant de vérifier
   await p.tap('.nav-dropdown-menu a[href="/#acad"]');
+  await p.waitForURL(/#acad$/);
+  await p.waitForLoadState("networkidle");
   ok(await attendre(p, menuFerme), "téléphone : menu déroulant refermé après un choix");
   ok(await attendre(p, () => location.hash === "#acad"), "téléphone : navigation vers #acad");
   await p.goto(base + "/", { waitUntil: "networkidle" });
