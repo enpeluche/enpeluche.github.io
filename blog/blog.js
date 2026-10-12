@@ -1,16 +1,44 @@
-const blogView = document.getElementById("blog-view");
-const articleView = document.getElementById("article-view");
-const contentLoader = document.getElementById("article-content-loader");
-const backBtn = document.getElementById("back-btn");
+/*
+  Page d'accueil du blog : une carte par article (liste dans blog/data.json), avec recherche et tri.
+  Chaque carte mène à la page de l'article, /blog/articles/<dossier>/
+  (pour écrire un article : blog/articles/_modele/LISEZMOI.md).
+*/
+
 const grid = document.querySelector(".blog-grid");
 const noResults = document.getElementById("no-results");
+
+// Libellés affichés pour les catégories de data.json (une catégorie absente s'affiche telle quelle)
+const CATEGORY_LABELS = {
+  maths: "Maths",
+  life: "Parcours",
+};
+
+function categoryLabel(category) {
+  return CATEGORY_LABELS[category] || category;
+}
+
+function articleUrl(article) {
+  return `/blog/articles/${article.folder}/`;
+}
+
+// "2026-03-15" lu comme une date locale (et non UTC), pour ne pas afficher la veille selon le fuseau
+function parseDate(isoDate) {
+  return new Date(`${isoDate}T00:00:00`);
+}
+
+// "2026-03-15" → "15 mars 2026"
+function formatDate(isoDate) {
+  return parseDate(isoDate).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
 /**
  * Récupère la liste des articles et leurs métadonnées.
  * @async
  * @returns {Promise<Array>} Un tableau d'objets articles (vide si erreur).
- * @example
- * const articles = await fetchData();
  */
 async function fetchData() {
   try {
@@ -43,38 +71,28 @@ export function renderArticles(articlesList) {
 
   if (!hasArticles) return;
 
-  // Création des cartes
   articlesList.forEach((article) => {
     const card = document.createElement("article");
-    card.className = "blog-card fade-in-up delay-1";
+    card.className = "blog-card";
 
-    const basePath = `/blog/articles/${article.folder}/`;
-
-    const coverUrl = basePath + "cover.webp";
-    const articleUrl = basePath + "article.html";
-
+    // alt vide : l'image illustre le titre, écrit juste en dessous
     card.innerHTML = `
-        <a href="#" class="stretched-link js-load-article" data-url="${articleUrl}">
-            <div class="card-header">
-                <span class="card-title">${article.title}</span>
-                <span class="card-category">${article.category}</span>
-                <time class="card-date" datetime="${article.date}">
-                    ${new Date(article.date).toLocaleDateString("fr-FR")}
-                </time>
+        <a class="blog-card-link" href="${articleUrl(article)}">
+            <div class="blog-card-cover-frame">
+                <img class="blog-card-cover" src="${articleUrl(article)}cover.webp" alt="" loading="lazy">
             </div>
-            <div class="card-content">
-                <img src="${coverUrl}" alt="${article.title}" loading="lazy">
+
+            <div class="blog-card-body">
+                <p class="blog-card-meta">
+                    <span class="card-category">${categoryLabel(article.category)}</span>
+                    <time datetime="${article.date}">${formatDate(article.date)}</time>
+                </p>
+                <h2 class="card-title">${article.title}</h2>
+                <p class="card-summary">${article.summary || ""}</p>
             </div>
-            </a>
+        </a>
         `;
-    const link = card.querySelector(".js-load-article");
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
 
-      window.history.pushState({}, "", `?post=${article.folder}`);
-
-      displayArticle(articleUrl);
-    });
     grid.appendChild(card);
   });
 }
@@ -88,8 +106,8 @@ export function renderArticles(articlesList) {
 function sortArticles(articles, sortValue) {
   // Toujours créer une copie [...] pour ne pas détruire la liste originale
   return [...articles].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
 
     return sortValue === "newest" ? dateB - dateA : dateA - dateB;
   });
@@ -97,111 +115,43 @@ function sortArticles(articles, sortValue) {
 
 function initBlogSystem(allArticlesData) {
   const searchInput = document.getElementById("blog-search");
+  const sortSelect = document.getElementById("blog-sort");
 
-  if (!searchInput) return;
+  if (!searchInput || !sortSelect) return;
 
-  searchInput.addEventListener("input", (e) => {
-    const term = e.target.value.toLowerCase();
+  // Recherche et tri appliqués ensemble : changer l'ordre garde la recherche en cours
+  const update = () => {
+    const term = searchInput.value.toLowerCase();
 
     const filtered = allArticlesData.filter((article) => {
       return (
         article.title.toLowerCase().includes(term) ||
         (article.summary && article.summary.toLowerCase().includes(term)) ||
-        (article.category && article.category.toLowerCase().includes(term))
+        categoryLabel(article.category).toLowerCase().includes(term)
       );
     });
 
-    renderArticles(filtered);
+    renderArticles(sortArticles(filtered, sortSelect.value));
+  };
+
+  sortSelect.value = localStorage.getItem("blogSortPref") || "newest";
+
+  searchInput.addEventListener("input", update);
+
+  sortSelect.addEventListener("change", () => {
+    localStorage.setItem("blogSortPref", sortSelect.value);
+    update();
   });
 
-  const sortSelect = document.getElementById("blog-sort");
-
-  if (sortSelect) {
-    const savedSort = localStorage.getItem("blogSortPref") || "newest";
-
-    sortSelect.value = savedSort;
-
-    const initialSorted = sortArticles(allArticlesData, savedSort);
-    renderArticles(initialSorted);
-  }
-
-  if (sortSelect) {
-    sortSelect.addEventListener("change", () => {
-      const sortValue = sortSelect.value;
-
-      localStorage.setItem("blogSortPref", sortValue);
-
-      const sorted = sortArticles(allArticlesData, sortValue);
-
-      renderArticles(sorted);
-    });
-  }
+  update();
 }
 
-async function displayArticle(url) {
-  try {
-    contentLoader.innerHTML =
-      "<p style='text-align:center; padding:2rem;'>Chargement...</p>";
-    blogView.classList.add("hidden");
-    articleView.classList.remove("hidden");
-    window.scrollTo(0, 0);
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Article introuvable");
-
-    const html = await response.text();
-
-    contentLoader.innerHTML = html;
-
-    renderMathInElement(contentLoader, {
-      delimiters: [
-        { left: "\\begin{equation}", right: "\\end{equation}", display: true },
-        { left: "\\begin{align}", right: "\\end{align}", display: true },
-        { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false },
-        { left: "\\[", right: "\\]", display: true },
-        { left: "\\(", right: "\\)", display: false },
-      ],
-      macros: {
-        "\\F": "\\mathbb{F}",
-        "\\K": "\\mathbb{K}",
-        "\\LL": "\\mathscr{L}",
-        "\\nint": "\\left\\lceil #1 \\right\\rfloor",
-        "\\ps": "\\left\\langle #1 , #2 \\right\\rangle",
-        "\\norm": "\\left\\| #1 \\right\\|",
-        "\\gscoeff": "\\frac{\\ps{#1}{#2}}{\\norm{#2}^2} #2",
-        "\\OO": "\\mathcal{O}",
-        "\\ra": "\\rightarrow",
-        "\\rdeg": "\\operatorname{rdeg}",
-      },
-    });
-  } catch (error) {
-    contentLoader.innerHTML = `<p style="color:red; text-align:center;">Erreur : ${error.message}</p>`;
-  }
-}
-
-if (backBtn) {
-  backBtn.addEventListener("click", () => {
-    articleView.classList.add("hidden");
-    blogView.classList.remove("hidden");
-
-    window.history.pushState({}, "", window.location.pathname);
-
-    setTimeout(() => {
-      contentLoader.innerHTML = "";
-    }, 300);
-  });
-}
 export async function initBlog() {
+  // main.js est chargé sur toutes les pages : on n'agit que sur la page du blog
+  // (les anciens liens /blog/?post=… sont redirigés dès le <head> de blog/index.html)
+  if (!grid) return;
+
   const articlesData = await fetchData();
 
   initBlogSystem(articlesData);
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const postFolder = urlParams.get("post");
-
-  if (postFolder) {
-    const articleUrl = `/blog/articles/${postFolder}/article.html`;
-    displayArticle(articleUrl);
-  }
 }

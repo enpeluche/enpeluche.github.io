@@ -1,4 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+
+    <!-- ===== Propre à cet article (voir blog/articles/_modele/LISEZMOI.md) ===== -->
+    <title>Mon projet de Ray Tracing ! · Blog de Lucas Noirot (Petit)</title>
+    <meta name="description"
+        content="Introduction aux concepts mathématiques du ray tracing : modélisation des rayons, surfaces implicites et calcul d'intersection avec une sphère.">
+    <link rel="canonical" href="https://enpeluche.github.io/blog/articles/2026-03-15-raytracing_00/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mon projet de Ray Tracing !">
+    <meta property="og:description"
+        content="Introduction aux concepts mathématiques du ray tracing : modélisation des rayons, surfaces implicites et calcul d'intersection avec une sphère.">
+    <meta property="og:url" content="https://enpeluche.github.io/blog/articles/2026-03-15-raytracing_00/">
+    <meta property="og:image" content="https://enpeluche.github.io/blog/articles/2026-03-15-raytracing_00/cover.jpg">
+    <meta property="article:published_time" content="2026-03-15">
+    <!-- ===== Fin de la partie propre à l'article ===== -->
+
+    <meta property="og:site_name" content="Lucas Noirot (Petit)">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="author" content="Lucas Noirot (Petit)">
+    <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+
+    <!-- Formules LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="/shared-assets/katex-config.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => window.setupKatex && window.setupKatex());
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Thème jour/nuit puis header commun : à charger avant le <body> -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+
+    <site-header></site-header>
+
+    <main>
+        <article id="article-view">
+            <a class="btn-back" href="/blog/">← Retour aux articles</a>
+
+            <div class="article-body">
+
 <h1>Mon projet de Ray Tracing !</h1>
+
+<p class="article-meta"><time datetime="2026-03-15">15 mars 2026</time> · Maths</p>
 
 <div class="paragraph">
     Récemment, j'ai réalisé un projet de ray tracing, accessible ici :
@@ -143,3 +201,14 @@
     automatiquement pour des surfaces beaucoup plus complexes (comme le cœur de Taubin) via des DAG et de la
     dérivation symbolique.
 </div>
+
+            </div>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script data-goatcounter="https://enpeluche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>

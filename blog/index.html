@@ -35,18 +35,13 @@
 
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
-    <!-- for rendering latex -->
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-
-    <!-- JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-
+    <script>
+        // Anciens liens partagés (/blog/?post=dossier) : redirection immédiate vers la page de l'article
+        (function () {
+            const post = new URLSearchParams(window.location.search).get("post");
+            if (post) window.location.replace(`/blog/articles/${encodeURIComponent(post)}/`);
+        })();
+    </script>
 
     <!-- ALL STYLESHEET -->
 
@@ -70,14 +65,15 @@
         <div id="blog-view">
             <div class="blog-toolbar">
                 <div class="search-wrapper">
-                    <input type="text" id="blog-search" placeholder="Rechercher un article...">
+                    <input type="text" id="blog-search" placeholder="Rechercher un article..."
+                        aria-label="Rechercher un article">
                     <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20">
                         <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2"
                             fill="none" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
 
-                <select id="blog-sort">
+                <select id="blog-sort" aria-label="Ordre des articles">
                     <option value="newest">Plus récents d'abord</option>
                     <option value="oldest">Plus anciens d'abord</option>
                 </select>
@@ -88,17 +84,8 @@
             </div>
 
 
-            <section class="blog-grid fade-in-up delay-2" id="blog-container"></section>
-            <!-- les articles sont chargés ici -->
-        </div>
-
-        <div id="article-view" class="hidden">
-            <button id="back-btn" class="btn-back">
-                ← Retour aux articles
-            </button>
-
-            <div id="article-content-loader" class="article-body"></div>
-
+            <!-- Cartes générées par blog.js à partir de blog/data.json ; chaque carte mène à la page de l'article -->
+            <section class="blog-grid" id="blog-container"></section>
         </div>
     </main>
 

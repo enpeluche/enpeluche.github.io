@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--
+  MODÈLE D'ARTICLE. Mode d'emploi complet : LISEZMOI.md, dans ce dossier.
+  Ce dossier commence par "_" : GitHub Pages ne le publie pas, il ne sert qu'à être copié.
+  Remplacer chaque ⟨…⟩ ; DOSSIER = nom du dossier de l'article, ex. 2026-11-02-kernelisation
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+
+    <!-- ===== Propre à cet article (voir LISEZMOI.md) ===== -->
+    <title>⟨Titre de l'article⟩ · Blog de Lucas Noirot (Petit)</title>
+    <meta name="description" content="⟨Résumé en une ou deux phrases⟩">
+    <link rel="canonical" href="https://enpeluche.github.io/blog/articles/⟨DOSSIER⟩/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="⟨Titre de l'article⟩">
+    <meta property="og:description" content="⟨Résumé en une ou deux phrases⟩">
+    <meta property="og:url" content="https://enpeluche.github.io/blog/articles/⟨DOSSIER⟩/">
+    <meta property="og:image" content="https://enpeluche.github.io/blog/articles/⟨DOSSIER⟩/cover.jpg">
+    <meta property="article:published_time" content="⟨AAAA-MM-JJ⟩">
+    <!-- ===== Fin de la partie propre à l'article ===== -->
+
+    <meta property="og:site_name" content="Lucas Noirot (Petit)">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="author" content="Lucas Noirot (Petit)">
+    <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+
+    <!-- Formules LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="/shared-assets/katex-config.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => window.setupKatex && window.setupKatex());
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Thème jour/nuit puis header commun : à charger avant le <body> -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+
+    <site-header></site-header>
+
+    <main>
+        <article id="article-view">
+            <a class="btn-back" href="/blog/">← Retour aux articles</a>
+
+            <div class="article-body">
+
+                <h1>⟨Titre de l'article⟩</h1>
+
+                <p class="article-meta"><time datetime="⟨AAAA-MM-JJ⟩">⟨2 novembre 2026⟩</time> · ⟨Maths⟩</p>
+
+                <!-- ============ CONTENU : exemples de chaque bloc, à garder ou supprimer ============ -->
+
+                <div class="paragraph">
+                    Un paragraphe. Les maths en ligne s'écrivent entre dollars : $f(O + tD) = 0$.
+                    Un <a href="https://enpeluche.github.io">lien</a>, du <strong>gras</strong>.
+                </div>
+
+                <h2>Un titre de partie (numéroté automatiquement : 1., 2., …)</h2>
+
+                <h3>Un sous-titre (numéroté : 1.1, 1.2, …)</h3>
+
+                <div class="paragraph">
+                    Une formule centrée, entre doubles dollars :
+                    $$\norm{x}^2 = \ps{x}{x}$$
+                </div>
+
+                <div class="definition">
+                    <span class="label"></span> <span class="title">(Noyau)</span>
+                    <p>Le texte de la définition.</p>
+                </div>
+
+                <div class="theorem">
+                    <span class="label"></span> <span class="title">(Nom du théorème)</span>
+                    <p>L'énoncé.</p>
+                </div>
+
+                <div class="proof">
+                    <span class="label"></span>
+                    <p>La preuve.</p>
+                </div>
+
+                <details>
+                    <summary><span class="label"></span>une précision que le lecteur peut déplier</summary>
+                    <div class="paragraph">Le texte caché par défaut.</div>
+                </details>
+
+                <!-- Image : la ranger dans le dossier de l'article. alt = ce que montre l'image. -->
+                <figure>
+                    <img src="/blog/articles/⟨DOSSIER⟩/schema.webp" alt="⟨Description de l'image⟩">
+                    <figcaption>⟨Légende⟩</figcaption>
+                </figure>
+
+                <!-- ============ FIN DU CONTENU ============ -->
+
+            </div>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script data-goatcounter="https://enpeluche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>

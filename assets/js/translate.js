@@ -609,10 +609,6 @@ const homepage_skills = {
     fr: "Créativité",
     en: "Creativity",
   },
-  skill_teamwork: {
-    fr: "Travail d'équipe",
-    en: "Teamwork",
-  },
   skill_pedagogy: {
     fr: "Pédagogie",
     en: "Pedagogy",
@@ -654,6 +650,18 @@ const homepage_skills = {
   skill_link_internship: {
     fr: "Stage de M2",
     en: "Master's internship",
+  },
+  proof_origami: {
+    fr: "Article sur l'origami",
+    en: "Origami article (FR)",
+  },
+  proof_blog: {
+    fr: "Mon blog",
+    en: "My blog (FR)",
+  },
+  proof_lattice_club: {
+    fr: "Exposé au Lattice Club",
+    en: "Lattice Club talk",
   },
 
   skill_detail_math: {

@@ -57,27 +57,36 @@
   box-shadow: 0 0 0 3px rgba(116, 81, 235, 0.5);
 }
 
-#article-content-loader {
+/* Date et catégorie, sous le titre */
+.article-meta {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+}
+
+/* Numérotation automatique des titres : 1., 1.1, … */
+.article-body {
   counter-reset: titre2;
 }
 
-#article-content-loader h2 {
+.article-body h2 {
   counter-increment: titre2;
   counter-reset: titre3;
 }
 
-#article-content-loader h2::before {
+.article-body h2::before {
   content: counter(titre2) ". ";
   color: var(--secondary-text-color);
   font-weight: bold;
   margin-right: 0.5rem;
 }
 
-#article-content-loader h3 {
+.article-body h3 {
   counter-increment: titre3;
 }
 
-#article-content-loader h3::before {
+.article-body h3::before {
   content: counter(titre2) "." counter(titre3) " ";
   color: var(--secondary-text-color);
   font-weight: 600;
