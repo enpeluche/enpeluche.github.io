@@ -80,3 +80,50 @@ violette du thème, de jour comme de nuit.
    ```
 
    Le bandeau est décoratif (`aria-hidden`) : le titre de la carte dit déjà de quoi il s'agit.
+
+## `sitemap.py` : la liste des pages pour les moteurs de recherche
+
+`sitemap.xml` (à la racine) liste les pages du site pour Google et les autres moteurs ;
+`robots.txt` leur indique où le trouver. Après chaque nouvel article (une fois `blog/data.json`
+modifié) :
+
+```sh
+python3 _outils/sitemap.py
+```
+
+Aucune dépendance. Si on l'oublie, le test « sitemap » échoue et rappelle la commande.
+
+## `tests/` : les tests automatiques du site
+
+Une centaine de vérifications, faites dans un vrai navigateur (Chromium) : menu, mode nuit,
+« réduire les animations », blog et chaque article, loisirs, pas de défilement horizontal
+sur téléphone, liens internes, bandeaux, sitemap…
+
+Ils ne supposent rien sur le contenu : ajouter un article, un loisir ou un projet ne les casse pas
+(au contraire, ils vérifient le nouveau contenu).
+
+### Sur GitHub
+
+Ils se lancent tout seuls à chaque pull request et à chaque push sur `main`
+(`.github/workflows/tests.yml`) : coche verte ou croix rouge à côté du commit,
+détail dans l'onglet « Actions » du dépôt.
+
+### En local
+
+Il faut Node.js (version 18 ou plus). Depuis `_outils/tests` :
+
+```sh
+npm install                              # une seule fois
+npx playwright install chromium          # une seule fois : télécharge le navigateur de test
+npm test                                 # tous les tests
+node lancer.js blog                      # seulement blog.test.js
+```
+
+Le script démarre lui-même un petit serveur local : rien d'autre à lancer.
+Chaque ligne affiche `OK` ou `ÉCHEC` puis ce qui est vérifié ; le bilan est à la fin.
+
+### Ajouter une vérification
+
+Dans le fichier `*.test.js` du thème concerné (ou un nouveau fichier `*.test.js`, pris en compte
+automatiquement) : `ok(condition, "ce qui est vérifié")`. Les outils disponibles
+(`nouvellePage`, `attendre`, `articles`…) sont décrits dans `outils.js`.

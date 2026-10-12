@@ -1,0 +1,27 @@
+# Lance les tests du site (_outils/tests) à chaque pull request et à chaque push sur main.
+# Résultat : une coche verte ou une croix rouge sur GitHub ; le détail est dans l'onglet « Actions ».
+name: Tests du site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: _outils/tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _outils/tests/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test

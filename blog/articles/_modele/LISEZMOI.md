@@ -76,6 +76,12 @@ Dans `blog/data.json`, ajouter un bloc (attention à la virgule entre deux blocs
 Catégories existantes : `maths` (affichée « Maths ») et `life` (affichée « Parcours »).
 Pour en créer une, ajouter son libellé dans `CATEGORY_LABELS`, en haut de `blog/blog.js`.
 
+Puis, depuis la racine du dépôt, mettre à jour la liste des pages pour les moteurs de recherche :
+
+```sh
+python3 _outils/sitemap.py
+```
+
 ### 6. Vérifier en local
 
 Depuis la racine du dépôt :
@@ -90,6 +96,8 @@ Vérifier les formules, les images, et le mode nuit.
 ### 7. Publier
 
 Commit, push : GitHub Pages met le site à jour en une ou deux minutes.
+Les tests du site se lancent tout seuls sur GitHub : une croix rouge à côté du commit signale
+un problème, expliqué dans l'onglet « Actions » du dépôt (voir `_outils/LISEZMOI.md`).
 
 Après un premier partage sur LinkedIn, si l'aperçu est faux ou vide, passer l'adresse
 de l'article dans le Post Inspector de LinkedIn pour rafraîchir son cache.

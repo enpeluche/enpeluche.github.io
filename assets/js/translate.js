@@ -392,25 +392,23 @@ const portfolio_project = {
     </div>
     `,
     en: `
-      <div class="description">
-          <div>
-              Design and implementation of a digital portfolio 100% from scratch (no JS framework,
-              no CSS framework, no static site generator).
-          </div>
-          <div>
-              <strong>Dynamic systems</strong>:
-              Native project filtering, blog engine, translation system, custom web components.
-          </div>
-          <div>
-              <strong>UI/UX</strong>:
-              "Mobile-First" user experience, smooth animations, and custom design.
-          </div>
-          <div>
-              <strong>Infrastructure</strong>:
-              Automated deployment via GitHub Pages, including a dynamic table of contents
-              generation system.
-          </div>
-      </div>
+    <div>
+        Design and implementation of a digital portfolio 100% from scratch (no JS framework,
+        no CSS framework, no static site generator).
+    </div>
+    <div>
+        <strong>Dynamic systems</strong>:
+        Native project filtering, blog engine, translation system, custom web components.
+    </div>
+    <div>
+        <strong>UI/UX</strong>:
+        "Mobile-First" user experience, smooth animations, and custom design.
+    </div>
+    <div>
+        <strong>Infrastructure</strong>:
+        Automated deployment via GitHub Pages, including a dynamic table of contents
+        generation system.
+    </div>
     `,
   },
 };
@@ -902,6 +900,9 @@ function changerLangue(langue) {
   });
 
   mettreAJourLienCV(langue);
+
+  // Les textes remplacés contiennent les formules brutes ($…$) : on les remet en forme
+  if (window.setupKatex) window.setupKatex();
 
   document.documentElement.lang = langue;
 

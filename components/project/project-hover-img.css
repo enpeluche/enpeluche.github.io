@@ -26,6 +26,9 @@ hover-preview:hover svg {
   opacity: 0;
 }
 
+/* Caché, l'aperçu est retiré de la page (display: none) : sinon, près du bord droit d'un
+   petit écran, il ferait défiler la page sur le côté. Le fondu à l'apparition reste
+   grâce à @starting-style ; les navigateurs plus anciens l'affichent simplement sans fondu. */
 hover-preview img {
   position: absolute;
   bottom: 120%;
@@ -33,18 +36,29 @@ hover-preview img {
   transform: translateX(-50%) translateY(10px);
 
   width: 200px;
+  max-width: 70vw;
   border-radius: 5px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   z-index: 100;
 
+  display: none;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    display 0.3s allow-discrete;
   pointer-events: none;
 }
 
 hover-preview:hover img {
+  display: block;
   opacity: 1;
-  visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+@starting-style {
+  hover-preview:hover img {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
 }

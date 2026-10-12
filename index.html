@@ -35,6 +35,39 @@
 
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Les ?lang=en et autres paramètres désignent la même page : une seule adresse pour les moteurs -->
+    <link rel="canonical" href="https://enpeluche.github.io/">
+
+    <!-- Fiche lue par les moteurs de recherche (schema.org) : relie les deux noms à la même personne.
+         N'y mettre que des informations déjà visibles sur le site. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Noirot",
+        "alternateName": ["Lucas Petit", "Lucas Noirot (Petit)", "Lucas Noirot-Petit"],
+        "givenName": "Lucas",
+        "familyName": "Noirot",
+        "url": "https://enpeluche.github.io/",
+        "jobTitle": "Doctorant en algorithmique",
+        "description": "Doctorant à l'institut FEMTO-ST (SUPMICROTECH) : algorithmique sobre et conviviale pour l'allocation des ressources dans un data center.",
+        "affiliation": [
+            { "@type": "ResearchOrganization", "name": "FEMTO-ST", "url": "https://www.femto-st.fr" },
+            { "@type": "CollegeOrUniversity", "name": "SUPMICROTECH", "url": "https://www.supmicrotech.fr" }
+        ],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Université de Montpellier" },
+        "knowsAbout": [
+            "Allocation de ressources", "Ordonnancement", "Optimisation convexe en ligne", "Théorie des jeux",
+            "Choix social computationnel", "Algorithmique distribuée", "Équité (fairness)", "Complexité paramétrée"
+        ],
+        "sameAs": [
+            "https://www.femto-st.fr/fr/personnel-femto/lucasnoirot",
+            "https://github.com/enpeluche",
+            "https://linkedin.com/in/enpeluche"
+        ]
+    }
+    </script>
+
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!-- for rendering latex -->
@@ -217,8 +250,7 @@
         <!----------------------------------------------------------------------------------------------------------->
 
         <section id="cv" style=" display: flex; flex-direction: column;">
-            <h1 style="text-align: center; font-size: 3rem; padding: 2rem;" class="reveal"
-                data-i18n="skills_main_title">
+            <h1 class="section-title reveal" data-i18n="skills_main_title">
                 Compétences
             </h1>
 
