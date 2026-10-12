@@ -844,16 +844,32 @@ const phd_traduction = {
     en: "My PhD",
   },
   phd_title: {
-    fr: "Algorithmique sobre et conviviale pour l'allocation de ressources dans un data center",
+    fr: "Algorithmique sobre et conviviale pour l'allocation des ressources dans un data center",
     en: "Frugal and convivial algorithms for resource allocation in data centers",
   },
   phd_summary: {
     fr: "Comment partager les ressources d'un data center entre ses utilisateurs de façon à la fois économe et équitable, alors que les demandes arrivent au fil de l'eau ? Ma thèse aborde cette question à la croisée de l'optimisation en ligne, de la théorie des jeux et du choix social computationnel.",
     en: "How can a data center's resources be shared among its users in a way that is both frugal and fair, while requests keep arriving over time? My thesis tackles this question at the crossroads of online optimization, game theory and computational social choice.",
   },
+  phd_supervision_label: {
+    fr: "Encadrement",
+    en: "Supervision",
+  },
+  phd_advisor_role: {
+    fr: "directeur de thèse",
+    en: "PhD advisor",
+  },
   phd_lab_label: {
     fr: "Laboratoire",
     en: "Laboratory",
+  },
+  phd_lab_team: {
+    fr: 'département AS2M, équipe <span class="nowrap">DATA-PHM</span>',
+    en: 'AS2M department, <span class="nowrap">DATA-PHM</span> team',
+  },
+  phd_institution_label: {
+    fr: "Établissement",
+    en: "Institution",
   },
   phd_funding_label: {
     fr: "Financement",
