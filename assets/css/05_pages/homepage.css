@@ -223,12 +223,7 @@
   color: #555;
 }
 
-/* .tags.phd-tags : doit l'emporter sur le défilement horizontal mobile de project-card.css */
 .tags.phd-tags {
-  flex-wrap: wrap;
   justify-content: center;
   margin-top: 0;
-  overflow-x: visible;
-  mask-image: none;
-  -webkit-mask-image: none;
 }

@@ -44,6 +44,23 @@ window.addEventListener("scroll", () => {
   lastScrollY = currentScrollY;
 });
 
+// Un lien vers une carte projet (ex. depuis les compétences) alors qu'un filtre la masque :
+// on remet le filtre de sa section sur "Tout voir" puis on y défile.
+window.addEventListener("hashchange", () => {
+  const target = document.getElementById(location.hash.slice(1));
+
+  if (!target || !target.classList.contains("hide")) return;
+
+  const showAll = target
+    .closest("section")
+    ?.querySelector('.filter-btn[data-filter="all"]');
+
+  if (!showAll) return;
+
+  showAll.click();
+  target.scrollIntoView();
+});
+
 const filterContainers = document.querySelectorAll(".filter-container");
 
 filterContainers.forEach((container) => {

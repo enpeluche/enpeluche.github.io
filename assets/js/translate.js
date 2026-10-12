@@ -665,9 +665,9 @@ const homepage_traduction = {
     fr: "<strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP), Programmation par contraintes, Heuristiques & Métaheuristiques.",
     en: "<strong>Optimization & Modeling:</strong> Mathematical modeling, MILP, Constraint Programming, Heuristics & Metaheuristics.",
   },
-  skill_safety_crypto: {
-    fr: "<strong>Sûreté & Cryptographie :</strong> Méthodes formelles (Coq), Preuve de sécurité, Protocoles cryptographiques.",
-    en: "<strong>Safety & Cryptography:</strong> Formal methods (Coq), Security proofs, Cryptographic protocols.",
+  skill_crypto: {
+    fr: "<strong>Cryptographie :</strong> Réduction de réseaux (LLL), Cryptographie post-quantique (LWE), Cryptanalyse.",
+    en: "<strong>Cryptography:</strong> Lattice reduction (LLL), Post-quantum cryptography (LWE), Cryptanalysis.",
   },
   skill_algorithms: {
     fr: "<strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée (algorithmes en-ligne, distribués).",
@@ -713,20 +713,31 @@ const homepage_skills = {
     fr: "Optimisation & Modélisation",
     en: "Optimization & Modeling",
   },
-  skill_title_safety: {
-    fr: "Sûreté & Cryptographie",
-    en: "Safety & Cryptography",
+  skill_title_crypto: {
+    fr: "Cryptographie & Réseaux euclidiens",
+    en: "Cryptography & Lattices",
   },
   skill_title_algo: {
     fr: "Algorithmique Avancée",
     en: "Advanced Algorithmics",
   },
+  skill_title_geometry: {
+    fr: "Géométrie & Analyse",
+    en: "Geometry & Analysis",
+  },
   skill_title_languages: {
     fr: "Développement",
     en: "Development",
   },
-  skill_title_software: { fr: "Logiciels & OS", en: "Software & OS" },
   skill_title_spoken_langs: { fr: "Langues", en: "Spoken Languages" },
+  skill_projects_label: {
+    fr: "Mis en pratique dans :",
+    en: "Applied in:",
+  },
+  skill_link_internship: {
+    fr: "Stage de M2",
+    en: "Master's internship",
+  },
 
   skill_detail_math: {
     fr: "Modélisation mathématique",
@@ -742,11 +753,18 @@ const homepage_skills = {
     en: "Heuristics & Metaheuristics",
   },
 
-  skill_detail_formal: {
-    fr: "Méthodes formelles (Coq)",
-    en: "Formal methods (Coq)",
+  skill_detail_lattice: {
+    fr: "Réduction de réseaux (LLL)",
+    en: "Lattice reduction (LLL)",
   },
-  skill_detail_proof: { fr: "Preuve de sécurité", en: "Security proofs" },
+  skill_detail_pqc: {
+    fr: "Cryptographie post-quantique (LWE)",
+    en: "Post-quantum cryptography (LWE)",
+  },
+  skill_detail_cryptanalysis: {
+    fr: "Cryptanalyse",
+    en: "Cryptanalysis",
+  },
   skill_detail_crypto: {
     fr: "Protocoles cryptographiques",
     en: "Cryptographic protocols",
@@ -759,9 +777,21 @@ const homepage_skills = {
     fr: "Structures et algorithmes de graphes",
     en: "Graph Structures and Algorithms",
   },
-  skill_detail_flows: {
-    fr: "Flots / graphes (algorithmes en-ligne)",
-    en: "Flows / Graphs (Online Algorithms)",
+  skill_detail_online_distributed: {
+    fr: "Algorithmes en ligne et distribués",
+    en: "Online and distributed algorithms",
+  },
+  skill_detail_algebraic_surfaces: {
+    fr: "Surfaces algébriques (base de Bernstein)",
+    en: "Algebraic surfaces (Bernstein basis)",
+  },
+  skill_detail_packing: {
+    fr: "Empilements & inégalité isopérimétrique",
+    en: "Packings & isoperimetric inequality",
+  },
+  skill_detail_harmonic: {
+    fr: "Analyse harmonique",
+    en: "Harmonic analysis",
   },
 
   lang_english: {

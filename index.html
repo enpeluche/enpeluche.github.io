@@ -157,9 +157,9 @@
                         <strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP),
                         Programmation par contraintes, Heuristiques & Métaheuristiques.
                     </li>
-                    <li data-i18n="skill_safety_crypto">
-                        <strong>Sûreté & Cryptographie :</strong> Méthodes formelles (Coq), Preuve de sécurité,
-                        Protocoles cryptographiques.
+                    <li data-i18n="skill_crypto">
+                        <strong>Cryptographie :</strong> Réduction de réseaux (LLL), Cryptographie post-quantique
+                        (LWE), Cryptanalyse.
                     </li>
                     <li data-i18n="skill_algorithms">
                         <strong>Algorithmique Avancée :</strong> Analyse de complexité, Théorie des graphes avancée
@@ -208,7 +208,7 @@
 
                 <h3 data-i18n="phd_themes_title" class="phd-themes-title">Axes de recherche</h3>
 
-                <div class="tags phd-tags">
+                <div class="tags tags-wrap phd-tags">
                     <concept-tag data-i18n="online_convex_optimization">Optimisation convexe en ligne</concept-tag>
                     <concept-tag data-i18n="game_theory">Théorie des jeux</concept-tag>
                     <concept-tag data-i18n="computational_social_choice">Choix social computationnel</concept-tag>
@@ -229,23 +229,27 @@
 
             <div class="skills-grid reveal">
 
+                <!-- Chaque domaine : concepts (liste), outils (tags gris), projets qui en témoignent (liens) -->
+
                 <div class="skill-box glass-panel">
                     <h3 class="skill-title" data-i18n="skill_title_opti">Optimisation & Modélisation</h3>
                     <ul class="skill-list">
                         <li data-i18n="skill_detail_math">Modélisation mathématique</li>
-                        <li data-i18n="skill_detail_plne">PLNE (MIP, OR-Tools)</li>
+                        <li data-i18n="skill_detail_plne">PLNE (MIP)</li>
                         <li data-i18n="skill_detail_constraints">Programmation par contraintes</li>
-                        <li data-i18n="skill_detail_heuristics">Heuristiques & Optimisation combinatoire</li>
+                        <li data-i18n="skill_detail_heuristics">Heuristiques & Métaheuristiques</li>
                     </ul>
-                </div>
-
-                <div class="skill-box glass-panel">
-                    <h3 class="skill-title" data-i18n="skill_title_safety">Sûreté & Cryptographie</h3>
-                    <ul class="skill-list">
-                        <li data-i18n="skill_detail_formal">Méthodes formelles (Coq)</li>
-                        <li data-i18n="skill_detail_proof">Preuve de sécurité</li>
-                        <li data-i18n="skill_detail_crypto">Protocoles cryptographiques</li>
-                    </ul>
+                    <div class="tags tags-wrap">
+                        <tech-tag>Java</tech-tag>
+                        <tech-tag>OR-Tools</tech-tag>
+                    </div>
+                    <p class="skill-projects">
+                        <span data-i18n="skill_projects_label" class="skill-projects-label">Mis en pratique dans
+                            :</span>
+                        <a data-i18n="wsrp_title" class="skill-project-link" href="#project-wsrp">Solveur WSRP</a>
+                        <a data-i18n="beckett_title" class="skill-project-link" href="#project-beckett">Codes de
+                            Beckett-Gray</a>
+                    </p>
                 </div>
 
                 <div class="skill-box glass-panel">
@@ -253,34 +257,83 @@
                     <ul class="skill-list">
                         <li data-i18n="skill_detail_complexity">Analyse de complexité</li>
                         <li data-i18n="skill_detail_graphs">Structures et algorithmes de graphes</li>
-                        <li data-i18n="skill_detail_flows">Flots / graphes (algorithmes en-ligne)</li>
+                        <li data-i18n="skill_detail_online_distributed">Algorithmes en ligne et distribués</li>
                     </ul>
+                    <div class="tags tags-wrap">
+                        <tech-tag>C++</tech-tag>
+                        <tech-tag>Python</tech-tag>
+                    </div>
+                    <p class="skill-projects">
+                        <span data-i18n="skill_projects_label" class="skill-projects-label">Mis en pratique dans
+                            :</span>
+                        <a data-i18n="beckett_title" class="skill-project-link" href="#project-beckett">Codes de
+                            Beckett-Gray</a>
+                        <a data-i18n="phd_section_title" class="skill-project-link" href="#phd">Ma thèse</a>
+                    </p>
                 </div>
 
                 <div class="skill-box glass-panel">
-                    <div class="skill-section-group">
-                        <h3 class="skill-title" data-i18n="skill_title_languages">Développement</h3>
-                        <div class="tags">
-                            <concept-tag>Python</concept-tag>
-                            <concept-tag>SageMath</concept-tag>
+                    <h3 class="skill-title" data-i18n="skill_title_crypto">Cryptographie & Réseaux euclidiens</h3>
+                    <ul class="skill-list">
+                        <li data-i18n="skill_detail_lattice">Réduction de réseaux (LLL)</li>
+                        <li data-i18n="skill_detail_pqc">Cryptographie post-quantique (LWE)</li>
+                        <li data-i18n="skill_detail_cryptanalysis">Cryptanalyse</li>
+                        <li data-i18n="skill_detail_crypto">Protocoles cryptographiques</li>
+                    </ul>
+                    <div class="tags tags-wrap">
+                        <tech-tag>Rust</tech-tag>
+                        <tech-tag>Tokio</tech-tag>
+                        <tech-tag>SageMath</tech-tag>
+                    </div>
+                    <p class="skill-projects">
+                        <span data-i18n="skill_projects_label" class="skill-projects-label">Mis en pratique dans
+                            :</span>
+                        <a data-i18n="skill_link_internship" class="skill-project-link"
+                            href="#project-internship">Stage de M2</a>
+                        <a data-i18n="latticechat_title" class="skill-project-link"
+                            href="#project-latticechat">Lattice-Chat</a>
+                    </p>
+                </div>
 
-                            <concept-tag>Rust</concept-tag>
-                            <concept-tag>Java</concept-tag>
-                            <concept-tag>C/C++</concept-tag>
-                            <concept-tag>Ocaml</concept-tag>
-                        </div>
+                <div class="skill-box glass-panel">
+                    <h3 class="skill-title" data-i18n="skill_title_geometry">Géométrie & Analyse</h3>
+                    <ul class="skill-list">
+                        <li data-i18n="skill_detail_algebraic_surfaces">Surfaces algébriques (base de Bernstein)</li>
+                        <li data-i18n="skill_detail_packing">Empilements & inégalité isopérimétrique</li>
+                        <li data-i18n="skill_detail_harmonic">Analyse harmonique</li>
+                    </ul>
+                    <div class="tags tags-wrap">
+                        <tech-tag>Rust</tech-tag>
+                        <tech-tag>Python</tech-tag>
+                        <tech-tag>Java</tech-tag>
+                    </div>
+                    <p class="skill-projects">
+                        <span data-i18n="skill_projects_label" class="skill-projects-label">Mis en pratique dans
+                            :</span>
+                        <a data-i18n="raytracer_title" class="skill-project-link" href="#project-raytracer">Ray
+                            Tracing Algébrique</a>
+                        <a data-i18n="packing_title" class="skill-project-link" href="#project-packing">Empilement
+                            compact</a>
+                        <a data-i18n="weyl_title" class="skill-project-link" href="#project-weyl">La transformation
+                            de Weyl</a>
+                    </p>
+                </div>
 
-                        <div class="tags">
-                            <concept-tag>HTML/CSS/JS</concept-tag>
-                        </div>
-
-                        <div class="tags">
-                            <tech-tag>Linux</tech-tag>
-                            <tech-tag>Git</tech-tag>
-                            <tech-tag> Docker</tech-tag>
-                            <tech-tag>$\LaTeX$</tech-tag>
-                        </div>
-
+                <div class="skill-box glass-panel">
+                    <h3 class="skill-title" data-i18n="skill_title_languages">Développement</h3>
+                    <div class="tags tags-wrap">
+                        <tech-tag>Python</tech-tag>
+                        <tech-tag>SageMath</tech-tag>
+                        <tech-tag>Rust</tech-tag>
+                        <tech-tag>Java</tech-tag>
+                        <tech-tag>C/C++</tech-tag>
+                        <tech-tag>HTML/CSS/JS</tech-tag>
+                    </div>
+                    <div class="tags tags-wrap">
+                        <tech-tag>Linux</tech-tag>
+                        <tech-tag>Git</tech-tag>
+                        <tech-tag>Docker</tech-tag>
+                        <tech-tag>$\LaTeX$</tech-tag>
                     </div>
                 </div>
 
@@ -385,7 +438,7 @@
                 <!----------------------------------------------------------------------------------------------------------->
 
 
-                <div class="project" data-category="rust crypto RD">
+                <div class="project" id="project-latticechat" data-category="rust crypto RD">
 
                     <header>
                         <h3 data-i18n="latticechat_title">Lattice-Chat</h3>
@@ -445,7 +498,7 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="java RD">
+                <div class="project" id="project-wsrp" data-category="java RD">
 
                     <header>
                         <h3 data-i18n="wsrp_title">Solveur WSRP</h3>
@@ -496,7 +549,7 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="sage crypto RD">
+                <div class="project" id="project-internship" data-category="sage crypto RD">
 
                     <header>
                         <h3 data-i18n="internship_title">Réduction de réseaux euclidiens</h3>
@@ -555,7 +608,7 @@
                 </div>
 
 
-                <div class="project" data-category="python rust RD">
+                <div class="project" id="project-raytracer" data-category="python rust RD">
 
 
                     <header>
@@ -635,7 +688,7 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="cpp RD">
+                <div class="project" id="project-beckett" data-category="cpp RD">
 
                     <header>
                         <h3 data-i18n="beckett_title">Codes de Beckett-Gray</h3>
@@ -705,7 +758,7 @@
                 <!--------------------------------------------------------------------------------------------->
 
 
-                <div class="project" data-category="web">
+                <div class="project" id="project-portfolio" data-category="web">
 
 
                     <header>
@@ -771,7 +824,7 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="maths">
+                <div class="project" id="project-weyl" data-category="maths">
 
                     <header>
                         <h3 data-i18n="weyl_title">La transformation de Weyl</h3>
@@ -819,7 +872,7 @@
 
                 <!--------------------------------------------------------------------------------------------->
 
-                <div class="project" data-category="maths java">
+                <div class="project" id="project-packing" data-category="maths java">
 
                     <header>
                         <h3 data-i18n="packing_title">Empilement compact</h3>

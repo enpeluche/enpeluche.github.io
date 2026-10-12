@@ -192,3 +192,37 @@ footer svg {
     display: none;
   }
 }
+
+/* Variante qui passe à la ligne au lieu de défiler (sections thèse et compétences) */
+.tags.tags-wrap {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+/* Arrivée sur une carte via un lien (#project-...) : on laisse la place du header fixe */
+.project {
+  scroll-margin-top: 80px;
+}
+
+/* ...et on la fait briller un instant. Sur ::before pour ne pas entrer en conflit
+   avec l'animation .project.show du filtre. */
+.project:target::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: project-highlight 2s ease-out forwards;
+}
+
+@keyframes project-highlight {
+  0%,
+  40% {
+    box-shadow: 0 0 0 3px var(--secondary-text-color);
+  }
+  100% {
+    box-shadow: 0 0 0 3px transparent;
+  }
+}

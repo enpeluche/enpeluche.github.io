@@ -144,6 +144,49 @@ LA CARTE PRINCIPALE (CONTENEUR)
   margin-bottom: 6px;
 }
 
+.skill-box .skill-list {
+  margin-bottom: 0.75rem;
+}
+
+/* .tags a un margin-top: auto (cartes projets) : ici seuls les liens vont en bas */
+.skill-box .tags {
+  margin-top: 0;
+}
+
+/* Projets qui témoignent de la compétence, alignés en bas de la carte */
+.skill-projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+
+  font-size: 0.85rem;
+}
+
+.skill-projects-label {
+  color: var(--text-light);
+}
+
+.skill-project-link {
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  background-color: #7551eb1a;
+  color: var(--secondary-text-color);
+  font-weight: 500;
+}
+
+.skill-project-link::before {
+  content: "→ ";
+}
+
+.skill-project-link:hover {
+  text-decoration: underline;
+}
+
 /* Petit bonus pour Linux */
 .linux-badge {
   background-color: #333;
