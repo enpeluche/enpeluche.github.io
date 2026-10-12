@@ -390,11 +390,6 @@ const portfolio_project = {
         Déploiement automatisé via GitHub Pages, incluant un système de génération de tables des
         matières dynamiques.
     </div>
-
-    <div>
-        <strong>Roadmap</strong> : 🌓 Implémentation du mode sombre (Dark Mode) + amélioration
-        de l’accessibilité.
-    </div>
     `,
     en: `
       <div class="description">
@@ -414,10 +409,6 @@ const portfolio_project = {
               <strong>Infrastructure</strong>:
               Automated deployment via GitHub Pages, including a dynamic table of contents
               generation system.
-          </div>
-          <div>
-              <strong>Roadmap</strong>: 🌓 Implementation of dark mode + accessibility
-              improvements.
           </div>
       </div>
     `,
