@@ -16,7 +16,7 @@
   --surface-color: white; /* fonds opaques : header, menus, boutons, champs */
   --glass-background: rgba(255, 255, 255, 0);
   --card-background: rgba(255, 255, 255, 0.2);
-  --accent-soft-background: #7551eb1a; /* pastilles violettes pâles */
+  --accent-soft-background: #7551eb12; /* pastilles violettes pâles (assez claires pour un contraste ≥ 4,5:1 avec le violet) */
 
   --tag-background: #eaedef61;
   --tag-border-color: rgba(114, 123, 129, 0.4);

@@ -93,13 +93,36 @@ python3 _outils/sitemap.py
 
 Aucune dépendance. Si on l'oublie, le test « sitemap » échoue et rappelle la commande.
 
+## `polices.py` : la police Inter, allégée
+
+Le site utilise une seule police, Inter (variable : toutes les graisses dans un fichier).
+La version complète contient aussi le grec, le cyrillique, le vietnamien… et pèse ~350 Ko par style.
+Le site charge donc une **version allégée** (alphabet latin, ~140 Ko) : `InterVariable-latin.woff2`
+et `InterVariable-Italic-latin.woff2`.
+
+La police complète reste dans `assets/fonts/` **en secours** : le navigateur ne la télécharge que
+si une page contient un caractère absent de la version allégée (une lettre grecque, par exemple).
+Rien ne s'affiche donc jamais mal, au pire la page est un peu plus lourde.
+
+Pour changer la liste des caractères de la version allégée (`PLAGES_ALLEGEES`, en haut du script) :
+
+```sh
+pip install fonttools brotli    # une seule fois
+python3 _outils/polices.py      # régénère les deux polices allégées et leurs déclarations dans inter.css
+```
+
+Le test « polices » signale si une page télécharge la police complète, c'est-à-dire si un caractère
+utilisé sur le site manque dans la version allégée.
+
 ## `tests/` : les tests automatiques du site
 
-Environ 150 vérifications, faites dans un vrai navigateur (Chromium) : menu, mode nuit,
+Environ 170 vérifications, faites dans un vrai navigateur (Chromium) : menu, mode nuit,
 « réduire les animations », blog et chaque article, loisirs, pas de défilement horizontal
-sur téléphone, liens internes, bandeaux, sitemap, et navigation au clavier (`clavier.test.js` :
+sur téléphone, liens internes, bandeaux, sitemap, polices, navigation au clavier (`clavier.test.js` :
 chaque page est parcourue avec Tab et Maj+Tab ; chaque arrêt doit avoir un contour visible,
-un nom, et ne jamais être caché sous le menu).
+un nom, et ne jamais être caché sous le menu), et audit d'accessibilité automatique
+(`accessibilite.test.js`, avec axe-core : contrastes, structure des titres, noms des liens…,
+sur chaque page, de jour et de nuit).
 
 Ils ne supposent rien sur le contenu : ajouter un article, un loisir ou un projet ne les casse pas
 (au contraire, ils vérifient le nouveau contenu).
