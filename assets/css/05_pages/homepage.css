@@ -185,17 +185,16 @@
 
 .phd-facts {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--primary-border-color);
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .phd-facts {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Encadrement : sur toute la largeur, au-dessus des autres informations */
+.phd-fact-wide {
+  grid-column: 1 / -1;
 }
 
 .phd-facts dt {
@@ -223,12 +222,7 @@
   color: #555;
 }
 
-/* .tags.phd-tags : doit l'emporter sur le défilement horizontal mobile de project-card.css */
 .tags.phd-tags {
-  flex-wrap: wrap;
   justify-content: center;
   margin-top: 0;
-  overflow-x: visible;
-  mask-image: none;
-  -webkit-mask-image: none;
 }
