@@ -52,3 +52,31 @@ Chaque texte a un attribut `data-i18n="…"`. Ajouter les mêmes clés dans
    pour imiter la lumière sur un pli.
 
 Le même nom donne toujours les mêmes plis.
+
+## `bandeaux.py` : les illustrations en tête des cartes projets
+
+Chaque carte projet commence par un bandeau dessiné au trait, calculé à partir du sujet
+du projet (le code de Beckett-Gray est vraiment recherché, les rayons s'arrêtent vraiment
+sur le cœur de Taubin, etc.).
+
+```sh
+pip install numpy               # une seule fois
+python3 _outils/bandeaux.py     # régénère tous les fichiers de assets/img/bandeaux/
+```
+
+Le script donne toujours les mêmes fichiers. Les SVG sont dessinés en noir, sur fond transparent :
+sur le site, ils servent de **masque** (classe `.project-banner`), et prennent donc la couleur
+violette du thème, de jour comme de nuit.
+
+### Ajouter un bandeau à un nouveau projet
+
+1. Écrire dans `bandeaux.py` une fonction qui renvoie `svg(...)` (zone de 600 × 150),
+   puis l'ajouter au dictionnaire `BANNERS` avec un nom court.
+2. Lancer le script.
+3. Dans `index.html`, juste après l'ouverture de la carte (`<div class="project" …>`) :
+
+   ```html
+   <div class="project-banner" style="--banner: url('/assets/img/bandeaux/mon-projet.svg')" aria-hidden="true"></div>
+   ```
+
+   Le bandeau est décoratif (`aria-hidden`) : le titre de la carte dit déjà de quoi il s'agit.
