@@ -29,7 +29,7 @@ module.exports = async ({ base, ok, nouvellePage, attendre, toutAfficher }) => {
   const texteFR = await p.evaluate(() => document.querySelector(".hobby-text p").textContent.trim());
   await p.evaluate(() => window.scrollTo(0, 0));
   await p.click('label[for="lang-toggle"]');
-  ok(await attendre(p, () => document.querySelector("#hobbies h1").textContent.trim() === "Outside the lab"), "titre de la section traduit : Outside the lab");
+  ok(await attendre(p, () => document.querySelector("#hobbies .section-title").textContent.trim() === "Outside the lab"), "titre de la section traduit : Outside the lab");
   ok((await p.evaluate(() => document.querySelector(".hobby-text p").textContent.trim())) !== texteFR, "texte du premier loisir traduit");
   await p.fermer();
 

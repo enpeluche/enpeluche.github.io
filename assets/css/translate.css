@@ -56,6 +56,12 @@
   transform: translateX(38px);
 }
 
+/* Langue active (sur le curseur) : couleur du texte principal, lisible de jour comme de nuit */
+.lang-check:not(:checked) + .lang-label .lang-text:nth-child(2),
+.lang-check:checked + .lang-label .lang-text:nth-child(3) {
+  color: var(--primary-text-color);
+}
+
 /* Petits écrans : version compacte (voir aussi header.css) */
 @media (max-width: 480px) {
   .lang-label {

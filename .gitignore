@@ -1,3 +1,4 @@
 .vscode
 ROADMAP.md
 node_modules/
+__pycache__/

@@ -1,5 +1,6 @@
 // Vérifications sur toutes les pages : pas de défilement horizontal sur téléphone, liens internes valides,
-// bandeaux des projets, et informations pour les moteurs de recherche (fiche, sitemap, robots.txt).
+// un seul h1, polices allégées, fichiers servis par le site, bandeaux des projets, et informations
+// pour les moteurs de recherche (fiche, sitemap, robots.txt).
 
 module.exports = async ({ base, SITE, ok, nouvellePage, toutAfficher, articles, lire }) => {
   const pages = ["/", "/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`)];
@@ -39,6 +40,35 @@ module.exports = async ({ base, SITE, ok, nouvellePage, toutAfficher, articles, 
     }
   }
   ok(casses.size === 0, "liens et images internes valides" + (casses.size ? ` — cassés : ${[...casses].join(", ")}` : ""));
+
+  // --- Un seul titre principal (h1) par page ---
+  const h1 = [];
+  for (const page of pages) {
+    await p.goto(base + page, { waitUntil: "networkidle" });
+    const n = await p.evaluate(() => document.querySelectorAll("h1").length);
+    if (n !== 1) h1.push(`${page} (${n})`);
+  }
+  ok(h1.length === 0, "un seul titre principal (h1) par page" + (h1.length ? ` — pages en défaut : ${h1.join(", ")}` : ""));
+
+  // --- Polices : seulement la version allégée (la complète ne sert qu'en secours, voir _outils/polices.py) ---
+  const pagePolices = await nouvellePage();
+  const polices = new Set();
+  pagePolices.on("request", (r) => {
+    if (r.url().includes("/assets/fonts/")) polices.add(r.url().split("/").pop());
+  });
+  for (const page of [...pages, "/?lang=en"]) {
+    await pagePolices.goto(base + page, { waitUntil: "networkidle" });
+    await toutAfficher(pagePolices);
+    await pagePolices.evaluate(() => document.fonts.ready);
+  }
+  await pagePolices.fermer();
+  const lourdes = [...polices].filter((f) => !f.endsWith("-latin.woff2"));
+  ok(polices.size > 0 && lourdes.length === 0, `polices : seule la version allégée est téléchargée (${[...polices].join(", ")})` + (lourdes.length ? ` — police complète chargée : un caractère du site manque dans la version allégée (voir _outils/polices.py)` : ""));
+
+  // --- Les fichiers du site sont servis par le site, pas par jsDelivr (cache de plusieurs heures) ---
+  const fichiers = ["index.html", "blog/index.html", "assets/css/main.css", ...articles().map((a) => `blog/articles/${a.folder}/index.html`)];
+  const viaCdn = fichiers.filter((f) => lire(f).includes("cdn.jsdelivr.net/gh/enpeluche"));
+  ok(viaCdn.length === 0, "aucun fichier du site chargé via jsDelivr" + (viaCdn.length ? ` — dans : ${viaCdn.join(", ")}` : ""));
 
   // --- Bandeaux des cartes projets ---
   await p.goto(base + "/", { waitUntil: "networkidle" });
