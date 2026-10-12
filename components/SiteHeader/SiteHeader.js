@@ -52,7 +52,7 @@ function headerTemplate(withLangToggle) {
       <nav aria-label="Navigation principale">
         <ul>
           <li>
-            <a href="/#homepage" title="Accueil Lucas Noirot (Petit)">
+            <a class="nav-logo" href="/#homepage" title="Accueil Lucas Noirot (Petit)">
               <img class="image-rotative" src="/assets/img/logo/logo.png"
                 title="Logo de Lucas Noirot (Petit) - étoile à 8 branches"
                 alt="Logo de Lucas Noirot (Petit) - étoile à 8 branches">

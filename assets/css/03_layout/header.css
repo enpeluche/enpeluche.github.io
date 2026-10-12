@@ -59,6 +59,11 @@ header img {
   height: 45px;
 }
 
+/* Lien du logo : toute la hauteur du header, pour que le logo soit centré verticalement */
+.nav-logo {
+  height: 100%;
+}
+
 /* --- Liens du menu --- */
 
 .nav-link {
