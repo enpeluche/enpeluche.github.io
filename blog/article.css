@@ -15,7 +15,7 @@
 }
 
 #article-view {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--card-background);
   backdrop-filter: blur(5px);
   padding: 1rem;
   max-width: 1400px;
@@ -29,7 +29,7 @@
 .btn-back {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--primary-border-color, #333);
-  color: black;
+  color: var(--primary-text-color);
 
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
@@ -68,7 +68,7 @@
 
 #article-content-loader h2::before {
   content: counter(titre2) ". ";
-  color: var(--primary-color, #7451eb);
+  color: var(--secondary-text-color);
   font-weight: bold;
   margin-right: 0.5rem;
 }
@@ -79,7 +79,7 @@
 
 #article-content-loader h3::before {
   content: counter(titre2) "." counter(titre3) " ";
-  color: var(--primary-color, #7451eb);
+  color: var(--secondary-text-color);
   font-weight: 600;
   margin-right: 0.5rem;
   opacity: 0.8;

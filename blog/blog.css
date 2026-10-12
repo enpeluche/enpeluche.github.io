@@ -109,7 +109,7 @@
   padding-right: 40px;
   border: 1px solid var(--primary-border-color);
   border-radius: var(--radius);
-  background-color: white;
+  background-color: var(--surface-color);
   color: inherit;
 }
 
@@ -126,7 +126,7 @@
   padding: 10px;
   border: 1px solid var(--primary-border-color);
   border-radius: var(--radius);
-  background-color: white;
+  background-color: var(--surface-color);
   color: inherit;
   cursor: pointer;
 }

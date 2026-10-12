@@ -9,7 +9,7 @@
 .filter-btn {
   padding: 0.5rem 1rem;
   border: 1px solid var(--secondary-text-color);
-  background: white;
+  background: var(--surface-color);
   color: var(--primary-text-color);
   border-radius: 5px;
   cursor: pointer;

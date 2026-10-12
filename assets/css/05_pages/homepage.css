@@ -25,7 +25,7 @@
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0);
+  background: var(--glass-background);
 
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -103,7 +103,7 @@
   text-transform: uppercase;
   font-size: 1.4rem; /* Ou la taille que tu veux */
   font-weight: bold;
-  color: #555; /* Un gris sombre fait souvent plus élégant que le noir pur */
+  color: var(--muted-text-color);
   margin-bottom: 0.5rem; /* Remplace ton <br> par une vraie marge */
   letter-spacing: 1px; /* Espacer un peu les lettres majuscules fait très "Premium" */
 }
@@ -192,7 +192,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #555;
+  color: var(--muted-text-color);
 }
 
 .phd-facts dd {
@@ -209,7 +209,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  color: #555;
+  color: var(--muted-text-color);
 }
 
 .tags.phd-tags {
