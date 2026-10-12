@@ -1,17 +1,32 @@
-body > header {
-  background-color: var(--background-color);
-  /* box model */
-  width: 100%;
-  height: 63px;
+/* Header commun : voir components/SiteHeader/SiteHeader.js */
 
+site-header {
+  display: block;
+}
+
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white; /* Important sinon on voit le texte passer dessous */
   border-bottom: 1px solid var(--primary-border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 5; /* Toujours au-dessus du reste */
+
+  /* Animation du masquage au scroll */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* La classe que main.js ajoute quand on descend */
+.header-hidden {
+  transform: translateY(-100%);
 }
 
 header nav {
-  /* box model */
   max-width: 1200px;
   width: 100%;
-
   height: 100%;
   margin: auto;
   padding: 0 1rem;
@@ -19,28 +34,12 @@ header nav {
 
 @media (max-width: 1024px) {
   header nav {
-    /* box model */
-    max-width: 1200px;
-    width: 100%;
-
-    height: 100%;
-    margin: auto;
     padding: 0;
   }
 }
 
-/* La classe que le JS va ajouter quand on descend */
-.header-hidden {
-  transform: translateY(
-    -100%
-  ); /* On le déplace de 100% de sa hauteur vers le haut */
-}
-
 header nav ul {
-  /* box model */
   height: 100%;
-
-  /* layout */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -48,26 +47,6 @@ header nav ul {
 
 #main-header nav ul li {
   height: 100%;
-  transition: transform 0.3s ease;
-}
-
-header nav ul li a {
-  height: 100%;
-  /* typography */
-  font-weight: 200;
-  font-style: normal;
-
-  line-height: 1.5;
-  letter-spacing: 0px;
-}
-
-/*#main-header nav ul li:hover{
-  transform: scale(1.1);
-}*/
-
-header nav ul li a:hover {
-  color: var(--secondary-text-color);
-  fill: var(--secondary-text-color);
 }
 
 header a {
@@ -80,81 +59,123 @@ header img {
   height: 45px;
 }
 
-#main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px; /* Exemple de hauteur */
-  background-color: white; /* Important sinon on voit le texte passer dessous */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 5; /* Toujours au-dessus du reste */
+/* --- Liens du menu --- */
 
-  /* C'est ici que la magie de l'animation se passe */
-  transition: transform 0.3s ease-in-out;
-}
-
-.ggg {
-  position: relative; /* Indispensable pour que l'enfant se cale par rapport à lui */
-  display: inline-block;
-}
-
-/*
-.jac{
-  display: none;
-  position: absolute; 
-  top: 100%;          
-  left: 0;             
-  
-
-  padding-left: 1rem;
-  padding-right: 0.5rem;
-  border-left: 1px solid var(--primary-border-color);
-  border-bottom: 1px solid var(--primary-border-color);
-  border-right: 1px solid var(--primary-border-color);
-}
-*/
-.jac a {
-  padding: 0.5rem;
-  padding-top: 0;
-}
-
-.ggg:hover .jac {
+.nav-link {
+  position: relative;
+  height: 100%;
   display: flex;
-  background-color: white;
+  align-items: center;
+
+  font: inherit;
+  font-weight: 200;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  fill: var(--primary-text-color);
 }
 
-/* L'état initial (Caché) */
-.jac {
+.nav-link:hover {
+  color: var(--secondary-text-color);
+  fill: var(--secondary-text-color);
+}
+
+/* Onglet courant : barre violette en bas du header */
+.nav-link::after {
+  content: "";
   position: absolute;
-  top: 100%; /* Juste en dessous */
   left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: var(--secondary-text-color);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-link.is-current::after {
+  transform: scaleX(1);
+}
+
+/* --- Menu déroulant "Projets" --- */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
   flex-direction: column;
-  /* On remplace display: none par ça : */
-  opacity: 0;
-  visibility: hidden;
+  padding: 0.5rem 0.5rem 0 1rem;
+  white-space: nowrap;
 
-  /* Le petit décalage vers le haut pour l'effet de descente */
-  transform: translateY(-10px);
-
-  /* La vitesse de l'animation */
-  transition: all 0.3s ease-in-out;
-
-  /* Tes autres styles (ombre, background...) */
   background-color: white;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
-  /* ... */
 
-  padding-left: 1rem;
-  padding-right: 0.5rem;
+  /* Fermé : invisible et légèrement remonté (effet de descente à l'ouverture) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
 }
 
-/* L'état final (Au survol du parent) */
-.ggg:hover .jac {
-  /* On le rend visible */
+.nav-dropdown-menu a {
+  padding: 0 0.5rem 0.5rem;
+  font-weight: 200;
+}
+
+.nav-dropdown-menu a:hover {
+  color: var(--secondary-text-color);
+}
+
+/* Ouvert : au clic/toucher (classe posée par le JS)… */
+.nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
-
-  /* Il revient à sa place normale (descente fluide) */
   transform: translateY(0);
+}
+
+.nav-dropdown.is-open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* …ou au survol, seulement sur les appareils qui ont une souris */
+@media (hover: hover) {
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Petits écrans : menu centré sous "Projets", sinon il dépasse à droite */
+@media (max-width: 480px) {
+  .nav-dropdown-menu {
+    left: 50%;
+    transform: translate(-50%, -10px);
+  }
+
+  .nav-dropdown.is-open .nav-dropdown-menu,
+  .nav-dropdown:hover .nav-dropdown-menu {
+    transform: translate(-50%, 0);
+  }
+}
+
+/* --- Bouton de langue --- */
+
+.nav-lang {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

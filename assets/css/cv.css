@@ -220,17 +220,16 @@ LA CARTE PRINCIPALE (CONTENEUR)
 4. CONTACT (Flex Row)
 ========================================= */
 
+/* L'espace vertical vient de main > section (base.css) */
 .contact-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
 }
 
 @media (min-width: 768px) {
   .contact-section {
-    padding: 2rem 1rem;
+    padding: 0 1rem;
   }
 }
 

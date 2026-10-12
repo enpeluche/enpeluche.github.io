@@ -5,11 +5,9 @@
 </div>
 
 <figure>
-    <figure>
-        <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/hyperbolic_paraboloid_perspectivecamera__.webp"
-            alt="">
-        <figcaption>Paraboloïde hyperbolique <br> Perspective</figcaption>
-    </figure>
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/hyperbolic_paraboloid_perspectivecamera__.webp"
+        alt="Rendu en perspective du paraboloïde hyperbolique, une surface en forme de selle, par le moteur de ray tracing">
+    <figcaption>Paraboloïde hyperbolique <br> Perspective</figcaption>
 </figure>
 
 <div class="paragraph">
@@ -41,7 +39,7 @@
 
 <div class="paragraph">
     Ces deux familles sont en fait les <strong>seules</strong> droites entièrement contenues dans la surface (je
-    laisserais la démonstration en exercice).
+    laisserai la démonstration en exercice).
 </div>
 
 <h2>Deux approches pour un même secret</h2>
@@ -80,7 +78,7 @@
 
 <div class="paragraph">
     Si l'on prend une droite dans le plan $(x,y)$ définie par $y=x−a$, regardons ce que cela donne pour $z$, avec une
-    paramétrisation par $t$:
+    paramétrisation par $t$ :
 
     donc $x=t$, $y=t−a$ et
 
@@ -89,9 +87,9 @@
     On obtient donc le point
     $$(x, y, z) = (t, t-a, 2at-a^2)$$
 
-    Ici encore, pour un a fixé, $z$ dépend linéairement de $t$. C'est une droite affine qui "grimpe" sur la selle.
+    Ici encore, pour un $a$ fixé, $z$ dépend linéairement de $t$. C'est une droite affine qui "grimpe" sur la selle.
 
-    On peut symétriquement faire $x=t , y=-t-a$ pour obtenir une nouvelle famille de droites, qui descendra sur la
+    On peut symétriquement faire $x=t$, $y=-t-a$ pour obtenir une nouvelle famille de droites, qui descendra sur la
     selle.
 
 </div>
@@ -103,7 +101,7 @@
 
     <ul>
         <li>Le <strong>gradient</strong> : $ \nabla f = (2x, -2y, -1)$</li>
-        <li>La <strong>matrice Hessienne</strong> a pour valeurs propres $2$ et $-2$.</li>
+        <li>La <strong>matrice hessienne</strong> a pour valeurs propres $2$ et $-2$.</li>
     </ul>
 </div>
 
@@ -127,10 +125,9 @@
 </div>
 
 <figure>
-    <figure>
-        <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/IMG_4530.webp" alt="">
-        <figcaption>Origami de paraboloïde hyperbolique</figcaption>
-    </figure>
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/IMG_4530.webp"
+        alt="Origami en papier rouge à motifs floraux, plié en forme de paraboloïde hyperbolique">
+    <figcaption>Origami de paraboloïde hyperbolique</figcaption>
 </figure>
 
 <div class="paragraph">
@@ -138,19 +135,21 @@
 </div>
 
 <figure>
-    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step0.webp" alt="">
-    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step1.webp" alt="">
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step0.webp"
+        alt="Étape 1 : un carré de papier marqué de ses deux diagonales en pointillés">
+    <img src="/blog/articles/2026-03-22-hyperbolic_paraboloid/step1.webp"
+        alt="Étape 2 : le même carré marqué de plis formant des carrés concentriques">
 
 
     <figcaption>Étapes de construction</figcaption>
 </figure>
 
 
-<h3>Aller plus loin : Le 6ème axiome</h3>
+<h3>Aller plus loin : le 6e axiome</h3>
 
 <div class="paragraph">
     L'origami est un loisir, mais aussi une branche de la géométrie. Les <strong>axiomes de Huzita-Hatori</strong>
-    définissent ce qu'il est possible de construire en pliant. Le 6ème axiome est particulièrement célèbre : il permet
+    définissent ce qu'il est possible de construire en pliant. Le 6e axiome est particulièrement célèbre : il permet
     de résoudre des <strong>équations du troisième degré</strong>, ce que la règle et le compas sont incapables de faire
     ! Mais ce sera pour un prochain article avec la théorie de Galois et les extensions quadratiques.
 </div>
