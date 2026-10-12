@@ -609,10 +609,6 @@ const homepage_skills = {
     fr: "Créativité",
     en: "Creativity",
   },
-  skill_teamwork: {
-    fr: "Travail d'équipe",
-    en: "Teamwork",
-  },
   skill_pedagogy: {
     fr: "Pédagogie",
     en: "Pedagogy",
