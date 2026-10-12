@@ -220,27 +220,6 @@ LA CARTE PRINCIPALE (CONTENEUR)
   color: var(--primary-text-color);
 }
 
-/* --- Bloc de disponibilité --- */
-.availability-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding-top: clamp(1rem, 2.5vw, 1.5rem);
-  border-top: 1px solid var(--primary-border-color);
-  gap: 0.5rem;
-}
-
-.availability-date {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.availability-note {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
 .contact-container {
   display: flex;
   flex-direction: row;

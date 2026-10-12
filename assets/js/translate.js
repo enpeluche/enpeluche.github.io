@@ -1,5 +1,3 @@
-const cvLink = document.getElementById("cv-link"); // On récupère le lien
-
 const filters_traduction = {
   view_all: {
     fr: "Tout voir",
@@ -83,6 +81,30 @@ const tags_traduction = {
   mip: {
     fr: "PLNE",
     en: "MIP",
+  },
+  online_convex_optimization: {
+    fr: "Optimisation convexe en ligne",
+    en: "Online Convex Optimization",
+  },
+  game_theory: {
+    fr: "Théorie des jeux",
+    en: "Game Theory",
+  },
+  computational_social_choice: {
+    fr: "Choix social computationnel",
+    en: "Computational Social Choice",
+  },
+  scheduling: {
+    fr: "Ordonnancement",
+    en: "Scheduling",
+  },
+  distributed_algorithms: {
+    fr: "Algorithmique distribuée",
+    en: "Distributed Algorithms",
+  },
+  fairness: {
+    fr: "Équité (fairness)",
+    en: "Fairness",
   },
 };
 
@@ -623,25 +645,21 @@ const homepage_traduction = {
     fr: "Bonjour, je suis",
     en: "Hello, I am",
   },
-  education_master_degree: {
-    fr: "Titulaire d'un Master 2 en Algorithmie & Mathématiques.",
-    en: "Master's Degree in Algorithmics & Mathematics.",
+  hero_subtitle: {
+    fr: "Doctorant en algorithmique à l'institut FEMTO-ST",
+    en: "PhD Student in Algorithms at the FEMTO-ST Institute",
   },
   section_about_title: {
     fr: "À propos de moi",
     en: "About Me",
   },
   section_about_description: {
-    fr: "Je conçois des systèmes logiciels <strong>critiques</strong>, <strong>prouvés</strong> et <strong>optimisés</strong>. Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en code performant. Que ce soit en C++, OCaml ou Python, mon approche vise la robustesse absolue par l'usage de méthodes formelles.",
-    en: "I design <strong>critical</strong>, <strong>proven</strong>, and <strong>optimized</strong> software systems. Combining theoretical computer science and mathematics, I transform complex abstraction into high-performance code. Whether in C++, OCaml or Python, my approach aims for absolute robustness through the use of formal methods.",
+    fr: "Je travaille sur l'allocation de ressources dans les data centers, avec deux exigences : la <strong>sobriété</strong> énergétique et l'<strong>équité</strong> entre utilisateurs. Formé en informatique théorique et en mathématiques, j'aime aller du modèle à la machine : <strong>formaliser</strong> un problème, <strong>prouver</strong> des garanties, puis <strong>implémenter</strong> et mesurer, en C++, Rust ou Python.",
+    en: "I work on resource allocation in data centers, with two requirements in mind: energy <strong>frugality</strong> and <strong>fairness</strong> among users. Trained in theoretical computer science and mathematics, I enjoy going from model to machine: <strong>formalizing</strong> a problem, <strong>proving</strong> guarantees, then <strong>implementing</strong> and measuring, in C++, Rust or Python.",
   },
   expertise_intro: {
     fr: "<strong>Mon expertise technique :</strong>",
     en: "<strong>My technical expertise:</strong>",
-  },
-  section_about_seeking: {
-    fr: "<strong>Ce que je cherche :</strong> Un rôle technique en Recherche Opérationnelle, Preuve Formelle ou Cybersécurité.",
-    en: "<strong>What I am looking for:</strong> A technical role in Operations Research, Formal Verification, or Cybersecurity.",
   },
   skill_optimization: {
     fr: "<strong>Optimisation & Modélisation :</strong> Modélisation mathématique, PLNE (MIP), Programmation par contraintes, Heuristiques & Métaheuristiques.",
@@ -762,24 +780,70 @@ const homepage_contact = {
     en: "Contact Me",
   },
   contact_tagline: {
-    fr: "Jeune diplômé en quête de défis techniques.",
-    en: "Recent graduate looking for technical challenges.",
+    fr: "Ouvert aux collaborations",
+    en: "Open to collaboration",
   },
   contact_description: {
-    fr: "À la recherche de ma <strong>première opportunité en CDI</strong> en tant qu'Ingénieur R&D. Je souhaite rejoindre une équipe ambitieuse pour concevoir des solutions fiables en <strong>Optimisation</strong>, <strong>Méthodes Formelles</strong> ou <strong>Cybersécurité</strong>.",
-    en: "Looking for my <strong>first permanent position</strong> as an R&D Engineer. I aim to join an ambitious team to design reliable solutions in <strong>Optimization</strong>, <strong>Formal Methods</strong>, or <strong>Cybersecurity</strong>.",
+    fr: "Vous travaillez sur l'allocation de ressources, l'optimisation en ligne, la théorie des jeux ou l'équité algorithmique ? Je suis partant pour échanger, que ce soit pour une <strong>collaboration de recherche</strong>, un <strong>projet appliqué</strong> ou simplement une discussion scientifique.",
+    en: "Working on resource allocation, online optimization, game theory or algorithmic fairness? I'm happy to talk, whether about a <strong>research collaboration</strong>, an <strong>applied project</strong> or simply a scientific discussion.",
   },
-  contact_availability_label: {
-    fr: "Disponibilité",
-    en: "Availability",
+};
+
+const nav_traduction = {
+  nav_phd: {
+    fr: "Thèse",
+    en: "PhD",
   },
-  contact_availability_date: {
-    fr: "Mars 2026",
-    en: "March 2026",
+  section_projects_title: {
+    fr: "Projets",
+    en: "Projects",
   },
-  contact_availability_note: {
-    fr: "(Ouvert aux échanges et entretiens dès aujourd'hui)",
-    en: "(Open to discussions and interviews starting today)",
+  projects_category_dev: {
+    fr: "Développement",
+    en: "Development",
+  },
+  projects_category_academic: {
+    fr: "Académiques",
+    en: "Academic",
+  },
+};
+
+const phd_traduction = {
+  phd_section_title: {
+    fr: "Ma thèse",
+    en: "My PhD",
+  },
+  phd_title: {
+    fr: "Algorithmique sobre et conviviale pour l'allocation de ressources dans un data center",
+    en: "Frugal and convivial algorithms for resource allocation in data centers",
+  },
+  phd_summary: {
+    fr: "Comment partager les ressources d'un data center entre ses utilisateurs de façon à la fois économe et équitable, alors que les demandes arrivent au fil de l'eau ? Ma thèse aborde cette question à la croisée de l'optimisation en ligne, de la théorie des jeux et du choix social computationnel.",
+    en: "How can a data center's resources be shared among its users in a way that is both frugal and fair, while requests keep arriving over time? My thesis tackles this question at the crossroads of online optimization, game theory and computational social choice.",
+  },
+  phd_lab_label: {
+    fr: "Laboratoire",
+    en: "Laboratory",
+  },
+  phd_funding_label: {
+    fr: "Financement",
+    en: "Funding",
+  },
+  phd_funding: {
+    fr: "Contrat doctoral, projet ANR SoCloud",
+    en: "Doctoral contract, ANR SoCloud project",
+  },
+  phd_start_label: {
+    fr: "Début",
+    en: "Started",
+  },
+  phd_start: {
+    fr: "1<sup>er</sup> octobre 2026",
+    en: "October 1, 2026",
+  },
+  phd_themes_title: {
+    fr: "Axes de recherche",
+    en: "Research areas",
   },
 };
 
@@ -799,141 +863,8 @@ const traductions = {
   ...homepage_contact,
   ...footer_traduction,
   ...sections_traduction,
-};
-
-const traducctions = {
-  fr: {
-    project_crypto_subtitle:
-      "Implémentation d'un protocole de chiffrement post-quantique et attaque par réduction",
-    project_portfolio_subtitle:
-      "Développement d'une interface web responsive 'from scratch'",
-    project_raytracer_subtitle:
-      "Génération d'images 3D par simulation physique de la lumière",
-    project_multiplayer_game_subtitle:
-      "Architecture Client-Serveur et protocole de communication custom",
-    project_diff_calc_subtitle:
-      "Rédaction intégrale d'un manuel universitaire (100+ pages)",
-    project_fractals_subtitle:
-      "Visualisation d'ensembles mathématiques complexes via la récursivité",
-    project_habit_tracker_subtitle:
-      "Application web interactive de suivi d'habitudes et visualisation de données",
-    project_lattice_reduction_subtitle:
-      "Adaptations d’idées provenant du cas polynomial au cas entier",
-    project_beckett_gray_subtitle:
-      "Implémentation, heuristiques et analyses de graphes",
-    project_weyl_transform_subtitle:
-      "Une transformée de Fourier non commutative",
-    project_close_packing_subtitle:
-      "Étude de l'inégalité isopérimétrique et simulations",
-    btn_download_cv: "Télécharger mon CV (PDF)",
-    btn_contact_me: "Me Contacter",
-    status_availability:
-      "Disponible dès maintenant pour des projets de R&D ou d'Ingénierie complexe.",
-    section_soft_skills_title: "Qualités Humaines",
-    skill_scientific_rigor: "Rigueur scientifique",
-    skill_curiosity: "Curiosité",
-    skill_teamwork: "Travail d'équipe",
-    skill_pedagogy: "Pédagogie",
-    skill_problem_solving: "Résolution de problèmes",
-    skill_creativity: "Créativité",
-    btn_view_project: "Découvrir en détail le projet",
-    label_context: "Contexte",
-    label_language: "Langage",
-    label_summary: "Résumé",
-    label_field: "Domaine",
-    label_period: "Période",
-    label_core: "Cœur",
-    label_tech_concepts: "Technologies & Concepts",
-    label_type: "Type",
-    project_crypto_title: "Cryptosystème & Cryptanalyse",
-    project_portfolio_title: "Portfolio Personnel",
-    project_raytracer_title: "Moteur de Ray Tracing",
-    project_multiplayer_game_title: "Jeu Multijoueur en Réseau",
-    project_diff_calc_title: "Cours de Calcul Différentiel",
-    project_fractals_title: "Générateur de Fractales Interactif",
-    project_habit_tracker_title: "Habit Tracker App",
-    project_lattice_reduction_title: "Réduction de réseaux",
-    project_beckett_gray_title: "Codes de Beckett-Gray",
-    project_weyl_transform_title: "La transformation de Weyl",
-    project_close_packing_title: "Empilement compact",
-    section_skills_title: "Compétences",
-    section_dev_projects_title: "Projets de développement",
-    section_academic_projects_title: "Projets académiques",
-    section_projects_title: "Projets",
-    projects_category_dev: "Développement",
-    projects_category_academic: "Académiques",
-    welcome: "Bonjour, je suis",
-    education_master_degree:
-      "Titulaire d'un Master 2 en Algorithmie & Mathématiques.",
-    section_about_title: "À propos de moi",
-    about_description:
-      "Combinant informatique théorique et mathématiques, je transforme l'abstraction complexe en solutions logicielles concrètes, performantes et rigoureusement optimisées.",
-  },
-  en: {
-    project_crypto_subtitle:
-      "Implementation of a post-quantum encryption protocol and reduction attack",
-    project_portfolio_subtitle:
-      "Development of a responsive web interface from scratch",
-    project_raytracer_subtitle:
-      "3D image generation via physical light simulation",
-    project_multiplayer_game_subtitle:
-      "Client-Server architecture and custom communication protocol",
-    project_diff_calc_subtitle:
-      "Full authorship of a university textbook (100+ pages)",
-    project_fractals_subtitle:
-      "Visualization of complex mathematical sets via recursion",
-    project_habit_tracker_subtitle:
-      "Interactive habit tracking web application and data visualization",
-    project_lattice_reduction_subtitle:
-      "Adaptation of ideas from the polynomial case to the integer case",
-    project_beckett_gray_subtitle:
-      "Implementation, heuristics, and graph analysis",
-    project_weyl_transform_subtitle: "A non-commutative Fourier transform",
-    project_close_packing_subtitle:
-      "Study of the isoperimetric inequality and simulations",
-    btn_download_cv: "Download my CV (PDF)",
-    btn_contact_me: "Contact Me",
-    status_availability:
-      "Available immediately for R&D or complex engineering projects.",
-    section_soft_skills_title: "Soft Skills",
-    skill_scientific_rigor: "Scientific Rigor",
-    skill_curiosity: "Curiosity",
-    skill_teamwork: "Teamwork",
-    skill_pedagogy: "Pedagogy",
-    skill_problem_solving: "Problem Solving",
-    skill_creativity: "Creativity",
-    btn_view_project: "View Project Details",
-    label_context: "Context",
-    label_language: "Language",
-    label_summary: "Summary",
-    label_field: "Field",
-    label_period: "Period",
-    label_core: "Core",
-    label_tech_concepts: "Technologies & Concepts",
-    label_type: "Type",
-    project_crypto_title: "Cryptosystem & Cryptanalysis",
-    project_portfolio_title: "Personal Portfolio",
-    project_raytracer_title: "Ray Tracing Engine",
-    project_multiplayer_game_title: "Networked Multiplayer Game",
-    project_diff_calc_title: "Differential Calculus Course",
-    project_fractals_title: "Interactive Fractal Generator",
-    project_habit_tracker_title: "Habit Tracker App",
-    project_lattice_reduction_title: "Lattice Reduction",
-    project_beckett_gray_title: "Beckett-Gray Codes",
-    project_weyl_transform_title: "The Weyl Transform",
-    project_close_packing_title: "Close-Packing",
-    section_skills_title: "Skills",
-    section_dev_projects_title: "Development Projects",
-    section_academic_projects_title: "Academic Projects",
-    section_projects_title: "Projects",
-    projects_category_dev: "Development",
-    projects_category_academic: "Academic",
-    welcome: "Hello, I am",
-    education_master_degree: "Master's Degree in Algorithmics & Mathematics.",
-    section_about_title: "About Me",
-    about_description:
-      "Blending theoretical computer science with mathematics, I transform complex abstractions into concrete, high-performance, and rigorously optimized software solutions.",
-  },
+  ...nav_traduction,
+  ...phd_traduction,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -957,6 +888,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const cv_links = {
+  fr: {
+    href: "https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf",
+    download: "CV_Lucas_Noirot-Petit_FR.pdf",
+    label: "Télécharger mon CV ! (PDF)",
+  },
+  en: {
+    href: "https://raw.githubusercontent.com/enpeluche/resume/main/dist/en/CV_Lucas_Noirot-Petit.pdf",
+    download: "CV_Lucas_Noirot-Petit_EN.pdf",
+    label: "Download my Resume! (PDF)",
+  },
+};
+
+function mettreAJourLienCV(langue) {
+  const cvLink = document.getElementById("cv-link");
+  const cv = cv_links[langue];
+
+  if (!cvLink || !cv) return;
+
+  cvLink.href = cv.href;
+  cvLink.setAttribute("download", cv.download);
+  cvLink.setAttribute("aria-label", cv.label);
+}
+
 function changerLangue(langue) {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const cle = element.getAttribute("data-i18n");
@@ -965,37 +920,14 @@ function changerLangue(langue) {
     }
   });
 
+  mettreAJourLienCV(langue);
+
   document.documentElement.lang = langue;
 
   localStorage.setItem("app_lang", langue);
 
+  // replaceState : changer de langue ne doit pas ajouter d'entrée dans l'historique
   const currentUrl = new URL(window.location);
   currentUrl.searchParams.set("lang", langue);
-  window.history.pushState({}, "", currentUrl);
+  window.history.replaceState({}, "", currentUrl);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cvLink = document.getElementById("cv-link");
-
-  document
-    .getElementById("lang-toggle")
-    .addEventListener("change", function () {
-      if (this.checked) {
-        if (cvLink) {
-          cvLink.href =
-            "https://raw.githubusercontent.com/enpeluche/resume/main/dist/en/CV_Lucas_Noirot-Petit.pdf";
-          cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit_EN.pdf");
-          cvLink.setAttribute("aria-label", "Download my Resume! (PDF)");
-        }
-        changerLangue("en");
-      } else {
-        if (cvLink) {
-          cvLink.href =
-            "https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf";
-          cvLink.setAttribute("download", "CV_Lucas_Noirot-Petit_FR.pdf");
-          cvLink.setAttribute("aria-label", "Télécharger mon CV ! (PDF)");
-        }
-        changerLangue("fr");
-      }
-    });
-});

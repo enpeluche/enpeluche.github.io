@@ -9,14 +9,14 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lucas Noirot</title>
+    <title>Lucas Noirot (Petit)</title>
 
-    <meta name="description" content="Expert en algorithmique et mathématiques. Je transforme l'abstraction mathématique en solutions
-            logicielles performantes.">
+    <meta name="description" content="Lucas Noirot (Petit), doctorant à l'institut FEMTO-ST (SUPMICROTECH) :
+            algorithmique sobre et conviviale pour l'allocation de ressources dans les data centers.">
 
     <meta name="keywords" content="">
 
-    <meta name="author" content="Lucas Petit">
+    <meta name="author" content="Lucas Noirot (Petit)">
 
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
@@ -67,11 +67,15 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/#homepage" title="Accueil Lucas Petit">
+                    <a href="/#homepage" title="Accueil Lucas Noirot (Petit)">
                         <img class="image-rotative" src="/assets/img/logo/logo.png"
-                            title="Logo de Lucas Petit - étoile à 8 branches"
-                            alt="Logo de Lucas Petit - étoile à 8 branches">
+                            title="Logo de Lucas Noirot (Petit) - étoile à 8 branches"
+                            alt="Logo de Lucas Noirot (Petit) - étoile à 8 branches">
                     </a>
+                </li>
+
+                <li>
+                    <a href="/#phd" data-i18n="nav_phd">Thèse</a>
                 </li>
 
                 <li>
@@ -116,15 +120,17 @@
         <section id="homepage">
             <div id="intro">
                 <p data-i18n="welcome" class="reveal" id="hello-world">Bonjour, je suis</p>
-                <h1 class="reveal" id="profile-name">Lucas Noirot</h1>
+                <h1 class="reveal" id="profile-name">
+                    Lucas Noirot <span class="profile-name-usage">(Petit)</span>
+                </h1>
             </div>
 
             <div class="profile-card reveal">
                 <img id="profile-picture" class="profile-avatar" src="/assets/img/hero.png"
-                    alt="Portrait de Lucas Petit">
+                    alt="Portrait de Lucas Noirot (Petit)">
 
-                <h2 data-i18n="education_master_degree" class="profile-subtitle">
-                    Titulaire d'un Master 2 en Algorithmique & Mathématiques.
+                <h2 data-i18n="hero_subtitle" class="profile-subtitle">
+                    Doctorant en algorithmique à l'institut FEMTO-ST
                 </h2>
             </div>
 
@@ -135,15 +141,11 @@
                 </h3>
 
                 <p data-i18n="section_about_description">
-                    Je conçois des systèmes logiciels <strong>critiques</strong>, <strong>prouvés</strong> et
-                    <strong>optimisés</strong>. Combinant informatique théorique et mathématiques, je transforme
-                    l'abstraction complexe en code performant. Que ce soit en C++, OCaml ou Python, mon approche vise la
-                    robustesse absolue par l'usage de méthodes formelles.
-                </p>
-
-                <p data-i18n="section_about_seeking" style="padding-top: 0.5rem;">
-                    <strong>Ce que je cherche :</strong> Un rôle technique en Recherche Opérationnelle, Preuve Formelle
-                    ou Cybersécurité.
+                    Je travaille sur l'allocation de ressources dans les data centers, avec deux exigences : la
+                    <strong>sobriété</strong> énergétique et l'<strong>équité</strong> entre utilisateurs. Formé en
+                    informatique théorique et en mathématiques, j'aime aller du modèle à la machine :
+                    <strong>formaliser</strong> un problème, <strong>prouver</strong> des garanties, puis
+                    <strong>implémenter</strong> et mesurer, en C++, Rust ou Python.
                 </p>
 
                 <p data-i18n="expertise_intro" style="padding-top: 0.5rem;">
@@ -165,6 +167,56 @@
                     </li>
                 </ul>
             </div>
+        </section>
+
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <section id="phd" class="phd-section">
+            <h1 data-i18n="phd_section_title" class="section-title reveal">Ma thèse</h1>
+
+            <article class="glass-panel phd-card reveal">
+                <h2 data-i18n="phd_title" class="phd-title">
+                    Algorithmique sobre et conviviale pour l'allocation de ressources dans un data center
+                </h2>
+
+                <p data-i18n="phd_summary" class="phd-summary">
+                    Comment partager les ressources d'un data center entre ses utilisateurs de façon à la fois économe
+                    et équitable, alors que les demandes arrivent au fil de l'eau ? Ma thèse aborde cette question à la
+                    croisée de l'optimisation en ligne, de la théorie des jeux et du choix social computationnel.
+                </p>
+
+                <dl class="phd-facts">
+                    <div>
+                        <dt data-i18n="phd_lab_label">Laboratoire</dt>
+                        <dd>
+                            <a href="https://www.femto-st.fr" target="_blank" rel="noopener noreferrer">FEMTO-ST</a>
+                            ·
+                            <a href="https://www.supmicrotech.fr" target="_blank"
+                                rel="noopener noreferrer">SUPMICROTECH</a>
+                            (Besançon)
+                        </dd>
+                    </div>
+                    <div>
+                        <dt data-i18n="phd_funding_label">Financement</dt>
+                        <dd data-i18n="phd_funding">Contrat doctoral, projet ANR SoCloud</dd>
+                    </div>
+                    <div>
+                        <dt data-i18n="phd_start_label">Début</dt>
+                        <dd data-i18n="phd_start">1<sup>er</sup> octobre 2026</dd>
+                    </div>
+                </dl>
+
+                <h3 data-i18n="phd_themes_title" class="phd-themes-title">Axes de recherche</h3>
+
+                <div class="tags phd-tags">
+                    <concept-tag data-i18n="online_convex_optimization">Optimisation convexe en ligne</concept-tag>
+                    <concept-tag data-i18n="game_theory">Théorie des jeux</concept-tag>
+                    <concept-tag data-i18n="computational_social_choice">Choix social computationnel</concept-tag>
+                    <concept-tag data-i18n="scheduling">Ordonnancement</concept-tag>
+                    <concept-tag data-i18n="distributed_algorithms">Algorithmique distribuée</concept-tag>
+                    <concept-tag data-i18n="fairness">Équité (fairness)</concept-tag>
+                </div>
+            </article>
         </section>
 
         <!----------------------------------------------------------------------------------------------------------->
@@ -257,7 +309,7 @@
             <div class="download-section reveal">
                 <a id="cv-link" target="_blank"
                     href="https://raw.githubusercontent.com/enpeluche/resume/main/dist/fr/CV_Lucas_Noirot-Petit.pdf"
-                    download="CV_Noirot_Lucas.pdf" aria-label="Télécharger mon CV ! (PDF)" class="btn-cv">
+                    download="CV_Lucas_Noirot-Petit_FR.pdf" aria-label="Télécharger mon CV ! (PDF)" class="btn-cv">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                     </svg>
@@ -274,30 +326,18 @@
             </h1>
             <div class="glass-panel contact-card">
                 <p class="reveal contact-tagline">
-                    <strong data-i18n="contact_tagline">Jeune diplômé en quête de défis techniques.</strong>
+                    <strong data-i18n="contact_tagline">Ouvert aux collaborations</strong>
                 </p>
 
                 <p data-i18n="contact_description" class="reveal contact-description">
-                    À la recherche de ma <strong>première opportunité en CDI</strong> en tant qu'Ingénieur R&D.
-                    Je souhaite rejoindre une équipe ambitieuse pour concevoir des solutions fiables en
-                    <strong>Optimisation</strong>, <strong>Méthodes Formelles</strong> ou
-                    <strong>Cryptographie</strong>.
+                    Vous travaillez sur l'allocation de ressources, l'optimisation en ligne, la théorie des jeux ou
+                    l'équité algorithmique ? Je suis partant pour échanger, que ce soit pour une <strong>collaboration
+                        de recherche</strong>, un <strong>projet appliqué</strong> ou simplement une discussion
+                    scientifique.
                 </p>
-                <div class="reveal availability-block">
-                    <strong data-i18n="contact_availability_label" class="about-title">
-                        Disponibilité
-                    </strong>
-
-                    <span data-i18n="contact_availability_date" class="availability-date">
-                        Mars 2026
-                    </span>
-                    <em data-i18n="contact_availability_note" class="availability-note">
-                        (Ouvert aux échanges et entretiens dès aujourd'hui)
-                    </em>
-                </div>
             </div>
             <div class="contact-container reveal">
-                <a href="mailto:lucas.noirot-petit@proton.me" class="contact-item">
+                <a href="mailto:lucas.noirot@supmicrotech.fr" class="contact-item">
                     <ui-icon name="email"></ui-icon>
                     <span>Email</span>
                 </a>
@@ -789,7 +829,7 @@
                     <div class="meta">
                         <project-category data-i18n="packing_category">Mémoire (L3)</project-category>
                     </div>
-                    <div data-filter="packing_description" class="description">
+                    <div data-i18n="packing_description" class="description">
                         <div>
                             Étude du problème de l'<strong>empilement compact</strong> (conjecture de Kepler)
                             et de l'<strong>inégalité isopérimétrique</strong>, et exploration du lien
