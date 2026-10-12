@@ -95,9 +95,11 @@ Aucune dépendance. Si on l'oublie, le test « sitemap » échoue et rappelle la
 
 ## `tests/` : les tests automatiques du site
 
-Une centaine de vérifications, faites dans un vrai navigateur (Chromium) : menu, mode nuit,
+Environ 150 vérifications, faites dans un vrai navigateur (Chromium) : menu, mode nuit,
 « réduire les animations », blog et chaque article, loisirs, pas de défilement horizontal
-sur téléphone, liens internes, bandeaux, sitemap…
+sur téléphone, liens internes, bandeaux, sitemap, et navigation au clavier (`clavier.test.js` :
+chaque page est parcourue avec Tab et Maj+Tab ; chaque arrêt doit avoir un contour visible,
+un nom, et ne jamais être caché sous le menu).
 
 Ils ne supposent rien sur le contenu : ajouter un article, un loisir ou un projet ne les casse pas
 (au contraire, ils vérifient le nouveau contenu).

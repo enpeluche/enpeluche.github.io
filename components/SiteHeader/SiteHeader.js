@@ -38,8 +38,9 @@ const THEME_TOGGLE = `
 
 const LANG_TOGGLE = `
   <li class="nav-lang">
-    <input type="checkbox" id="lang-toggle" class="lang-check" autocomplete="off">
-    <label for="lang-toggle" class="lang-label" aria-label="Changer de langue / Switch language">
+    <input type="checkbox" id="lang-toggle" class="lang-check" role="switch" autocomplete="off"
+      aria-label="English version (version anglaise)">
+    <label for="lang-toggle" class="lang-label">
       <span class="slider"></span>
       <span class="lang-text">FR</span>
       <span class="lang-text">EN</span>
@@ -48,6 +49,7 @@ const LANG_TOGGLE = `
 
 function headerTemplate(withLangToggle) {
   return `
+    <a class="skip-link" href="#contenu" data-i18n="skip_link">Aller au contenu</a>
     <header id="main-header">
       <nav aria-label="Navigation principale">
         <ul>
@@ -55,7 +57,7 @@ function headerTemplate(withLangToggle) {
             <a class="nav-logo" href="/#homepage" title="Accueil Lucas Noirot (Petit)">
               <img class="image-rotative" src="/assets/img/logo/logo.png"
                 title="Logo de Lucas Noirot (Petit) - étoile à 8 branches"
-                alt="Logo de Lucas Noirot (Petit) - étoile à 8 branches">
+                alt="Accueil – Lucas Noirot (Petit)">
             </a>
           </li>
 
@@ -103,12 +105,36 @@ class SiteHeader extends HTMLElement {
     this.initDropdown();
     this.initThemeToggle();
 
+    // Au clavier, le menu réapparaît dès qu'un de ses éléments reçoit le focus
+    // (il se masque quand on descend dans la page : voir main.js)
+    const header = this.querySelector("#main-header");
+    header.addEventListener("focusin", () => header.classList.remove("header-hidden"));
+
     // Les sections de la page ne sont pas encore lues par le navigateur à ce stade
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => this.initCurrentTab());
+      document.addEventListener("DOMContentLoaded", () => {
+        this.initSkipLink();
+        this.initCurrentTab();
+      });
     } else {
+      this.initSkipLink();
       this.initCurrentTab();
     }
+  }
+
+  /** « Aller au contenu » : premier élément atteint avec Tab, il saute le menu et mène au <main>. */
+  initSkipLink() {
+    const main = document.querySelector("main");
+    const link = this.querySelector(".skip-link");
+
+    if (!main) {
+      link.remove();
+      return;
+    }
+
+    if (!main.id) main.id = "contenu";
+    main.tabIndex = -1; // pour que le focus clavier aille bien au contenu, et pas seulement l'affichage
+    link.href = `#${main.id}`;
   }
 
   /** Menu "Projets" : ouverture au clic/toucher (le survol reste géré en CSS sur ordinateur). */
@@ -135,7 +161,14 @@ class SiteHeader extends HTMLElement {
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key !== "Escape") return;
+      // Le focus était dans le menu, qui va disparaître : on le rend au bouton « Projets »
+      if (dropdown.querySelector(".nav-dropdown-menu").contains(document.activeElement)) toggle.focus();
+      setOpen(false);
+    });
+
+    dropdown.addEventListener("focusout", (event) => {
+      if (!dropdown.contains(event.relatedTarget)) setOpen(false);
     });
   }
 

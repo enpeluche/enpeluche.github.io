@@ -7,6 +7,10 @@ html {
 
   scroll-behavior: smooth;
 
+  /* Le menu fixe (60 px) ne doit cacher ni un élément atteint au clavier, ni la cible d'un lien
+     (#phd, #project-wsrp…) : le navigateur s'arrête 80 px sous le haut de l'écran. */
+  scroll-padding-top: 80px;
+
   /* 1. Taille par défaut pour MOBILE (et tout le monde) */
   font-size: 1rem;
 }
@@ -65,4 +69,22 @@ main > section:not(:first-of-type) {
 
 main > section:last-of-type {
   margin-bottom: 4rem;
+}
+
+/* Les sections (#phd, #cv…) et les ancres #dev, #acad ont déjà leur propre espace en haut :
+   on annule pour elles les 80 px ci-dessus, pour qu'elles arrivent au même endroit qu'avant. */
+main > [id] {
+  scroll-margin-top: -80px;
+}
+
+/* Navigation au clavier : un contour violet, le même partout, de jour comme de nuit.
+   :focus-visible ne l'affiche qu'au clavier, pas au clic de souris. */
+:focus-visible {
+  outline: 2px solid var(--secondary-text-color);
+  outline-offset: 2px;
+}
+
+/* Cible du lien « Aller au contenu » : simple zone, pas besoin de contour */
+main:focus {
+  outline: none;
 }

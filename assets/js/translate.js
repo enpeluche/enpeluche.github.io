@@ -758,6 +758,10 @@ const nav_traduction = {
     fr: "Thèse",
     en: "PhD",
   },
+  skip_link: {
+    fr: "Aller au contenu",
+    en: "Skip to content",
+  },
   theme_toggle_label: {
     fr: "Mode nuit",
     en: "Night mode",

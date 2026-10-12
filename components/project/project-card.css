@@ -36,13 +36,16 @@
     box-shadow 0.8s ease;
 }
 
-.project a {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+/* Lien du pied de carte (« Explorer… ») : son ::after recouvre toute la carte, qui devient cliquable */
+.project footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.project a::after {
+.project footer a::after {
   content: "";
   position: absolute;
   top: 0;
@@ -50,6 +53,22 @@
   right: 0;
   bottom: 0;
   z-index: 1; /* S'assure qu'il est cliquable au-dessus du texte */
+}
+
+/* Au clavier, c'est toute la carte qui s'entoure, puisque le lien la recouvre */
+.project:has(footer a:focus-visible) {
+  outline: 2px solid var(--secondary-text-color);
+  outline-offset: 3px;
+}
+
+.project:has(footer a:focus-visible) footer {
+  text-decoration: underline;
+}
+
+@supports selector(:has(*)) {
+  .project footer a:focus-visible {
+    outline: none;
+  }
 }
 
 .project:hover {
@@ -159,7 +178,7 @@ footer svg {
 }
 
 @media (max-width: 768px) {
-  .project a {
+  .project footer a {
     min-width: 0;
     overflow: hidden;
   }
@@ -195,12 +214,8 @@ footer svg {
   -webkit-mask-image: none;
 }
 
-/* Arrivée sur une carte via un lien (#project-...) : on laisse la place du header fixe */
-.project {
-  scroll-margin-top: 80px;
-}
-
-/* ...et on la fait briller un instant. Sur ::before pour ne pas entrer en conflit
+/* Arrivée sur une carte via un lien (#project-...) : la place du header fixe est réservée
+   par scroll-padding-top (base.css). On la fait briller un instant. Sur ::before pour ne pas entrer en conflit
    avec l'animation .project.show du filtre. */
 .project:target::before {
   content: "";

@@ -18,11 +18,11 @@ hover-preview svg {
   transition: all 0.3s ease;
 }
 
-hover-preview:hover {
+hover-preview:is(:hover, :focus-visible) {
   text-decoration: none;
 }
 
-hover-preview:hover svg {
+hover-preview:is(:hover, :focus-visible) svg {
   opacity: 0;
 }
 
@@ -50,14 +50,15 @@ hover-preview img {
   pointer-events: none;
 }
 
-hover-preview:hover img {
+/* Au survol, ou au clavier (Tab) ; Échap le referme (classe posée par le composant, index.html) */
+hover-preview:is(:hover, :focus-visible):not(.preview-dismissed) img {
   display: block;
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
 @starting-style {
-  hover-preview:hover img {
+  hover-preview:is(:hover, :focus-visible):not(.preview-dismissed) img {
     opacity: 0;
     transform: translateX(-50%) translateY(10px);
   }
