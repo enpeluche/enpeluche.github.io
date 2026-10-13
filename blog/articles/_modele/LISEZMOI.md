@@ -23,15 +23,17 @@ Remplacer chaque `⟨…⟩` (rechercher le caractère `⟨` pour n'en oublier a
 
 | À remplacer | Exemple |
 |---|---|
-| `⟨Titre de l'article⟩` (3 fois) | `La kernelisation expliquée` |
-| `⟨Résumé en une ou deux phrases⟩` (2 fois) | `Réduire un problème difficile à un noyau…` |
-| `⟨DOSSIER⟩` (3 fois, plus le chemin des images) | `2026-11-02-kernelisation` |
-| `⟨AAAA-MM-JJ⟩` (2 fois) | `2026-11-02` |
+| `⟨Titre de l'article⟩` (4 fois) | `La kernelisation expliquée` |
+| `⟨Résumé en une ou deux phrases⟩` (3 fois) | `Réduire un problème difficile à un noyau…` |
+| `⟨DOSSIER⟩` (5 fois, plus le chemin des images) | `2026-11-02-kernelisation` |
+| `⟨AAAA-MM-JJ⟩` (3 fois) | `2026-11-02` |
 | `⟨2 novembre 2026⟩` | la date écrite en toutes lettres |
 | `⟨Maths⟩` | la catégorie affichée (voir l'étape 5) |
 
 Le titre et le résumé sont ceux qui s'affichent dans Google et dans l'aperçu
-quand on partage le lien (LinkedIn, messageries).
+quand on partage le lien (LinkedIn, messageries). Ils apparaissent aussi dans la « fiche pour les
+moteurs de recherche » (le bloc `application/ld+json`), qui indique à Google la date et l'auteur :
+la remplir avec les mêmes valeurs (un test vérifie qu'elles correspondent).
 
 ### 3. Écrire le contenu
 

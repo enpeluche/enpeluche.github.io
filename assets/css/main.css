@@ -8,6 +8,7 @@
 @import "04_components/inter.css";
 
 @import "05_pages/homepage.css";
+@import "05_pages/page-introuvable.css";
 
 /*Project part*/
 @import "/components/project/project-card.css";

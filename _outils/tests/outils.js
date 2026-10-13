@@ -27,7 +27,8 @@ const TYPES = {
   ".woff2": "font/woff2",
 };
 
-// Petit serveur statique, comme GitHub Pages : /dossier/ sert /dossier/index.html.
+// Petit serveur statique, comme GitHub Pages : /dossier/ sert /dossier/index.html, et une adresse
+// qui n'existe pas reçoit la page 404.html (avec le code 404).
 function demarrerServeur() {
   const serveur = http.createServer((req, res) => {
     const url = new URL(req.url, "http://localhost");
@@ -47,8 +48,10 @@ function demarrerServeur() {
       }
       fs.readFile(fichier, (erreur2, contenu) => {
         if (erreur2) {
-          res.writeHead(404, { "Content-Type": "text/plain" });
-          return res.end("404");
+          return fs.readFile(path.join(RACINE, "404.html"), (erreur3, page404) => {
+            res.writeHead(404, { "Content-Type": erreur3 ? "text/plain" : TYPES[".html"] });
+            res.end(erreur3 ? "404" : page404);
+          });
         }
         res.writeHead(200, { "Content-Type": TYPES[path.extname(fichier).toLowerCase()] || "application/octet-stream" });
         res.end(contenu);
@@ -112,6 +115,7 @@ function creerOutils(navigateur, base, bilan) {
     base,
     SITE,
     RACINE,
+    INTROUVABLE,
     articles,
     lire,
     attendre,
@@ -133,8 +137,11 @@ function creerOutils(navigateur, base, bilan) {
       page.erreurs = [];
       page.on("pageerror", (e) => page.erreurs.push("JS : " + e.message));
       page.on("response", (r) => {
-        // les ⟨…⟩ sont des emplacements à remplir du modèle d'article (blog/articles/_modele)
-        if (r.status() >= 400 && !decodeURIComponent(r.url()).includes("⟨")) page.erreurs.push(`HTTP ${r.status()} : ${r.url()}`);
+        const adresse = decodeURIComponent(r.url());
+        // Pas des erreurs : les ⟨…⟩ sont des emplacements à remplir du modèle d'article (blog/articles/_modele),
+        // et les adresses /introuvable… sont celles que les tests visitent exprès pour voir la page 404.
+        const voulu = adresse.includes("⟨") || new URL(r.url()).pathname.startsWith("/introuvable");
+        if (r.status() >= 400 && !voulu) page.erreurs.push(`HTTP ${r.status()} : ${r.url()}`);
       });
       page.fermer = async () => {
         bilan.erreurs.push(...page.erreurs);
@@ -145,4 +152,7 @@ function creerOutils(navigateur, base, bilan) {
   };
 }
 
-module.exports = { demarrerServeur, creerOutils, SITE, RACINE };
+// Adresse qui n'existe pas, visitée exprès pour tester la page 404
+const INTROUVABLE = "/introuvable-test/";
+
+module.exports = { demarrerServeur, creerOutils, SITE, RACINE, INTROUVABLE };
