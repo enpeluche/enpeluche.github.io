@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <!-- Page affichée par GitHub Pages pour toute adresse qui n'existe pas.
+         Elle peut s'afficher à n'importe quelle adresse : tous les chemins sont donc absolus (/…). -->
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Page introuvable · Lucas Noirot (Petit)</title>
+
+    <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/logo/logo-192x192.png">
+    <link rel="apple-touch-icon" href="/assets/img/logo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Thème jour/nuit puis header commun : à charger avant le <body> (voir les fichiers) -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
+</head>
+
+<body>
+
+    <div id="tsparticles"></div>
+
+    <site-header></site-header>
+
+    <main>
+        <section class="page-introuvable">
+            <div class="page-introuvable-carte glass-panel">
+                <!-- Une étoile dans sa constellation (le bandeau de la carte Portfolio) -->
+                <div class="page-introuvable-illustration" aria-hidden="true"></div>
+
+                <p class="page-introuvable-code" aria-hidden="true">404</p>
+                <h1>Page introuvable</h1>
+                <p>
+                    Cette adresse ne mène à aucune page du site : le lien est peut-être ancien, ou mal recopié.
+                </p>
+                <p class="page-introuvable-en" lang="en">Page not found: this address does not lead to any page.</p>
+
+                <div class="page-introuvable-liens">
+                    <a class="page-introuvable-lien" href="/">Retour à l'accueil</a>
+                    <a class="page-introuvable-lien" href="/blog/">Voir le blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script data-goatcounter="https://enpeluche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>

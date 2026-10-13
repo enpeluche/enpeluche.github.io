@@ -4,8 +4,8 @@
 
 const AXE = require.resolve("axe-core");
 
-module.exports = async ({ base, ok, nouvellePage, toutAfficher, articles }) => {
-  const pages = ["/", "/?lang=en", "/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`)];
+module.exports = async ({ base, INTROUVABLE, ok, nouvellePage, toutAfficher, articles }) => {
+  const pages = ["/", "/?lang=en", "/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`), INTROUVABLE];
 
   for (const theme of ["light", "dark"]) {
     for (const page of pages) {

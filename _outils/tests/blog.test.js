@@ -69,6 +69,23 @@ module.exports = async ({ base, SITE, ok, nouvellePage, attendre, articles, tout
     ok((await p.title()).endsWith(" · Blog de Lucas Noirot (Petit)"), `${nom} : titre d'onglet propre à l'article`);
     ok((await p.getAttribute('link[rel="canonical"]', "href")) === `${SITE}/blog/articles/${dossier}/`, `${nom} : adresse canonique`);
     ok(((await p.getAttribute('meta[property="og:image"]', "content")) || "").startsWith(`${SITE}/blog/articles/${dossier}/`), `${nom} : image d'aperçu de partage propre à l'article`);
+    const fiche = await p.evaluate(() => {
+      try {
+        return JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent);
+      } catch {
+        return null;
+      }
+    });
+    const balise = (selecteur) => p.$eval(selecteur, (e) => e.getAttribute("content") || e.getAttribute("href")).catch(() => null);
+    const attendue = {
+      headline: await balise('meta[property="og:title"]'),
+      description: await balise('meta[name="description"]'),
+      datePublished: liste.find((a) => a.folder === dossier).date,
+      url: await balise('link[rel="canonical"]'),
+      image: await balise('meta[property="og:image"]'),
+    };
+    const ecarts = fiche ? Object.keys(attendue).filter((cle) => fiche[cle] !== attendue[cle]) : ["fiche absente ou illisible"];
+    ok(fiche && fiche["@type"] === "BlogPosting" && fiche.author?.name === "Lucas Noirot" && ecarts.length === 0, `${nom} : fiche pour les moteurs à jour (titre, résumé, date, adresse, image)` + (ecarts.length ? ` — différent : ${ecarts.join(", ")}` : ""));
     if (lire(`blog/articles/${dossier}/index.html`).includes("$")) {
       ok(await attendre(p, () => document.querySelectorAll(".katex").length > 0), `${nom} : formules rendues par KaTeX`);
     }

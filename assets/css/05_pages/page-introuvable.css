@@ -1,0 +1,67 @@
+/* --- Page 404 (404.html) : même famille que la section « Ma thèse » --- */
+
+.page-introuvable {
+  display: flex;
+  justify-content: center;
+  padding: 6rem 1rem 3rem; /* 6rem en haut : la place du menu fixe */
+}
+
+.page-introuvable-carte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 640px;
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+  text-align: center;
+}
+
+/* Le SVG sert de masque : il prend le violet du thème, de jour comme de nuit (comme les bandeaux) */
+.page-introuvable-illustration {
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  background-color: var(--secondary-text-color);
+  -webkit-mask: url("/assets/img/bandeaux/portfolio.svg") center / contain no-repeat;
+  mask: url("/assets/img/bandeaux/portfolio.svg") center / contain no-repeat;
+}
+
+.page-introuvable-code {
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--secondary-text-color);
+}
+
+.page-introuvable h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.page-introuvable p {
+  line-height: 1.6;
+}
+
+.page-introuvable-en {
+  color: var(--muted-text-color);
+  font-size: 0.9rem;
+}
+
+.page-introuvable-liens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.page-introuvable-lien {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 5px;
+  color: var(--secondary-text-color);
+  font-weight: 600;
+}
+
+.page-introuvable-lien:hover {
+  background-color: var(--accent-soft-background);
+}

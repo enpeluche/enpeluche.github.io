@@ -55,7 +55,7 @@ function verifierParcours(ok, nomPage, { arrets, fin }, sens) {
 
 const menuOuvert = () => getComputedStyle(document.querySelector(".nav-dropdown-menu")).visibility === "visible";
 
-module.exports = async ({ base, ok, nouvellePage, attendre, toutAfficher, articles }) => {
+module.exports = async ({ base, INTROUVABLE, ok, nouvellePage, attendre, toutAfficher, articles }) => {
   // reducedMotion : défilement instantané, pour mesurer les positions sans attendre les animations
   const options = { viewport: { width: 1280, height: 800 }, reducedMotion: "reduce" };
 
@@ -130,7 +130,7 @@ module.exports = async ({ base, ok, nouvellePage, attendre, toutAfficher, articl
   await p.fermer();
 
   // --- Blog et articles ---
-  for (const page of ["/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`)]) {
+  for (const page of ["/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`), INTROUVABLE]) {
     p = await nouvellePage(options);
     await p.goto(base + page, { waitUntil: "networkidle" });
     const parcours = await parcourir(p, "Tab");

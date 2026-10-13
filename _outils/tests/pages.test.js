@@ -2,7 +2,7 @@
 // un seul h1, polices allégées, fichiers servis par le site, bandeaux des projets, et informations
 // pour les moteurs de recherche (fiche, sitemap, robots.txt).
 
-module.exports = async ({ base, SITE, ok, nouvellePage, toutAfficher, articles, lire }) => {
+module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAfficher, articles, lire }) => {
   const pages = ["/", "/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`)];
 
   // --- Pas de défilement horizontal, du plus petit téléphone courant (320 px) à 375 px ---
@@ -40,6 +40,34 @@ module.exports = async ({ base, SITE, ok, nouvellePage, toutAfficher, articles, 
     }
   }
   ok(casses.size === 0, "liens et images internes valides" + (casses.size ? ` — cassés : ${[...casses].join(", ")}` : ""));
+
+  // --- Icônes : onglet (192 px) et écran d'accueil des téléphones, sur toutes les pages ---
+  const sansIcone = [];
+  for (const page of [...pages, INTROUVABLE]) {
+    await p.goto(base + page, { waitUntil: "networkidle" });
+    const icones = await p.evaluate(() => [
+      document.querySelector('link[rel="icon"][sizes="192x192"]')?.getAttribute("href"),
+      document.querySelector('link[rel="apple-touch-icon"]')?.getAttribute("href"),
+    ]);
+    for (const icone of icones) {
+      if (!icone || (await fetch(base + icone)).status !== 200) sansIcone.push(`${page} (${icone || "absente"})`);
+    }
+  }
+  ok(sansIcone.length === 0, "icônes haute définition présentes sur chaque page" + (sansIcone.length ? ` — manquantes : ${sansIcone.join(", ")}` : ""));
+
+  // --- Page 404, affichée par GitHub Pages pour toute adresse inexistante ---
+  const page404 = await nouvellePage();
+  const reponse = await page404.goto(base + INTROUVABLE, { waitUntil: "networkidle" });
+  ok(reponse.status() === 404, "adresse inexistante : code 404");
+  ok((await page404.$eval("h1", (h) => h.textContent.trim())) === "Page introuvable", "page 404 : titre « Page introuvable »");
+  ok((await page404.$("site-header #main-header")) !== null, "page 404 : menu affiché");
+  ok((await page404.getAttribute('meta[name="robots"]', "content")) === "noindex", "page 404 : pas indexée par les moteurs de recherche");
+  const retours = await page404.$$eval(".page-introuvable-lien", (liens) => liens.map((a) => a.getAttribute("href")).join(", "));
+  ok(retours === "/, /blog/", `page 404 : liens vers l'accueil et le blog (${retours})`);
+  // Plus profond dans l'arborescence : chemins absolus, donc styles et menu toujours chargés
+  await page404.goto(`${base}${INTROUVABLE}un/dossier/profond/`, { waitUntil: "networkidle" });
+  ok((await page404.evaluate(() => getComputedStyle(document.querySelector(".page-introuvable-carte")).maxWidth)) === "640px" && (await page404.$("site-header #main-header")) !== null, "page 404 : bien affichée, même à une adresse profonde");
+  await page404.fermer();
 
   // --- Un seul titre principal (h1) par page ---
   const h1 = [];
