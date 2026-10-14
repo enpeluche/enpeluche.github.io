@@ -74,31 +74,41 @@
                 <svg id="map" viewBox="0 0 1040 660" role="group"
                     aria-label="Diagramme des implications entre notions d'équité"></svg>
             </div>
+
+            <!-- À droite du diagramme : les échelles α (sur grand écran, elles défilent à l'intérieur) -->
+            <section class="alpha" aria-labelledby="alpha-title">
+                <div class="alpha-head">
+                    <h2 id="alpha-title">Versions approchées α</h2>
+                    <label class="nslider" for="n-agents">Nombre d'agents <output id="n-out">n = 3</output>
+                        <input id="n-agents" type="range" min="2" max="10" value="3">
+                    </label>
+                </div>
+                <div class="alpha-legend alpha-legend-courte">
+                    <span><i class="sw-known"></i>garanti</span>
+                    <span><i class="sw-unknown"></i>inconnu</span>
+                    <span><i class="sw-imp"></i>impossible</span>
+                </div>
+                <details class="alpha-intro">
+                    <summary>Comment lire ces échelles ?</summary>
+                    <p>
+                        Une allocation est α-B si elle satisfait B avec un facteur α ≤ 1. Comme α-B ⇒ α′-B dès que
+                        α′ ≤ α, chaque notion est une règle de 0 à 1 : une flèche « A ⇒ α » garantit tout ce qui
+                        est à sa gauche. Cliquez sur une notion pour déplier son échelle.
+                    </p>
+                    <div class="alpha-legend">
+                        <span><i class="sw-known"></i>garanti : une telle allocation existe toujours</span>
+                        <span><i class="sw-unknown"></i>inconnu</span>
+                        <span><i class="sw-imp"></i>impossible : certaines instances n'en ont pas</span>
+                        <span><i class="sw-mark"></i>implication « A ⇒ α-B » ou algorithme</span>
+                    </div>
+                </details>
+                <div id="scales" class="scales"></div>
+            </section>
+
+            <!-- Sous le diagramme : le détail de la notion choisie -->
             <aside class="detail" id="detail" aria-live="polite"></aside>
         </div>
 
-        <section class="alpha" aria-labelledby="alpha-title">
-            <div class="alpha-head">
-                <div>
-                    <h2 id="alpha-title">Versions approchées α</h2>
-                    <p>
-                        Une allocation est α-B si elle satisfait B avec un facteur α ≤ 1. Comme α-B ⇒ α′-B dès que
-                        α′ ≤ α, chaque notion est une règle de 0 à 1 : une flèche « A ⇒ α » garantit tout ce qui est
-                        à sa gauche.
-                    </p>
-                </div>
-                <label class="nslider" for="n-agents">Nombre d'agents <output id="n-out">n = 3</output>
-                    <input id="n-agents" type="range" min="2" max="10" value="3">
-                </label>
-            </div>
-            <div class="alpha-legend">
-                <span><i class="sw-known"></i>garanti : une telle allocation existe toujours</span>
-                <span><i class="sw-unknown"></i>inconnu</span>
-                <span><i class="sw-imp"></i>impossible : certaines instances n'en ont pas</span>
-                <span><i class="sw-mark"></i>implication « A ⇒ α-B » ou algorithme</span>
-            </div>
-            <div id="scales" class="scales"></div>
-        </section>
 
         <p class="carte-sources">
             État des connaissances en octobre 2026, d'après le survey d'Amanatidis et al. (Artificial Intelligence,
