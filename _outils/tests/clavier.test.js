@@ -11,14 +11,16 @@ function decrireFocus() {
   const carte = e.closest(".project footer") ? e.closest(".project") : null;
   const porteur = carte || (e.matches(".lang-check") ? e.nextElementSibling : e);
   const zone = (carte ? e.closest("footer") : porteur).getBoundingClientRect();
-  const contour = getComputedStyle(porteur).outlineStyle !== "none";
+  // Dans un diagramme SVG, une notion marque le focus par le trait pointillé de sa boîte (carte de recherche)
+  const boite = e instanceof SVGElement && e.querySelector("rect");
+  const contour = getComputedStyle(porteur).outlineStyle !== "none" || (!!boite && getComputedStyle(boite).strokeDasharray !== "none");
 
   const menu = document.getElementById("main-header");
   const menuVisible = menu && !menu.classList.contains("header-hidden");
   const basMenu = menu ? menu.getBoundingClientRect().bottom : 0;
   const dansMenu = (menu && menu.contains(e)) || e.matches(".skip-link");
 
-  const label = e.id && document.querySelector(`label[for="${e.id}"]`);
+  const label = (e.id && document.querySelector(`label[for="${e.id}"]`)) || e.closest("label");
   const candidats = [e.getAttribute("aria-label"), e.textContent, (e.querySelector("img") || {}).alt, e.getAttribute("placeholder"), label && label.textContent];
   const nom = (candidats.map((c) => (c || "").trim()).find((c) => c) || "").replace(/\s+/g, " ");
 
@@ -55,7 +57,7 @@ function verifierParcours(ok, nomPage, { arrets, fin }, sens) {
 
 const menuOuvert = () => getComputedStyle(document.querySelector(".nav-dropdown-menu")).visibility === "visible";
 
-module.exports = async ({ base, INTROUVABLE, ok, nouvellePage, attendre, toutAfficher, articles }) => {
+module.exports = async ({ base, INTROUVABLE, PAGES_RECHERCHE, ok, nouvellePage, attendre, toutAfficher, articles }) => {
   // reducedMotion : défilement instantané, pour mesurer les positions sans attendre les animations
   const options = { viewport: { width: 1280, height: 800 }, reducedMotion: "reduce" };
 
@@ -130,7 +132,7 @@ module.exports = async ({ base, INTROUVABLE, ok, nouvellePage, attendre, toutAff
   await p.fermer();
 
   // --- Blog et articles ---
-  for (const page of ["/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`), INTROUVABLE]) {
+  for (const page of ["/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`), INTROUVABLE, ...PAGES_RECHERCHE]) {
     p = await nouvellePage(options);
     await p.goto(base + page, { waitUntil: "networkidle" });
     const parcours = await parcourir(p, "Tab");

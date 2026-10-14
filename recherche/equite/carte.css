@@ -1,0 +1,770 @@
+/*
+  Carte des notions d'équité : couleurs et mise en page, aux couleurs du site.
+  Le violet du site sert à la sélection ; vert, rouge et ambre gardent leur sens (existe toujours,
+  pas toujours, ouvert). Tout est rangé sous .carte pour ne rien changer au reste du site.
+*/
+
+.carte {
+  --c-ink: var(--primary-text-color);
+  --c-muted: var(--muted-text-color);
+  --c-panel: var(--surface-color);
+  --c-line: var(--primary-border-color);
+  --c-accent: var(--secondary-text-color); /* notion sélectionnée */
+  --c-soft: #f5f3fd; /* fonds discrets : définition, ligne survolée */
+  --c-edge: #8a86a3;
+  --c-stronger: #b4236c; /* notions qui impliquent la sélection */
+  --c-weaker: #11706d; /* notions impliquées par la sélection */
+  --yes-bg: #e0f1e6;
+  --yes-ink: #24704a;
+  --yes-line: #7fbf98;
+  --no-bg: #f8e1e1;
+  --no-ink: #a53439;
+  --no-line: #e09a9d;
+  --open-bg: #fbecd0;
+  --open-ink: #7e5205;
+  --open-line: #e2b45c;
+}
+
+:root[data-theme="dark"] .carte {
+  --c-soft: rgba(255, 255, 255, 0.05);
+  --c-edge: #7d7a99;
+  --c-stronger: #f08fbf;
+  --c-weaker: #5fd0cc;
+  --yes-bg: #183a2a;
+  --yes-ink: #8fdbb0;
+  --yes-line: #3d8a62;
+  --no-bg: #43202a;
+  --no-ink: #f2a4a8;
+  --no-line: #a9545c;
+  --open-bg: #43361a;
+  --open-ink: #f0c877;
+  --open-line: #a8843a;
+}
+
+/* --- Mise en page --- */
+
+/* L'attribut hidden doit l'emporter sur les display: … ci-dessous (option masquée en vue α, par exemple) */
+.carte [hidden] {
+  display: none !important;
+}
+
+.carte {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4.5rem 1rem 3rem; /* en haut : la place du menu fixe */
+  color: var(--c-ink);
+}
+
+.carte-entete p {
+  max-width: 75ch;
+  margin: 0.5rem auto 0;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+
+.carte .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.carte .segmented {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.carte .legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.carte .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.carte .chip.yes {
+  background: var(--yes-bg);
+  color: var(--yes-ink);
+  border-color: var(--yes-line);
+}
+
+.carte .chip.no {
+  background: var(--no-bg);
+  color: var(--no-ink);
+  border-color: var(--no-line);
+}
+
+.carte .chip.open {
+  background: var(--open-bg);
+  color: var(--open-ink);
+  border-color: var(--open-line);
+}
+
+.carte .toggle {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  cursor: pointer;
+}
+
+.carte .toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--c-accent);
+}
+
+.carte .hl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--c-muted);
+}
+
+.carte .hl-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  margin-right: 6px;
+  border-radius: 2px;
+  vertical-align: 3px;
+}
+
+.carte .hl-legend .s::before {
+  background: var(--c-stronger);
+}
+
+.carte .hl-legend .w::before {
+  background: var(--c-weaker);
+}
+
+.carte .alpha-hint {
+  flex-basis: 100%;
+  max-width: 90ch;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+/* Diagramme et panneau de détail, côte à côte (l'un sous l'autre sur petit écran) */
+.carte-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1020px) {
+  .carte-grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Même famille que les cartes projets : bord fin, coins arrondis, ombre légère */
+.carte .diagram,
+.carte .detail,
+.carte .alpha {
+  min-width: 0;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carte .diagram {
+  overflow-x: auto;
+  padding: 8px;
+}
+
+.carte .diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+/* --- Diagramme (SVG) --- */
+
+.carte .col-label {
+  font: 700 14px InterVariable, sans-serif;
+  fill: var(--c-muted);
+}
+
+.carte .edge {
+  fill: none;
+  stroke: var(--c-edge);
+  stroke-width: 1.6;
+  transition: opacity 0.15s;
+}
+
+.carte .edge.cond {
+  stroke-dasharray: 5 4;
+}
+
+.carte .edge-label {
+  font: italic 14px InterVariable, sans-serif;
+  fill: var(--c-muted);
+}
+
+.carte .node {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.carte .node rect.box {
+  stroke-width: 1.5;
+}
+
+.carte .node.yes rect.box {
+  fill: var(--yes-bg);
+  stroke: var(--yes-line);
+}
+
+.carte .node.no rect.box {
+  fill: var(--no-bg);
+  stroke: var(--no-line);
+}
+
+.carte .node.open rect.box {
+  fill: var(--open-bg);
+  stroke: var(--open-line);
+}
+
+.carte .node text {
+  font: 650 17px InterVariable, sans-serif;
+  fill: var(--c-ink);
+  pointer-events: none;
+}
+
+.carte .node .glyph {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.carte .node.yes .glyph {
+  fill: var(--yes-ink);
+}
+
+.carte .node.no .glyph {
+  fill: var(--no-ink);
+}
+
+.carte .node.open .glyph {
+  fill: var(--open-ink);
+}
+
+.carte .node:hover rect.box {
+  stroke-width: 2.5;
+}
+
+.carte .node.sel rect.box {
+  stroke: var(--c-accent);
+  stroke-width: 3;
+}
+
+.carte .node.up rect.box {
+  stroke: var(--c-stronger);
+  stroke-width: 2.6;
+}
+
+.carte .node.down rect.box {
+  stroke: var(--c-weaker);
+  stroke-width: 2.6;
+}
+
+/* Au clavier : le contour violet du site autour de la notion */
+.carte .node:focus {
+  outline: none;
+}
+
+.carte .node:focus-visible rect.box {
+  stroke: var(--c-accent);
+  stroke-width: 3;
+  stroke-dasharray: 4 2;
+}
+
+.carte .has-sel .node:not(.sel):not(.up):not(.down) {
+  opacity: 0.32;
+}
+
+.carte .has-sel .edge:not(.on) {
+  opacity: 0.18;
+}
+
+.carte .has-sel .edge-label {
+  opacity: 0.25;
+}
+
+.carte .edge.on.up {
+  stroke: var(--c-stronger);
+  stroke-width: 2.4;
+}
+
+.carte .edge.on.down {
+  stroke: var(--c-weaker);
+  stroke-width: 2.4;
+}
+
+.carte .hidden-cond .cond,
+.carte .hidden-cond .cond-label {
+  display: none;
+}
+
+.carte .gauge .gbg {
+  fill: var(--c-line);
+}
+
+.carte .gauge .gk {
+  fill: var(--yes-ink);
+}
+
+.carte .gauge .gu {
+  fill: var(--open-line);
+}
+
+.carte .gauge .gi {
+  fill: var(--no-ink);
+}
+
+.carte .hide-gauges .gauge {
+  display: none;
+}
+
+/* Vue « granularité α » : tiges de α = 1 (la boîte) à α = 0 */
+.carte .rail-bg {
+  stroke: var(--c-line);
+  stroke-width: 9;
+}
+
+.carte .rail-k {
+  stroke: var(--yes-ink);
+  stroke-width: 9;
+}
+
+.carte .rail-u {
+  stroke: var(--open-line);
+  stroke-width: 9;
+}
+
+.carte .rail-i {
+  stroke: var(--no-ink);
+  stroke-width: 9;
+}
+
+.carte .rail-tip {
+  fill: var(--c-edge);
+}
+
+.carte .rail-tick {
+  stroke: var(--c-ink);
+  stroke-width: 1.4;
+}
+
+.carte .rail-text {
+  font: italic 14px InterVariable, sans-serif;
+  fill: var(--c-muted);
+}
+
+.carte .rail-known {
+  font-style: normal;
+  font-weight: 600;
+  fill: var(--yes-ink);
+}
+
+.carte .edge.alpha {
+  stroke: var(--c-ink);
+  stroke-dasharray: 5 3;
+  stroke-width: 1.5;
+}
+
+.carte .rail-dot {
+  fill: var(--c-panel);
+  stroke: var(--c-ink);
+  stroke-width: 2;
+}
+
+.carte .alpha-label {
+  font-style: italic;
+  font-weight: 600;
+  fill: var(--c-ink);
+}
+
+.carte .has-sel .edge.alpha:not(.on),
+.carte .has-sel .rail-dot:not(.on),
+.carte .has-sel .alpha-label:not(.on) {
+  opacity: 0.5;
+}
+
+.carte .edge.alpha.on {
+  stroke: var(--c-accent);
+  stroke-width: 2.4;
+}
+
+.carte .rail-dot.on {
+  stroke: var(--c-accent);
+}
+
+.carte .alpha-label.on {
+  fill: var(--c-accent);
+}
+
+.carte .m-a {
+  fill: var(--c-ink);
+}
+
+.carte .m-def {
+  fill: var(--c-edge);
+}
+
+.carte .m-up {
+  fill: var(--c-stronger);
+}
+
+.carte .m-down {
+  fill: var(--c-weaker);
+}
+
+/* --- Panneau de détail --- */
+
+.carte .detail {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.carte .detail h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--c-accent);
+}
+
+.carte .detail .full {
+  margin-top: 0.15rem;
+  color: var(--c-muted);
+}
+
+.carte .def {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  background: var(--accent-soft-background);
+  line-height: 1.7;
+}
+
+.carte .def .katex {
+  font-size: 1.1em;
+}
+
+.carte .detail h3 {
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--c-muted);
+}
+
+/* Les petits titres sont en capitales, mais pas les symboles : α resterait sinon un « A » */
+.carte .detail h3 .maths {
+  text-transform: none;
+}
+
+.carte .detail section {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.carte .detail p,
+.carte .detail .full {
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.carte .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Comme les étiquettes de concepts des cartes projets */
+.carte .links button {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--c-line);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--c-ink);
+  font: 600 0.9rem InterVariable, sans-serif;
+  cursor: pointer;
+}
+
+.carte .links button.up {
+  border-color: var(--c-stronger);
+  color: var(--c-stronger);
+}
+
+.carte .links button.down {
+  border-color: var(--c-weaker);
+  color: var(--c-weaker);
+}
+
+.carte .links .none,
+.carte .note {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+/* --- Échelles α --- */
+
+.carte .alpha {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.carte .alpha-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.carte .alpha h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-accent);
+}
+
+.carte .alpha-head p {
+  max-width: 72ch;
+  margin-top: 0.25rem;
+  line-height: 1.55;
+  color: var(--c-muted);
+}
+
+.carte .nslider {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 220px;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+.carte .nslider output {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--c-ink);
+}
+
+.carte .nslider input {
+  width: 100%;
+  accent-color: var(--c-accent);
+}
+
+.carte .alpha-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--c-muted);
+}
+
+.carte .alpha-legend i {
+  display: inline-block;
+  width: 22px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+
+.carte .sw-known,
+.carte .seg.known {
+  background: var(--yes-line);
+}
+
+.carte .sw-unknown,
+.carte .seg.unknown {
+  background: var(--open-line);
+}
+
+.carte .sw-imp,
+.carte .seg.imp {
+  background: var(--no-line);
+}
+
+.carte .alpha-legend .sw-mark {
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--c-ink);
+  background: none;
+}
+
+.carte .scales {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.carte .srow {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 0.5rem 1.4rem;
+  align-items: end;
+  padding: 0.6rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.carte .srow:hover {
+  background: var(--c-soft);
+}
+
+.carte .srow.sel {
+  background: var(--c-soft);
+  box-shadow: inset 3px 0 0 var(--c-accent);
+}
+
+@media (max-width: 640px) {
+  .carte .srow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.carte .srow .name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.carte .srow .sdef {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+.carte .srow .front {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--c-muted);
+}
+
+.carte .scale {
+  position: relative;
+  height: 98px;
+  min-width: 0;
+  margin: 0 14px;
+}
+
+.carte .scale .bar {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--c-line);
+}
+
+.carte .scale .seg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.carte .scale .tick {
+  position: absolute;
+  top: 80px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-muted);
+}
+
+.carte .scale .tick::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  height: 5px;
+  border-left: 1px solid var(--c-muted);
+}
+
+.carte .scale .mlabel {
+  position: absolute;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: var(--c-panel);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 17px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.carte .srow:hover .mlabel,
+.carte .srow.sel .mlabel {
+  background: var(--c-soft);
+}
+
+.carte .scale .mpin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.carte .scale .mpin .stem {
+  flex: 1;
+  border-left: 1.5px solid var(--c-ink);
+}
+
+.carte .scale .mpin i {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--c-ink);
+}
+
+.carte .scale .bound {
+  position: absolute;
+  top: 58px;
+  height: 12px;
+  border-left: 2px solid var(--c-ink);
+}
+
+.carte .detail .mini .scale {
+  margin: 0 10px;
+}
+
+.carte-sources {
+  max-width: 90ch;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--c-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carte .edge,
+  .carte .node {
+    transition: none;
+  }
+}

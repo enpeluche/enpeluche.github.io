@@ -1,9 +1,9 @@
-"""Polices du site : version allégée d'Inter (alphabet latin), avec la police complète en secours.
+"""Polices du site : version allégée d'Inter (alphabets latin et grec), avec la police complète en secours.
 
-La police Inter complète pèse ~350 Ko par style, car elle contient aussi le grec, le cyrillique,
-le vietnamien, de nombreux symboles… Ce script en extrait une version « latin » d'environ 120 Ko,
-utilisée sur toutes les pages. La police complète reste disponible : le navigateur ne la télécharge
-que si une page contient un caractère absent de la version allégée (une lettre grecque, par exemple).
+La police Inter complète pèse ~350 Ko par style, car elle contient aussi le cyrillique, le vietnamien,
+de nombreux symboles… Ce script en extrait une version « latin + grec » d'environ 160 Ko, utilisée
+sur toutes les pages. La police complète reste disponible : le navigateur ne la télécharge que si une
+page contient un caractère absent de la version allégée (une lettre cyrillique, par exemple).
 
 Le script écrit aussi les déclarations @font-face correspondantes dans
 assets/css/04_components/inter.css, entre les deux commentaires « Généré par _outils/polices.py ».
@@ -23,8 +23,9 @@ FONTS = ROOT / "assets" / "fonts"
 CSS = ROOT / "assets" / "css" / "04_components" / "inter.css"
 
 # Caractères de la version allégée, choisis pour leur rapport utilité / poids (mesuré) : tout ce qu'il faut
-# pour le français, l'anglais et les noms européens. Le reste (grec, cyrillique, vietnamien, accents
-# combinants rares…) passe par la police complète, téléchargée seulement par une page qui en contient.
+# pour le français, l'anglais, les noms européens et les notations mathématiques (grec compris). Le reste
+# (cyrillique, vietnamien, accents combinants rares…) passe par la police complète, téléchargée seulement
+# par une page qui en contient.
 PLAGES_ALLEGEES = [
     (0x0020, 0x007E),  # latin de base
     (0x00A0, 0x00FF),  # latin-1 : é, à, ç, «, », espace insécable…
@@ -36,13 +37,16 @@ PLAGES_ALLEGEES = [
     (0x0300, 0x0308),  # accents combinants courants : notations comme P̂, x̄, ẋ    ~ +17 Ko
     (0x030A, 0x030C),  # (le site écrit « P̂ et Q̂ » avec U+0302)
     (0x0327, 0x0328),
+    (0x0370, 0x03FF),  # grec : α, μ, Θ, Σ… (pages de recherche, notations)       ~ +20 Ko
     (0x1D00, 0x1DBF),  # lettres en exposant (1ᵉʳ…)                               ~ +1 Ko
     (0x2000, 0x206F),  # ponctuation : espaces fines, tirets, guillemets, …
     (0x2070, 0x209F),  # chiffres en exposant et en indice
     (0x20AC, 0x20AC),  # €
     (0x2100, 0x214F),  # symboles lettres : ™, №, ℓ…                              ~ +3 Ko
+    (0x2150, 0x218F),  # fractions : ⅓, ⅔, ⅛…
     (0x2190, 0x21FF),  # flèches : ←, →, ↗…                                       ~ +2 Ko
     (0x2200, 0x22FF),  # opérateurs mathématiques : −, ≤, ≥, ≈, ∞…                ~ +3 Ko
+    (0x2713, 0x2718),  # coches et croix : ✓, ✗
     (0xFEFF, 0xFEFF),
     (0xFFFD, 0xFFFD),
 ]
