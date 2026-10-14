@@ -231,7 +231,12 @@ const linkList = (set, cls) => set.size
 
 function select(k, keepScales) {
   selected = k;
-  if (!keepScales) document.querySelectorAll(".srow").forEach((r) => r.classList.toggle("sel", r.dataset.k === k));
+  if (!keepScales && colonneEtroite()) {
+    // la ligne dépliée change : on redessine les échelles, en gardant le focus clavier sur la ligne choisie
+    const ligneActive = document.activeElement && document.activeElement.closest && document.activeElement.closest(".srow");
+    renderScales();
+    if (ligneActive) document.querySelector(`.srow[data-k="${k}"]`)?.focus({ preventScroll: true });
+  } else if (!keepScales) document.querySelectorAll(".srow").forEach((r) => r.classList.toggle("sel", r.dataset.k === k));
   const n = NODES[k], up = reach(k, inn), down = reach(k, out);
   svg.classList.add("has-sel");
   for (const j in NODES) NODES[j].el.classList.remove("sel", "up", "down");
@@ -250,15 +255,33 @@ function select(k, keepScales) {
   const [cls, txt] = STATUS[n.s];
   const sec = (title, body) => body && body !== "—" ? `<section><h3>${title}</h3><p>${body}</p></section>` : "";
   document.getElementById("detail").innerHTML = `
-    <div><h2>${k}</h2><p class="full">${n.full} · ${n.fam}</p></div>
-    <p class="def">${math(n.def)}</p>
-    <div><span class="chip ${cls}">${txt}</span></div>
+    <div class="detail-entete">
+      <div><h2>${k}</h2><p class="full">${n.full} · ${n.fam}</p></div>
+      <p class="def">${math(n.def)}</p>
+      <div><span class="chip ${cls}">${txt}</span></div>
+    </div>
     ${sec("Existence", n.exist)}${sec("Complexité", n.cx)}${sec("Approximations", n.approx)}
     ${SCALES[k] ? `<section class="mini"><h3>Échelle <span class="maths">α</span> (<span class="maths">n</span> = ${nInput.value})</h3><p class="note">${frontText(k, +nInput.value)}</p>${scaleHTML(k, +nInput.value, miniWidth())}</section>` : ""}
     <section><h3>Implique</h3><div class="links">${linkList(down, "down")}</div></section>
     <section><h3>Est impliquée par</h3><div class="links">${linkList(up, "up")}</div></section>
     ${n.note ? `<p class="note">${n.note}</p>` : ""}`;
   document.querySelectorAll("#detail [data-go]").forEach((b) => b.addEventListener("click", () => { select(b.dataset.go); NODES[b.dataset.go].el.focus(); }));
+  // L'échelle du détail est dans une colonne : on la redessine à la largeur réelle de cette colonne
+  const mini = document.querySelector("#detail .mini");
+  if (mini) mini.querySelector(".scale").outerHTML = scaleHTML(k, +nInput.value, Math.max(160, mini.clientWidth - 20));
+  if (!keepScales) montrerLigne(k);
+}
+
+// Notion choisie dans le diagramme : on fait défiler la colonne des échelles jusqu'à sa ligne
+// (sans faire bouger la page elle-même)
+function montrerLigne(k) {
+  const panneau = document.querySelector(".carte .alpha"), ligne = document.querySelector(`.srow[data-k="${k}"]`);
+  if (!ligne || panneau.scrollHeight <= panneau.clientHeight) return;
+  const haut = panneau.getBoundingClientRect().top + document.querySelector(".carte .alpha-head").offsetHeight;
+  const r = ligne.getBoundingClientRect();
+  if (r.top >= haut && r.bottom <= panneau.getBoundingClientRect().bottom) return;
+  const doux = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  panneau.scrollBy({ top: r.top - haut - 8, behavior: doux ? "smooth" : "auto" });
 }
 
 // ------------------------------------------------------------------ α scales
@@ -298,15 +321,16 @@ const SCALES = {
           why: (n) => n <= 3 ? "EFX existe pour n ≤ 3, et EFX ⇒ EFR." : "0,73 en temps polynomial (Farhadi et al.) ; problème ouvert 7." },
 };
 const pct = (v) => `${(v * 100).toFixed(2)}%`;
-function scaleHTML(key, n, W = 700) {
+function scaleHTML(key, n, W = 700, compacte = false) {
   const S = SCALES[key], [kv, kl] = S.known(n), imp = S.imp(n);
   const iv = imp ? imp[0] : 1;
-  let h = `<div class="scale"><div class="bar">`;
+  let h = `<div class="scale${compacte ? " compacte" : ""}"><div class="bar">`;
   if (kv > 0) h += `<div class="seg known" style="left:0;width:${pct(kv)}"></div>`;
   if (iv > kv) h += `<div class="seg unknown" style="left:${pct(kv)};width:${pct(iv - kv)}"></div>`;
   if (imp) h += `<div class="seg imp" style="left:${pct(Math.max(iv, 0.004))};width:${pct(1 - Math.max(iv, 0.004))}"></div>`;
   h += `</div>`;
   for (const t of [[0, "0"], [0.25, "¼"], [0.5, "½"], [0.75, "¾"], [1, "1"]]) h += `<span class="tick" style="left:${pct(t[0])}">${t[1]}</span>`;
+  if (compacte) return h + `</div>`;   // ligne repliée : pas de repères
   // markers: each label is placed (in px, for a scale W px wide) on the first of three rows where it
   // does not collide; its pin (stem + arrow head) touches the bar exactly at α
   const marks = S.marks(n).slice().sort((a, b) => a.v - b.v);
@@ -336,14 +360,18 @@ function scaleWidth() {   // pixel width of a scale in the α section (two colum
   return Math.max(160, w < 640 ? w - 16 - 28 : w - 16 - 230 - 22 - 28);
 }
 const miniWidth = () => Math.max(160, document.getElementById("detail").clientWidth - 44 - 20);
+// Colonne étroite (à droite du diagramme, ou téléphone) : une ligne courte par notion, et seule la
+// notion choisie est dépliée (formule et repères). En pleine largeur, toutes sont dépliées.
+const colonneEtroite = () => document.getElementById("scales").clientWidth < 640;
 function renderScales() {
-  const n = +nInput.value, W = scaleWidth();
+  const n = +nInput.value, W = scaleWidth(), etroite = colonneEtroite();
   nOut.textContent = `n = ${n}`;
   document.getElementById("scales").innerHTML = Object.keys(SCALES).map((k) => {
     const why = typeof SCALES[k].why === "function" ? SCALES[k].why(n) : SCALES[k].why;
-    return `<div class="srow${k === selected ? " sel" : ""}" data-k="${k}" tabindex="0" role="button" aria-label="α-${k} : ${frontText(k, n)}">
-      <div><div class="name">α-${k}</div><div class="sdef">${math(SCALES[k].def)}</div><div class="front">${frontText(k, n)}</div></div>
-      <div title="${why}">${scaleHTML(k, n, W)}</div></div>`;
+    const ouverte = !etroite || k === selected;
+    return `<div class="srow${k === selected ? " sel" : ""}${ouverte ? "" : " repliee"}" data-k="${k}" tabindex="0" role="button" aria-label="α-${k} : ${frontText(k, n)}">
+      <div><div class="name">α-${k}</div>${ouverte ? `<div class="sdef">${math(SCALES[k].def)}</div>` : ""}<div class="front">${frontText(k, n)}</div></div>
+      <div title="${why}">${scaleHTML(k, n, W, !ouverte)}</div></div>`;
   }).join("");
   document.querySelectorAll(".srow").forEach((r) => {
     r.addEventListener("click", () => select(r.dataset.k));
@@ -387,4 +415,4 @@ const cond = document.getElementById("show-cond");
 cond.addEventListener("change", () => svg.classList.toggle("hidden-cond", !cond.checked));
 renderScales();
 draw();
-select("EFX");
+select("EFX", true); // au chargement, la colonne des échelles reste en haut

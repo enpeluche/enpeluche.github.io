@@ -160,17 +160,51 @@
   color: var(--c-muted);
 }
 
-/* Diagramme et panneau de détail, côte à côte (l'un sous l'autre sur petit écran) */
+/* Diagramme à gauche, échelles α à droite, détail de la notion dessous (tout s'empile sur petit écran) */
 .carte-grille {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 380px;
+  grid-template-areas:
+    "diagramme echelles"
+    "detail detail";
   gap: 1.25rem;
-  align-items: start;
+}
+
+.carte .diagram {
+  grid-area: diagramme;
+}
+
+.carte .alpha {
+  grid-area: echelles;
+}
+
+.carte .detail {
+  grid-area: detail;
+}
+
+/* Grand écran : la colonne des échelles prend la hauteur du diagramme (contain: size l'empêche de
+   l'allonger) et défile à l'intérieur ; son titre et le curseur restent visibles en haut. */
+@media (min-width: 1021px) {
+  .carte .alpha {
+    contain: size;
+    overflow-y: auto;
+    scroll-padding-top: 7rem; /* une ligne atteinte au clavier ne se cache pas sous le titre */
+  }
+
+  .carte .alpha-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 1020px) {
   .carte-grille {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "diagramme"
+      "echelles"
+      "detail";
   }
 }
 
@@ -442,8 +476,21 @@
 
 .carte .detail {
   display: grid;
-  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem 2rem;
+  align-items: start;
   padding: 1.25rem 1.4rem;
+}
+
+.carte .detail-entete {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.carte .detail > .note {
+  grid-column: 1 / -1;
 }
 
 .carte .detail h2 {
@@ -459,6 +506,7 @@
 }
 
 .carte .def {
+  max-width: 80ch;
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
   background: var(--accent-soft-background);
@@ -529,10 +577,12 @@
 
 /* --- Échelles α --- */
 
+/* Empilement simple (pas une grille : le texte replié de « Comment lire… » y prendrait de la place) */
 .carte .alpha {
-  display: grid;
-  gap: 0.9rem;
-  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 1.4rem 1.25rem;
 }
 
 .carte .alpha-head {
@@ -541,19 +591,42 @@
   gap: 0.75rem 2rem;
   justify-content: space-between;
   align-items: end;
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+  background: var(--c-panel);
 }
 
 .carte .alpha h2 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--c-accent);
 }
 
-.carte .alpha-head p {
+/* Les <details> du site (notes des cours) ont une marge, une graisse et une bordure propres : on les annule ici */
+.carte .alpha-intro {
   max-width: 72ch;
-  margin-top: 0.25rem;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
   line-height: 1.55;
   color: var(--c-muted);
+}
+
+.carte .alpha-intro[open] > p {
+  padding: 0;
+  margin-left: 0;
+  border: 0;
+}
+
+.carte .alpha-intro summary {
+  cursor: pointer;
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.carte .alpha-intro p,
+.carte .alpha-intro .alpha-legend {
+  margin-top: 0.5rem;
 }
 
 .carte .nslider {
@@ -578,8 +651,9 @@
 .carte .alpha-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1.1rem;
-  font-size: 0.85rem;
+  gap: 0.3rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
   color: var(--c-muted);
 }
 
@@ -620,14 +694,16 @@
 .carte .scales {
   display: grid;
   gap: 0.25rem;
+  container-type: inline-size; /* les rangées s'adaptent à la largeur de leur colonne */
 }
 
+/* Marges en px : ce sont celles que scaleWidth() (carte.js) utilise pour placer les étiquettes */
 .carte .srow {
   display: grid;
   grid-template-columns: 230px minmax(0, 1fr);
-  gap: 0.5rem 1.4rem;
+  gap: 8px 22px;
   align-items: end;
-  padding: 0.6rem 0.5rem;
+  padding: 10px 8px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -641,7 +717,8 @@
   box-shadow: inset 3px 0 0 var(--c-accent);
 }
 
-@media (max-width: 640px) {
+/* Colonne étroite (à droite du diagramme, ou téléphone) : le nom au-dessus de la barre */
+@container (max-width: 639px) {
   .carte .srow {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -668,6 +745,27 @@
   height: 98px;
   min-width: 0;
   margin: 0 14px;
+}
+
+/* Ligne repliée : la barre seule, avec ses graduations */
+.carte .srow.repliee {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  gap: 4px;
+}
+
+.carte .scale.compacte {
+  height: 30px;
+}
+
+.carte .scale.compacte .bar {
+  top: 2px;
+  height: 10px;
+}
+
+.carte .scale.compacte .tick {
+  top: 16px;
+  font-size: 11px;
 }
 
 .carte .scale .bar {
