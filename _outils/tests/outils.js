@@ -116,6 +116,7 @@ function creerOutils(navigateur, base, bilan) {
     SITE,
     RACINE,
     INTROUVABLE,
+    PAGES_RECHERCHE,
     articles,
     lire,
     attendre,
@@ -155,4 +156,7 @@ function creerOutils(navigateur, base, bilan) {
 // Adresse qui n'existe pas, visitée exprès pour tester la page 404
 const INTROUVABLE = "/introuvable-test/";
 
-module.exports = { demarrerServeur, creerOutils, SITE, RACINE, INTROUVABLE };
+// Pages de recherche interactives : testées comme les autres, mais pas (encore) dans le sitemap
+const PAGES_RECHERCHE = ["/recherche/equite/"];
+
+module.exports = { demarrerServeur, creerOutils, SITE, RACINE, INTROUVABLE, PAGES_RECHERCHE };

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Page en préparation : ni liée depuis le site, ni indexée par les moteurs de recherche -->
+    <meta name="robots" content="noindex">
+
+    <title>Carte des notions d'équité · Lucas Noirot (Petit)</title>
+    <meta name="description"
+        content="Carte interactive des notions d'équité pour le partage de biens indivisibles : implications, existence, complexité et versions approchées.">
+    <meta name="author" content="Lucas Noirot (Petit)">
+
+    <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/logo/logo-192x192.png">
+    <link rel="apple-touch-icon" href="/assets/img/logo/apple-touch-icon.png">
+
+    <!-- Formules LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/recherche/equite/carte.css">
+
+    <!-- Thème jour/nuit puis header commun : à charger avant le <body> (voir les fichiers) -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/components/SiteHeader/SiteHeader.js"></script>
+</head>
+
+<body>
+
+    <div id="tsparticles"></div>
+
+    <site-header></site-header>
+
+    <main class="carte">
+        <header class="carte-entete">
+            <h1 class="section-title">Carte des notions d'équité</h1>
+            <p>
+                Biens indivisibles, valuations additives. Une flèche A → B signifie « toute allocation A est
+                aussi B ». Les notions les plus fortes sont en haut. Cliquez sur une notion pour voir ce
+                qu'elle implique et ce qu'on sait d'elle.
+            </p>
+        </header>
+
+        <div class="controls">
+            <div class="segmented" role="group" aria-label="Vue du graphe">
+                <button id="view-impl" class="filter-btn active" aria-pressed="true">Implications</button>
+                <button id="view-alpha" class="filter-btn" aria-pressed="false">Granularité α</button>
+            </div>
+            <div class="legend" aria-label="Statut d'existence">
+                <span class="chip yes">✓ existe toujours</span>
+                <span class="chip no">✗ pas toujours</span>
+                <span class="chip open">? ouvert</span>
+            </div>
+            <label class="toggle"><input type="checkbox" id="show-cond" checked> liens conditionnels et approchés
+                (pointillés)</label>
+            <p class="alpha-hint" id="alpha-hint" hidden>
+                Chaque tige descend de la notion exacte (α = 1, la boîte) jusqu'à α = 0. Vert : garanti ;
+                ambre : inconnu ; rouge : impossible pour certaines instances. Une flèche qui touche la tige à la
+                hauteur α signifie « A ⇒ α-B ».
+            </p>
+            <label class="toggle" id="gauge-toggle"><input type="checkbox" id="show-gauges" checked> jauges α dans
+                les nœuds</label>
+            <div class="hl-legend" aria-label="Surlignage">
+                <span class="s">plus forte que la sélection</span><span class="w">plus faible</span>
+            </div>
+        </div>
+
+        <div class="carte-grille">
+            <div class="diagram">
+                <svg id="map" viewBox="0 0 1040 660" role="group"
+                    aria-label="Diagramme des implications entre notions d'équité"></svg>
+            </div>
+            <aside class="detail" id="detail" aria-live="polite"></aside>
+        </div>
+
+        <section class="alpha" aria-labelledby="alpha-title">
+            <div class="alpha-head">
+                <div>
+                    <h2 id="alpha-title">Versions approchées α</h2>
+                    <p>
+                        Une allocation est α-B si elle satisfait B avec un facteur α ≤ 1. Comme α-B ⇒ α′-B dès que
+                        α′ ≤ α, chaque notion est une règle de 0 à 1 : une flèche « A ⇒ α » garantit tout ce qui est
+                        à sa gauche.
+                    </p>
+                </div>
+                <label class="nslider" for="n-agents">Nombre d'agents <output id="n-out">n = 3</output>
+                    <input id="n-agents" type="range" min="2" max="10" value="3">
+                </label>
+            </div>
+            <div class="alpha-legend">
+                <span><i class="sw-known"></i>garanti : une telle allocation existe toujours</span>
+                <span><i class="sw-unknown"></i>inconnu</span>
+                <span><i class="sw-imp"></i>impossible : certaines instances n'en ont pas</span>
+                <span><i class="sw-mark"></i>implication « A ⇒ α-B » ou algorithme</span>
+            </div>
+            <div id="scales" class="scales"></div>
+        </section>
+
+        <p class="carte-sources">
+            État des connaissances en octobre 2026, d'après le survey d'Amanatidis et al. (Artificial Intelligence,
+            2023) et les travaux suivants. Les résultats de 2025–2026 marqués « prépublication » n'ont pas encore
+            tous été évalués par les pairs. Pour les corvées, plusieurs statuts changent (EFX y est faux dès
+            4 agents, PropX existe toujours).
+        </p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script data-goatcounter="https://enpeluche.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+    <script defer src="/recherche/equite/carte.js"></script>
+</body>
+
+</html>

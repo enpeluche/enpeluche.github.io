@@ -2,14 +2,15 @@
 // un seul h1, polices allégées, fichiers servis par le site, bandeaux des projets, et informations
 // pour les moteurs de recherche (fiche, sitemap, robots.txt).
 
-module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAfficher, articles, lire }) => {
+module.exports = async ({ base, SITE, INTROUVABLE, PAGES_RECHERCHE, ok, nouvellePage, toutAfficher, articles, lire }) => {
   const pages = ["/", "/blog/", ...articles().map((a) => `/blog/articles/${a.folder}/`)];
+  const toutes = [...pages, ...PAGES_RECHERCHE]; // le sitemap, lui, ne liste que pages
 
   // --- Pas de défilement horizontal, du plus petit téléphone courant (320 px) à 375 px ---
   for (const largeur of [320, 375]) {
     const p = await nouvellePage({ viewport: { width: largeur, height: 700 } });
     const debordent = [];
-    for (const page of pages) {
+    for (const page of toutes) {
       await p.goto(base + page, { waitUntil: "networkidle" });
       await toutAfficher(p);
       const largeurPage = await p.evaluate(() => document.documentElement.scrollWidth);
@@ -22,7 +23,7 @@ module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAffiche
   // --- Liens et images internes ---
   const p = await nouvellePage();
   const casses = new Set();
-  for (const page of pages) {
+  for (const page of toutes) {
     await p.goto(base + page, { waitUntil: "networkidle" });
     const { adresses, ancresManquantes } = await p.evaluate(() => {
       const adresses = [...document.querySelectorAll("a[href], img[src]")]
@@ -43,7 +44,7 @@ module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAffiche
 
   // --- Icônes : onglet (192 px) et écran d'accueil des téléphones, sur toutes les pages ---
   const sansIcone = [];
-  for (const page of [...pages, INTROUVABLE]) {
+  for (const page of [...toutes, INTROUVABLE]) {
     await p.goto(base + page, { waitUntil: "networkidle" });
     const icones = await p.evaluate(() => [
       document.querySelector('link[rel="icon"][sizes="192x192"]')?.getAttribute("href"),
@@ -71,7 +72,7 @@ module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAffiche
 
   // --- Un seul titre principal (h1) par page ---
   const h1 = [];
-  for (const page of pages) {
+  for (const page of toutes) {
     await p.goto(base + page, { waitUntil: "networkidle" });
     const n = await p.evaluate(() => document.querySelectorAll("h1").length);
     if (n !== 1) h1.push(`${page} (${n})`);
@@ -84,7 +85,7 @@ module.exports = async ({ base, SITE, INTROUVABLE, ok, nouvellePage, toutAffiche
   pagePolices.on("request", (r) => {
     if (r.url().includes("/assets/fonts/")) polices.add(r.url().split("/").pop());
   });
-  for (const page of [...pages, "/?lang=en"]) {
+  for (const page of [...toutes, "/?lang=en"]) {
     await pagePolices.goto(base + page, { waitUntil: "networkidle" });
     await toutAfficher(pagePolices);
     await pagePolices.evaluate(() => document.fonts.ready);

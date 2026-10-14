@@ -96,12 +96,12 @@ Aucune dépendance. Si on l'oublie, le test « sitemap » échoue et rappelle la
 ## `polices.py` : la police Inter, allégée
 
 Le site utilise une seule police, Inter (variable : toutes les graisses dans un fichier).
-La version complète contient aussi le grec, le cyrillique, le vietnamien… et pèse ~350 Ko par style.
-Le site charge donc une **version allégée** (alphabet latin, ~140 Ko) : `InterVariable-latin.woff2`
+La version complète contient aussi le cyrillique, le vietnamien… et pèse ~350 Ko par style.
+Le site charge donc une **version allégée** (alphabets latin et grec, ~160 Ko) : `InterVariable-latin.woff2`
 et `InterVariable-Italic-latin.woff2`.
 
 La police complète reste dans `assets/fonts/` **en secours** : le navigateur ne la télécharge que
-si une page contient un caractère absent de la version allégée (une lettre grecque, par exemple).
+si une page contient un caractère absent de la version allégée (une lettre cyrillique, par exemple).
 Rien ne s'affiche donc jamais mal, au pire la page est un peu plus lourde.
 
 Pour changer la liste des caractères de la version allégée (`PLAGES_ALLEGEES`, en haut du script) :
